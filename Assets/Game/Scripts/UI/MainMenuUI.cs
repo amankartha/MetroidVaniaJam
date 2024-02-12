@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Eflatun.SceneReference;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public SceneReference sMainGame;
 
-    // Update is called once per frame
-    void Update()
+    #region METHODS
+
+    public void LoadScene()
     {
-        
+        UTIL.LoadScene(sMainGame);
     }
+    
+
+    #endregion
 }
