@@ -13,6 +13,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject _loadingBarGO;
     [SerializeField] private Image _loadingBarImage;
     [SerializeField] private GameObject[] _objectsToHide;
+    [SerializeField] private GameObject _quitPanel;
+    [SerializeField] private Animator _quitPanelAnimator;
 
     [Header("Scenes to load")] 
     [SerializeField] private SceneReference _persistentGameplayScene;
@@ -50,6 +52,32 @@ public class MainMenuUI : MonoBehaviour
 
         StartCoroutine(ProgressLoadingBar());
     }
+
+    public void OnQuitButton()
+    {
+        if (_quitPanel.activeSelf == false)
+        {
+            _quitPanel.SetActive(true);
+            _quitPanelAnimator.SetBool("Quit", true);
+        }       
+    }
+
+    public void OnConfirmQuitButton()
+    {
+        Application.Quit();
+    }
+
+    public void OnCancelQuitButton()
+    {
+        _quitPanelAnimator.SetBool("Quit", false);
+        Invoke("HideQuitPanel", _quitPanelAnimator.GetCurrentAnimatorClipInfo(0).Length + 0.1f);
+    }
+
+    void HideQuitPanel()
+    {
+        _quitPanel.SetActive(false);
+    }
+
 
     private IEnumerator ProgressLoadingBar()
     {
