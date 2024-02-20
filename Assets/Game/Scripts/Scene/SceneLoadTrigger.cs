@@ -29,7 +29,8 @@ public class SceneLoadTrigger : MonoBehaviour
     {
         if (col.gameObject == GameManager.Instance.goMainPlayer)
         {
-            //load scene and unload
+            LoadScenes();
+            UnloadScene();
         }
     }
 
