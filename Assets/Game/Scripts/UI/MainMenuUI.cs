@@ -5,6 +5,7 @@ using Eflatun.SceneReference;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject[] _objectsToHide;
     [SerializeField] private GameObject _quitPanel;
     [SerializeField] private Animator _quitPanelAnimator;
+    [SerializeField] private UIPaperFold uiPaperFold;
+    [SerializeField] private TMP_Text _titleText;
 
     [Header("Scenes to load")] 
     [SerializeField] private SceneReference _persistentGameplayScene;
@@ -51,6 +54,23 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.LoadSceneAsync(_levelScene.BuildIndex,LoadSceneMode.Additive);
 
         StartCoroutine(ProgressLoadingBar());
+    }
+
+    public void OnCreditButton()
+    {
+        _titleText.text = "CREDIT";
+        uiPaperFold.StartFolding();
+    }
+
+    public void OnOptionButton()
+    {
+        _titleText.text = "OPTION";
+        uiPaperFold.StartFolding();
+    }
+
+    public void OnFlipBackButton()
+    {
+        uiPaperFold.FoldingBack();
     }
 
     public void OnQuitButton()
