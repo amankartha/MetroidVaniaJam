@@ -18,12 +18,14 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Animator _quitPanelAnimator;
     [SerializeField] private UIPaperFold uiPaperFold;
     [SerializeField] private TMP_Text _titleText;
+    [SerializeField] private GameObject _creditPanel;
 
     [Header("Scenes to load")] 
     [SerializeField] private SceneReference _persistentGameplayScene;
     [SerializeField] private SceneReference _levelScene;
 
     private List<AsyncOperation> _scenesToLoad = new List<AsyncOperation>();
+
     #region UNITYMETHODS
 
     private void Awake()
@@ -60,6 +62,12 @@ public class MainMenuUI : MonoBehaviour
     {
         _titleText.text = "CREDIT";
         uiPaperFold.StartFolding();
+        Invoke("ToggleCreditPage", 0.4f);
+    }
+
+    void ToggleCreditPage()
+    {
+        _creditPanel.SetActive(!_creditPanel.activeSelf);
     }
 
     public void OnOptionButton()
@@ -71,6 +79,16 @@ public class MainMenuUI : MonoBehaviour
     public void OnFlipBackButton()
     {
         uiPaperFold.FoldingBack();
+
+        switch (_titleText.text)
+        {
+            case "CREDIT":
+                Invoke("ToggleCreditPage", 0.4f);
+                break;
+            
+            case "Option":
+                break;
+        }
     }
 
     public void OnQuitButton()
