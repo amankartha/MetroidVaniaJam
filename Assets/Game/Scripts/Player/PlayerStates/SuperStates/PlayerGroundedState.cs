@@ -6,7 +6,7 @@ public class PlayerGroundedState : PlayerState
 {
 
 
-    protected Vector2 input;
+    protected int _xInput;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
         
@@ -25,7 +25,7 @@ public class PlayerGroundedState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        input = _player.InputHandler.MovementInput;
+       _xInput = _player.InputHandler.NormInputX;
     }
 
     public override void PhysicsUpdate()

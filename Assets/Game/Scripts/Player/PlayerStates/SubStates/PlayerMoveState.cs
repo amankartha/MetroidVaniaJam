@@ -21,8 +21,13 @@ public class PlayerMoveState : PlayerGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if (input.x == 0f)
+        
+        _player.CheckIfShouldFlip(_xInput);
+        
+       
+        _player.SetVelocityX(_playerData.movementVelocity * _xInput);
+        
+        if (_xInput == 0)
         {
             _stateMachine.ChangeState(_player.IdleState);
         }
