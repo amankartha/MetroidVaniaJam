@@ -23,12 +23,14 @@ public class PlayerState
    public virtual void Enter()
    {
       DoChecks();
+      _player.Anim.SetBool(_animBoolName,true);
       _startTime = Time.time;
+      Debug.Log("Entered " + _animBoolName + "State");
    }
 
    public virtual void Exit()
    {
-      
+      _player.Anim.SetBool(_animBoolName,false);
    }
 
    public virtual void LogicUpdate()
