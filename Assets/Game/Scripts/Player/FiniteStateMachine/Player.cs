@@ -1,18 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerStateMachine StateMachine { get; private set; }
+    
+    public PlayerIdleState IdleState { get; private set; }
+    public PlayerMoveState MoveState { get; private set; }
+    public Animator Anim { get; private set; }
+
+    [SerializeField] 
+    private PlayerData _playerData;
+
+    private void Awake()
     {
-        
+        StateMachine = new PlayerStateMachine();
+
+        IdleState = new PlayerIdleState(this,StateMachine,_playerData, "idle");
+        MoveState = new PlayerMoveState(this, StateMachine, _playerData, "move");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        Anim = GetComponent<Animator>();
+        StateMachine.Initialize(IdleState);
+    }
+
+    private void Update()
+    {
+        StateMachine.CurrentState.LogicUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        StateMachine.CurrentState.PhysicsUpdate();
     }
 }
