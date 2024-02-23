@@ -38,7 +38,7 @@ public class PlayerGroundedState : PlayerState
        }
        else if(!_isGrounded)
        {
-           _player.JumpState.DecreaseAmountOfJumpsLeft();
+           _player.InAirState.StartCoyoteTime();
            _stateMachine.ChangeState(_player.InAirState);
        }
     }

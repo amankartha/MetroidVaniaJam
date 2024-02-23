@@ -7,7 +7,9 @@ public class PlayerInAirState : PlayerState
     private bool _isGrounded;
     private int _aerialXInput;
     private bool _jumpInput;
-
+    private bool _coyoteTime;
+    private bool _isJumping;
+    private bool _jumpInputStop;
     #region CACHE
 
     private static readonly int XVelocity = Animator.StringToHash("xVelocity");
@@ -26,10 +28,16 @@ public class PlayerInAirState : PlayerState
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
+        base.LogicUpdate(); 
+        
+        CheckCoyoteTime();
        
         _aerialXInput = _player.InputHandler.NormInputX;
         _jumpInput = _player.InputHandler.JumpInput;
+        _jumpInputStop = _player.InputHandler.JumpInputStop;
+
+         CheckJumpMultipler();
+        
         if (_isGrounded && _player.CurrentVelocity.y < 0.01f)
         {
             _stateMachine.ChangeState(_player.LandState);
@@ -51,10 +59,39 @@ public class PlayerInAirState : PlayerState
     {
         base.PhysicsUpdate();
     }
-
+    
     public override void DoChecks()
     {
         base.DoChecks();
         _isGrounded = _player.CheckIfGrounded();
     }
+
+    private void CheckJumpMultipler()
+    {
+        if (_isJumping)
+        {
+            if (_jumpInputStop)
+            {
+                _player.SetVelocityY(_player.CurrentVelocity.y * _playerData.variableJumpHeightMultiplier );
+                _isJumping = false;
+            }
+            else if(_player.CurrentVelocity.y <=0f)
+            {
+                _isJumping = false;
+            }
+        }
+    }
+    
+    private void CheckCoyoteTime()
+    {
+        if (_coyoteTime && Time.time > _startTime + _playerData.coyoteTime)
+        {
+            _coyoteTime = false;
+            _player.JumpState.DecreaseAmountOfJumpsLeft();
+        }
+            
+    }
+
+    public void SetIsJumping() => _isJumping = true;
+    public void StartCoyoteTime() => _coyoteTime = true;
 }
