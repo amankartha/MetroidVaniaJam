@@ -19,6 +19,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private UIPaperFold uiPaperFold;
     [SerializeField] private TMP_Text _titleText;
     [SerializeField] private GameObject _creditPanel;
+    [SerializeField] private Animator _creditPanelAnimator;
+
 
     [Header("Scenes to load")] 
     [SerializeField] private SceneReference _persistentGameplayScene;
@@ -62,12 +64,18 @@ public class MainMenuUI : MonoBehaviour
     {
         _titleText.text = "CREDIT";
         uiPaperFold.StartFolding();
-        Invoke("ToggleCreditPage", 0.4f);
+        Invoke("OpenCreditPage", 0.4f);
     }
 
-    void ToggleCreditPage()
+    void OpenCreditPage()
     {
-        _creditPanel.SetActive(!_creditPanel.activeSelf);
+        _creditPanel.SetActive(true);
+        _creditPanelAnimator.SetBool("isOn", true);
+    }
+
+    void CloseCreditPanel()
+    {
+        _creditPanel.SetActive(false);
     }
 
     public void OnOptionButton()
@@ -83,7 +91,8 @@ public class MainMenuUI : MonoBehaviour
         switch (_titleText.text)
         {
             case "CREDIT":
-                Invoke("ToggleCreditPage", 0.4f);
+                _creditPanelAnimator.SetBool("isOn", false);
+                Invoke("CloseCreditPanel", 2f);
                 break;
             
             case "Option":
