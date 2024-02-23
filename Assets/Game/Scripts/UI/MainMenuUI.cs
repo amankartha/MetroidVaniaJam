@@ -20,6 +20,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private TMP_Text _titleText;
     [SerializeField] private GameObject _creditPanel;
     [SerializeField] private Animator _creditPanelAnimator;
+    [SerializeField] private Button _filpBackButton;
+    [SerializeField] private GameObject _optionPanel;
 
 
     [Header("Scenes to load")] 
@@ -64,17 +66,19 @@ public class MainMenuUI : MonoBehaviour
     {
         _titleText.text = "CREDIT";
         uiPaperFold.StartFolding();
-        Invoke("OpenCreditPage", 0.4f);
+        Invoke("OpenCreditPanel", 0.4f);
     }
 
-    void OpenCreditPage()
+    void OpenCreditPanel()
     {
         _creditPanel.SetActive(true);
         _creditPanelAnimator.SetBool("isOn", true);
+        //_filpBackButton.interactable = true;
     }
 
     void CloseCreditPanel()
     {
+        uiPaperFold.FoldingBack();
         _creditPanel.SetActive(false);
     }
 
@@ -82,11 +86,18 @@ public class MainMenuUI : MonoBehaviour
     {
         _titleText.text = "OPTION";
         uiPaperFold.StartFolding();
+        Invoke("OpenOptionPanel", 0.4f);
+    }
+
+    void OpenOptionPanel()
+    {
+        _optionPanel.SetActive(true);
+        _filpBackButton.interactable = true;
     }
 
     public void OnFlipBackButton()
     {
-        uiPaperFold.FoldingBack();
+        _filpBackButton.interactable = false;
 
         switch (_titleText.text)
         {
@@ -95,7 +106,9 @@ public class MainMenuUI : MonoBehaviour
                 Invoke("CloseCreditPanel", 2f);
                 break;
             
-            case "Option":
+            case "OPTION":
+                uiPaperFold.FoldingBack();
+                _optionPanel.SetActive(false);
                 break;
         }
     }
