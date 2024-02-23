@@ -7,10 +7,26 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
+
+    #region STATES
+
     public PlayerStateMachine StateMachine { get; private set; }
     
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
+    
+    public PlayerJumpState JumpState { get; private set; }
+    
+    public PlayerInAirState InAirState { get; private set; }
+    
+    public PlayerLandState LandState { get; private set; }
+    
+    
+
+    #endregion
+
+    #region COMPONENTS
+
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
@@ -23,12 +39,24 @@ public class Player : MonoBehaviour
 
     private Vector2 workspace;
 
+    #endregion
+
+    #region CHECKTRANSFORMS
+
+    [SerializeField] private Transform _groundCheck;
+
+    #endregion
+    #region UNITYCALLBACKS
+
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this,StateMachine,_playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, _playerData, "move");
+        JumpState = new PlayerJumpState(this, StateMachine, _playerData, "inAir");
+        InAirState = new PlayerInAirState(this, StateMachine, _playerData, "inAir");
+        LandState = new PlayerLandState(this, StateMachine, _playerData, "land");
     }
 
     private void Start()
@@ -51,6 +79,8 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.PhysicsUpdate();
     }
 
+    #endregion
+
     public void SetVelocityX(float velocity)
     {
         workspace.Set(velocity, CurrentVelocity.y);
@@ -58,12 +88,24 @@ public class Player : MonoBehaviour
         CurrentVelocity = workspace;
     }
 
+    public void SetVelocityY(float velocity)
+    {
+        workspace.Set(CurrentVelocity.x,velocity);
+        RB.velocity = workspace;
+        CurrentVelocity = workspace;
+    }
+    
     public void CheckIfShouldFlip(int xInput)
     {
         if (xInput != 0 && xInput != FacingDirection)
         {
             Flip();
         }
+    }
+
+    public bool CheckIfGrounded()
+    {
+        return Physics2D.OverlapCircle(_groundCheck.position, _playerData.groundCheckRadius, _playerData.groundLayer);
     }
     public void Flip()
     {
