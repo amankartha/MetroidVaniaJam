@@ -12,6 +12,7 @@ public class PlayerData : ScriptableObject
     [Header("Jump State")] 
     public float jumpVelocity = 15f;
     public float aerialVelocity = 5f;
+    public int numberOfJumps = 2;
 
     [Header("Checks")] 
     public float groundCheckRadius = 0.3f;

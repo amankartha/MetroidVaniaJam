@@ -6,6 +6,7 @@ public class PlayerInAirState : PlayerState
 {
     private bool _isGrounded;
     private int _aerialXInput;
+    private bool _jumpInput;
 
     #region CACHE
 
@@ -28,10 +29,13 @@ public class PlayerInAirState : PlayerState
         base.LogicUpdate();
        
         _aerialXInput = _player.InputHandler.NormInputX;
-        
+        _jumpInput = _player.InputHandler.JumpInput;
         if (_isGrounded && _player.CurrentVelocity.y < 0.01f)
         {
             _stateMachine.ChangeState(_player.LandState);
+        }else if (_jumpInput && _player.JumpState.CanJump())
+        {
+            _stateMachine.ChangeState(_player.JumpState);
         }
         else
         {

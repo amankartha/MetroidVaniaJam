@@ -107,6 +107,11 @@ public class Player : MonoBehaviour
     {
         return Physics2D.OverlapCircle(_groundCheck.position, _playerData.groundCheckRadius, _playerData.groundLayer);
     }
+
+    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+    
     public void Flip()
     {
         FacingDirection *= -1;
