@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class UIPaperFold : MonoBehaviour
 {
     [Header("UI Objects")]
@@ -22,9 +23,11 @@ public class UIPaperFold : MonoBehaviour
 
     Vector3 originalMaskRotation, originalBackRotation;
 
+    //public MMFeedbackCameraShake creditFeedback;
 
     void Start()
     {
+        //creditFeedback.Play(Vector3.zero, 3);
         pos = transform.position;
         currentRotation = transform.eulerAngles;
 

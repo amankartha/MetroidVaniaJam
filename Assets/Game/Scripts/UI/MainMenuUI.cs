@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using MoreMountains.Feedbacks;
+
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private TMP_Text _titleText;
     [SerializeField] private GameObject _creditPanel;
     [SerializeField] private Animator _creditPanelAnimator;
+    [SerializeField] private MMPositionShaker _creditPanelShaker;
     [SerializeField] private Button _filpBackButton;
     [SerializeField] private TMP_Text _filpBackButtonText;
     [SerializeField] private GameObject _optionPanel;
@@ -70,14 +73,20 @@ public class MainMenuUI : MonoBehaviour
         _titleText.text = "CREDIT";
         _filpBackButtonText.text = "Got it";
         uiPaperFold.StartFolding();
-        Invoke("OpenCreditPanel", 0.4f);
+        Invoke("OpenCreditPanel", 0.6f);
+        Invoke("PlayCreditPanelShake", 0.3f);
+
     }
 
     void OpenCreditPanel()
     {
         _creditPanel.SetActive(true);
         _creditPanelAnimator.SetBool("isOn", true);
-        //_filpBackButton.interactable = true;
+    }
+
+    void PlayCreditPanelShake()
+    {
+        _creditPanelShaker.Play();
     }
 
     void CloseCreditPanel()
