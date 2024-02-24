@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2223,7 +2223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2249,7 +2249,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 2974106321307426449}
   m_OnClick:
     m_PersistentCalls:
@@ -3267,7 +3267,9 @@ MonoBehaviour:
   _creditPanel: {fileID: 2592535884290530958}
   _creditPanelAnimator: {fileID: 2434454456299820956}
   _filpBackButton: {fileID: 5343159524257142545}
+  _filpBackButtonText: {fileID: 2377995123666385744}
   _optionPanel: {fileID: 6572307984550384245}
+  _optionPanelAnimator: {fileID: 439390376594758684}
   _persistentGameplayScene:
     asset: {fileID: 102900000, guid: bc70abfa9cdfb6643bd16f97859876ea, type: 3}
     guid: bc70abfa9cdfb6643bd16f97859876ea
@@ -3421,7 +3423,7 @@ GameObject:
   - component: {fileID: 5905138773527610764}
   - component: {fileID: 6645388927784939893}
   m_Layer: 5
-  m_Name: outter
+  m_Name: outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3495,6 +3497,8 @@ GameObject:
   - component: {fileID: 7253962819307538619}
   - component: {fileID: 3841386246683832790}
   - component: {fileID: 7546579984122800511}
+  - component: {fileID: 439390376594758684}
+  - component: {fileID: 87562019270557886}
   m_Layer: 5
   m_Name: OptionPanel
   m_TagString: Untagged
@@ -3560,6 +3564,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &439390376594758684
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572307984550384245}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65ad5416c9772824f950b2d04d8dbc6f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &87562019270557886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572307984550384245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7ecf37a3cf926419eccd08bc682d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filpBackButton: {fileID: 5343159524257142545}
+  _volumeSlider: {fileID: 9086314961307191487}
 --- !u!1 &6618832589745803617
 GameObject:
   m_ObjectHideFlags: 0
