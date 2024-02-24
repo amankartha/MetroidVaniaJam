@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     
     public PlayerLandState LandState { get; private set; }
     
+    public PlayerWallGrabState WallGrabState { get; private set; }
+    public PlayerWallSlideState WallSlideState { get; private set; }
+    
     
 
     #endregion
