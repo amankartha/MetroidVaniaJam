@@ -27,6 +27,9 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private TMP_Text _filpBackButtonText;
     [SerializeField] private GameObject _optionPanel;
     [SerializeField] private Animator _optionPanelAnimator;
+    [SerializeField] private GameObject FlodingPaper;
+    [SerializeField] private GameObject TornPaper;
+    [SerializeField] private UITornPaper uITornPaper;
 
 
 
@@ -137,6 +140,9 @@ public class MainMenuUI : MonoBehaviour
     {
         if (_quitPanel.activeSelf == false)
         {
+            FlodingPaper.SetActive(false);
+            TornPaper.SetActive(true);
+            uITornPaper.TornPaper(0.2f, false);
             _quitPanel.SetActive(true);
             _quitPanelAnimator.SetBool("Quit", true);
         }       
@@ -148,7 +154,9 @@ public class MainMenuUI : MonoBehaviour
     }
 
     public void OnCancelQuitButton()
-    {
+    {       
+        uITornPaper.TornPaper(0.2f, true);
+        Invoke("TogglePaperDisplay", 0.5f);
         _quitPanelAnimator.SetBool("Quit", false);
         Invoke("HideQuitPanel", _quitPanelAnimator.GetCurrentAnimatorClipInfo(0).Length + 0.1f);
     }
@@ -158,6 +166,11 @@ public class MainMenuUI : MonoBehaviour
         _quitPanel.SetActive(false);
     }
 
+    void TogglePaperDisplay()
+    {
+        FlodingPaper.SetActive(true);
+        TornPaper.SetActive(false);
+    }
 
     private IEnumerator ProgressLoadingBar()
     {
