@@ -22,7 +22,10 @@ public class Player : MonoBehaviour
     public PlayerLandState LandState { get; private set; }
     
     public PlayerWallGrabState WallGrabState { get; private set; }
+    
     public PlayerWallSlideState WallSlideState { get; private set; }
+    
+    public PlayerWallClimbState WallClimbState { get; private set;}
     
     
 
@@ -47,8 +50,10 @@ public class Player : MonoBehaviour
     #region CHECKTRANSFORMS
 
     [SerializeField] private Transform _groundCheck;
+    [SerializeField] private Transform _wallCheck;
 
     #endregion
+    
     #region UNITYCALLBACKS
 
     private void Awake()
@@ -60,6 +65,9 @@ public class Player : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachine, _playerData, "inAir");
         InAirState = new PlayerInAirState(this, StateMachine, _playerData, "inAir");
         LandState = new PlayerLandState(this, StateMachine, _playerData, "land");
+        WallSlideState = new PlayerWallSlideState(this, StateMachine, _playerData, "wallSlide");
+        WallGrabState = new PlayerWallGrabState(this, StateMachine, _playerData, "wallGrab");
+        WallClimbState = new PlayerWallClimbState(this, StateMachine, _playerData, "wallClimb");
     }
 
     private void Start()
@@ -109,6 +117,12 @@ public class Player : MonoBehaviour
     public bool CheckIfGrounded()
     {
         return Physics2D.OverlapCircle(_groundCheck.position, _playerData.groundCheckRadius, _playerData.groundLayer);
+    }
+
+    public bool CheckIfTouchingWall()
+    {
+        return Physics2D.Raycast(_wallCheck.position, Vector2.right * FacingDirection, _playerData.wallCheckDistance,
+            _playerData.groundLayer);
     }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();

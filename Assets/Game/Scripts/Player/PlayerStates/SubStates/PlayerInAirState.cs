@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInAirState : PlayerState
 {
     private bool _isGrounded;
+    private bool _isTouchingWall;
     private int _aerialXInput;
     private bool _jumpInput;
     private bool _coyoteTime;
@@ -45,6 +46,10 @@ public class PlayerInAirState : PlayerState
         {
             _stateMachine.ChangeState(_player.JumpState);
         }
+        else if (_isTouchingWall && _aerialXInput == _player.FacingDirection && _player.CurrentVelocity.y <= 0) 
+        {
+            _stateMachine.ChangeState(_player.WallSlideState);
+        }
         else
         {
             _player.CheckIfShouldFlip(_aerialXInput);
@@ -64,6 +69,7 @@ public class PlayerInAirState : PlayerState
     {
         base.DoChecks();
         _isGrounded = _player.CheckIfGrounded();
+        _isTouchingWall = _player.CheckIfTouchingWall();
     }
 
     private void CheckJumpMultipler()

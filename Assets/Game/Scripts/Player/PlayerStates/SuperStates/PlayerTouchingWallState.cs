@@ -4,9 +4,58 @@ using UnityEngine;
 
 public class PlayerTouchingWallState : PlayerState
 {
-  
+    protected bool _isGrounded;
+    protected bool _isTouchingWall;
+    protected int _xInput;
 
     public PlayerTouchingWallState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+        _xInput = _player.InputHandler.NormInputX;
+
+        if (_isGrounded)
+        {
+            _stateMachine.ChangeState(_player.IdleState);
+        }
+        else if (!_isTouchingWall || _xInput != _player.FacingDirection)
+        {
+            _stateMachine.ChangeState(_player.InAirState);
+        }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        _isGrounded = _player.CheckIfGrounded();
+        _isTouchingWall = _player.CheckIfTouchingWall();
+    }
+
+    public override void AnimationTrigger()
+    {
+        base.AnimationTrigger();
+    }
+
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
     }
 }
