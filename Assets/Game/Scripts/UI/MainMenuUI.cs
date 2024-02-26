@@ -126,7 +126,7 @@ public class MainMenuUI : MonoBehaviour
         {
             case "CREDIT":
                 _creditPanelAnimator.SetBool("isOn", false);
-                Invoke("CloseCreditPanel", 2f);
+                Invoke("CloseCreditPanel", 1.8f);
                 break;
             
             case "OPTION":
