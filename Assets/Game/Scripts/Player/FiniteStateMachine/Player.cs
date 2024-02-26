@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     
     public PlayerWallSlideState WallSlideState { get; private set; }
     
-    public PlayerWallClimbState WallClimbState { get; private set;}
+    public PlayerWallJumpState WallJumpState { get; private set; }
     
     
 
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         LandState = new PlayerLandState(this, StateMachine, _playerData, "land");
         WallSlideState = new PlayerWallSlideState(this, StateMachine, _playerData, "wallSlide");
         WallGrabState = new PlayerWallGrabState(this, StateMachine, _playerData, "wallGrab");
-        WallClimbState = new PlayerWallClimbState(this, StateMachine, _playerData, "wallClimb");
+        WallJumpState = new PlayerWallJumpState(this, StateMachine, _playerData, "inAir");
     }
 
     private void Start()
@@ -105,6 +105,14 @@ public class Player : MonoBehaviour
         RB.velocity = workspace;
         CurrentVelocity = workspace;
     }
+
+    public void SetVelocity(float velocity,Vector2 angle,int direction)
+    {
+        angle.Normalize();
+        workspace.Set(angle.x * velocity * direction,angle.y * velocity);
+        RB.velocity = workspace;
+        CurrentVelocity = workspace;
+    }
     
     public void CheckIfShouldFlip(int xInput)
     {
@@ -124,6 +132,12 @@ public class Player : MonoBehaviour
         return Physics2D.Raycast(_wallCheck.position, Vector2.right * FacingDirection, _playerData.wallCheckDistance,
             _playerData.groundLayer);
     }
+    public bool CheckIfTouchingWallBack()
+    {
+        return Physics2D.Raycast(_wallCheck.position, Vector2.right * -FacingDirection, _playerData.wallCheckDistance,
+            _playerData.groundLayer);
+    }
+
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 

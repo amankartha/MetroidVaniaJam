@@ -6,11 +6,18 @@ public class PlayerInAirState : PlayerState
 {
     private bool _isGrounded;
     private bool _isTouchingWall;
+    private bool _isTouchingWallBack;
+    private bool _oldIsTouchingWall;
+    private bool _oldIsTouchingWallBack;
     private int _aerialXInput;
     private bool _jumpInput;
     private bool _coyoteTime;
+    private bool _wallJumpCoyoteTime;
     private bool _isJumping;
     private bool _jumpInputStop;
+
+    private float _startWallJumpCoyoteTime;
+    
     #region CACHE
 
     private static readonly int XVelocity = Animator.StringToHash("xVelocity");
@@ -32,7 +39,7 @@ public class PlayerInAirState : PlayerState
         base.LogicUpdate(); 
         
         CheckCoyoteTime();
-       
+        CheckWallJumpCoyoteTime();
         _aerialXInput = _player.InputHandler.NormInputX;
         _jumpInput = _player.InputHandler.JumpInput;
         _jumpInputStop = _player.InputHandler.JumpInputStop;
@@ -42,8 +49,17 @@ public class PlayerInAirState : PlayerState
         if (_isGrounded && _player.CurrentVelocity.y < 0.01f)
         {
             _stateMachine.ChangeState(_player.LandState);
-        }else if (_jumpInput && _player.JumpState.CanJump())
+        }
+        else if (_jumpInput && (_isTouchingWall || _isTouchingWallBack))
         {
+            _isTouchingWall = _player.CheckIfTouchingWall();
+            _player.WallJumpState.DetermineWallJumpDirection(_isTouchingWall);
+            _stateMachine.ChangeState(_player.WallJumpState);
+        }
+        else if (_jumpInput && _player.JumpState.CanJump())
+        {
+            _coyoteTime = false;
+            _player.InputHandler.UseJumpInput();
             _stateMachine.ChangeState(_player.JumpState);
         }
         else if (_isTouchingWall && _aerialXInput == _player.FacingDirection && _player.CurrentVelocity.y <= 0) 
@@ -54,7 +70,7 @@ public class PlayerInAirState : PlayerState
         {
             _player.CheckIfShouldFlip(_aerialXInput);
             _player.SetVelocityX(_playerData.aerialVelocity * _aerialXInput);
-            
+            StopWallJumpCoyoteTime();
             _player.Anim.SetFloat(YVelocity,_player.CurrentVelocity.y);
             _player.Anim.SetFloat(XVelocity,Mathf.Abs(_player.CurrentVelocity.x));
         }
@@ -68,8 +84,17 @@ public class PlayerInAirState : PlayerState
     public override void DoChecks()
     {
         base.DoChecks();
+        _oldIsTouchingWall = _isTouchingWall;
+        _oldIsTouchingWallBack = _isTouchingWallBack;
         _isGrounded = _player.CheckIfGrounded();
         _isTouchingWall = _player.CheckIfTouchingWall();
+        _isTouchingWallBack = _player.CheckIfTouchingWallBack();
+
+        if (!_wallJumpCoyoteTime && !_isTouchingWall && !_isTouchingWallBack &&
+            (_oldIsTouchingWall || _oldIsTouchingWallBack))
+        {
+            StartWallJumpCoyoteTime();
+        }
     }
 
     private void CheckJumpMultipler()
@@ -98,6 +123,22 @@ public class PlayerInAirState : PlayerState
             
     }
 
+    private void CheckWallJumpCoyoteTime()
+    {
+        if (_wallJumpCoyoteTime && Time.time > _startWallJumpCoyoteTime + _playerData.coyoteTime)
+        {
+            _wallJumpCoyoteTime = false;
+        }
+    }
+
     public void SetIsJumping() => _isJumping = true;
+
+    public void StartWallJumpCoyoteTime()
+    {
+        _wallJumpCoyoteTime = true;
+        _startWallJumpCoyoteTime = Time.time;
+    }
+
+    public void StopWallJumpCoyoteTime() => _wallJumpCoyoteTime = false;
     public void StartCoyoteTime() => _coyoteTime = true;
 }

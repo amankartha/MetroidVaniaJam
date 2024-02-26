@@ -19,8 +19,11 @@ MonoBehaviour:
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5
   groundCheckRadius: 0.3
-  wallCheckDistance: 1
+  wallCheckDistance: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  WallSlideVelocity: 3
+  wallSlideVelocity: 3
+  wallJumpVelocity: 20
+  wallJumpTime: 0.4
+  wallJumpAngle: {x: 1, y: 2}
