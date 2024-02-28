@@ -36,7 +36,8 @@ public class Player : MonoBehaviour
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
-    
+
+    public ParticleSystem dustPS;
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
@@ -97,12 +98,14 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    #region MOVEMENTBASEDMETHODS
+
     public void SetVelocityZero()
     {
         RB.velocity = Vector2.zero;
         CurrentVelocity = Vector2.zero;
     }
-    
+  
     public void SetVelocityX(float velocity)
     {
         workspace.Set(velocity, CurrentVelocity.y);
@@ -124,7 +127,12 @@ public class Player : MonoBehaviour
         RB.velocity = workspace;
         CurrentVelocity = workspace;
     }
-    
+
+
+    #endregion
+
+    #region CHECKMETHODS
+
     public void CheckIfShouldFlip(int xInput)
     {
         if (xInput != 0 && xInput != FacingDirection)
@@ -155,14 +163,28 @@ public class Player : MonoBehaviour
     }
 
 
+    #endregion
+    
+
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+
+    #region HELPERMETHODS
+
+    public void CreateDust()
+    {
+        dustPS.Play();
+    }
     
     public void Flip()
     {
         FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+        if (CheckIfGrounded())
+        {
+            CreateDust();
+        }
     }
 
     public Vector2 DetermineCornerPosition()
@@ -177,4 +199,6 @@ public class Player : MonoBehaviour
         workspace.Set(_wallCheck.position.x + xDistance * FacingDirection, _ledgeCheck.position.y - yDistance);
         return workspace;
     }
+
+    #endregion
 }
