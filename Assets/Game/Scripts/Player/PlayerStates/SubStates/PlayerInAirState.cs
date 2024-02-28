@@ -47,7 +47,8 @@ public class PlayerInAirState : PlayerState
 
          CheckJumpMultipler();
         
-        if (_isGrounded && _player.CurrentVelocity.y < 0.01f)
+
+         if (_isGrounded && _player.CurrentVelocity.y < 0.01f)
         {
             _stateMachine.ChangeState(_player.LandState);
         }
@@ -61,8 +62,9 @@ public class PlayerInAirState : PlayerState
             _player.WallJumpState.DetermineWallJumpDirection(_isTouchingWall);
             _stateMachine.ChangeState(_player.WallJumpState);
         }
-        else if (_jumpInput && _player.JumpState.CanJump())
+        else  if (_jumpInput && _player.JumpState.CanJump())
         {
+            
             _coyoteTime = false;
             _player.InputHandler.UseJumpInput();
             _stateMachine.ChangeState(_player.JumpState);

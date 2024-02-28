@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: 704368f68fca9a949a6e335388f81c89
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 640
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1292
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -300, y: 308}
+        - {x: -308, y: 298}
+        - {x: -308, y: -286}
+        - {x: -280, y: -308}
+        - {x: 308, y: -308}
+        - {x: 308, y: 307}
+        - {x: 291, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb65676ddcf131b49bf666051c7bfbcb
+      internalID: -1907165294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_1
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 1292
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -308, y: 308}
+        - {x: -308, y: -308}
+        - {x: 279, y: -308}
+        - {x: 308, y: -280}
+        - {x: 308, y: 293}
+        - {x: 294, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6302afddca1e38145a7f7390211bdef6
+      internalID: 1068201361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_2
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 1292
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -308, y: 308}
+        - {x: -308, y: -308}
+        - {x: 279, y: -308}
+        - {x: 308, y: -280}
+        - {x: 308, y: 293}
+        - {x: 294, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d45310ee24a2f49a20fa2279ece11b
+      internalID: -1112811104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_3
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 652
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -300, y: 308}
+        - {x: -308, y: 298}
+        - {x: -308, y: -286}
+        - {x: -280, y: -308}
+        - {x: 308, y: -308}
+        - {x: 308, y: 307}
+        - {x: 291, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0beaeffeb23094fb29abc730529ce3
+      internalID: 1721914136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_4
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 652
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -308, y: 308}
+        - {x: -308, y: -308}
+        - {x: 279, y: -308}
+        - {x: 308, y: -280}
+        - {x: 308, y: 293}
+        - {x: 294, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0989014e30907cb4f9ba1111f50d0bd4
+      internalID: 26728279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_5
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 652
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -308, y: 308}
+        - {x: -308, y: -308}
+        - {x: 308, y: -308}
+        - {x: 308, y: 284}
+        - {x: 290, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5efd71bc7fb724db7ffe520ba79fc1
+      internalID: 1095946690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 12
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -286, y: 308}
+        - {x: -308, y: 286}
+        - {x: -308, y: -308}
+        - {x: 308, y: -308}
+        - {x: 308, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02fb0157546b572408c1183cba65b28c
+      internalID: -1485635578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_7
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 12
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -286, y: 308}
+        - {x: -308, y: 286}
+        - {x: -308, y: -308}
+        - {x: 308, y: -308}
+        - {x: 308, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fffc3314bba22c47b2061c4d46f825c
+      internalID: -2122056772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_8
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 12
+        width: 616
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -308, y: 308}
+        - {x: -308, y: -308}
+        - {x: 308, y: -308}
+        - {x: 308, y: 284}
+        - {x: 290, y: 308}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c817a14a9b78d4da72758ae13722b4
+      internalID: -547805302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_0: -1907165294
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_1: 1068201361
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_2: -1112811104
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_3: 1721914136
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_4: 26728279
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_5: 1095946690
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_6: -1485635578
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_7: -2122056772
+      Environment_3x3 Floor and Ceiling Base TileSheet_GreyScale_8: -547805302
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

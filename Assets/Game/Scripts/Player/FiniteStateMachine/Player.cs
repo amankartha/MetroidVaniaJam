@@ -86,6 +86,8 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
+        
+        Debug.Log(JumpState._amountOfJumpsLeft);
     }
 
     private void FixedUpdate()
