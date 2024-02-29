@@ -30,4 +30,7 @@ public class PlayerData : ScriptableObject
     [Header("Ledge Climb State")] 
     public Vector2 startOffset;
     public Vector2 stopOffset;
+    [Header("Dodge State")] 
+    public float dodgeDuration = 1f;
+    public float dodgeVelocityX = 15f;
 }

@@ -12,10 +12,16 @@ public class PlayerInputHandler : MonoBehaviour
    public int NormInputY { get; private set; }
    public bool JumpInput { get; private set; }
    public bool JumpInputStop { get; private set; }
+   
+   public bool DodgeInput { get; private set; }
+   public bool DodgeInputStop { get; private set; }
 
+  
+    
+ 
    [SerializeField] private float _inputHoldTime = 0.2f;
    private float jumpInputStartTime;
-
+   private float _dodgeInputStartTime;
    private void Update()
    {
        CheckJumpInputHoldTime();
@@ -43,10 +49,28 @@ public class PlayerInputHandler : MonoBehaviour
        {
            JumpInputStop = true;
        }
-      
+   }
+
+   public void OnDodgeInput(InputAction.CallbackContext context)
+   {
+       if (context.started)
+       {
+           DodgeInput = true;
+           DodgeInputStop = false;
+           _dodgeInputStartTime = Time.time;
+       }
+
+       if (context.canceled)
+       {
+           DodgeInputStop = true;
+           DodgeInput = false;
+       }
+       
    }
 
    public void UseJumpInput() => JumpInput = false;
+
+   public void UseDodgeInput() => DodgeInput = false;
 
    private void CheckJumpInputHoldTime()
    {
@@ -56,5 +80,6 @@ public class PlayerInputHandler : MonoBehaviour
        }
        
    }
+   
    
 }

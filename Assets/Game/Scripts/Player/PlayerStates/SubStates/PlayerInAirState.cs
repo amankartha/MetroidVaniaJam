@@ -16,6 +16,7 @@ public class PlayerInAirState : PlayerState
     private bool _isJumping;
     private bool _jumpInputStop;
     private bool _isTouchingLegde;
+    private bool _dodgeInput;
 
     private float _startWallJumpCoyoteTime;
     
@@ -44,7 +45,7 @@ public class PlayerInAirState : PlayerState
         _aerialXInput = _player.InputHandler.NormInputX;
         _jumpInput = _player.InputHandler.JumpInput;
         _jumpInputStop = _player.InputHandler.JumpInputStop;
-
+        _dodgeInput = _player.InputHandler.DodgeInput;
          CheckJumpMultipler();
         
 
@@ -56,7 +57,11 @@ public class PlayerInAirState : PlayerState
         {
             _stateMachine.ChangeState(_player.LedgeClimbState);
         }
-        else if (_jumpInput && (_isTouchingWall || _isTouchingWallBack))
+         else if(_dodgeInput)
+         {
+             _stateMachine.ChangeState(_player.DodgeState);
+         }
+         else if (_jumpInput && (_isTouchingWall || _isTouchingWallBack))
         {
             _isTouchingWall = _player.CheckIfTouchingWall();
             _player.WallJumpState.DetermineWallJumpDirection(_isTouchingWall);
