@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     public PlayerLedgeClimbState LedgeClimbState { get; private set; }
     
     public PlayerDodgeState DodgeState { get; private set; }
+    
+    public PlayerThrowState ThrowState { get; private set; }
 
     #endregion
 
@@ -76,6 +78,7 @@ public class Player : MonoBehaviour
         WallJumpState = new PlayerWallJumpState(this, StateMachine, _playerData, "inAir");
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, _playerData, "ledgeClimbState");
         DodgeState = new PlayerDodgeState(this, StateMachine, _playerData, "dodge");
+        ThrowState = new PlayerThrowState(this, StateMachine, _playerData, "throw");
 
     }
 
@@ -95,7 +98,7 @@ public class Player : MonoBehaviour
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
         
-        Debug.Log(JumpState._amountOfJumpsLeft);
+      
     }
 
     private void FixedUpdate()
