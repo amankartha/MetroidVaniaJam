@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
+    [field: SerializeField] public Briefcase Briefcase { get; private set; }
+    
     [SerializeField] 
     private PlayerData _playerData;
 
@@ -209,6 +211,8 @@ public class Player : MonoBehaviour
         workspace.Set(_wallCheck.position.x + xDistance * FacingDirection, _ledgeCheck.position.y - yDistance);
         return workspace;
     }
-
+    
+    
+    
     #endregion
 }

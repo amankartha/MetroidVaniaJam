@@ -13,15 +13,20 @@ public class PlayerInputHandler : MonoBehaviour
    public bool JumpInput { get; private set; }
    public bool JumpInputStop { get; private set; }
    
-   public bool DodgeInput { get; private set; }
+   public bool DodgeInput { get; private set; } 
    public bool DodgeInputStop { get; private set; }
+   
+   public bool ThrowInput { get; private set; }
+   public bool ThrowInputStop { get; private set; }
+   
 
-  
-    
- 
+
+
+
    [SerializeField] private float _inputHoldTime = 0.2f;
    private float jumpInputStartTime;
    private float _dodgeInputStartTime;
+   private float _throwInputStartTime;
    private void Update()
    {
        CheckJumpInputHoldTime();
@@ -70,12 +75,25 @@ public class PlayerInputHandler : MonoBehaviour
 
    public void OnThrowInput(InputAction.CallbackContext context)
    {
-       
+       if (context.started)
+       {
+           ThrowInput = true;
+           ThrowInputStop = false;
+           _throwInputStartTime = Time.time;
+       }
+
+       if (context.canceled)
+       {
+           ThrowInput = false;
+           ThrowInputStop = true;
+       }
    }
 
    public void UseJumpInput() => JumpInput = false;
 
    public void UseDodgeInput() => DodgeInput = false;
+
+   public void UseThrowInput() => ThrowInput = false;
 
    private void CheckJumpInputHoldTime()
    {
