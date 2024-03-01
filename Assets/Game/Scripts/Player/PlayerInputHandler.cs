@@ -68,6 +68,11 @@ public class PlayerInputHandler : MonoBehaviour
        
    }
 
+   public void OnThrowInput(InputAction.CallbackContext context)
+   {
+       
+   }
+
    public void UseJumpInput() => JumpInput = false;
 
    public void UseDodgeInput() => DodgeInput = false;
