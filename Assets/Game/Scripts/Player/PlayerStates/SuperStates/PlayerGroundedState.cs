@@ -18,6 +18,7 @@ public class PlayerGroundedState : PlayerState
     {
         base.Enter();
         _player.JumpState.ResetAmountOfJumpsLeft();
+        
     }
 
     public override void Exit()
@@ -33,7 +34,6 @@ public class PlayerGroundedState : PlayerState
 
        if (_jumpInput && _player.JumpState.CanJump())
        {
-           _player.InputHandler.UseJumpInput();
            _stateMachine.ChangeState(_player.JumpState);
        }
        else if(!_isGrounded)

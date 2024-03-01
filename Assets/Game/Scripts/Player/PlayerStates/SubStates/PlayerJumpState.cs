@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerAbilityState
 {
-    private int _amountOfJumpsLeft;
+    public int _amountOfJumpsLeft;
     public PlayerJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
         _amountOfJumpsLeft = playerData.numberOfJumps;
@@ -13,7 +13,7 @@ public class PlayerJumpState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
-        
+        _player.InputHandler.UseJumpInput();
         _player.SetVelocityY(_playerData.jumpVelocity);
         _isAbilityDone = true;
         _amountOfJumpsLeft--;
@@ -23,6 +23,7 @@ public class PlayerJumpState : PlayerAbilityState
 
     public bool CanJump()
     {
+        
         if (_amountOfJumpsLeft > 0)
         {
             return true;
@@ -35,7 +36,7 @@ public class PlayerJumpState : PlayerAbilityState
 
     public void ResetAmountOfJumpsLeft()
     {
-
+        
         _amountOfJumpsLeft = _playerData.numberOfJumps;
     }
 
