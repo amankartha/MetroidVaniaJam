@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MMPersistentSingleton<GameManager>
 {
-    #region VARIABLES
+    #region GLOBALVARIABLES
     
     
     //main player stuff
