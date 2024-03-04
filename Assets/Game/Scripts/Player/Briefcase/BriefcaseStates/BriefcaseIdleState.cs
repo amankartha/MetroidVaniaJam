@@ -14,6 +14,7 @@ public class BriefcaseIdleState : BriefcaseState
     public override void Enter()
     {
         base.Enter();
+        _briefcase.SetVelocityZero();
     }
 
     public override void Exit()

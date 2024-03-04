@@ -24,6 +24,8 @@ public class Briefcase : MonoBehaviour
     public BriefcaseThrowState ThrowState { get; private set; }
 
     public BriefcaseIdleRotateState IdleRotateState { get;private set; }
+    
+    public BriefcaseReturnState ReturnState { get; private set; }
     #endregion
 
     private void Awake()
@@ -32,6 +34,7 @@ public class Briefcase : MonoBehaviour
         IdleState = new BriefcaseIdleState(this, StateMachine, _playerData, "idle");
         ThrowState = new BriefcaseThrowState(this, StateMachine, _playerData, "throw");
         IdleRotateState = new BriefcaseIdleRotateState(this, StateMachine, _playerData, "throw");
+        ReturnState = new BriefcaseReturnState(this, StateMachine, _playerData, "throw");
     }
 
     private void Start()
@@ -77,12 +80,17 @@ public class Briefcase : MonoBehaviour
         CurrentVelocity = workspace;
     }
 
-    public void SetVelocity(float velocity,Vector2 angle,int direction)
+    public void SetVelocity(float velocity,Vector2 angle)
     {
         angle.Normalize();
-        workspace.Set(angle.x * velocity * direction,angle.y * velocity);
+        workspace.Set(angle.x * velocity ,angle.y * velocity);
         RB.velocity = workspace;
         CurrentVelocity = workspace;
+    }
+
+    public void ColliderSettings(bool state)
+    {
+        _boxCollider2D.enabled = state;
     }
 
    

@@ -13,7 +13,7 @@ public class BriefcaseThrowState : BriefcaseState
     public override void Enter()
     {
         base.Enter();
-        _briefcase.SetVelocityX(_playerData.throwMaxDistance * GameManager.Instance.PlayerScript.FacingDirection);
+        _briefcase.SetVelocityX(_playerData.throwVelocity * GameManager.Instance.PlayerScript.FacingDirection);
     }
 
     public override void Exit()

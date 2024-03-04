@@ -25,6 +25,7 @@ public class BriefcaseIdleRotateState : BriefcaseState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        CheckIdleDuration();
     }
 
     public override void PhysicsUpdate()
@@ -45,5 +46,13 @@ public class BriefcaseIdleRotateState : BriefcaseState
     public override void AnimationFinishTrigger()
     {
         base.AnimationFinishTrigger();
+    }
+
+    public void CheckIdleDuration()
+    {
+        if (Time.time > _startTime + _playerData.throwIdleDuration)
+        {
+            _stateMachine.ChangeState(_briefcase.ReturnState);
+        }
     }
 }

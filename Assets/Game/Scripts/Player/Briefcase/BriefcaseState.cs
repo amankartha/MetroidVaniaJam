@@ -28,7 +28,7 @@ public class BriefcaseState
           DoChecks();
           _briefcase.Animator.SetBool(_animBoolName,true);
           _startTime = Time.time;
-          //Debug.Log("Entered " + this.GetType().Name + "State");
+          Debug.Log("Entered " + this.GetType().Name + "State");
           _isAnimationFinished = false;
           _isExitingState = false;
        }

@@ -35,6 +35,7 @@ public class PlayerData : ScriptableObject
     public float dodgeVelocityX = 15f;
     
     [Header("Briefcase")]
-    public float throwMaxDistance = 10f;
-    public float throwMaxDuration = 2f;
+    public float throwVelocity = 30f;
+    public float throwMaxDuration = 0.5f;
+    public float throwIdleDuration = 1f;
 }
