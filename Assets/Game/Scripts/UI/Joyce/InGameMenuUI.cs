@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+
 
 public class InGameMenuUI : MonoBehaviour
 {
     [SerializeField] GameObject[] menuPanels;
     [SerializeField] Button[] menuButtons;
     [SerializeField] MapPanel mapPanel;
+    [SerializeField] CharacterPanel characterPanel;
 
     void Start()
     {
@@ -20,14 +23,49 @@ public class InGameMenuUI : MonoBehaviour
 
     void SetPanelActive(int index)
     {
-        for (int i = 0; i < menuPanels.Length; i++)
+        Sequence sequence = DOTween.Sequence();
+        sequence.AppendCallback(() =>
         {
-            menuPanels[i].SetActive(i == index);
-        }
+            if (mapPanel.gameObject.activeSelf)
+            {
+                mapPanel.ToggleMapPanel();
+            }
+            else if (characterPanel.gameObject.activeSelf)
+            {
+                characterPanel.MoveToOriginalPosition();
+            }
+        });
+        sequence.AppendInterval(0.6f);
+        sequence.AppendCallback(() =>
+        {
+            for (int i = 0; i < menuPanels.Length; i++)
+            {
+                menuPanels[i].SetActive(i == index);
+            }
+        });
+       
     }
 
+    void DelayPanelActive()
+    {
+        
+    }
     public void OnMapButton()
     {
-        mapPanel.ClickMapButton();
+        /*menuPanels[0].SetActive(true);
+        mapPanel.ClickMapButton();*/
+    }
+
+    public void OnCharacterButton()
+    {
+    } 
+
+    public void OnItemButton()
+    {
+    }
+
+    void CloseMapPanel()
+    {
+        mapPanel.ToggleMapPanel();
     }
 }

@@ -2,28 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+
 
 public class MapPanel : MonoBehaviour
 {
     [SerializeField] RectTransform mapRightPageRect;
     [SerializeField] RectTransform mapHolderRect;
+    [SerializeField] RectTransform profileHolderRect;
     public float rotationDuration = 1.0f;
     public float rotationDuration2 = 0.1f;
+
+    public Vector2 profileTargetPosition;
+    Vector2 profileOriginalPosition;
 
     public Vector3 mapRightPageRotation = new Vector3(0, -180, 0);
     public Vector3 mapHolderRotation = new Vector3(0, 0, -5);
 
-    bool isOpened;
+    bool isOpened = false;
 
-    public void ClickMapButton()
+    private void Start()
     {
-        if (!isOpened)
-        {
-            StartCoroutine(OpenMap());
-        }
+        profileOriginalPosition = profileHolderRect.anchoredPosition;
+
+    }
+    void OnEnable()
+    {
+        StartCoroutine(FoldMap());
     }
 
-    public IEnumerator OpenMap()
+    public void ToggleMapPanel()
+    {
+        StartCoroutine(FoldMap());
+    }
+
+    public IEnumerator FoldMap()
     {
         Quaternion startRotation = mapRightPageRect.rotation;
         Quaternion targetRotation = startRotation * Quaternion.Euler(mapRightPageRotation);
@@ -31,6 +44,11 @@ public class MapPanel : MonoBehaviour
         Quaternion startRotation2 = mapHolderRect.rotation;
         mapHolderRotation.z *= -1;
         Quaternion targetRotation2 = startRotation2 * Quaternion.Euler(mapHolderRotation);
+
+        if (!isOpened)
+        {
+            yield return new WaitForSeconds(0.4f);
+        }
 
         float elapsedTime = 0.0f;
 
@@ -55,7 +73,18 @@ public class MapPanel : MonoBehaviour
         mapHolderRect.rotation = targetRotation2;
 
         isOpened = !isOpened;
+
     }
 
-    
+    public void MoveProfileToTargetPosition()
+    {
+        profileHolderRect.DOAnchorPos(profileTargetPosition, 0.2f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+    }
+
+    public void MoveProfileToOriginalPosition()
+    {
+        profileHolderRect.DOAnchorPos(profileOriginalPosition, 0.2f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+    }
+
+
 }
