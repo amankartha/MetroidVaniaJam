@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
 
 
@@ -9,82 +8,49 @@ public class MapPanel : MonoBehaviour
 {
     [SerializeField] RectTransform mapRightPageRect;
     [SerializeField] RectTransform mapHolderRect;
-    [SerializeField] RectTransform profileHolderRect;
-    public float rotationDuration = 1.0f;
-    public float rotationDuration2 = 0.1f;
 
-    public Vector2 profileTargetPosition;
-    Vector2 profileOriginalPosition;
+    public Quaternion targetMapRightRotation;
+    Quaternion originalMapRightRotation;
 
-    public Vector3 mapRightPageRotation = new Vector3(0, -180, 0);
-    public Vector3 mapHolderRotation = new Vector3(0, 0, -5);
+    public Quaternion targetMapHolderRotation;
+    Quaternion originalMapHolderRotation;
 
-    bool isOpened = false;
+    public Vector2 targetMapHolderPosition;
+    Vector2 originalMapHolderPosition;
+
 
     private void Start()
     {
-        profileOriginalPosition = profileHolderRect.anchoredPosition;
-
+        originalMapRightRotation = mapRightPageRect.rotation;
+        originalMapHolderRotation = mapHolderRect.rotation;
+        originalMapHolderPosition = mapHolderRect.anchoredPosition;
     }
+
     void OnEnable()
     {
-        StartCoroutine(FoldMap());
+        UnfoldMap();
     }
 
-    public void ToggleMapPanel()
+    public void UnfoldMap()
     {
-        StartCoroutine(FoldMap());
+        mapRightPageRect.DORotateQuaternion(targetMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        mapHolderRect.DORotateQuaternion(targetMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
     }
 
-    public IEnumerator FoldMap()
+    public void FoldMap()
     {
-        Quaternion startRotation = mapRightPageRect.rotation;
-        Quaternion targetRotation = startRotation * Quaternion.Euler(mapRightPageRotation);
-
-        Quaternion startRotation2 = mapHolderRect.rotation;
-        mapHolderRotation.z *= -1;
-        Quaternion targetRotation2 = startRotation2 * Quaternion.Euler(mapHolderRotation);
-
-        if (!isOpened)
-        {
-            yield return new WaitForSeconds(0.4f);
-        }
-
-        float elapsedTime = 0.0f;
-
-        while (elapsedTime < rotationDuration)
-        {
-            mapRightPageRect.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsedTime / rotationDuration);
-            elapsedTime += Time.deltaTime;
-
-            yield return null;
-        }
-        mapRightPageRect.rotation = targetRotation;
-
-        elapsedTime = 0.0f;
-        while (elapsedTime < rotationDuration)
-        {
-            mapHolderRect.rotation = Quaternion.Slerp(startRotation2, targetRotation2, elapsedTime / rotationDuration);
-            elapsedTime += Time.deltaTime;
-
-            yield return null;
-        }
-
-        mapHolderRect.rotation = targetRotation2;
-
-        isOpened = !isOpened;
-
+        mapRightPageRect.DORotateQuaternion(originalMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        mapHolderRect.DORotateQuaternion(originalMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
     }
 
-    public void MoveProfileToTargetPosition()
+    public void MoveToTargetPosition()
     {
-        profileHolderRect.DOAnchorPos(profileTargetPosition, 0.2f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        mapHolderRect.DOAnchorPos(targetMapHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
     }
 
-    public void MoveProfileToOriginalPosition()
+    public void MoveToOriginalPosition()
     {
-        profileHolderRect.DOAnchorPos(profileOriginalPosition, 0.2f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        mapHolderRect.DOAnchorPos(originalMapHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
     }
-
 
 }

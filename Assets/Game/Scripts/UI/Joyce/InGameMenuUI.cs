@@ -2,70 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-
 
 public class InGameMenuUI : MonoBehaviour
 {
     [SerializeField] GameObject[] menuPanels;
     [SerializeField] Button[] menuButtons;
     [SerializeField] MapPanel mapPanel;
-    [SerializeField] CharacterPanel characterPanel;
+    [SerializeField] ItemPanel itemPanel;
+    [SerializeField] GameObject discriptionHolder;
 
     void Start()
     {
-        for (int i = 0; i < menuButtons.Length; i++)
+        /*for (int i = 0; i < menuButtons.Length; i++)
         {
             int panelIndex = i;
             menuButtons[i].onClick.AddListener(() => SetPanelActive(panelIndex));
+        }*/
+    }
+
+    /*void SetPanelActive(int index)
+    {
+        for (int i = 0; i < menuPanels.Length; i++)
+        {
+            menuPanels[i].SetActive(i == index);
         }
-    }
+    }*/
 
-    void SetPanelActive(int index)
-    {
-        Sequence sequence = DOTween.Sequence();
-        sequence.AppendCallback(() =>
-        {
-            if (mapPanel.gameObject.activeSelf)
-            {
-                mapPanel.ToggleMapPanel();
-            }
-            else if (characterPanel.gameObject.activeSelf)
-            {
-                characterPanel.MoveToOriginalPosition();
-            }
-        });
-        sequence.AppendInterval(0.6f);
-        sequence.AppendCallback(() =>
-        {
-            for (int i = 0; i < menuPanels.Length; i++)
-            {
-                menuPanels[i].SetActive(i == index);
-            }
-        });
-       
-    }
-
-    void DelayPanelActive()
-    {
-        
-    }
     public void OnMapButton()
     {
-        /*menuPanels[0].SetActive(true);
-        mapPanel.ClickMapButton();*/
+        discriptionHolder.SetActive(false);
+        mapPanel.UnfoldMap();
+        mapPanel.MoveToOriginalPosition();
+        itemPanel.MoveToOriginalPosition();
     }
 
     public void OnCharacterButton()
     {
-    } 
+        mapPanel.FoldMap();
+        mapPanel.MoveToTargetPosition();
+        itemPanel.MoveToMapPosition();
+    }
 
     public void OnItemButton()
     {
+        mapPanel.FoldMap();
+        mapPanel.MoveToTargetPosition();
+        itemPanel.MoveToTargetDisplayPosition();
     }
 
-    void CloseMapPanel()
-    {
-        mapPanel.ToggleMapPanel();
-    }
 }
