@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementVelocity: 10
   jumpVelocity: 15
+  secondJumpVelocity: 30
   numberOfJumps: 2
   aerialVelocity: 5
   coyoteTime: 0.2
@@ -27,5 +28,11 @@ MonoBehaviour:
   wallJumpVelocity: 20
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
-  startOffset: {x: 0.2, y: 1}
+  startOffset: {x: 0.25, y: 1.7}
   stopOffset: {x: 0.4, y: 0.2}
+  dodgeDuration: 1
+  dodgeVelocityX: 7
+  throwVelocity: 30
+  throwMaxDuration: 0.2
+  throwIdleDuration: 1
+  teleportDelay: 0.3

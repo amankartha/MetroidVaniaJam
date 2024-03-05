@@ -14,7 +14,20 @@ public class PlayerJumpState : PlayerAbilityState
     {
         base.Enter();
         _player.InputHandler.UseJumpInput();
-        _player.SetVelocityY(_playerData.jumpVelocity);
+        if (_player.CheckIfGrounded())
+        {
+            _player.CreateDust();
+        }
+        //TODO Incase we add more jumps
+        if (_amountOfJumpsLeft == 1 )
+        {
+            _player.SetVelocityY(_playerData.secondJumpVelocity);
+        }
+        else
+        {
+            _player.SetVelocityY(_playerData.jumpVelocity);     
+        }
+        
         _isAbilityDone = true;
         _amountOfJumpsLeft--;
         _player.InAirState.SetIsJumping();

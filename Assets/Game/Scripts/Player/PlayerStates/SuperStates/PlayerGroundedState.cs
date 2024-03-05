@@ -8,6 +8,8 @@ public class PlayerGroundedState : PlayerState
 
     protected int _xInput;
     private bool _jumpInput;
+    private bool _dodgeInput;
+    private bool _throwInput;
     private bool _isGrounded;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -31,10 +33,20 @@ public class PlayerGroundedState : PlayerState
         base.LogicUpdate();
        _xInput = _player.InputHandler.NormInputX;
        _jumpInput = _player.InputHandler.JumpInput;
+       _dodgeInput = _player.InputHandler.DodgeInput;
+       _throwInput = _player.InputHandler.ThrowInput;
 
        if (_jumpInput && _player.JumpState.CanJump())
        {
            _stateMachine.ChangeState(_player.JumpState);
+       }
+       else if(_dodgeInput)
+       {
+           _stateMachine.ChangeState(_player.DodgeState);
+       }
+       else if(_throwInput && _player.Briefcase._isBriefcaseInHand)
+       {
+           _stateMachine.ChangeState(_player.ThrowState);
        }
        else if(!_isGrounded)
        {

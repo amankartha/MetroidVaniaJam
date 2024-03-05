@@ -16,13 +16,15 @@ public class PlayerInAirState : PlayerState
     private bool _isJumping;
     private bool _jumpInputStop;
     private bool _isTouchingLegde;
-
+    private bool _dodgeInput;
+    private bool _throwInput;
     private float _startWallJumpCoyoteTime;
     
     #region CACHE
 
     private static readonly int XVelocity = Animator.StringToHash("xVelocity");
     private static readonly int YVelocity = Animator.StringToHash("yVelocity");
+ 
 
     #endregion
 
@@ -44,7 +46,8 @@ public class PlayerInAirState : PlayerState
         _aerialXInput = _player.InputHandler.NormInputX;
         _jumpInput = _player.InputHandler.JumpInput;
         _jumpInputStop = _player.InputHandler.JumpInputStop;
-
+        _dodgeInput = _player.InputHandler.DodgeInput;
+        _throwInput = _player.InputHandler.ThrowInput;
          CheckJumpMultipler();
         
 
@@ -56,7 +59,15 @@ public class PlayerInAirState : PlayerState
         {
             _stateMachine.ChangeState(_player.LedgeClimbState);
         }
-        else if (_jumpInput && (_isTouchingWall || _isTouchingWallBack))
+         else if(_dodgeInput)
+         {
+             _stateMachine.ChangeState(_player.DodgeState);
+         }
+         else if(_throwInput && _player.Briefcase._isBriefcaseInHand)
+         {
+             _stateMachine.ChangeState(_player.ThrowState);
+         }
+         else if (_jumpInput && (_isTouchingWall || _isTouchingWallBack))
         {
             _isTouchingWall = _player.CheckIfTouchingWall();
             _player.WallJumpState.DetermineWallJumpDirection(_isTouchingWall);

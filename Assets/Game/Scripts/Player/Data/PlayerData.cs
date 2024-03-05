@@ -11,6 +11,7 @@ public class PlayerData : ScriptableObject
 
     [Header("Jump State")] 
     public float jumpVelocity = 15f;
+    public float secondJumpVelocity = 15f;
     public int numberOfJumps = 2;
     [Header("In Air")]
     public float aerialVelocity = 5f;
@@ -30,4 +31,25 @@ public class PlayerData : ScriptableObject
     [Header("Ledge Climb State")] 
     public Vector2 startOffset;
     public Vector2 stopOffset;
+    [Header("Dodge State")] 
+    public float dodgeDuration = 1f;
+    public float dodgeVelocityX = 15f;
+    
+    [Header("Briefcase")]
+    public float throwVelocity = 30f;
+    public float throwMaxDuration = 0.5f;
+    public float throwIdleDuration = 1f;
+    public float teleportDelay = 0.3f;
+
+    [Header("Health")]
+    public int PlayerBaseHealth = 3;
+    public int HealthPickupRange = 1;
+    public int HPPotionRecoverAmount = 1;
+    public int HPRecoverAmountRat = 1;
+    public int HPRecoverAmountSheilder = 1;
+    public int HPRecoverAmountCoffee = 1;
+    public int HPRecoverAmountPenBoss = 1;
+
+    [Header("Upgrades")] 
+    public int HealthIncreaseAmount = 1;
 }
