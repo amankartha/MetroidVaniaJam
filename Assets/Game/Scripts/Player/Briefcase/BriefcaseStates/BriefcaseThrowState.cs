@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Game.Scripts.Player.Briefcase;
 using UnityEngine;
 
 public class BriefcaseThrowState : BriefcaseState
@@ -14,6 +13,7 @@ public class BriefcaseThrowState : BriefcaseState
     {
         base.Enter();
         _briefcase.SetVelocityX(_playerData.throwVelocity * GameManager.Instance.PlayerScript.FacingDirection);
+        _briefcase.ColliderSettings(true);
     }
 
     public override void Exit()
@@ -24,8 +24,12 @@ public class BriefcaseThrowState : BriefcaseState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        CheckReturnTime();
-        
+    
+        if (GameManager.Instance.PlayerScript.InputHandler.ThrowInput)
+        {
+            _stateMachine.ChangeState(_briefcase.TeleportState);
+        }
+        CheckReturnTime();    
     }
 
     public override void PhysicsUpdate()

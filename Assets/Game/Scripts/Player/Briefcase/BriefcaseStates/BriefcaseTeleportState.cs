@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BriefcaseIdleRotateState : BriefcaseState
+public class BriefcaseTeleportState : BriefcaseState
 {
-   
+    
 
-    public BriefcaseIdleRotateState(Briefcase briefcase, BriefcaseStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(briefcase, stateMachine, playerData, animBoolName)
+    public BriefcaseTeleportState(Briefcase briefcase, BriefcaseStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(briefcase, stateMachine, playerData, animBoolName)
     {
+        
     }
 
     public override void Enter()
     {
         base.Enter();
-        _briefcase.SetVelocityZero();
+      
+        GameManager.Instance.PlayerScript.SetPosition(_briefcase.transform.position); 
+      
     }
 
     public override void Exit()
@@ -24,11 +27,7 @@ public class BriefcaseIdleRotateState : BriefcaseState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        CheckIdleDuration();
-        if (GameManager.Instance.PlayerScript.InputHandler.ThrowInput)
-        {
-            _stateMachine.ChangeState(_briefcase.TeleportState);
-        }
+        TeleportDelay();
     }
 
     public override void PhysicsUpdate()
@@ -51,11 +50,11 @@ public class BriefcaseIdleRotateState : BriefcaseState
         base.AnimationFinishTrigger();
     }
 
-    public void CheckIdleDuration()
+    public void TeleportDelay()
     {
-        if (Time.time > _startTime + _playerData.throwIdleDuration)
+        if (Time.time > _startTime + _playerData.teleportDelay)
         {
-            _stateMachine.ChangeState(_briefcase.ReturnState);
+            _stateMachine.ChangeState(_briefcase.IdleState);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿namespace Game.Scripts.Player.Briefcase
-{
+﻿
     public class BriefcaseStateMachine
     {
         public BriefcaseState CurrentState { get; private set; }
@@ -17,4 +16,3 @@
             CurrentState.Enter();
         }
     }
-}

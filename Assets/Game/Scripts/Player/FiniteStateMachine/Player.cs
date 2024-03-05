@@ -140,6 +140,11 @@ public class Player : MonoBehaviour
         CurrentVelocity = workspace;
     }
 
+    public void SetPosition(Vector2 pos)
+    {
+        RB.position = pos;
+    }
+
 
     #endregion
 

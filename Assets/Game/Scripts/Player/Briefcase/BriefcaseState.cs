@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Game.Scripts.Player.Briefcase;
+
 using UnityEngine;
 
 public class BriefcaseState 

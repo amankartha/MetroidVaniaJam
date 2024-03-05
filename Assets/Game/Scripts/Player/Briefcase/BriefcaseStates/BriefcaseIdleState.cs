@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Game.Scripts.Player.Briefcase;
+
 using UnityEngine;
 
 public class BriefcaseIdleState : BriefcaseState
@@ -15,17 +15,20 @@ public class BriefcaseIdleState : BriefcaseState
     {
         base.Enter();
         _briefcase.SetVelocityZero();
+        _briefcase._isBriefcaseInHand = true;
     }
 
     public override void Exit()
     {
         base.Exit();
+        _briefcase._isBriefcaseInHand = false;
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         _briefcase.RB.position = _briefcase._initTransform.position;
+        
     }
 
     public override void PhysicsUpdate()

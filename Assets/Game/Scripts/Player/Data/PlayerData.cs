@@ -38,4 +38,5 @@ public class PlayerData : ScriptableObject
     public float throwVelocity = 30f;
     public float throwMaxDuration = 0.5f;
     public float throwIdleDuration = 1f;
+    public float teleportDelay = 0.3f;
 }

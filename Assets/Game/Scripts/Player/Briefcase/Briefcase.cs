@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Game.Scripts.Player.Briefcase;
+
 using UnityEngine;
 
 public class Briefcase : MonoBehaviour
@@ -22,10 +22,9 @@ public class Briefcase : MonoBehaviour
     public BriefcaseStateMachine StateMachine { get; private set; }
     public BriefcaseIdleState IdleState { get; private set; }
     public BriefcaseThrowState ThrowState { get; private set; }
-
     public BriefcaseIdleRotateState IdleRotateState { get;private set; }
-    
     public BriefcaseReturnState ReturnState { get; private set; }
+    public BriefcaseTeleportState TeleportState { get; private set; }
     #endregion
 
     private void Awake()
@@ -35,6 +34,7 @@ public class Briefcase : MonoBehaviour
         ThrowState = new BriefcaseThrowState(this, StateMachine, _playerData, "throw");
         IdleRotateState = new BriefcaseIdleRotateState(this, StateMachine, _playerData, "throw");
         ReturnState = new BriefcaseReturnState(this, StateMachine, _playerData, "throw");
+        TeleportState = new BriefcaseTeleportState(this, StateMachine, _playerData, "teleport");
     }
 
     private void Start()
@@ -52,7 +52,6 @@ public class Briefcase : MonoBehaviour
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
         
-      
     }
 
     private void FixedUpdate()

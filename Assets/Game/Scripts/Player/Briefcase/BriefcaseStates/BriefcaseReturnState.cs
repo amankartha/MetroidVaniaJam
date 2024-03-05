@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Game.Scripts.Player.Briefcase;
 using UnityEngine;
 
 public class BriefcaseReturnState : BriefcaseState
@@ -26,6 +25,10 @@ public class BriefcaseReturnState : BriefcaseState
     {
         base.LogicUpdate();
         CheckDistance();
+        if (GameManager.Instance.PlayerScript.InputHandler.ThrowInput)
+        {
+            _stateMachine.ChangeState(_briefcase.TeleportState);
+        }
         
     }
 
