@@ -13,26 +13,23 @@ public class TutorialTrigger : MonoBehaviour
 
     bool isTriggered = false;
 
-    GameObject player;
-
     private void Update()
     {
         if (Keyboard.current[exitCanvasKey].wasPressedThisFrame
             && tabletUI.canExitCanvas
             && isTriggered )
         {
-            player.GetComponent<PlayerInput>().ActivateInput();
+            GameManager.Instance.goMainPlayer.GetComponent<PlayerInput>().ActivateInput();
             tabletUI.FadeOutAndDestroyCanvas();
             Destroy(this.gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isTriggered)
+        if (collision.gameObject == GameManager.Instance.goMainPlayer && !isTriggered)
         {
             isTriggered = true;
-            player = collision.gameObject;
-            collision.GetComponent<PlayerInput>().DeactivateInput();
+            collision.gameObject.GetComponent<PlayerInput>().DeactivateInput();
             GameObject go = Instantiate(tabletCanvasPrefab);
             tabletUI = go.GetComponent<TabletUI>();
             tabletUI.FadeInCanvas();
