@@ -19,6 +19,8 @@ public class ItemPanel : MonoBehaviour
         originalPosition = itemHolderRect.anchoredPosition;
         originalRotation = itemHolderRect.rotation; 
     }
+
+    //when item tab is pressed
     public void MoveToTargetDisplayPosition()
     {
         itemHolderRect.DOAnchorPos(targetDisplayPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
@@ -32,6 +34,7 @@ public class ItemPanel : MonoBehaviour
         itemHolderRect.DORotateQuaternion(originalRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
     }
 
+    //move along with map
     public void MoveToMapPosition()
     {
         itemHolderRect.DOAnchorPos(targetMapPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);

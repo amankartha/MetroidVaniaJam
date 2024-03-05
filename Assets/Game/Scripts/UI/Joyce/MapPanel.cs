@@ -18,6 +18,7 @@ public class MapPanel : MonoBehaviour
     public Vector2 targetMapHolderPosition;
     Vector2 originalMapHolderPosition;
 
+    bool isFolded = true;
 
     private void Start()
     {
@@ -33,14 +34,22 @@ public class MapPanel : MonoBehaviour
 
     public void UnfoldMap()
     {
-        mapRightPageRect.DORotateQuaternion(targetMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-        mapHolderRect.DORotateQuaternion(targetMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        if (isFolded)
+        {
+            mapRightPageRect.DORotateQuaternion(targetMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+            mapHolderRect.DORotateQuaternion(targetMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+            isFolded = false;
+        }       
     }
 
     public void FoldMap()
     {
-        mapRightPageRect.DORotateQuaternion(originalMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-        mapHolderRect.DORotateQuaternion(originalMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        if (!isFolded)
+        {
+            mapRightPageRect.DORotateQuaternion(originalMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+            mapHolderRect.DORotateQuaternion(originalMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+            isFolded = true;
+        }        
     }
 
     public void MoveToTargetPosition()

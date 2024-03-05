@@ -9,6 +9,7 @@ public class InGameMenuUI : MonoBehaviour
     [SerializeField] Button[] menuButtons;
     [SerializeField] MapPanel mapPanel;
     [SerializeField] ItemPanel itemPanel;
+    [SerializeField] CharacterPanel characterPanel;
     [SerializeField] GameObject discriptionHolder;
 
     void Start()
@@ -34,6 +35,7 @@ public class InGameMenuUI : MonoBehaviour
         mapPanel.UnfoldMap();
         mapPanel.MoveToOriginalPosition();
         itemPanel.MoveToOriginalPosition();
+        characterPanel.MoveToOriginalPosition();
     }
 
     public void OnCharacterButton()
@@ -41,6 +43,7 @@ public class InGameMenuUI : MonoBehaviour
         mapPanel.FoldMap();
         mapPanel.MoveToTargetPosition();
         itemPanel.MoveToMapPosition();
+        characterPanel.MoveToOriginalPosition();
     }
 
     public void OnItemButton()
@@ -48,6 +51,15 @@ public class InGameMenuUI : MonoBehaviour
         mapPanel.FoldMap();
         mapPanel.MoveToTargetPosition();
         itemPanel.MoveToTargetDisplayPosition();
+        characterPanel.MoveToOriginalPosition();
+    }
+
+    public void OnOptionButton()
+    {
+        mapPanel.FoldMap();
+        mapPanel.MoveToTargetPosition();
+        itemPanel.MoveToMapPosition();
+        characterPanel.MoveToTargetPosition();
     }
 
 }
