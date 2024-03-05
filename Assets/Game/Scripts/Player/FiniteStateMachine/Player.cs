@@ -7,7 +7,12 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
+    #region Variables
 
+    
+
+    #endregion
+    
     #region STATES
 
     public PlayerStateMachine StateMachine { get; private set; }
@@ -36,7 +41,9 @@ public class Player : MonoBehaviour
     #endregion
 
     #region COMPONENTS
-
+    
+    
+    [field:SerializeField] public Health PlayerHealth { get; private set; }
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
@@ -81,6 +88,13 @@ public class Player : MonoBehaviour
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, _playerData, "ledgeClimbState");
         DodgeState = new PlayerDodgeState(this, StateMachine, _playerData, "dodge");
         ThrowState = new PlayerThrowState(this, StateMachine, _playerData, "throw");
+
+        #region Healthstuff
+
+        PlayerHealth.HealthValue = _playerData.PlayerBaseHealth;
+
+
+        #endregion
 
     }
 
@@ -181,7 +195,15 @@ public class Player : MonoBehaviour
 
 
     #endregion
-    
+
+    #region HEALTHMETHODS
+
+    public void DrinkPotion()
+    {
+        PlayerHealth.ModifyHealth(_playerData.HPPotionRecoverAmount);
+    }
+
+    #endregion
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
