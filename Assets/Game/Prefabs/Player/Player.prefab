@@ -5653,6 +5653,7 @@ GameObject:
   - component: {fileID: 7021781108865126449}
   - component: {fileID: 6911105615339098525}
   - component: {fileID: 4891990508837500229}
+  - component: {fileID: 1169680500597190154}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -5811,7 +5812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39629de3fe462fc40b77df0285748d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerHealth>k__BackingField: {fileID: 0}
+  <PlayerHealth>k__BackingField: {fileID: 1169680500597190154}
   dustPS: {fileID: 2828156457263032926}
   <Briefcase>k__BackingField: {fileID: 0}
   _playerData: {fileID: 11400000, guid: 35161cac1cf178a4094c3d6a62557ee5, type: 2}
@@ -5946,6 +5947,18 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1169680500597190154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8813062249786700881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa71c3d9bda72cf4e94609e7772284e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9042732027318143374
 GameObject:
   m_ObjectHideFlags: 0
