@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementVelocity: 10
   jumpVelocity: 15
+  secondJumpVelocity: 30
   numberOfJumps: 2
   aerialVelocity: 5
   coyoteTime: 0.2
@@ -31,5 +32,7 @@ MonoBehaviour:
   stopOffset: {x: 0.4, y: 0.2}
   dodgeDuration: 1
   dodgeVelocityX: 7
-  throwMaxDistance: 10
-  throwMaxDuration: 2
+  throwVelocity: 30
+  throwMaxDuration: 0.2
+  throwIdleDuration: 1
+  teleportDelay: 0.3

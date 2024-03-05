@@ -11,6 +11,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
     //main player stuff
     public GameObject goMainPlayer;
     public Transform tMainPlayer;
+    public Player PlayerScript;
     
     #endregion
     
