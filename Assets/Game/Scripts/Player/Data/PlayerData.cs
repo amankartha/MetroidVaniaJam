@@ -40,4 +40,16 @@ public class PlayerData : ScriptableObject
     public float throwMaxDuration = 0.5f;
     public float throwIdleDuration = 1f;
     public float teleportDelay = 0.3f;
+
+    [Header("Health")]
+    public int PlayerBaseHealth = 3;
+    public int HealthPickupRange = 1;
+    public int HPPotionRecoverAmount = 1;
+    public int HPRecoverAmountRat = 1;
+    public int HPRecoverAmountSheilder = 1;
+    public int HPRecoverAmountCoffee = 1;
+    public int HPRecoverAmountPenBoss = 1;
+
+    [Header("Upgrades")] 
+    public int HealthIncreaseAmount = 1;
 }
