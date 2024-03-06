@@ -96,9 +96,9 @@ public class TabletUI : MonoBehaviour
             for (int i = 0; i <= line.Length; i++)
             {
                 mainTextTMP.text = previousText + line.Substring(0, i);
-                yield return new WaitForSeconds(0.03f);
+                yield return new WaitForSecondsRealtime(0.03f);
             }
-            yield return new WaitForSeconds(0.65f);
+            yield return new WaitForSecondsRealtime(0.65f);
             //gameOverText.text += "\n";
             previousText = mainTextTMP.text + "\n";
         }
@@ -108,20 +108,20 @@ public class TabletUI : MonoBehaviour
 
     void FadeInText(TMP_Text text)
     {
-        text.DOFade(1f, 0.8f).SetEase(Ease.Linear)
+        text.DOFade(1f, 0.8f).SetEase(Ease.Linear).SetUpdate(true)
             .OnComplete(() => canExitCanvas = true);
     }
 
     public void FadeInCanvas()
     {
         canvasGroup.alpha = 0f;
-        canvasGroup.DOFade(1f, 0.8f);
+        canvasGroup.DOFade(1f, 0.8f).SetUpdate(true);
     }
 
     public void FadeOutAndDestroyCanvas()
     {
         canvasGroup.alpha = 1f;
-        canvasGroup.DOFade(0f, 0.4f)
+        canvasGroup.DOFade(0f, 0.4f).SetUpdate(true)
             .OnComplete(() => Destroy(this.gameObject));
     }
 }
