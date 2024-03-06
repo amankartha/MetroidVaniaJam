@@ -20,6 +20,7 @@ public class TutorialTrigger : MonoBehaviour
             && isTriggered )
         {
             GameManager.Instance.goMainPlayer.GetComponent<PlayerInput>().ActivateInput();
+            Time.timeScale = 1;
             tabletUI.FadeOutAndDestroyCanvas();
             Destroy(this.gameObject);
         }
@@ -30,6 +31,7 @@ public class TutorialTrigger : MonoBehaviour
         {
             isTriggered = true;
             collision.gameObject.GetComponent<PlayerInput>().DeactivateInput();
+            Time.timeScale = 0;
             GameObject go = Instantiate(tabletCanvasPrefab);
             tabletUI = go.GetComponent<TabletUI>();
             tabletUI.FadeInCanvas();
