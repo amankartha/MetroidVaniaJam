@@ -18,9 +18,11 @@ public class AreaMap : MonoBehaviour
     {
         if (Keyboard.current.iKey.wasPressedThisFrame && isTriggered && !gotMap)
         {
-            Destroy(interactIcon);
-            GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>().unlockMap = true;
+            Debug.Log("hello?");
+            GameManager.Instance.mapScript.RevealNewAreaOnMap();
             gotMap = true;
+            Destroy(interactIcon);
+            //GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>().unlockMap = true;
             Destroy(this.gameObject);
         }
     }

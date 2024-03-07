@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMapLocation : MonoBehaviour
 {
-    MapArea currentMapArea;
-    int currentRoomID;
-    public bool unlockMap = false;
+    public MapArea currentMapArea;
+    public int currentRoomID;
+    //public bool unlockMap = false;
 
     public MapArea GetCurrentMapArea()
     {

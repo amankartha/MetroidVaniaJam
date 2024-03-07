@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
 
 public class InGameMenuUI : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class InGameMenuUI : MonoBehaviour
     [SerializeField] ItemPanel itemPanel;
     [SerializeField] CharacterPanel characterPanel;
     [SerializeField] GameObject discriptionHolder;
+
+    bool isMenuOpened = false;
+
 
     void Start()
     {
@@ -29,6 +34,23 @@ public class InGameMenuUI : MonoBehaviour
             menuPanels[i].SetActive(i == index);
         }
     }*/
+
+    private void Update()
+    {
+        if (Keyboard.current.xKey.wasPressedThisFrame)
+        {
+            if (!isMenuOpened)
+            {
+                OpenInGameMenu();
+                isMenuOpened = true;
+            }
+            else
+            {
+                CloseInGameMenu();
+                isMenuOpened = false;
+            }
+        }
+    }
 
     public void CloseInGameMenu()
     {

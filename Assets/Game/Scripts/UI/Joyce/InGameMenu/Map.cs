@@ -67,20 +67,22 @@ public class Map : MonoBehaviour
 
         Debug.Log(currentMapArea + " " + currentRoomID);
 
-        if (GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>().unlockMap)
+        /*if (GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>().unlockMap)
         {
             Debug.Log("reveal new area");
             RevealNewAreaOnMap();
             GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>().unlockMap = false;
-        }
+        }*/
 
     }
 
     public void RevealNewAreaOnMap()
     {
-        if(currentRoomPin != null)
+        UpdatePlayerRoomLocation(false);
+        if (currentRoomPin != null)
         {
-           /* GameObject go = Instantiate(areaMapLeftImagePrefab, areaMapLeftImageRect);
+            Debug.Log("revealed new area");
+            /* GameObject go = Instantiate(areaMapLeftImagePrefab, areaMapLeftImageRect);
             go.GetComponent<Image>().sprite = currentRoomPin.mapSprite;
             areaMapImages.Add(go);
 
@@ -88,7 +90,7 @@ public class Map : MonoBehaviour
             go2.GetComponent<Image>().sprite = currentRoomPin.mapSprite2;
             areaMapImages.Add(go2);*/
 
-            foreach(AreaMapImage areaMapImage in areaMapLeftImages)
+            foreach (AreaMapImage areaMapImage in areaMapLeftImages)
             {
                 if(areaMapImage.mapArea == currentRoomPin.mapArea)
                 {
