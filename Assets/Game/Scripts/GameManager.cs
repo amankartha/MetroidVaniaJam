@@ -14,6 +14,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public Player PlayerScript;
 
     public Map mapScript;
+    public GameObject goHUD;
     
     #endregion
     

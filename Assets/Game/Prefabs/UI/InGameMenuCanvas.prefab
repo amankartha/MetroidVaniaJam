@@ -2092,6 +2092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 8313921135774758557}
+  canvasGroup: {fileID: 2541816066271630769}
   menuPanels:
   - {fileID: 6599237352592616312}
   - {fileID: 6853295263699886924}
@@ -9407,6 +9408,7 @@ GameObject:
   - component: {fileID: 6918672434107422835}
   - component: {fileID: 7209999606147666419}
   - component: {fileID: 5447178605469490196}
+  - component: {fileID: 2541816066271630769}
   m_Layer: 5
   m_Name: InGameMenuPanel
   m_TagString: Untagged
@@ -9477,6 +9479,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2541816066271630769
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313921135774758557}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8369306167889256806
 GameObject:
   m_ObjectHideFlags: 0

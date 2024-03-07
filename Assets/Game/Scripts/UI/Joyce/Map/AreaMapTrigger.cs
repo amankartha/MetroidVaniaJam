@@ -6,13 +6,18 @@ using UnityEngine.InputSystem;
 public class AreaMapTrigger : MonoBehaviour
 {
     public GameObject interactIconPrefab;
-    public RectTransform canvasRectTransform;
     public Transform iconSpawnPos;
 
     bool isTriggered = false;
     bool gotMap = false;
 
+    RectTransform canvasRectTransform;
     GameObject interactIcon;
+
+    private void Start()
+    {
+        canvasRectTransform = GameManager.Instance.goHUD.GetComponent<RectTransform>();
+    }
 
     private void Update()
     {

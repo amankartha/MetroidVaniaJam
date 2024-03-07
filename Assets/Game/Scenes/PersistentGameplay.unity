@@ -147,6 +147,10 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: goHUD
+      value: 
+      objectReference: {fileID: 1501368560}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: mapScript
       value: 
       objectReference: {fileID: 2026241041}
@@ -883,6 +887,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1501368560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1329824611001650560, guid: bff6f8e98cf5ed9459ad5735cc299289, type: 3}
+  m_PrefabInstance: {fileID: 567386869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1576605494
 GameObject:
   m_ObjectHideFlags: 0

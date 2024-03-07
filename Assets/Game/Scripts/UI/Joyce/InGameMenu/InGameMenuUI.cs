@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 
 public class InGameMenuUI : MonoBehaviour
 {
     [SerializeField] GameObject menuPanel;
+    [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] GameObject[] menuPanels;
     [SerializeField] Button[] menuButtons;
     [SerializeField] MapPanel mapPanel;
@@ -57,7 +59,8 @@ public class InGameMenuUI : MonoBehaviour
         if (mapPanel.gameObject.activeSelf)
         {
             mapPanel.FoldMap();
-            Invoke("DeactiveMenu", 0.6f);
+            DeactiveMenu();
+            //Invoke("DeactiveMenu", 0.6f);
         }
         else
         {
@@ -70,12 +73,14 @@ public class InGameMenuUI : MonoBehaviour
     
     void DeactiveMenu()
     {
-        menuPanel.SetActive(false);
+        canvasGroup.DOFade(0f, 0.4f).SetUpdate(true)
+            .OnComplete(() => menuPanel.SetActive(false));
     }
 
     public void OpenInGameMenu()
     {
         menuPanel.SetActive(true);
+        canvasGroup.DOFade(1f, 0.4f).SetUpdate(true);
     }
 
     public void OnMapButton()
