@@ -203,6 +203,11 @@ public class Player : MonoBehaviour
         PlayerHealth.ModifyHealth(_playerData.HPPotionRecoverAmount);
     }
 
+    public void UseGoldenContract()
+    {
+        PlayerHealth.UpgradeHealth();
+    }
+
     #endregion
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
