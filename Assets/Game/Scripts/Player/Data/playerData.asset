@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   movementVelocity: 10
-  jumpVelocity: 15
+  jumpVelocity: 20.5
+  secondJumpVelocity: 16.5
   numberOfJumps: 2
-  aerialVelocity: 5
+  aerialVelocity: 5.5
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.5
   groundCheckRadius: 0.3
@@ -23,7 +24,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  wallSlideVelocity: 3
+  wallSlideVelocity: 4.5
   wallJumpVelocity: 20
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
@@ -31,5 +32,15 @@ MonoBehaviour:
   stopOffset: {x: 0.4, y: 0.2}
   dodgeDuration: 1
   dodgeVelocityX: 7
-  throwMaxDistance: 10
-  throwMaxDuration: 2
+  throwVelocity: 30
+  throwMaxDuration: 0.2
+  throwIdleDuration: 1
+  teleportDelay: 0.3
+  PlayerBaseHealth: 3
+  HealthPickupRange: 1
+  HPPotionRecoverAmount: 1
+  HPRecoverAmountRat: 1
+  HPRecoverAmountSheilder: 1
+  HPRecoverAmountCoffee: 1
+  HPRecoverAmountPenBoss: 1
+  HealthIncreaseAmount: 1
