@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AreaMap : MonoBehaviour
+public class AreaMapTrigger : MonoBehaviour
 {
     public GameObject interactIconPrefab;
     public RectTransform canvasRectTransform;
@@ -22,7 +22,6 @@ public class AreaMap : MonoBehaviour
             GameManager.Instance.mapScript.RevealNewAreaOnMap();
             gotMap = true;
             Destroy(interactIcon);
-            //GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>().unlockMap = true;
             Destroy(this.gameObject);
         }
     }

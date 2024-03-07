@@ -6,7 +6,6 @@ public class PlayerMapLocation : MonoBehaviour
 {
     public MapArea currentMapArea;
     public int currentRoomID;
-    //public bool unlockMap = false;
 
     public MapArea GetCurrentMapArea()
     {

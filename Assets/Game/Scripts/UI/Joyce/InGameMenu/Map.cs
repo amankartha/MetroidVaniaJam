@@ -15,12 +15,6 @@ public class Map : MonoBehaviour
     RoomPin currentRoomPin;
 
     [Header("WorldMap")]
-    public GameObject areaMapLeftImagePrefab;
-    public GameObject areaMapRightImagePrefab;
-    [SerializeField] RectTransform areaMapLeftImageRect;
-    [SerializeField] RectTransform areaMapRightImageRect;
-    public List<GameObject> areaMapImages = new List<GameObject>();
-
     public List<AreaMapImage> areaMapLeftImages = new List<AreaMapImage>();
     public List<AreaMapImage> areaMapRightImages = new List<AreaMapImage>();
 
@@ -67,13 +61,6 @@ public class Map : MonoBehaviour
 
         Debug.Log(currentMapArea + " " + currentRoomID);
 
-        /*if (GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>().unlockMap)
-        {
-            Debug.Log("reveal new area");
-            RevealNewAreaOnMap();
-            GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>().unlockMap = false;
-        }*/
-
     }
 
     public void RevealNewAreaOnMap()
@@ -82,13 +69,6 @@ public class Map : MonoBehaviour
         if (currentRoomPin != null)
         {
             Debug.Log("revealed new area");
-            /* GameObject go = Instantiate(areaMapLeftImagePrefab, areaMapLeftImageRect);
-            go.GetComponent<Image>().sprite = currentRoomPin.mapSprite;
-            areaMapImages.Add(go);
-
-            GameObject go2 = Instantiate(areaMapRightImagePrefab, areaMapRightImageRect);
-            go2.GetComponent<Image>().sprite = currentRoomPin.mapSprite2;
-            areaMapImages.Add(go2);*/
 
             foreach (AreaMapImage areaMapImage in areaMapLeftImages)
             {
