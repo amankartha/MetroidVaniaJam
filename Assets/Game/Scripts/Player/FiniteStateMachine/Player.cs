@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Animator))]
+
 public class Player : MonoBehaviour
 {
+    #region Variables
 
+    
+
+    #endregion
+    
     #region STATES
 
     public PlayerStateMachine StateMachine { get; private set; }
@@ -36,7 +41,9 @@ public class Player : MonoBehaviour
     #endregion
 
     #region COMPONENTS
-
+    
+    
+    [field:SerializeField] public Health PlayerHealth { get; private set; }
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
@@ -82,11 +89,18 @@ public class Player : MonoBehaviour
         DodgeState = new PlayerDodgeState(this, StateMachine, _playerData, "dodge");
         ThrowState = new PlayerThrowState(this, StateMachine, _playerData, "throw");
 
+        #region Healthstuff
+
+        PlayerHealth.HealthValue = _playerData.PlayerBaseHealth;
+
+
+        #endregion
+
     }
 
     private void Start()
     {
-        Anim = GetComponent<Animator>();
+        Anim = GetComponentInChildren<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         BoxCollider2D = GetComponent<BoxCollider2D>();
@@ -140,6 +154,11 @@ public class Player : MonoBehaviour
         CurrentVelocity = workspace;
     }
 
+    public void SetPosition(Vector2 pos)
+    {
+        RB.position = pos;
+    }
+
 
     #endregion
 
@@ -176,7 +195,15 @@ public class Player : MonoBehaviour
 
 
     #endregion
-    
+
+    #region HEALTHMETHODS
+
+    public void DrinkPotion()
+    {
+        PlayerHealth.ModifyHealth(_playerData.HPPotionRecoverAmount);
+    }
+
+    #endregion
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
@@ -215,4 +242,5 @@ public class Player : MonoBehaviour
     
     
     #endregion
+
 }
