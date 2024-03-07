@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InGameMenuUI : MonoBehaviour
 {
+    [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject[] menuPanels;
     [SerializeField] Button[] menuButtons;
     [SerializeField] MapPanel mapPanel;
@@ -28,6 +29,32 @@ public class InGameMenuUI : MonoBehaviour
             menuPanels[i].SetActive(i == index);
         }
     }*/
+
+    public void CloseInGameMenu()
+    {
+        if (mapPanel.gameObject.activeSelf)
+        {
+            mapPanel.FoldMap();
+            Invoke("DeactiveMenu", 0.6f);
+        }
+        else
+        {
+            mapPanel.MoveToOriginalPosition();
+            characterPanel.MoveToOriginalPosition();
+            itemPanel.MoveToOriginalPosition();
+        }
+
+    }
+    
+    void DeactiveMenu()
+    {
+        menuPanel.SetActive(false);
+    }
+
+    public void OpenInGameMenu()
+    {
+        menuPanel.SetActive(true);
+    }
 
     public void OnMapButton()
     {
