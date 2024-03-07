@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Animator))]
+
 public class Player : MonoBehaviour
 {
     #region Variables
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Anim = GetComponent<Animator>();
+        Anim = GetComponentInChildren<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         BoxCollider2D = GetComponent<BoxCollider2D>();
