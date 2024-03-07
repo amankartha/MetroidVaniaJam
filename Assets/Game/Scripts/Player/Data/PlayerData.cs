@@ -52,4 +52,5 @@ public class PlayerData : ScriptableObject
 
     [Header("Upgrades")] 
     public int HealthIncreaseAmount = 1;
+
 }
