@@ -59,8 +59,6 @@ public class Map : MonoBehaviour
             }
         }
 
-        Debug.Log(currentMapArea + " " + currentRoomID);
-
     }
 
     public void RevealNewAreaOnMap()

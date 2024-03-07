@@ -13,6 +13,7 @@ public class AreaMapTrigger : MonoBehaviour
 
     RectTransform canvasRectTransform;
     GameObject interactIcon;
+    Vector2 canvasPosition;
 
     private void Start()
     {
@@ -23,11 +24,15 @@ public class AreaMapTrigger : MonoBehaviour
     {
         if (Keyboard.current.iKey.wasPressedThisFrame && isTriggered && !gotMap)
         {
-            Debug.Log("hello?");
             GameManager.Instance.mapScript.RevealNewAreaOnMap();
             gotMap = true;
             Destroy(interactIcon);
             Destroy(this.gameObject);
+        }
+
+        if (isTriggered && interactIcon != null)
+        {
+            UpdateCanvasPosition();
         }
     }
 
@@ -37,12 +42,6 @@ public class AreaMapTrigger : MonoBehaviour
         {
             isTriggered = true;
 
-            Vector3 worldPosition = iconSpawnPos.position;
-            Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
-
-            Vector2 canvasPosition;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, screenPosition, null, out canvasPosition);
-
             if(interactIcon != null)
             {
                 interactIcon.SetActive(true);
@@ -51,9 +50,16 @@ public class AreaMapTrigger : MonoBehaviour
             {
                 interactIcon = Instantiate(interactIconPrefab, canvasRectTransform);
                 interactIcon.GetComponent<RectTransform>().anchoredPosition = canvasPosition;
-            }
-            
+            }           
         }
+    }
+
+    void UpdateCanvasPosition()
+    {
+        Vector3 worldPosition = iconSpawnPos.position;
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, screenPosition, null, out canvasPosition);
+        interactIcon.GetComponent<RectTransform>().anchoredPosition = canvasPosition;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
