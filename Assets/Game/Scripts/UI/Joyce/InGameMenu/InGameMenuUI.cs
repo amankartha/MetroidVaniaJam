@@ -66,12 +66,21 @@ public class InGameMenuUI : MonoBehaviour
             }
         }
 
+        if (isMenuOpened)
+        {
+            CheckTabSwitchingInput();
+        }
+        
+    }
+
+    void CheckTabSwitchingInput()
+    {
         if (GameManager.Instance.PlayerInputHandler.MenuTabUpInput)
         {
             GameManager.Instance.PlayerInputHandler.UseMenuTabUpInput();
 
             int index = currentTabIndex - 1;
-            if(index < 0)
+            if (index < 0)
             {
                 index = menuButtons.Length - 1;
             }
@@ -94,9 +103,13 @@ public class InGameMenuUI : MonoBehaviour
 
     public void CloseInGameMenu()
     {
+        RectTransform rect = menuButtonRects[currentTabIndex];
+        rect.DOMoveX(rect.position.x + tabMoveDistance, 0.3f);
+        ResetIndexes();
+
         if (!mapPanel.isFolded)
         {
-            mapPanel.FoldMap();
+            mapPanel.FoldMap();           
             Invoke("DeactiveMenu", 0.1f);
         }
         else
@@ -107,7 +120,6 @@ public class InGameMenuUI : MonoBehaviour
             itemPanel.MoveToOriginalPosition();
             Invoke("DeactiveMenu", 0.5f);
         }
-
     }
     
     void DeactiveMenu()
@@ -178,6 +190,12 @@ public class InGameMenuUI : MonoBehaviour
             rect = menuButtonRects[previousTabIndex];
             rect.DOMoveX(rect.position.x + tabMoveDistance, 0.3f);
         }
+    }
+
+    void ResetIndexes()
+    {
+        currentTabIndex = 0;
+        previousTabIndex = 0;
     }
 
 }
