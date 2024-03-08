@@ -8067,7 +8067,6 @@ GameObject:
   - component: {fileID: 8268252833013598653}
   - component: {fileID: 7825612532011275684}
   - component: {fileID: 6284848158249162274}
-  - component: {fileID: 3591549005746542702}
   m_Layer: 5
   m_Name: CharacterPanel
   m_TagString: Untagged
@@ -8149,23 +8148,6 @@ MonoBehaviour:
   characterHolderRect: {fileID: 1139292271205943061}
   discriptionHolder: {fileID: 6618065636353167973}
   targeCharacterHolderPosition: {x: 751, y: 0}
---- !u!114 &3591549005746542702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6853295263699886924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc5ea6beb6f9dd141bd099596a43eeaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contractFragment:
-  - {fileID: 21300000, guid: d19c7da310546ea41be3ea8f94efe7ee, type: 3}
-  - {fileID: 21300000, guid: c48bd417205625c40a9e625041efea31, type: 3}
-  - {fileID: 21300000, guid: 0ff0c1a5fd946194c859f819390cd644, type: 3}
-  - {fileID: 21300000, guid: de6f03662e4600d49a4159e5213cd097, type: 3}
 --- !u!1 &6902561083710617975
 GameObject:
   m_ObjectHideFlags: 0

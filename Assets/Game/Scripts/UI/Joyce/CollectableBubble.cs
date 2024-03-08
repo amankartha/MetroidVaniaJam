@@ -23,11 +23,20 @@ public class CollectableBubble : MonoBehaviour
         {
             GameManager.Instance.PlayerInputHandler.UseInteractInput();
             isCollected = true;
+
             bool shouldUpdateUI = GameManager.Instance.PlayerScript.PlayerHealth.CollcetGoldenContract();
+            GoldenContractDisplay gcd = GameManager.Instance.PlayerScript.healthBarUI.goldenContractDisplay;
+
+            Sequence seq = DOTween.Sequence();
+            seq.AppendCallback(() => gcd.gameObject.SetActive(true));
             if (shouldUpdateUI)
             {
-                GameManager.Instance.PlayerScript.UpdateHealthBarUI();
+                seq.AppendInterval(1.1f);
+                seq.AppendCallback(() => GameManager.Instance.PlayerScript.UpdateHealthBarUI());
             }
+            seq.AppendInterval(1.8f);
+            seq.AppendCallback(() => gcd.ClosePanel());
+
             Destroy(this.gameObject);
         }
     }

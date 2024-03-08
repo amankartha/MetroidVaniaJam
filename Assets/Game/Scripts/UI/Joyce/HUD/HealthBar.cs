@@ -2,23 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] GameObject healthSectionPrefab;
     [SerializeField] GameObject healthBarHolder;
+    public GoldenContractDisplay goldenContractDisplay;
+
     List<Image> healthSections = new List<Image>();
 
-    //int maxHealth;
-    //int currentHealth;
     int healthPerSection;
-    //int numSections;
 
     void Start()
     {
-        //maxHealth = GameManager.Instance.PlayerScript.PlayerHealth.MaxHealth;
-        //currentHealth = GameManager.Instance.PlayerScript.PlayerHealth.HealthValue;
-        //numSections = GameManager.Instance.PlayerScript.PlayerHealth.HPSection;
         healthPerSection = GameManager.Instance.PlayerScript.PlayerHealth.HealthPerSection;
 
         for (int i = 0; i < GameManager.Instance.PlayerScript.PlayerHealth.HPSection; i++)
@@ -32,15 +29,18 @@ public class HealthBar : MonoBehaviour
 
     public void UpgradeHealth()
     {
-        //numSections++;
+        
         GameObject section = Instantiate(healthSectionPrefab, healthBarHolder.transform);
         healthSections.Add(section.GetComponent<Image>());
-        
-        //maxHealth += healthPerSection;
-        //currentHealth = maxHealth;
+        Image sectionImage = section.GetComponent<Image>();
+        Sequence Sequence = DOTween.Sequence();
+        for (int i = 0; i < 4; i++)
+        {
+            Sequence.Append(sectionImage.DOFade(0f, 0.2f));
+            Sequence.Append(sectionImage.DOFade(1f, 0.2f));
+        }
 
         UpdateHealthBar();
-
     }
 
     void UpdateHealthBar()

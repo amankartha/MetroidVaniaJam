@@ -33,12 +33,12 @@ public class Health : MonoBehaviour
     public bool CollcetGoldenContract()
     {
         GoldenContractFragment++;
-        if(GoldenContractFragment >= 3)
+        if(GoldenContractFragment % 3 == 0)
         {
             HPSection++;
             MaxHealth += HealthPerSection;
             HealthValue = MaxHealth;
-            GoldenContractFragment = 0;
+            //GoldenContractFragment = 0;
             return true;
         }
         else
