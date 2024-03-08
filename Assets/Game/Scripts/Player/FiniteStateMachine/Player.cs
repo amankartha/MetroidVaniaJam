@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     
     
     [field:SerializeField] public Health PlayerHealth { get; private set; }
+    [field:SerializeField] public HealthBar healthBarUI { get; private set; }
+
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
@@ -60,6 +62,7 @@ public class Player : MonoBehaviour
     private PlayerData _playerData;
 
     private Vector2 workspace;
+
 
     #endregion
 
@@ -92,7 +95,7 @@ public class Player : MonoBehaviour
         #region Healthstuff
 
         PlayerHealth.HealthValue = _playerData.PlayerBaseHealth;
-
+        PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
 
         #endregion
 
@@ -203,9 +206,9 @@ public class Player : MonoBehaviour
         PlayerHealth.ModifyHealth(_playerData.HPPotionRecoverAmount);
     }
 
-    public void UseGoldenContract()
+    public void UpdateHealthBarUI()
     {
-        PlayerHealth.UpgradeHealth();
+        healthBarUI.UpgradeHealth();
     }
 
     #endregion

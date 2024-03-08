@@ -20,9 +20,12 @@ public class CollectableBubble : MonoBehaviour
         if (GameManager.Instance.PlayerInputHandler.InteractInput && isTriggered && !isCollected)
         {
             GameManager.Instance.PlayerInputHandler.UseInteractInput();
-            Debug.Log("wow");
             isCollected = true;
-            GameManager.Instance.PlayerScript.PlayerHealth.CollcetGoldenContract();
+            bool shouldUpdateUI = GameManager.Instance.PlayerScript.PlayerHealth.CollcetGoldenContract();
+            if (shouldUpdateUI)
+            {
+                GameManager.Instance.PlayerScript.UpdateHealthBarUI();
+            }
             Destroy(this.gameObject);
         }
     }

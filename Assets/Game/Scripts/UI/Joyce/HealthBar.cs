@@ -9,16 +9,19 @@ public class HealthBar : MonoBehaviour
     [SerializeField] GameObject healthBarHolder;
     List<Image> healthSections = new List<Image>();
 
-    public int maxHealth = 100;
-    public int currentHealth = 100;
-    public int healthPerSection;
-    public int numSections = 5;
+    //int maxHealth;
+    //int currentHealth;
+    int healthPerSection;
+    //int numSections;
 
     void Start()
     {
-        healthPerSection = maxHealth / numSections;
+        //maxHealth = GameManager.Instance.PlayerScript.PlayerHealth.MaxHealth;
+        //currentHealth = GameManager.Instance.PlayerScript.PlayerHealth.HealthValue;
+        //numSections = GameManager.Instance.PlayerScript.PlayerHealth.HPSection;
+        healthPerSection = GameManager.Instance.PlayerScript.PlayerHealth.HealthPerSection;
 
-        for (int i = 0; i < numSections; i++)
+        for (int i = 0; i < GameManager.Instance.PlayerScript.PlayerHealth.HPSection; i++)
         {
             GameObject section = Instantiate(healthSectionPrefab, healthBarHolder.transform);
             healthSections.Add(section.GetComponent<Image>());
@@ -26,26 +29,15 @@ public class HealthBar : MonoBehaviour
         UpdateHealthBar();
     }
 
-    private void Update()
-    {
-        //for testing
-        /*
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            UpgradeHealth();
-        }
-
-        UpdateHealthBar();*/
-    }
 
     public void UpgradeHealth()
     {
-        numSections++;
+        //numSections++;
         GameObject section = Instantiate(healthSectionPrefab, healthBarHolder.transform);
         healthSections.Add(section.GetComponent<Image>());
         
-        maxHealth += healthPerSection;
-        currentHealth = maxHealth;
+        //maxHealth += healthPerSection;
+        //currentHealth = maxHealth;
 
         UpdateHealthBar();
 
@@ -53,8 +45,8 @@ public class HealthBar : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        float remainingHealth = currentHealth;
-        for (int i = 0; i < numSections; i++)
+        float remainingHealth = GameManager.Instance.PlayerScript.PlayerHealth.HealthValue;
+        for (int i = 0; i < GameManager.Instance.PlayerScript.PlayerHealth.HPSection; i++)
         {
             if (remainingHealth >= healthPerSection)
             {
