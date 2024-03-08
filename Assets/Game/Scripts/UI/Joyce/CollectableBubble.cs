@@ -15,6 +15,8 @@ public class CollectableBubble : MonoBehaviour
     bool isTriggered = false;
     bool isCollected = false;
 
+    Sequence sequence;
+
     private void Update()
     {
         if (GameManager.Instance.PlayerInputHandler.InteractInput && isTriggered && !isCollected)
@@ -44,16 +46,19 @@ public class CollectableBubble : MonoBehaviour
         if (collision.gameObject == GameManager.Instance.goMainPlayer && isTriggered && !isCollected)
         {
             isTriggered = false;
+            sequence.Kill();
             HideBubble();
         }
     }
 
     void ShowBubble()
     {
+        bullbeSpriteRenderer.DOFade(0f, 0f);
+        objectInsideBubble.DOFade(0f, 0f);
+
         tempBullbeSpriteRenderer.sprite = null;
         tempBullbeSpriteRenderer.gameObject.SetActive(true);
-
-        Sequence sequence = DOTween.Sequence();
+        sequence = DOTween.Sequence();
         int counter = 0;
 
         foreach (Sprite bubbleSprite in bubbleSprites)
@@ -82,7 +87,8 @@ public class CollectableBubble : MonoBehaviour
 
     void HideBubble()
     {
-        bullbeSpriteRenderer.DOFade(0f, 0.4f);
-        objectInsideBubble.DOFade(0f, 0.4f);
+        tempBullbeSpriteRenderer.gameObject.SetActive(false);
+        bullbeSpriteRenderer.DOFade(0f, 0.3f);
+        objectInsideBubble.DOFade(0f, 0.3f);
     }
 }

@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class GoldenContractDisplay : MonoBehaviour
 {
     public List<Sprite> contractFragment = new List<Sprite>();
-    [SerializeField] Image displayImage;
+    //[SerializeField] Image displayImage;
 
-    private void OnEnable()
+   /* private void OnEnable()
     {
         UpdateDisplay();
-    }
+    }*/
 
-    public void UpdateDisplay()
+    public Sprite UpdateDisplay()
     {
         int fragments = GameManager.Instance.PlayerScript.PlayerHealth.GoldenContractFragment;
-        displayImage.sprite = contractFragment[fragments];
+        return contractFragment[fragments];
     }
 }

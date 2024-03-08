@@ -27,6 +27,8 @@ public class InGameMenuUI : MonoBehaviour
             int panelIndex = i;
             menuButtons[i].onClick.AddListener(() => SetPanelActive(panelIndex));
         }*/
+
+        canvasGroup.alpha = 0;
     }
 
     /*void SetPanelActive(int index)
