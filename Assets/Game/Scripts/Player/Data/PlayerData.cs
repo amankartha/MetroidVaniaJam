@@ -34,8 +34,9 @@ public class PlayerData : ScriptableObject
     [Header("Dodge State")] 
     public float dodgeDuration = 1f;
     public float dodgeVelocityX = 15f;
-    
-    [Header("Briefcase")]
+
+    [Header("Briefcase")] 
+    public float throwCoolDown = 2f;
     public float throwVelocity = 30f;
     public float throwMaxDuration = 0.5f;
     public float throwIdleDuration = 1f;

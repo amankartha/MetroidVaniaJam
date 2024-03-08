@@ -101,7 +101,8 @@ public class Briefcase : MonoBehaviour
 
     public void ThrowBriefcase()
     {
-       StateMachine.ChangeState(ThrowState);
+        _player.SetThrowFalse();
+        StateMachine.ChangeState(ThrowState);
     }
 
     private void ReturnHelper(Tweener tweener)

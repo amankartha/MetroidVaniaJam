@@ -3,13 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.System;
 using UnityEngine;
-
+using UnityEngine.Serialization;
 
 
 public class Player : MonoBehaviour
 {
     #region Variables
 
+    private float _throwCooldown;
+    private float _throwCooldownTimer;
+    public float ThrowCooldownTimer 
+    {
+        get => _throwCooldownTimer;
+
+        private set
+        {
+            if (!_canThrow && _throwCooldownTimer <=0)
+            {
+                _canThrow = true;
+                _throwCooldownTimer = _throwCooldown;
+            }
+            else
+            {
+                _throwCooldownTimer = value;
+                _throwCooldownTimer = Mathf.Clamp(_throwCooldownTimer, 0, 100);    
+            }
+            
+        }
+    }
+    private bool _canThrow;
     
 
     #endregion
@@ -57,7 +79,7 @@ public class Player : MonoBehaviour
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
-    [field: SerializeField] public Briefcase Briefcase { get; private set; }
+    [field: SerializeField] public Briefcase BriefcaseScript { get; private set; }
     
     [SerializeField] 
     private PlayerData _playerData;
@@ -94,12 +116,7 @@ public class Player : MonoBehaviour
         DodgeState = new PlayerDodgeState(this, StateMachine, _playerData, "dodge");
         ThrowState = new PlayerThrowState(this, StateMachine, _playerData, "throw");
 
-        #region Healthstuff
-
-        PlayerHealth.SetHealth(_playerData.PlayerBaseHealth);
-        PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
-
-        #endregion
+     
 
     }
 
@@ -112,6 +129,17 @@ public class Player : MonoBehaviour
         
         FacingDirection = 1;
         StateMachine.Initialize(IdleState);
+
+        _throwCooldown = _playerData.throwCoolDown;
+        ThrowCooldownTimer = _throwCooldown;
+        _canThrow = true;
+        
+        #region Healthstuff
+
+        PlayerHealth.SetHealth(_playerData.PlayerBaseHealth);
+        PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
+
+        #endregion
     }
 
     private void Update()
@@ -119,12 +147,17 @@ public class Player : MonoBehaviour
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
         
-      
+       
     }
 
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+        if (!_canThrow && BriefcaseScript._isBriefcaseInHand)
+        {
+            ThrowCooldownTimer -= Time.fixedDeltaTime;
+           
+        }
     }
 
     #endregion
@@ -198,6 +231,11 @@ public class Player : MonoBehaviour
             _playerData.groundLayer);
     }
 
+    public bool CheckIfCanThrow()
+    {
+        return _canThrow;
+    }
+
 
     #endregion
 
@@ -248,7 +286,11 @@ public class Player : MonoBehaviour
         workspace.Set(_wallCheck.position.x + xDistance * FacingDirection, _ledgeCheck.position.y - yDistance);
         return workspace;
     }
-    
+
+    public void SetThrowFalse()
+    {
+        _canThrow = false;
+    }
     
     
     #endregion
