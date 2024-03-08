@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDamageable
 {
    
-    public int HealthValue { get; set; } = 3;
+    public int HealthValue { get; protected set; } = 3;
     public int MaxHealth { get; set; }
     public int HPSection { get; set; }
     public int HealthPerSection { get; set; }
@@ -23,7 +23,9 @@ public class Health : MonoBehaviour
     {
         
     }
-
+    
+    
+    
 
     public void ModifyHealth(int value)
     {
@@ -47,4 +49,8 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int value)
+    {
+        throw new System.NotImplementedException();
+    }
 }

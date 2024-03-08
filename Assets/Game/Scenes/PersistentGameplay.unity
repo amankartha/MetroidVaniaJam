@@ -167,9 +167,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 526433219}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: PlayerHealthScript
+      value: 
+      objectReference: {fileID: 271293281846640511}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: PlayerInputHandler
       value: 
       objectReference: {fileID: 271293281846640510}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: PlayerHealthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: PlayerHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8640882130107526590, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2601,6 +2613,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f227965bca18ece49ac0717880adfee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &271293281846640511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8215260453692718312, guid: 58c5eaf4a3936dc4fb940701acc046bb, type: 3}
+  m_PrefabInstance: {fileID: 271293281846640509}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526433219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90da7068be524da2ae85331a63c87cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

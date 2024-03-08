@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.System;
 using UnityEngine;
 
 
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
     #region COMPONENTS
     
     
-    [field:SerializeField] public Health PlayerHealth { get; private set; }
+    [field:SerializeField] public PlayerHealth PlayerHealth { get; private set; }
     [field:SerializeField] public HealthBar healthBarUI { get; private set; }
 
     public Animator Anim { get; private set; }
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private Transform _wallCheck;
     [SerializeField] private Transform _ledgeCheck;
+    [SerializeField] private Transform _damageCheck;
 
     #endregion
     
@@ -94,7 +96,7 @@ public class Player : MonoBehaviour
 
         #region Healthstuff
 
-        PlayerHealth.HealthValue = _playerData.PlayerBaseHealth;
+        PlayerHealth.SetPlayerHealth(_playerData.PlayerBaseHealth);
         PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
 
         #endregion

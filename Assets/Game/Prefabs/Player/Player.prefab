@@ -126,6 +126,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6193013810170713212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &250425797229979071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3862438464901441827}
+  m_Layer: 7
+  m_Name: DamageLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3862438464901441827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250425797229979071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.858, y: 1.061, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3472301260874925621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609734559304431204
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,8 +5751,8 @@ GameObject:
   - component: {fileID: 4427244609462831520}
   - component: {fileID: 6911105615339098525}
   - component: {fileID: 4891990508837500229}
-  - component: {fileID: 1169680500597190154}
   - component: {fileID: 7689898545182745807}
+  - component: {fileID: 8215260453692718312}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -5746,6 +5777,7 @@ Transform:
   - {fileID: 3303295609019160540}
   - {fileID: 924612633720041315}
   - {fileID: 5141520402648315023}
+  - {fileID: 3862438464901441827}
   - {fileID: 2362767815290657622}
   - {fileID: 5736154814070519122}
   - {fileID: 3995165331966712327}
@@ -5880,7 +5912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39629de3fe462fc40b77df0285748d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerHealth>k__BackingField: {fileID: 1169680500597190154}
+  <PlayerHealth>k__BackingField: {fileID: 0}
   <healthBarUI>k__BackingField: {fileID: 0}
   dustPS: {fileID: 2828156457263032926}
   <Briefcase>k__BackingField: {fileID: 0}
@@ -5888,6 +5920,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 924612633720041315}
   _wallCheck: {fileID: 3303295609019160540}
   _ledgeCheck: {fileID: 5141520402648315023}
+  _damageCheck: {fileID: 3862438464901441827}
 --- !u!114 &6911105615339098525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6075,18 +6108,6 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1169680500597190154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8813062249786700881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa71c3d9bda72cf4e94609e7772284e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7689898545182745807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6101,6 +6122,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMapArea: 0
   currentRoomID: 0
+--- !u!114 &8215260453692718312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8813062249786700881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90da7068be524da2ae85331a63c87cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9042732027318143374
 GameObject:
   m_ObjectHideFlags: 0
