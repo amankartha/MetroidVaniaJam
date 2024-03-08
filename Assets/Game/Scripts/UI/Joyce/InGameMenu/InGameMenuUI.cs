@@ -39,8 +39,10 @@ public class InGameMenuUI : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.xKey.wasPressedThisFrame)
+        if (GameManager.Instance.PlayerInputHandler.MapInput)
         {
+            GameManager.Instance.PlayerInputHandler.UseMapInput();
+
             if (!isMenuOpened)
             {
                 OpenInGameMenu();
@@ -56,17 +58,18 @@ public class InGameMenuUI : MonoBehaviour
 
     public void CloseInGameMenu()
     {
-        if (mapPanel.gameObject.activeSelf)
+        if (!mapPanel.isFolded)
         {
             mapPanel.FoldMap();
-            DeactiveMenu();
-            //Invoke("DeactiveMenu", 0.6f);
+            Invoke("DeactiveMenu", 0.1f);
         }
         else
         {
+            discriptionHolder.SetActive(false);
             mapPanel.MoveToOriginalPosition();
             characterPanel.MoveToOriginalPosition();
             itemPanel.MoveToOriginalPosition();
+            Invoke("DeactiveMenu", 0.5f);
         }
 
     }

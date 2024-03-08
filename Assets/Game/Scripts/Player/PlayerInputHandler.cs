@@ -21,17 +21,25 @@ public class PlayerInputHandler : MonoBehaviour
    
    public bool InteractInput { get; private set; }
    public bool InteractInputStop { get; private set; }
-   
+
+    public bool MapInput { get; private set; }
+    public bool MapInputStop { get; private set; }
+
+    public bool MapZoomInput { get; private set; }
+    public bool MapZoomInputStop { get; private set; }
 
 
 
-
-   [SerializeField] private float _inputHoldTime = 0.2f;
+    [SerializeField] private float _inputHoldTime = 0.2f;
    private float jumpInputStartTime;
    private float _dodgeInputStartTime;
    private float _throwInputStartTime;
    private float _interactInputStartTime;
-   private void Update()
+    private float _mapInputStartTime;
+    private float _mapZoomInputStartTime;
+
+
+    private void Update()
    {
        CheckJumpInputHoldTime();
    }
@@ -109,7 +117,38 @@ public class PlayerInputHandler : MonoBehaviour
        }
    }
 
-   public void UseJumpInput() => JumpInput = false;
+    public void OnMapInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            MapInput = true;
+            MapInputStop = false;
+            _mapInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            MapInput = false;
+            MapInputStop = true;
+        }
+    }
+    public void OnMapZoomInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            MapZoomInput = true;
+            MapZoomInputStop = false;
+            _mapZoomInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            MapZoomInput = false;
+            MapZoomInputStop = true;
+        }
+    }
+
+    public void UseJumpInput() => JumpInput = false;
 
    public void UseDodgeInput() => DodgeInput = false;
 
@@ -117,7 +156,11 @@ public class PlayerInputHandler : MonoBehaviour
 
    public void UseInteractInput() => InteractInput = false;
 
-   private void CheckJumpInputHoldTime()
+    public void UseMapInput() => MapInput = false;
+
+    public void UseMapZoomInput() => MapZoomInput = false;
+
+    private void CheckJumpInputHoldTime()
    {
        if (Time.time >= jumpInputStartTime + _inputHoldTime)
        {
