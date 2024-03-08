@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
-
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class MapPanel : MonoBehaviour
 {
     [SerializeField] RectTransform mapRightPageRect;
     [SerializeField] RectTransform mapHolderRect;
+    [SerializeField] GameObject zoomTextHolder;
+    [SerializeField] TMP_Text zoomText;
 
     public Quaternion targetMapRightRotation;
     Quaternion originalMapRightRotation;
@@ -18,38 +22,59 @@ public class MapPanel : MonoBehaviour
     public Vector2 targetMapHolderPosition;
     Vector2 originalMapHolderPosition;
 
-    bool isFolded = true;
+    public bool isFolded = true;
+
+    [SerializeField] Sprite roomMapLeftSprite;
+    [SerializeField] Sprite roomMapRightSprite;
+    [SerializeField] Sprite worldMapLeftSprite;
+    [SerializeField] Sprite worldMapRightSprite;
+    [SerializeField] Image mapLeftImage;
+    [SerializeField] Image mapRightImage;
+    [SerializeField] GameObject playerMapIcon;
+
+    bool isZoomedIn;
+
+    [SerializeField] Map map;
 
     private void Start()
     {
         originalMapRightRotation = mapRightPageRect.rotation;
         originalMapHolderRotation = mapHolderRect.rotation;
         originalMapHolderPosition = mapHolderRect.anchoredPosition;
+        zoomText.text = "Zoom In";
     }
 
-    void OnEnable()
+    private void Update()
     {
-        UnfoldMap();
+        if (GameManager.Instance.PlayerInputHandler.MapZoomInput && !isFolded)
+        {
+            GameManager.Instance.PlayerInputHandler.UseMapZoomInput();
+            ToggleMapZoom();
+        }
     }
 
     public void UnfoldMap()
     {
         if (isFolded)
         {
-            mapRightPageRect.DORotateQuaternion(targetMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-            mapHolderRect.DORotateQuaternion(targetMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
             isFolded = false;
-        }       
+            UpdateMap(!isZoomedIn);
+            map.UpdatePlayerRoomLocation(isZoomedIn);
+            mapRightPageRect.DORotateQuaternion(targetMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+            mapHolderRect.DORotateQuaternion(targetMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f)
+                .OnComplete(() => ToggleIconsDisplay(true));
+        }
     }
 
     public void FoldMap()
     {
         if (!isFolded)
         {
+            isFolded = true;
             mapRightPageRect.DORotateQuaternion(originalMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
             mapHolderRect.DORotateQuaternion(originalMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-            isFolded = true;
-        }        
+            ToggleIconsDisplay(false);
+        }
     }
 
     public void MoveToTargetPosition()
@@ -62,4 +87,66 @@ public class MapPanel : MonoBehaviour
         mapHolderRect.DOAnchorPos(originalMapHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
     }
 
+    public void ToggleMapZoom()
+    {
+        if (isZoomedIn)
+        {
+            UpdateMap(true);
+            zoomText.text = "Zoom In";
+        }
+        else
+        {
+            UpdateMap(false);
+            
+            zoomText.text = "Zoom Out";
+        }
+        isZoomedIn = !isZoomedIn;
+        map.UpdatePlayerRoomLocation(isZoomedIn);
+    }
+
+    void UpdateMap(bool isWorldMap)
+    {
+        List<AreaMapImage> areaMapLeftImages = map.areaMapLeftImages;
+        List<AreaMapImage> areaMapRightImages = map.areaMapRightImages;
+        if (isWorldMap)
+        {            
+            foreach (AreaMapImage areaMapImage in areaMapLeftImages)
+            {
+                if (areaMapImage.gameObject.activeSelf)
+                {
+                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.worldMapSprite;
+                }
+            }
+            foreach (AreaMapImage areaMapImage in areaMapRightImages)
+            {
+                if (areaMapImage.gameObject.activeSelf)
+                {
+                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.worldMapSprite;
+                }
+            }
+        }
+        else
+        {           
+            foreach (AreaMapImage areaMapImage in areaMapLeftImages)
+            {
+                if (areaMapImage.gameObject.activeSelf)
+                {
+                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.regionalMapSprite;
+                }
+            }
+            foreach (AreaMapImage areaMapImage in areaMapRightImages)
+            {
+                if (areaMapImage.gameObject.activeSelf)
+                {
+                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.regionalMapSprite;
+                }
+            }
+        }
+    }
+
+    void ToggleIconsDisplay(bool setToActive)
+    {
+        zoomTextHolder.SetActive(setToActive);
+        playerMapIcon.SetActive(setToActive);
+    }
 }

@@ -12,6 +12,10 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public GameObject goMainPlayer;
     public Transform tMainPlayer;
     public Player PlayerScript;
+    public PlayerInputHandler PlayerInputHandler;
+
+    public Map mapScript;
+    public GameObject goHUD;
     
     #endregion
     

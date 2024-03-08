@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Animator))]
+
 public class Player : MonoBehaviour
 {
     #region Variables
@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     
     
     [field:SerializeField] public Health PlayerHealth { get; private set; }
+    [field:SerializeField] public HealthBar healthBarUI { get; private set; }
+
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
@@ -60,6 +62,7 @@ public class Player : MonoBehaviour
     private PlayerData _playerData;
 
     private Vector2 workspace;
+
 
     #endregion
 
@@ -92,7 +95,7 @@ public class Player : MonoBehaviour
         #region Healthstuff
 
         PlayerHealth.HealthValue = _playerData.PlayerBaseHealth;
-
+        PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
 
         #endregion
 
@@ -100,7 +103,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Anim = GetComponent<Animator>();
+        Anim = GetComponentInChildren<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         BoxCollider2D = GetComponent<BoxCollider2D>();
@@ -203,6 +206,11 @@ public class Player : MonoBehaviour
         PlayerHealth.ModifyHealth(_playerData.HPPotionRecoverAmount);
     }
 
+    public void UpdateHealthBarUI()
+    {
+        healthBarUI.UpgradeHealth();
+    }
+
     #endregion
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
@@ -242,4 +250,5 @@ public class Player : MonoBehaviour
     
     
     #endregion
+
 }
