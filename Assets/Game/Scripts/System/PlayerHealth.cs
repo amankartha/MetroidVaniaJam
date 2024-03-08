@@ -7,13 +7,15 @@ namespace Game.Scripts.System
         public override void Damage(int value)
         {
             base.Damage(value);
-            GameManager.Instance.PlayerHealthChanged?.Invoke();
+            GameManager.Instance.OnPlayerHealthChanged?.Invoke();
+            GameManager.Instance.OnPlayerDamaged?.Invoke();
+            GameManager.Instance.PlayerScript.StateMachine.ChangeState(GameManager.Instance.PlayerScript.DamagedState);
         }
 
         public override void Heal(int value)
         {
             base.Heal(value);
-            GameManager.Instance.PlayerHealthChanged?.Invoke();
+            GameManager.Instance.OnPlayerHealthChanged?.Invoke();
         }
     }
 }

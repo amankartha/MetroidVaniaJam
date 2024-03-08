@@ -61,6 +61,8 @@ public class Player : MonoBehaviour
     
     public PlayerThrowState ThrowState { get; private set; }
 
+    public PlayerDamagedState DamagedState { get; private set; }
+
     #endregion
 
     #region COMPONENTS
@@ -73,7 +75,8 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     
-    public BoxCollider2D BoxCollider2D { get; private set; }
+    [field: SerializeField] public BoxCollider2D BoxCollider2D { get; private set; }
+    [field: SerializeField]public BoxCollider2D TriggerBoxCollider2D { get; private set; }
 
     public ParticleSystem dustPS;
     public Vector2 CurrentVelocity { get; private set; }
@@ -115,8 +118,9 @@ public class Player : MonoBehaviour
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, _playerData, "ledgeClimbState");
         DodgeState = new PlayerDodgeState(this, StateMachine, _playerData, "dodge");
         ThrowState = new PlayerThrowState(this, StateMachine, _playerData, "throw");
+        DamagedState = new PlayerDamagedState(this, StateMachine, _playerData, "damaged");
 
-     
+
 
     }
 
@@ -125,7 +129,7 @@ public class Player : MonoBehaviour
         Anim = GetComponentInChildren<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
-        BoxCollider2D = GetComponent<BoxCollider2D>();
+      
         
         FacingDirection = 1;
         StateMachine.Initialize(IdleState);
@@ -188,6 +192,15 @@ public class Player : MonoBehaviour
     {
         angle.Normalize();
         workspace.Set(angle.x * velocity * direction,angle.y * velocity);
+        RB.velocity = workspace;
+        CurrentVelocity = workspace;
+    }
+    public void SetVelocityXY(Vector2 velocity,float powerX,float PowerY)
+    {
+        velocity.Normalize();
+        
+        workspace.Set(velocity.x * powerX,velocity.y *PowerY);
+        Debug.Log(workspace);
         RB.velocity = workspace;
         CurrentVelocity = workspace;
     }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    // Start is called before the first frame update
+    protected BoxCollider2D _boxCollider2D; 
     void Start()
     {
-        
+        _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         

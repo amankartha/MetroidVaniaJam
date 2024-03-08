@@ -43,7 +43,8 @@ public class PlayerData : ScriptableObject
     public float teleportDelay = 0.3f;
     public LayerMask briefcaseReturnLayer;
 
-    [Header("Health")]
+    [Header("Health")] 
+    public float DamagedInvincibilityDuration = 0.5f;
     public int PlayerBaseHealth = 3;
     public int HealthPickupRange = 1;
     public int HPPotionRecoverAmount = 1;
