@@ -49,7 +49,9 @@ public class PlayerData : ScriptableObject
     public int HPRecoverAmountSheilder = 1;
     public int HPRecoverAmountCoffee = 1;
     public int HPRecoverAmountPenBoss = 1;
+    public int PlayerBaseHPSection = 5;
 
     [Header("Upgrades")] 
     public int HealthIncreaseAmount = 1;
+
 }

@@ -30,16 +30,19 @@ public class MapPanel : MonoBehaviour
     [SerializeField] Sprite worldMapRightSprite;
     [SerializeField] Image mapLeftImage;
     [SerializeField] Image mapRightImage;
+    [SerializeField] GameObject playerMapIcon;
 
     bool isZoomedIn;
+
+    [SerializeField] Map map;
 
     private void Start()
     {
         originalMapRightRotation = mapRightPageRect.rotation;
         originalMapHolderRotation = mapHolderRect.rotation;
         originalMapHolderPosition = mapHolderRect.anchoredPosition;
-        mapLeftImage.sprite = worldMapLeftSprite;
-        mapRightImage.sprite = worldMapRightSprite;
+        //mapLeftImage.sprite = worldMapLeftSprite;
+        //mapRightImage.sprite = worldMapRightSprite;
         zoomText.text = "Zoom In";
     }
 
@@ -61,10 +64,12 @@ public class MapPanel : MonoBehaviour
         if (isFolded)
         {
             isFolded = false;
+            UpdateMap(!isZoomedIn);
+            map.UpdatePlayerRoomLocation(isZoomedIn);
             mapRightPageRect.DORotateQuaternion(targetMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
             mapHolderRect.DORotateQuaternion(targetMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f)
-                .OnComplete(() => zoomTextHolder.SetActive(true));
-        }       
+                .OnComplete(() => ToggleIconsDisplay(true));
+        }
     }
 
     public void FoldMap()
@@ -74,8 +79,8 @@ public class MapPanel : MonoBehaviour
             isFolded = true;
             mapRightPageRect.DORotateQuaternion(originalMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
             mapHolderRect.DORotateQuaternion(originalMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-            zoomTextHolder.SetActive(false);
-        }        
+            ToggleIconsDisplay(false);
+        }
     }
 
     public void MoveToTargetPosition()
@@ -92,17 +97,62 @@ public class MapPanel : MonoBehaviour
     {
         if (isZoomedIn)
         {
-            mapLeftImage.sprite = worldMapLeftSprite;
-            mapRightImage.sprite = worldMapRightSprite;
+            UpdateMap(true);
             zoomText.text = "Zoom In";
         }
         else
         {
-            mapLeftImage.sprite = roomMapLeftSprite;
-            mapRightImage.sprite = roomMapRightSprite;
+            UpdateMap(false);
+            
             zoomText.text = "Zoom Out";
         }
-
         isZoomedIn = !isZoomedIn;
+        map.UpdatePlayerRoomLocation(isZoomedIn);
+    }
+
+    void UpdateMap(bool isWorldMap)
+    {
+        List<AreaMapImage> areaMapLeftImages = map.areaMapLeftImages;
+        List<AreaMapImage> areaMapRightImages = map.areaMapRightImages;
+        if (isWorldMap)
+        {            
+            foreach (AreaMapImage areaMapImage in areaMapLeftImages)
+            {
+                if (areaMapImage.gameObject.activeSelf)
+                {
+                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.worldMapSprite;
+                }
+            }
+            foreach (AreaMapImage areaMapImage in areaMapRightImages)
+            {
+                if (areaMapImage.gameObject.activeSelf)
+                {
+                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.worldMapSprite;
+                }
+            }
+        }
+        else
+        {           
+            foreach (AreaMapImage areaMapImage in areaMapLeftImages)
+            {
+                if (areaMapImage.gameObject.activeSelf)
+                {
+                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.regionalMapSprite;
+                }
+            }
+            foreach (AreaMapImage areaMapImage in areaMapRightImages)
+            {
+                if (areaMapImage.gameObject.activeSelf)
+                {
+                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.regionalMapSprite;
+                }
+            }
+        }
+    }
+
+    void ToggleIconsDisplay(bool setToActive)
+    {
+        zoomTextHolder.SetActive(setToActive);
+        playerMapIcon.SetActive(setToActive);
     }
 }

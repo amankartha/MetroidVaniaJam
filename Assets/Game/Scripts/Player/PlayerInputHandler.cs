@@ -19,6 +19,9 @@ public class PlayerInputHandler : MonoBehaviour
    public bool ThrowInput { get; private set; }
    public bool ThrowInputStop { get; private set; }
    
+   public bool InteractInput { get; private set; }
+   public bool InteractInputStop { get; private set; }
+   
 
 
 
@@ -27,6 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
    private float jumpInputStartTime;
    private float _dodgeInputStartTime;
    private float _throwInputStartTime;
+   private float _interactInputStartTime;
    private void Update()
    {
        CheckJumpInputHoldTime();
@@ -89,11 +93,29 @@ public class PlayerInputHandler : MonoBehaviour
        }
    }
 
+   public void OnInteractInput(InputAction.CallbackContext context)
+   {
+       if (context.started)
+       {
+           InteractInput = true;
+           InteractInputStop = false;
+           _interactInputStartTime = Time.time;
+       }
+
+       if (context.canceled)
+       {
+           InteractInput = false;
+           InteractInputStop = true;
+       }
+   }
+
    public void UseJumpInput() => JumpInput = false;
 
    public void UseDodgeInput() => DodgeInput = false;
 
    public void UseThrowInput() => ThrowInput = false;
+
+   public void UseInteractInput() => InteractInput = false;
 
    private void CheckJumpInputHoldTime()
    {
