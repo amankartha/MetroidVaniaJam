@@ -22,8 +22,9 @@ public class AreaMapTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.iKey.wasPressedThisFrame && isTriggered && !gotMap)
+        if (GameManager.Instance.PlayerInputHandler.InteractInput && isTriggered && !gotMap)
         {
+            GameManager.Instance.PlayerInputHandler.UseInteractInput();
             GameManager.Instance.mapScript.RevealNewAreaOnMap();
             gotMap = true;
             Destroy(interactIcon);

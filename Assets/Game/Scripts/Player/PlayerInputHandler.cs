@@ -19,15 +19,34 @@ public class PlayerInputHandler : MonoBehaviour
    public bool ThrowInput { get; private set; }
    public bool ThrowInputStop { get; private set; }
    
+   public bool InteractInput { get; private set; }
+   public bool InteractInputStop { get; private set; }
+
+    public bool MapInput { get; private set; }
+    public bool MapInputStop { get; private set; }
+
+    public bool MapZoomInput { get; private set; }
+    public bool MapZoomInputStop { get; private set; }
+    public bool MenuTabUpInput { get; private set; }
+    public bool MenuTabUpInputStop { get; private set; }
+    public bool MenuTabDownInput { get; private set; }
+    public bool MenuTabDownInputStop { get; private set; }
 
 
 
 
-   [SerializeField] private float _inputHoldTime = 0.2f;
+    [SerializeField] private float _inputHoldTime = 0.2f;
    private float jumpInputStartTime;
    private float _dodgeInputStartTime;
    private float _throwInputStartTime;
-   private void Update()
+   private float _interactInputStartTime;
+    private float _mapInputStartTime;
+    private float _mapZoomInputStartTime;
+    private float _menuTabUpInputStartTime;
+    private float _menuTabDownInputStartTime;
+
+
+    private void Update()
    {
        CheckJumpInputHoldTime();
    }
@@ -89,13 +108,103 @@ public class PlayerInputHandler : MonoBehaviour
        }
    }
 
-   public void UseJumpInput() => JumpInput = false;
+   public void OnInteractInput(InputAction.CallbackContext context)
+   {
+       if (context.started)
+       {
+           InteractInput = true;
+           InteractInputStop = false;
+           _interactInputStartTime = Time.time;
+       }
+
+       if (context.canceled)
+       {
+           InteractInput = false;
+           InteractInputStop = true;
+       }
+   }
+
+    public void OnMapInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            MapInput = true;
+            MapInputStop = false;
+            _mapInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            MapInput = false;
+            MapInputStop = true;
+        }
+    }
+    public void OnMapZoomInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            MapZoomInput = true;
+            MapZoomInputStop = false;
+            _mapZoomInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            MapZoomInput = false;
+            MapZoomInputStop = true;
+        }
+    }
+
+    public void OnMenuTabUpInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            MenuTabUpInput = true;
+            MenuTabUpInputStop = false;
+            _menuTabUpInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            MenuTabUpInput = false;
+            MenuTabUpInputStop = true;
+        }
+    }
+
+    public void OnMenuTabDownInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            MenuTabDownInput = true;
+            MenuTabDownInputStop = false;
+            _menuTabDownInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            MenuTabDownInput = false;
+            MenuTabDownInputStop = true;
+        }
+    }
+
+    public void UseJumpInput() => JumpInput = false;
 
    public void UseDodgeInput() => DodgeInput = false;
 
    public void UseThrowInput() => ThrowInput = false;
 
-   private void CheckJumpInputHoldTime()
+   public void UseInteractInput() => InteractInput = false;
+
+    public void UseMapInput() => MapInput = false;
+
+    public void UseMapZoomInput() => MapZoomInput = false;
+
+    public void UseMenuTabUpInput() => MenuTabUpInput = false;
+    public void UseMenuTabDownInput() => MenuTabDownInput = false;
+
+
+
+    private void CheckJumpInputHoldTime()
    {
        if (Time.time >= jumpInputStartTime + _inputHoldTime)
        {
