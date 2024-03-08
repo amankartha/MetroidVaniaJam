@@ -27,6 +27,16 @@ public class Health : MonoBehaviour
         HealthValue += value;
     }
 
+    public void CollcetGoldenContract()
+    {
+        GoldenContractFragment++;
+        if(GoldenContractFragment >= 3)
+        {
+            MaxHealth++;
+            GoldenContractFragment = 0;
+        }
+    }
+
     public void UpgradeHealth()
     {
         MaxHealth ++;
