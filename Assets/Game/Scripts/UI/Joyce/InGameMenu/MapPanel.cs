@@ -44,11 +44,6 @@ public class MapPanel : MonoBehaviour
         zoomText.text = "Zoom In";
     }
 
-    void OnEnable()
-    {
-        UnfoldMap();
-    }
-
     private void Update()
     {
         if (GameManager.Instance.PlayerInputHandler.MapZoomInput && !isFolded)

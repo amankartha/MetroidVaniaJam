@@ -27,6 +27,11 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool MapZoomInput { get; private set; }
     public bool MapZoomInputStop { get; private set; }
+    public bool MenuTabUpInput { get; private set; }
+    public bool MenuTabUpInputStop { get; private set; }
+    public bool MenuTabDownInput { get; private set; }
+    public bool MenuTabDownInputStop { get; private set; }
+
 
 
 
@@ -37,6 +42,8 @@ public class PlayerInputHandler : MonoBehaviour
    private float _interactInputStartTime;
     private float _mapInputStartTime;
     private float _mapZoomInputStartTime;
+    private float _menuTabUpInputStartTime;
+    private float _menuTabDownInputStartTime;
 
 
     private void Update()
@@ -148,6 +155,38 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnMenuTabUpInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            MenuTabUpInput = true;
+            MenuTabUpInputStop = false;
+            _menuTabUpInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            MenuTabUpInput = false;
+            MenuTabUpInputStop = true;
+        }
+    }
+
+    public void OnMenuTabDownInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            MenuTabDownInput = true;
+            MenuTabDownInputStop = false;
+            _menuTabDownInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            MenuTabDownInput = false;
+            MenuTabDownInputStop = true;
+        }
+    }
+
     public void UseJumpInput() => JumpInput = false;
 
    public void UseDodgeInput() => DodgeInput = false;
@@ -159,6 +198,11 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseMapInput() => MapInput = false;
 
     public void UseMapZoomInput() => MapZoomInput = false;
+
+    public void UseMenuTabUpInput() => MenuTabUpInput = false;
+    public void UseMenuTabDownInput() => MenuTabDownInput = false;
+
+
 
     private void CheckJumpInputHoldTime()
    {

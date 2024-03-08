@@ -19,6 +19,11 @@ public class InGameMenuUI : MonoBehaviour
 
     bool isMenuOpened = false;
 
+    public float tabMoveDistance = 5f;
+
+    int currentTabIndex = 0;
+    int previousTabIndex = 0;
+    List<RectTransform> menuButtonRects = new List<RectTransform>();
 
     void Start()
     {
@@ -29,6 +34,10 @@ public class InGameMenuUI : MonoBehaviour
         }*/
 
         canvasGroup.alpha = 0;
+        foreach (Button button in menuButtons)
+        {
+            menuButtonRects.Add(button.GetComponent<RectTransform>());
+        }
     }
 
     /*void SetPanelActive(int index)
@@ -55,6 +64,31 @@ public class InGameMenuUI : MonoBehaviour
                 CloseInGameMenu();
                 isMenuOpened = false;
             }
+        }
+
+        if (GameManager.Instance.PlayerInputHandler.MenuTabUpInput)
+        {
+            GameManager.Instance.PlayerInputHandler.UseMenuTabUpInput();
+
+            int index = currentTabIndex - 1;
+            if(index < 0)
+            {
+                index = menuButtons.Length - 1;
+            }
+            menuButtons[index].onClick.Invoke();
+            currentTabIndex = index;
+        }
+        if (GameManager.Instance.PlayerInputHandler.MenuTabDownInput)
+        {
+            GameManager.Instance.PlayerInputHandler.UseMenuTabDownInput();
+
+            int index = currentTabIndex + 1;
+            if (index >= menuButtons.Length)
+            {
+                index = 0;
+            }
+            menuButtons[index].onClick.Invoke();
+            currentTabIndex = index;
         }
     }
 
@@ -86,39 +120,64 @@ public class InGameMenuUI : MonoBehaviour
     {
         menuPanel.SetActive(true);
         canvasGroup.DOFade(1f, 0.4f).SetUpdate(true);
+        OnMapButton();
     }
 
     public void OnMapButton()
     {
+        previousTabIndex = currentTabIndex;
+        currentTabIndex = 0;
         discriptionHolder.SetActive(false);
         mapPanel.UnfoldMap();
         mapPanel.MoveToOriginalPosition();
         itemPanel.MoveToOriginalPosition();
         characterPanel.MoveToOriginalPosition();
+        MoveSelectedTab();
     }
 
     public void OnCharacterButton()
     {
+        previousTabIndex = currentTabIndex;
+        currentTabIndex = 1;
         mapPanel.FoldMap();
         mapPanel.MoveToTargetPosition();
         itemPanel.MoveToMapPosition();
         characterPanel.MoveToOriginalPosition();
+        MoveSelectedTab();
     }
 
     public void OnItemButton()
     {
+        previousTabIndex = currentTabIndex;
+        currentTabIndex = 2;
         mapPanel.FoldMap();
         mapPanel.MoveToTargetPosition();
         itemPanel.MoveToTargetDisplayPosition();
         characterPanel.MoveToOriginalPosition();
+        MoveSelectedTab();
     }
 
     public void OnOptionButton()
     {
+        previousTabIndex = currentTabIndex;
+        currentTabIndex = 3;
         mapPanel.FoldMap();
         mapPanel.MoveToTargetPosition();
         itemPanel.MoveToMapPosition();
         characterPanel.MoveToTargetPosition();
+        MoveSelectedTab();
+    }
+
+    void MoveSelectedTab()
+    {
+        RectTransform rect = menuButtonRects[currentTabIndex];
+        rect.DOMoveX(rect.position.x - tabMoveDistance, 0.3f);
+
+        if(previousTabIndex != currentTabIndex)
+        {
+            rect = menuButtonRects[previousTabIndex];
+            rect.DOMoveX(rect.position.x + tabMoveDistance, 0.3f);
+        }
     }
 
 }
