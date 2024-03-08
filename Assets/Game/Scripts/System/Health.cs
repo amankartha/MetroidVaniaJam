@@ -19,17 +19,29 @@ public class Health : MonoBehaviour, IDamageable
     }
 
 
-    void Update()
+    public virtual void SetHealth(int value)
     {
-        
+        HealthValue = value;
     }
     
-    
-    
+    public virtual void Damage(int value)
+    {
+        HealthValue -= value;
+    }
 
-    public void ModifyHealth(int value)
+    public virtual void Heal(int value)
     {
         HealthValue += value;
+    }
+
+    public virtual void ModifyMaxHealth(int value, bool healWithMaxHealthIncrease = false)
+    {
+        MaxHealth += value;
+        if (healWithMaxHealthIncrease)
+        {
+            Heal(value);
+        }
+
     }
 
     public bool CollcetGoldenContract()
@@ -51,6 +63,6 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamage(int value)
     {
-        throw new System.NotImplementedException();
+        Damage(value);
     }
 }

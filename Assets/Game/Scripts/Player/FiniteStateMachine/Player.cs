@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 
         #region Healthstuff
 
-        PlayerHealth.SetPlayerHealth(_playerData.PlayerBaseHealth);
+        PlayerHealth.SetHealth(_playerData.PlayerBaseHealth);
         PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
 
         #endregion
@@ -205,7 +205,7 @@ public class Player : MonoBehaviour
 
     public void DrinkPotion()
     {
-        PlayerHealth.ModifyHealth(_playerData.HPPotionRecoverAmount);
+        PlayerHealth.Heal(_playerData.HPPotionRecoverAmount);
     }
 
     public void UpdateHealthBarUI()

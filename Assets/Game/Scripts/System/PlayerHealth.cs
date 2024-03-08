@@ -4,24 +4,16 @@ namespace Game.Scripts.System
 {
     public class PlayerHealth : Health
     {
-
-
-        public void SetPlayerHealth(int value)
+        public override void Damage(int value)
         {
-            HealthValue = value;
-        }
-
-        public void PlayerTakeDamage(int value)
-        {
+            base.Damage(value);
             GameManager.Instance.PlayerHealthChanged?.Invoke();
-            HealthValue -= value;
         }
 
-        public void PlayerHealDamage(int value)
+        public override void Heal(int value)
         {
+            base.Heal(value);
             GameManager.Instance.PlayerHealthChanged?.Invoke();
-            HealthValue += value;
         }
-        
-}
+    }
 }
