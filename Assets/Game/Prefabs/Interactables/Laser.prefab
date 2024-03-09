@@ -340,8 +340,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.02500388, y: -0.06455, z: 0}
-    m_Extent: {x: 0.24189612, y: 0.06035, z: 0}
+    m_Center: {x: 0.026203886, y: -0.0635, z: 0}
+    m_Extent: {x: 0.24309613, y: 0.0534, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10217,30 +10217,39 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: -8
+      minMaxState: 1
+      scalar: 8
       minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          value: 0.04000002
+          inSlope: -1.1756045
+          outSlope: -1.1756045
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          time: 0.5630505
+          value: -0.62192464
+          inSlope: -5.1736116
+          outSlope: -5.1736116
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.09583223
+        - serializedVersion: 3
+          time: 1
+          value: -1
+          inSlope: -0.865261
+          outSlope: -0.865261
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -12679,7 +12688,7 @@ ParticleSystem:
     inWorldSpace: 0
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 1
-    dampen: 0.5
+    dampen: 0.8
     drag:
       serializedVersion: 2
       minMaxState: 0
@@ -14943,8 +14952,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.018550009, y: 0.3666, z: 0}
-    m_Extent: {x: 0.28685, y: 0.37759998, z: 0}
+    m_Center: {x: 0.018600002, y: 0.37665, z: 0}
+    m_Extent: {x: 0.3018, y: 0.37595, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -15026,8 +15035,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.018422112, y: -0.06655, z: 0}
-    m_Extent: {x: 0.2452221, y: 0.05585, z: 0}
+    m_Center: {x: 0.02115, y: -0.06029839, z: 0}
+    m_Extent: {x: 0.24485001, y: 0.055298388, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20034,8 +20043,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.020399995, y: -0.05899839, z: 0}
-    m_Extent: {x: 0.2437, y: 0.056598388, z: 0}
+    m_Center: {x: 0.023375988, y: -0.0635, z: 0}
+    m_Extent: {x: 0.24026823, y: 0.0598, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20117,8 +20126,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.027003884, y: -0.0601, z: 0}
-    m_Extent: {x: 0.24389613, y: 0.0565, z: 0}
+    m_Center: {x: 0.025299996, y: -0.06245, z: 0}
+    m_Extent: {x: 0.24329999, y: 0.05815, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
