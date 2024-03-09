@@ -9,12 +9,6 @@ public class CollectableTrigger : MonoBehaviour
     bool isTriggered = false;
     bool isCollected = false;
 
-    public ItemDisplay itemDisplay;
-
-    private void Start()
-    {
-        itemDisplay = GameManager.Instance.goInGameMenu.GetComponent<ItemDisplay>();
-    }
     private void Update()
     {
         if (GameManager.Instance.PlayerInputHandler.InteractInput && isTriggered &&!isCollected)
@@ -23,8 +17,6 @@ public class CollectableTrigger : MonoBehaviour
             GameManager.Instance.PlayerInputHandler.UseInteractInput();
             Debug.Log("passed in id: " + collectable.id);
             GameManager.Instance.OnPlayerCollectable?.Invoke(collectable);
-
-            //itemDisplay.myEvent.Invoke(collectable);
         }
     }
 

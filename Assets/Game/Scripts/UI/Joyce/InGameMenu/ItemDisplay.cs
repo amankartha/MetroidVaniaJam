@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.Events;
-
 
 public class ItemDisplay : MonoBehaviour
 {
@@ -12,17 +10,9 @@ public class ItemDisplay : MonoBehaviour
 
     public List<Collectable> itemList = new List<Collectable>();
 
-    public UnityEvent<Collectable> myEvent;
-
-
-    private void Start()
-    {
-        myEvent.AddListener(AddCollectable);
-    }
 
     public void AddCollectable(Collectable collectable)
     {
-        Debug.Log("received id: " + collectable.id);
         GameObject go = Instantiate(itemPrefab, itemTrans);
         Collectable goCollectable = go.GetComponent<Collectable>();
         goCollectable.SetUI();
@@ -31,38 +21,29 @@ public class ItemDisplay : MonoBehaviour
         goCollectable.type = collectable.type;
         goCollectable.SetUI();
         itemList.Add(collectable);
-        //SortList();
+        SortList();
     }
 
     void SortList()
     {
-        var sortedList = itemList.OrderBy(go =>
-        {
-            Collectable collectable = go.GetComponent<Collectable>();
-            return collectable.type;
-        }).ThenBy(go =>
-        {
-            Collectable collectable = go.GetComponent<Collectable>();
-            return collectable.id;
-        }).ToList();
+        itemList = itemList.OrderBy(collectable => collectable.type)
+            .ThenBy(collectable => collectable.id)
+            .ToList();
 
         RefreshUI();
     }
 
     void RefreshUI()
     {
-        ClearUI();
-        foreach (Collectable collectable in itemList)
-        {
-            InstantiateUIElement(collectable);
-        }
-    }
-
-    void ClearUI()
-    {       
+        //clear ui
         foreach (Transform child in itemTrans.transform)
         {
             Destroy(child.gameObject);
+        }
+
+        foreach (Collectable collectable in itemList)
+        {
+            InstantiateUIElement(collectable);
         }
     }
 
