@@ -1,14 +1,37 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.System;
 using UnityEngine;
-
+using UnityEngine.Serialization;
 
 
 public class Player : MonoBehaviour
 {
     #region Variables
 
+    private float _throwCooldown;
+    private float _throwCooldownTimer;
+    public float ThrowCooldownTimer 
+    {
+        get => _throwCooldownTimer;
+
+        private set
+        {
+            if (!_canThrow && _throwCooldownTimer <=0)
+            {
+                _canThrow = true;
+                _throwCooldownTimer = _throwCooldown;
+            }
+            else
+            {
+                _throwCooldownTimer = value;
+                _throwCooldownTimer = Mathf.Clamp(_throwCooldownTimer, 0, 100);    
+            }
+            
+        }
+    }
+    private bool _canThrow;
     
 
     #endregion
@@ -38,25 +61,28 @@ public class Player : MonoBehaviour
     
     public PlayerThrowState ThrowState { get; private set; }
 
+    public PlayerDamagedState DamagedState { get; private set; }
+
     #endregion
 
     #region COMPONENTS
     
     
-    [field:SerializeField] public Health PlayerHealth { get; private set; }
+    [field:SerializeField] public PlayerHealth PlayerHealth { get; private set; }
     [field:SerializeField] public HealthBar healthBarUI { get; private set; }
 
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     
-    public BoxCollider2D BoxCollider2D { get; private set; }
+    [field: SerializeField] public BoxCollider2D BoxCollider2D { get; private set; }
+    [field: SerializeField]public BoxCollider2D TriggerBoxCollider2D { get; private set; }
 
     public ParticleSystem dustPS;
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
-    [field: SerializeField] public Briefcase Briefcase { get; private set; }
+    [field: SerializeField] public Briefcase BriefcaseScript { get; private set; }
     
     [SerializeField] 
     private PlayerData _playerData;
@@ -71,6 +97,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private Transform _wallCheck;
     [SerializeField] private Transform _ledgeCheck;
+    [SerializeField] private Transform _damageCheck;
 
     #endregion
     
@@ -91,13 +118,9 @@ public class Player : MonoBehaviour
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, _playerData, "ledgeClimbState");
         DodgeState = new PlayerDodgeState(this, StateMachine, _playerData, "dodge");
         ThrowState = new PlayerThrowState(this, StateMachine, _playerData, "throw");
+        DamagedState = new PlayerDamagedState(this, StateMachine, _playerData, "damaged");
 
-        #region Healthstuff
 
-        PlayerHealth.HealthValue = _playerData.PlayerBaseHealth;
-        PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
-
-        #endregion
 
     }
 
@@ -106,10 +129,21 @@ public class Player : MonoBehaviour
         Anim = GetComponentInChildren<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
-        BoxCollider2D = GetComponent<BoxCollider2D>();
+      
         
         FacingDirection = 1;
         StateMachine.Initialize(IdleState);
+
+        _throwCooldown = _playerData.throwCoolDown;
+        ThrowCooldownTimer = _throwCooldown;
+        _canThrow = true;
+        
+        #region Healthstuff
+
+        PlayerHealth.SetHealth(_playerData.PlayerBaseHealth);
+        PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
+
+        #endregion
     }
 
     private void Update()
@@ -117,12 +151,17 @@ public class Player : MonoBehaviour
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
         
-      
+       
     }
 
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+        if (!_canThrow && BriefcaseScript._isBriefcaseInHand)
+        {
+            ThrowCooldownTimer -= Time.fixedDeltaTime;
+           
+        }
     }
 
     #endregion
@@ -153,6 +192,15 @@ public class Player : MonoBehaviour
     {
         angle.Normalize();
         workspace.Set(angle.x * velocity * direction,angle.y * velocity);
+        RB.velocity = workspace;
+        CurrentVelocity = workspace;
+    }
+    public void SetVelocityXY(Vector2 velocity,float powerX,float PowerY)
+    {
+        velocity.Normalize();
+        
+        workspace.Set(velocity.x * powerX,velocity.y *PowerY);
+        Debug.Log(workspace);
         RB.velocity = workspace;
         CurrentVelocity = workspace;
     }
@@ -196,6 +244,11 @@ public class Player : MonoBehaviour
             _playerData.groundLayer);
     }
 
+    public bool CheckIfCanThrow()
+    {
+        return _canThrow;
+    }
+
 
     #endregion
 
@@ -203,7 +256,7 @@ public class Player : MonoBehaviour
 
     public void DrinkPotion()
     {
-        PlayerHealth.ModifyHealth(_playerData.HPPotionRecoverAmount);
+        PlayerHealth.Heal(_playerData.HPPotionRecoverAmount);
     }
 
     public void UpdateHealthBarUI()
@@ -246,7 +299,11 @@ public class Player : MonoBehaviour
         workspace.Set(_wallCheck.position.x + xDistance * FacingDirection, _ledgeCheck.position.y - yDistance);
         return workspace;
     }
-    
+
+    public void SetThrowFalse()
+    {
+        _canThrow = false;
+    }
     
     
     #endregion

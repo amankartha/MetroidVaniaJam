@@ -13,6 +13,7 @@ public class BriefcaseReturnState : BriefcaseState
     {
         base.Enter();
         _briefcase.ColliderSettings(false);
+        _briefcase.Anim.SetTrigger("TransitionToReturnThrow");
         _briefcase.SetVelocity( 30f,_briefcase._initTransform.position  - _briefcase.transform.position);
     }
 
@@ -58,7 +59,7 @@ public class BriefcaseReturnState : BriefcaseState
         _briefcase.SetVelocity( _playerData.throwVelocity,distance);
         if (distance.magnitude < 0.5f )
         {
-            _briefcase.Animator.SetTrigger("TransitionToReturnThrow");
+           // _briefcase.Anim.SetTrigger("TransitionToReturnThrow");
             _briefcase.ColliderSettings(true);  
             _briefcase.StateMachine.ChangeState(_briefcase.IdleState);
             

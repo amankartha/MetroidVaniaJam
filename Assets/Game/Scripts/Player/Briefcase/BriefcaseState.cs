@@ -26,7 +26,7 @@ public class BriefcaseState
        public virtual void Enter()
        {
           DoChecks();
-          _briefcase.Animator.SetBool(_animBoolName,true);
+          _briefcase.Anim.SetBool(_animBoolName,true);
           _startTime = Time.time;
           Debug.Log("Entered " + this.GetType().Name + "State");
           _isAnimationFinished = false;
@@ -35,7 +35,7 @@ public class BriefcaseState
     
        public virtual void Exit()
        {
-          _briefcase.Animator.SetBool(_animBoolName,false);
+          _briefcase.Anim.SetBool(_animBoolName,false);
           _isExitingState = true;
        }
     
