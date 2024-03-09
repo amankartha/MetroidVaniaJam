@@ -340,8 +340,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.022772111, y: -0.0623, z: 0}
-    m_Extent: {x: 0.24087211, y: 0.0588, z: 0}
+    m_Center: {x: 0.02500388, y: -0.06455, z: 0}
+    m_Extent: {x: 0.24189612, y: 0.06035, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10066,7 +10066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6033838366903101974
 Transform:
   m_ObjectHideFlags: 0
@@ -10218,7 +10218,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -5
+      scalar: -8
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -14943,8 +14943,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.024800003, y: 0.38115, z: 0}
-    m_Extent: {x: 0.2967, y: 0.37925, z: 0}
+    m_Center: {x: 0.018550009, y: 0.3666, z: 0}
+    m_Extent: {x: 0.28685, y: 0.37759998, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -15026,8 +15026,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.026249997, y: -0.06493601, z: 0}
-    m_Extent: {x: 0.24565, y: 0.05326399, z: 0}
+    m_Center: {x: 0.018422112, y: -0.06655, z: 0}
+    m_Extent: {x: 0.2452221, y: 0.05585, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20034,8 +20034,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.027053878, y: -0.06703601, z: 0}
-    m_Extent: {x: 0.24394612, y: 0.05536399, z: 0}
+    m_Center: {x: 0.020399995, y: -0.05899839, z: 0}
+    m_Extent: {x: 0.2437, y: 0.056598388, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20117,8 +20117,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.022, y: -0.0641, z: 0}
-    m_Extent: {x: 0.2447, y: 0.061, z: 0}
+    m_Center: {x: 0.027003884, y: -0.0601, z: 0}
+    m_Extent: {x: 0.24389613, y: 0.0565, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20144,6 +20144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1519226967932773033}
   - component: {fileID: 1513085909901608411}
+  - component: {fileID: 7053724537562798311}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -20191,3 +20192,49 @@ MonoBehaviour:
   startVFX: {fileID: 1871809691599771244}
   startBeam: {fileID: 3392070257542347936}
   lightGO: {fileID: 3169550793141351999}
+  knockBackDirection: {x: 3, y: 3}
+--- !u!61 &7053724537562798311
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672130985264005173}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 3.1246808}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.39793587, y: 5.0302873}
+  m_EdgeRadius: 0
