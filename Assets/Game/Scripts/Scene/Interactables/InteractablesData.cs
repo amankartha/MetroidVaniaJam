@@ -11,5 +11,6 @@ namespace Game.Scripts.Scene.Interactables
         public float SpikesKnockBackPower = 1f;
         [Header("Saw")]
         public int SawDamage = 1;
+        public float SawKnockBackPower = 10f;
     }
 }
