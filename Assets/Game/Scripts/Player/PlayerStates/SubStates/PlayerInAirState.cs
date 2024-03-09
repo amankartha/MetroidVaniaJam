@@ -63,7 +63,7 @@ public class PlayerInAirState : PlayerState
          {
              _stateMachine.ChangeState(_player.DodgeState);
          }
-         else if(_throwInput && _player.Briefcase._isBriefcaseInHand)
+         else if(_throwInput && _player.BriefcaseScript._isBriefcaseInHand  && _player.CheckIfCanThrow())
          {
              _stateMachine.ChangeState(_player.ThrowState);
          }

@@ -34,14 +34,17 @@ public class PlayerData : ScriptableObject
     [Header("Dodge State")] 
     public float dodgeDuration = 1f;
     public float dodgeVelocityX = 15f;
-    
-    [Header("Briefcase")]
+
+    [Header("Briefcase")] 
+    public float throwCoolDown = 2f;
     public float throwVelocity = 30f;
     public float throwMaxDuration = 0.5f;
     public float throwIdleDuration = 1f;
     public float teleportDelay = 0.3f;
+    public LayerMask briefcaseReturnLayer;
 
-    [Header("Health")]
+    [Header("Health")] 
+    public float DamagedInvincibilityDuration = 0.5f;
     public int PlayerBaseHealth = 3;
     public int HealthPickupRange = 1;
     public int HPPotionRecoverAmount = 1;
@@ -49,6 +52,7 @@ public class PlayerData : ScriptableObject
     public int HPRecoverAmountSheilder = 1;
     public int HPRecoverAmountCoffee = 1;
     public int HPRecoverAmountPenBoss = 1;
+    public int PlayerBaseHPSection = 5;
 
     [Header("Upgrades")] 
     public int HealthIncreaseAmount = 1;
