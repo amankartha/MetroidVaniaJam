@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     protected BoxCollider2D _boxCollider2D; 
-    void Start()
+    protected virtual void Start()
     {
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }

@@ -9,5 +9,7 @@ namespace Game.Scripts.Scene.Interactables
          [Header("Spikes")] 
         public int SpikesDamage = 1;
         public float SpikesKnockBackPower = 1f;
+        [Header("Saw")]
+        public int SawDamage = 1;
     }
 }
