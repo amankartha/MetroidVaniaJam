@@ -16,6 +16,8 @@ public class BriefcaseIdleState : BriefcaseState
         base.Enter();
         _briefcase.SetVelocityZero();
         _briefcase._isBriefcaseInHand = true;
+        _briefcase.Anim.ResetTrigger("TransitionToReturnThrow");
+        _briefcase.Anim.ResetTrigger("TransitionToIdleThrow");
     }
 
     public override void Exit()

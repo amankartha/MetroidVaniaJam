@@ -15,17 +15,28 @@ public class CollectableBubble : MonoBehaviour
     bool isTriggered = false;
     bool isCollected = false;
 
+    Sequence sequence;
+
     private void Update()
     {
         if (GameManager.Instance.PlayerInputHandler.InteractInput && isTriggered && !isCollected)
         {
             GameManager.Instance.PlayerInputHandler.UseInteractInput();
             isCollected = true;
+
             bool shouldUpdateUI = GameManager.Instance.PlayerScript.PlayerHealth.CollcetGoldenContract();
+            GoldenContractDisplay gcd = GameManager.Instance.PlayerScript.healthBarUI.goldenContractDisplay;
+
+            Sequence seq = DOTween.Sequence();
+            seq.AppendCallback(() => gcd.gameObject.SetActive(true));
             if (shouldUpdateUI)
             {
-                GameManager.Instance.PlayerScript.UpdateHealthBarUI();
+                seq.AppendInterval(1.1f);
+                seq.AppendCallback(() => GameManager.Instance.PlayerScript.UpdateHealthBarUI());
             }
+            seq.AppendInterval(1.8f);
+            seq.AppendCallback(() => gcd.ClosePanel());
+
             Destroy(this.gameObject);
         }
     }
@@ -44,16 +55,19 @@ public class CollectableBubble : MonoBehaviour
         if (collision.gameObject == GameManager.Instance.goMainPlayer && isTriggered && !isCollected)
         {
             isTriggered = false;
+            sequence.Kill();
             HideBubble();
         }
     }
 
     void ShowBubble()
     {
+        bullbeSpriteRenderer.DOFade(0f, 0f);
+        objectInsideBubble.DOFade(0f, 0f);
+
         tempBullbeSpriteRenderer.sprite = null;
         tempBullbeSpriteRenderer.gameObject.SetActive(true);
-
-        Sequence sequence = DOTween.Sequence();
+        sequence = DOTween.Sequence();
         int counter = 0;
 
         foreach (Sprite bubbleSprite in bubbleSprites)
@@ -82,7 +96,8 @@ public class CollectableBubble : MonoBehaviour
 
     void HideBubble()
     {
-        bullbeSpriteRenderer.DOFade(0f, 0.4f);
-        objectInsideBubble.DOFade(0f, 0.4f);
+        tempBullbeSpriteRenderer.gameObject.SetActive(false);
+        bullbeSpriteRenderer.DOFade(0f, 0.3f);
+        objectInsideBubble.DOFade(0f, 0.3f);
     }
 }

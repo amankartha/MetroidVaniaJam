@@ -22,7 +22,7 @@ public class MapPanel : MonoBehaviour
     public Vector2 targetMapHolderPosition;
     Vector2 originalMapHolderPosition;
 
-    bool isFolded = true;
+    public bool isFolded = true;
 
     [SerializeField] Sprite roomMapLeftSprite;
     [SerializeField] Sprite roomMapRightSprite;
@@ -41,20 +41,14 @@ public class MapPanel : MonoBehaviour
         originalMapRightRotation = mapRightPageRect.rotation;
         originalMapHolderRotation = mapHolderRect.rotation;
         originalMapHolderPosition = mapHolderRect.anchoredPosition;
-        //mapLeftImage.sprite = worldMapLeftSprite;
-        //mapRightImage.sprite = worldMapRightSprite;
         zoomText.text = "Zoom In";
-    }
-
-    void OnEnable()
-    {
-        UnfoldMap();
     }
 
     private void Update()
     {
-        if (Keyboard.current.mKey.wasPressedThisFrame && !isFolded)
+        if (GameManager.Instance.PlayerInputHandler.MapZoomInput && !isFolded)
         {
+            GameManager.Instance.PlayerInputHandler.UseMapZoomInput();
             ToggleMapZoom();
         }
     }
