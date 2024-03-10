@@ -24,7 +24,8 @@ public class ItemDisplay : MonoBehaviour
 
 
         goCollectable.id = collectable.id;
-        goCollectable.sprite = collectable.sprite;     
+        goCollectable.sprite = collectable.sprite;
+        goCollectable.title = collectable.title;
         goCollectable.content = collectable.content;
         goCollectable.type = collectable.type;
         itemList.Add(goCollectable);
@@ -52,6 +53,7 @@ public class ItemDisplay : MonoBehaviour
             Collectable collectable = itemGameObjectList[i].GetComponent<Collectable>();
             collectable.id = itemList[i].id;
             collectable.sprite = itemList[i].sprite;
+            collectable.title = itemList[i].title;
             collectable.content = itemList[i].content;
             collectable.type = itemList[i].type;
         }

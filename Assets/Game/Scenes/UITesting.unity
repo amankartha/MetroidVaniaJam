@@ -710,6 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
+  title: hihi
   content: '"collectable5: a note"'
   sprite: {fileID: 21300000, guid: 0b0e62347af2e054aa81a653ca1b4a7a, type: 3}
   type: 0
@@ -2829,6 +2830,10 @@ PrefabInstance:
     - target: {fileID: 6582405185261100454, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
       propertyPath: id
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582405185261100454, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
+      propertyPath: title
+      value: hello
       objectReference: {fileID: 0}
     - target: {fileID: 6582405185261100454, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
       propertyPath: sprite
@@ -5070,6 +5075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  title: yay
   content: '"collectable1: a letter"'
   sprite: {fileID: 21300000, guid: 5b8fce579157cea4f80545398446c57f, type: 3}
   type: 2
