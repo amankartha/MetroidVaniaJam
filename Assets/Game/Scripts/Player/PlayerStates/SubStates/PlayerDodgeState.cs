@@ -12,7 +12,7 @@ public class PlayerDodgeState : PlayerAbilityState
     {
         base.Enter();
         _player.InputHandler.UseDodgeInput();
-        _player.BoxCollider2D.enabled = false;
+        _player.TriggerBoxCollider2D.enabled = false;
         _player.SetVelocityX(_playerData.dodgeVelocityX * _player.FacingDirection);
         
     }
@@ -20,7 +20,7 @@ public class PlayerDodgeState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
-        _player.BoxCollider2D.enabled = true;
+        _player.TriggerBoxCollider2D.enabled = true;
     }
 
     public override void LogicUpdate()
