@@ -47,13 +47,14 @@ public class PlayerData : ScriptableObject
     public float DamagedInvincibilityDuration = 0.5f;
     public int PlayerBaseHealth = 3;
     public int HealthPickupRange = 1;
-    public int HPPotionRecoverAmount = 1;
     public int HPRecoverAmountRat = 1;
     public int HPRecoverAmountSheilder = 1;
     public int HPRecoverAmountCoffee = 1;
     public int HPRecoverAmountPenBoss = 1;
     public int PlayerBaseHPSection = 5;
-
+    [Header("Potion")]
+    public int HPPotionRecoverAmount = 1;
+    public int InitalPotionCount = 3;
     [Header("Upgrades")] 
     public int HealthIncreaseAmount = 1;
 

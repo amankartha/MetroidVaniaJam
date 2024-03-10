@@ -28,10 +28,11 @@ MonoBehaviour:
   wallJumpVelocity: 20
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
-  startOffset: {x: 0.25, y: 1.7}
+  startOffset: {x: 0, y: 2.1}
   stopOffset: {x: 0.4, y: 0.2}
   dodgeDuration: 1
   dodgeVelocityX: 7
+  throwCoolDown: 2
   throwVelocity: 30
   throwMaxDuration: 0.2
   throwIdleDuration: 1
@@ -39,12 +40,14 @@ MonoBehaviour:
   briefcaseReturnLayer:
     serializedVersion: 2
     m_Bits: 8
+  DamagedInvincibilityDuration: 0.5
   PlayerBaseHealth: 100
   HealthPickupRange: 1
-  HPPotionRecoverAmount: 1
   HPRecoverAmountRat: 1
   HPRecoverAmountSheilder: 1
   HPRecoverAmountCoffee: 1
   HPRecoverAmountPenBoss: 1
   PlayerBaseHPSection: 5
+  HPPotionRecoverAmount: 1
+  InitalPotionCount: 3
   HealthIncreaseAmount: 1

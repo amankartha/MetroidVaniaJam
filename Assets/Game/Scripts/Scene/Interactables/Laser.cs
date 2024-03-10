@@ -20,7 +20,6 @@ public class Laser : Interactable
 
     public Vector2 knockBackDirection = new Vector2(3, 3);
     
-    private BoxCollider2D _boxCollider2D;
     protected override void Start()
     {
         base.Start();
