@@ -6,6 +6,7 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     public int id;
+    public string title;
     public string content;
     public Sprite sprite;
     public CollectableType type;
