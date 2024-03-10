@@ -1,21 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-[System.Serializable] 
+//[System.Serializable] 
 public class Collectable : MonoBehaviour
 {
     public int id;
     public string content;
+    public Sprite sprite;
     public CollectableType type;
 
-    [SerializeField] TMP_Text contentText;
-    public void SetUI()
-    {
-        contentText.text = id.ToString();
-    }
 }
 
 
