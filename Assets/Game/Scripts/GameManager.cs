@@ -37,10 +37,11 @@ public class GameManager : MMPersistentSingleton<GameManager>
 
     public UnityEvent OnPlayerHealthChanged;
     public UnityEvent OnPlayerDamaged;
+    public UnityEvent OnPotionChange;
     public UnityEvent<Collectable> OnPlayerCollectable;
     public UnityEvent OnPlayerDeath;
     public UnityEvent OnUpdatedRespawnPoint;
-
+    
     #endregion
     
     #region UNITYMETHODS
