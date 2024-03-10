@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -32,8 +33,22 @@ public class Player : MonoBehaviour
         }
     }
     private bool _canThrow;
-    
 
+    public int MaxPotions { get; set; } 
+    private int _potionCount;
+    public int PotionCount
+    {
+        get
+        {
+            return _potionCount;
+        }
+        set
+        {
+            _potionCount = math.clamp(value, 0, MaxPotions);
+        }
+    }
+    
+    
     #endregion
     
     #region STATES
@@ -142,6 +157,8 @@ public class Player : MonoBehaviour
 
         PlayerHealth.SetHealth(_playerData.PlayerBaseHealth);
         PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
+
+        MaxPotions = _playerData.InitalPotionCount;
 
         #endregion
     }
@@ -256,7 +273,11 @@ public class Player : MonoBehaviour
 
     public void DrinkPotion()
     {
-        PlayerHealth.Heal(_playerData.HPPotionRecoverAmount);
+        if (_potionCount > 0)
+        {
+            PlayerHealth.Heal(_playerData.HPPotionRecoverAmount);
+            _potionCount--;
+        }
     }
 
     public void UpdateHealthBarUI()
