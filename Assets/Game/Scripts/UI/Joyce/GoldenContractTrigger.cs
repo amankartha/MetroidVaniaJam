@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 using DG.Tweening;
 
 
-public class CollectableBubble : MonoBehaviour
+public class GoldenContractTrigger : MonoBehaviour
 {
     [SerializeField] SpriteRenderer bullbeSpriteRenderer, tempBullbeSpriteRenderer;
     [SerializeField] SpriteRenderer objectInsideBubble;

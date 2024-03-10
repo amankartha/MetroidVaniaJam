@@ -57,12 +57,10 @@ public class InGameMenuUI : MonoBehaviour
             if (!isMenuOpened)
             {
                 OpenInGameMenu();
-                isMenuOpened = true;
             }
             else
             {
                 CloseInGameMenu();
-                isMenuOpened = false;
             }
         }
 
@@ -120,8 +118,9 @@ public class InGameMenuUI : MonoBehaviour
             itemPanel.MoveToOriginalPosition();
             Invoke("DeactiveMenu", 0.5f);
         }
+        isMenuOpened = false;
     }
-    
+
     void DeactiveMenu()
     {
         canvasGroup.DOFade(0f, 0.4f).SetUpdate(true)
@@ -133,6 +132,17 @@ public class InGameMenuUI : MonoBehaviour
         menuPanel.SetActive(true);
         canvasGroup.DOFade(1f, 0.4f).SetUpdate(true);
         OnMapButton();
+        isMenuOpened = true;
+    }
+
+    public void OpenInGameMenuWithItemTab()
+    {
+        menuPanel.SetActive(true);
+        canvasGroup.DOFade(1f, 0.4f).SetUpdate(true);
+        currentTabIndex = 2;
+        previousTabIndex = 2;
+        OnItemButton();
+        isMenuOpened = true;
     }
 
     public void OnMapButton()
