@@ -12,5 +12,8 @@ namespace Game.Scripts.Scene.Interactables
         [Header("Saw")]
         public int SawDamage = 1;
         public float SawKnockBackPower = 10f;
+        [Header("Laser")] 
+        public int LazerDamage = 1;
+        public float LazerKnockBackPower = 10f;
     }
 }

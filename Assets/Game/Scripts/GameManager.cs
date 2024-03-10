@@ -27,6 +27,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public InteractablesData _interactablesData;
     public Map mapScript;
     public GameObject goHUD;
+    public GameObject goInGameMenu;
     
     #endregion
 
@@ -34,6 +35,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
 
     public UnityEvent OnPlayerHealthChanged;
     public UnityEvent OnPlayerDamaged;
+    public UnityEvent<Collectable> OnPlayerCollectable;
 
     #endregion
     
