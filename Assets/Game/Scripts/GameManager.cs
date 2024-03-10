@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Scene.Interactables;
@@ -28,7 +29,8 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public Map mapScript;
     public GameObject goHUD;
     public GameObject goInGameMenu;
-    
+
+    public RespawnPoint CurrentRespawnPoint;
     #endregion
 
     #region EVENTS
@@ -36,18 +38,35 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public UnityEvent OnPlayerHealthChanged;
     public UnityEvent OnPlayerDamaged;
     public UnityEvent<Collectable> OnPlayerCollectable;
+    public UnityEvent OnPlayerDeath;
+    public UnityEvent OnUpdatedRespawnPoint;
 
     #endregion
     
     #region UNITYMETHODS
     void Start()
     {
+        OnPlayerDeath.AddListener(RespawnPlayer);
     }
     
     void Update()
     {
         
     }
+
+    private void OnDestroy()
+    {
+        OnPlayerDeath.RemoveListener(RespawnPlayer);
+    }
+
     #endregion
-  
+
+    #region Methods
+
+    public void RespawnPlayer()
+    {
+        goMainPlayer.transform.position = CurrentRespawnPoint.RespawnLocation.position;
+    }
+
+    #endregion
 }
