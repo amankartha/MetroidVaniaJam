@@ -136,12 +136,24 @@ PrefabInstance:
       value: CollectableTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 4994412440201839548, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2033
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994412440201839548, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2033
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994412440201839548, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2033
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994412440201839548, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.136385
+      value: -16.75
       objectReference: {fileID: 0}
     - target: {fileID: 4994412440201839548, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.88
+      value: 29.94
       objectReference: {fileID: 0}
     - target: {fileID: 4994412440201839548, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -177,7 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6582405185261100454, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
       propertyPath: id
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582405185261100454, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
+      propertyPath: title
+      value: Chatting Note- #2
       objectReference: {fileID: 0}
     - target: {fileID: 6582405185261100454, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
       propertyPath: sprite
@@ -185,7 +201,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: ea7dfd8c849dcf8499b441da963b6011, type: 3}
     - target: {fileID: 6582405185261100454, guid: 3268caec225d7964fb6c703cdbe06e87, type: 3}
       propertyPath: content
-      value: chatty note
+      value: "That\u2019s weird, I\u2019ve worked with him, he never stole food.
+        Not the first time I heard about food mysteriously vanishing from that fridge,
+        who is the last suspect? Big T, IT guy, I think that was several months ago.
+        He was annoying anyways, not easy to cooperate with, we were happy to see
+        him leave. "
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
