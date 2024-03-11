@@ -21,12 +21,15 @@ public class PlayerAttackState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
+        
+        _player.SetVelocityZero();
     }
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
         _player.SetVelocityX(_playerData.attackVelocity * _player.FacingDirection);
+        base.LogicUpdate();
+        
     }
 
     public override void PhysicsUpdate()
@@ -48,7 +51,7 @@ public class PlayerAttackState : PlayerAbilityState
     public override void AnimationFinishTrigger()
     {
         base.AnimationFinishTrigger();
-        _player.SetVelocityZero();
+     
         _isAbilityDone = true;
     }
 }
