@@ -32,6 +32,13 @@ MonoBehaviour:
   stopOffset: {x: 0.4, y: 0.2}
   dodgeDuration: 1
   dodgeVelocityX: 7
+  attackDamage: 1
+  attackVelocity: 2
+  attackWidth: 5
+  attackHeight: 5
+  attackLayers:
+    serializedVersion: 2
+    m_Bits: 64
   throwCoolDown: 2
   throwVelocity: 30
   throwMaxDuration: 0.2
