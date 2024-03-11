@@ -11,6 +11,7 @@ public class PlayerGroundedState : PlayerState
     private bool _dodgeInput;
     private bool _throwInput;
     private bool _isGrounded;
+    private bool _attackInput;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
         
@@ -35,10 +36,15 @@ public class PlayerGroundedState : PlayerState
        _jumpInput = _player.InputHandler.JumpInput;
        _dodgeInput = _player.InputHandler.DodgeInput;
        _throwInput = _player.InputHandler.ThrowInput;
+       _attackInput = _player.InputHandler.AttackInput;
 
        if (_jumpInput && _player.JumpState.CanJump())
        {
            _stateMachine.ChangeState(_player.JumpState);
+       }
+       else if (_attackInput)
+       {
+           _stateMachine.ChangeState(_player.AttackState);
        }
        else if(_dodgeInput)
        {

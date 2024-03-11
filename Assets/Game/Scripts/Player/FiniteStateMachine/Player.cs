@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
 
     public PlayerDamagedState DamagedState { get; private set; }
 
+    public PlayerAttackState AttackState { get; private set; }
+
     #endregion
 
     #region COMPONENTS
@@ -137,7 +139,8 @@ public class Player : MonoBehaviour
         DodgeState = new PlayerDodgeState(this, StateMachine, _playerData, "dodge");
         ThrowState = new PlayerThrowState(this, StateMachine, _playerData, "throw");
         DamagedState = new PlayerDamagedState(this, StateMachine, _playerData, "damaged");
-
+        AttackState = new PlayerAttackState(this, StateMachine, _playerData, "attack");
+    
 
 
     }
@@ -263,7 +266,6 @@ public class Player : MonoBehaviour
         return Physics2D.Raycast(_wallCheck.position, Vector2.right * -FacingDirection, _playerData.wallCheckDistance,
             _playerData.groundLayer);
     }
-
     public bool CheckIfCanThrow()
     {
         return _canThrow;
@@ -310,6 +312,27 @@ public class Player : MonoBehaviour
         });
 
     }
+
+    public void DealDamage()
+    {
+        Collider2D[] collider2Ds;
+        collider2Ds = Physics2D.OverlapAreaAll(
+            (Vector2)_damageCheck.transform.position -
+            new Vector2(_playerData.attackWidth / 2, _playerData.attackHeight / 2),
+            (Vector2)_damageCheck.transform.position +
+            new Vector2(_playerData.attackWidth / 2, _playerData.attackHeight / 2),
+            _playerData.attackLayers);
+
+        foreach (var collider in collider2Ds)
+        {
+            if(collider.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.TakeDamage(_playerData.attackDamage);
+            }
+        }
+    }
+    
+    
     
     
     #region HELPERMETHODS
@@ -350,4 +373,8 @@ public class Player : MonoBehaviour
     
     #endregion
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(_damageCheck.transform.position,new Vector3(2,2,1));
+    }
 }

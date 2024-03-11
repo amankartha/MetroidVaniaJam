@@ -64,6 +64,7 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamage(int value)
     {
+        Debug.Log($"{this.gameObject.name} has taken {value} damage" );
         Damage(value);
     }
 }
