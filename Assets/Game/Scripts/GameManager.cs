@@ -68,6 +68,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public void RespawnPlayer()
     {
         goMainPlayer.transform.position = CurrentRespawnPoint.RespawnLocation.position;
+        PlayerScript.PlayerHealth.SetHealth(PlayerScript.PlayerHealth.MaxHealth);
     }
 
     #endregion
