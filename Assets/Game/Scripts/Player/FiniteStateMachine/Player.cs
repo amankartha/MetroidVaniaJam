@@ -30,10 +30,11 @@ public class Player : MonoBehaviour
                 _throwCooldownTimer = value;
                 _throwCooldownTimer = Mathf.Clamp(_throwCooldownTimer, 0, 100);    
             }
-            
+            GameManager.Instance.OnThrowCooldownChanged?.Invoke();
         }
     }
     private bool _canThrow;
+    public float ThrowCooldown { get; set; }
 
     public int MaxPotions { get; set; } 
     private int _potionCount;
@@ -158,7 +159,8 @@ public class Player : MonoBehaviour
         _throwCooldown = _playerData.throwCoolDown;
         ThrowCooldownTimer = _throwCooldown;
         _canThrow = true;
-        
+        ThrowCooldown = _throwCooldown;
+
         #region Healthstuff
 
         PlayerHealth.SetHealth(_playerData.PlayerBaseHealth);
