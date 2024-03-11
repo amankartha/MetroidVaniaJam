@@ -41,6 +41,7 @@ public class PlayerData : ScriptableObject
     public float throwMaxDuration = 0.5f;
     public float throwIdleDuration = 1f;
     public float teleportDelay = 0.3f;
+    public float teleportPauseGravityDuration = 0.2f;
     public LayerMask briefcaseReturnLayer;
 
     [Header("Health")] 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Game.Scripts.System;
 using Unity.Mathematics;
 using UnityEngine;
@@ -82,7 +83,8 @@ public class Player : MonoBehaviour
     #endregion
 
     #region COMPONENTS
-    
+
+    public GameObject briefcaseGameObject;
     
     [field:SerializeField] public PlayerHealth PlayerHealth { get; private set; }
     [field:SerializeField] public HealthBar healthBarUI { get; private set; }
@@ -292,6 +294,24 @@ public class Player : MonoBehaviour
 
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
 
+    public void PauseGravity(float duration)
+    {   
+        float currGrav = 5f;
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.AppendCallback(() =>
+        {
+            RB.gravityScale = 0;
+        });
+        sequence.AppendInterval(duration);
+        sequence.AppendCallback(() =>
+        {
+            RB.gravityScale = currGrav;
+        });
+
+    }
+    
+    
     #region HELPERMETHODS
 
     public void CreateDust()
