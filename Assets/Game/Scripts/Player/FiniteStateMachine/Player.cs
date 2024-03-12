@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Game.Scripts.System;
 using Unity.Mathematics;
 using UnityEngine;
@@ -29,10 +30,11 @@ public class Player : MonoBehaviour
                 _throwCooldownTimer = value;
                 _throwCooldownTimer = Mathf.Clamp(_throwCooldownTimer, 0, 100);    
             }
-            
+            GameManager.Instance.OnThrowCooldownChanged?.Invoke();
         }
     }
     private bool _canThrow;
+    public float ThrowCooldown { get; set; }
 
     public int MaxPotions { get; set; } 
     private int _potionCount;
@@ -79,10 +81,13 @@ public class Player : MonoBehaviour
 
     public PlayerDamagedState DamagedState { get; private set; }
 
+    public PlayerAttackState AttackState { get; private set; }
+
     #endregion
 
     #region COMPONENTS
-    
+
+    public GameObject briefcaseGameObject;
     
     [field:SerializeField] public PlayerHealth PlayerHealth { get; private set; }
     [field:SerializeField] public HealthBar healthBarUI { get; private set; }
@@ -135,7 +140,8 @@ public class Player : MonoBehaviour
         DodgeState = new PlayerDodgeState(this, StateMachine, _playerData, "dodge");
         ThrowState = new PlayerThrowState(this, StateMachine, _playerData, "throw");
         DamagedState = new PlayerDamagedState(this, StateMachine, _playerData, "damaged");
-
+        AttackState = new PlayerAttackState(this, StateMachine, _playerData, "attack");
+    
 
 
     }
@@ -153,7 +159,8 @@ public class Player : MonoBehaviour
         _throwCooldown = _playerData.throwCoolDown;
         ThrowCooldownTimer = _throwCooldown;
         _canThrow = true;
-        
+        ThrowCooldown = _throwCooldown;
+
         #region Healthstuff
 
         PlayerHealth.SetHealth(_playerData.PlayerBaseHealth);
@@ -261,7 +268,6 @@ public class Player : MonoBehaviour
         return Physics2D.Raycast(_wallCheck.position, Vector2.right * -FacingDirection, _playerData.wallCheckDistance,
             _playerData.groundLayer);
     }
-
     public bool CheckIfCanThrow()
     {
         return _canThrow;
@@ -292,6 +298,45 @@ public class Player : MonoBehaviour
 
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
 
+    public void PauseGravity(float duration)
+    {   
+        float currGrav = 5f;
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.AppendCallback(() =>
+        {
+            RB.gravityScale = 0;
+        });
+        sequence.AppendInterval(duration);
+        sequence.AppendCallback(() =>
+        {
+            RB.gravityScale = currGrav;
+        });
+
+    }
+
+    public void DealDamage()
+    {
+        Collider2D[] collider2Ds;
+        collider2Ds = Physics2D.OverlapAreaAll(
+            (Vector2)_damageCheck.transform.position -
+            new Vector2(_playerData.attackWidth / 2, _playerData.attackHeight / 2),
+            (Vector2)_damageCheck.transform.position +
+            new Vector2(_playerData.attackWidth / 2, _playerData.attackHeight / 2),
+            _playerData.attackLayers);
+
+        foreach (var collider in collider2Ds)
+        {
+            if(collider.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.TakeDamage(_playerData.attackDamage);
+            }
+        }
+    }
+    
+    
+    
+    
     #region HELPERMETHODS
 
     public void CreateDust()
@@ -330,4 +375,8 @@ public class Player : MonoBehaviour
     
     #endregion
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(_damageCheck.transform.position,new Vector3(2,2,1));
+    }
 }

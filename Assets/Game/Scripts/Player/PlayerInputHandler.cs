@@ -31,6 +31,10 @@ public class PlayerInputHandler : MonoBehaviour
     public bool MenuTabUpInputStop { get; private set; }
     public bool MenuTabDownInput { get; private set; }
     public bool MenuTabDownInputStop { get; private set; }
+    
+    
+    public bool AttackInput { get; private set; }
+    public bool AttackInputStop { get; private set; }
 
 
 
@@ -40,6 +44,7 @@ public class PlayerInputHandler : MonoBehaviour
    private float _dodgeInputStartTime;
    private float _throwInputStartTime;
    private float _interactInputStartTime;
+   private float _attackInputStartTime;
     private float _mapInputStartTime;
     private float _mapZoomInputStartTime;
     private float _menuTabUpInputStartTime;
@@ -105,6 +110,22 @@ public class PlayerInputHandler : MonoBehaviour
        {
            ThrowInput = false;
            ThrowInputStop = true;
+       }
+   }
+
+   public void OnAttackInput(InputAction.CallbackContext context)
+   {
+       if (context.started)
+       {
+           AttackInput = true;
+           AttackInputStop = false;
+           _attackInputStartTime = Time.time;
+       }
+
+       if (context.canceled)
+       {
+           AttackInput = false;
+           AttackInputStop = true;
        }
    }
 
@@ -192,6 +213,8 @@ public class PlayerInputHandler : MonoBehaviour
    public void UseDodgeInput() => DodgeInput = false;
 
    public void UseThrowInput() => ThrowInput = false;
+
+   public void UseAttackInput() => AttackInput = false;
 
    public void UseInteractInput() => InteractInput = false;
 

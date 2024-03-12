@@ -41,8 +41,16 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public UnityEvent<Collectable> OnPlayerCollectable;
     public UnityEvent OnPlayerDeath;
     public UnityEvent OnUpdatedRespawnPoint;
+    public UnityEvent OnThrowCooldownChanged;
     
     #endregion
+
+    #region ENEMIES
+
+    
+
+    #endregion
+    
     
     #region UNITYMETHODS
     void Start()
@@ -67,6 +75,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public void RespawnPlayer()
     {
         goMainPlayer.transform.position = CurrentRespawnPoint.RespawnLocation.position;
+        PlayerScript.PlayerHealth.SetHealth(PlayerScript.PlayerHealth.MaxHealth);
     }
 
     #endregion

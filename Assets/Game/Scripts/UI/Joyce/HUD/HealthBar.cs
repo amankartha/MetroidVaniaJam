@@ -43,7 +43,7 @@ public class HealthBar : MonoBehaviour
         UpdateHealthBar();
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         float remainingHealth = GameManager.Instance.PlayerScript.PlayerHealth.HealthValue;
         for (int i = 0; i < GameManager.Instance.PlayerScript.PlayerHealth.HPSection; i++)
