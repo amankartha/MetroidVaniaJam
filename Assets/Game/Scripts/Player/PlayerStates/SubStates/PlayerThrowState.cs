@@ -16,6 +16,7 @@ public class PlayerThrowState : PlayerAbilityState
         _player.InputHandler.UseThrowInput();
         _player.BriefcaseScript.ThrowBriefcase();
         _isAbilityDone = true;
+        _player.briefcaseGameObject.SetActive(false);
     }
 
     public override void Exit()
