@@ -491,6 +491,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 387948729}
     m_Modifications:
+    - target: {fileID: 222281837116087219, guid: bff6f8e98cf5ed9459ad5735cc299289, type: 3}
+      propertyPath: contractFragment.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 222281837116087219, guid: bff6f8e98cf5ed9459ad5735cc299289, type: 3}
+      propertyPath: contractFragment.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: d19c7da310546ea41be3ea8f94efe7ee, type: 3}
     - target: {fileID: 1329824611001650560, guid: bff6f8e98cf5ed9459ad5735cc299289, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
