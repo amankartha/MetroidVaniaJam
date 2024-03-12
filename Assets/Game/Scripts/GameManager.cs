@@ -44,6 +44,13 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public UnityEvent OnThrowCooldownChanged;
     
     #endregion
+
+    #region ENEMIES
+
+    
+
+    #endregion
+    
     
     #region UNITYMETHODS
     void Start()
