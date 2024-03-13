@@ -8,6 +8,8 @@ public class ShieldEnemy : Entity
     
     public ShieldEnemyIdleState IdleState { get; private set; }
     public ShieldEnemyMoveState moveState { get; private set; }    
+    
+    public ShieldEnemyPlayerDetectedState PlayerDetectedState { get; private set; }
 
     #endregion
 
@@ -15,7 +17,7 @@ public class ShieldEnemy : Entity
 
     [SerializeField] private D_IdleState _idleStateData;
     [SerializeField] private D_MoveState _moveStateData;
-
+    [SerializeField] private D_PlayerDetected _playerDetectedData;
     #endregion
 
 
@@ -24,7 +26,8 @@ public class ShieldEnemy : Entity
         base.Start();
         moveState = new ShieldEnemyMoveState(this, _finiteStateMachine, "move", _moveStateData, this);
         IdleState = new ShieldEnemyIdleState(this, _finiteStateMachine, "idle", _idleStateData, this);
-        
+        PlayerDetectedState =
+            new ShieldEnemyPlayerDetectedState(this, _finiteStateMachine, "playerDetected", _playerDetectedData, this);
         _finiteStateMachine.Initialize(moveState);
     }
 }

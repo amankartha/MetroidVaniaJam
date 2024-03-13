@@ -9,6 +9,7 @@ public class EnemyIdleState : EnemyState
 
     protected bool _flipAfteridle;
     protected bool isIdleTimeOver;
+    protected bool isPlayerInMinAggroRange;
 
     public float idleTime;
     
@@ -24,6 +25,7 @@ public class EnemyIdleState : EnemyState
         _entity.SetVelocity(0f);
         isIdleTimeOver = false;
         SetRandomIdleTime();
+        isPlayerInMinAggroRange = _entity.CheckPlayerInMinAggroRange();
     }
 
     public override void Exit()
@@ -50,6 +52,7 @@ public class EnemyIdleState : EnemyState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        isPlayerInMinAggroRange = _entity.CheckPlayerInMinAggroRange();
     }
 
     public void SetFLipAfterIdle(bool flip)

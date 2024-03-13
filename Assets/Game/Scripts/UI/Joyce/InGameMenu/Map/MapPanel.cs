@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
-using UnityEngine.InputSystem;
 
 public class MapPanel : MonoBehaviour
 {
@@ -42,6 +41,7 @@ public class MapPanel : MonoBehaviour
         originalMapHolderRotation = mapHolderRect.rotation;
         originalMapHolderPosition = mapHolderRect.anchoredPosition;
         zoomText.text = "Zoom In";
+        map.HideRegionalMap();
     }
 
     private void Update()
@@ -108,8 +108,11 @@ public class MapPanel : MonoBehaviour
     {
         List<AreaMapImage> areaMapLeftImages = map.areaMapLeftImages;
         List<AreaMapImage> areaMapRightImages = map.areaMapRightImages;
+
+        //world map
         if (isWorldMap)
-        {            
+        {
+            map.HideRegionalMap();
             foreach (AreaMapImage areaMapImage in areaMapLeftImages)
             {
                 if (areaMapImage.gameObject.activeSelf)
@@ -125,23 +128,28 @@ public class MapPanel : MonoBehaviour
                 }
             }
         }
+        //regional map
         else
         {           
-            foreach (AreaMapImage areaMapImage in areaMapLeftImages)
+            /*foreach (AreaMapImage areaMapImage in areaMapLeftImages)
             {
                 if (areaMapImage.gameObject.activeSelf)
                 {
-                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.regionalMapSprite;
+                    //areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.regionalMapSprite;
+                    areaMapImage.gameObject.SetActive(false);
                 }
             }
             foreach (AreaMapImage areaMapImage in areaMapRightImages)
             {
                 if (areaMapImage.gameObject.activeSelf)
                 {
-                    areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.regionalMapSprite;
+                    //areaMapImage.gameObject.GetComponent<Image>().sprite = areaMapImage.regionalMapSprite;
+                    areaMapImage.gameObject.SetActive(false);
                 }
-            }
+            }*/
+            map.ShowRegionalMap();
         }
+
     }
 
     void ToggleIconsDisplay(bool setToActive)

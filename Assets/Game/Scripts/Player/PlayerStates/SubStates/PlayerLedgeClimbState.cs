@@ -13,6 +13,7 @@ public class PlayerLedgeClimbState : PlayerState
     private bool _isClimbing;
     private int _xInput;
     private int _yInput;
+    private Collider2D col;
     public PlayerLedgeClimbState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -30,6 +31,7 @@ public class PlayerLedgeClimbState : PlayerState
         _stopPos.Set(_cornerPos.x + (_player.FacingDirection * _playerData.stopOffset.x),_cornerPos.y + _playerData.stopOffset.y);
 
         _player.transform.position = _startPos;
+        
     }
 
     public override void Exit()
@@ -46,6 +48,9 @@ public class PlayerLedgeClimbState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        
+        
+        
         if (_isAnimationFinished)
         {
             _stateMachine.ChangeState(_player.IdleState);
@@ -54,18 +59,21 @@ public class PlayerLedgeClimbState : PlayerState
         {
             _xInput = _player.InputHandler.NormInputX;
             _yInput = _player.InputHandler.NormInputY;
-        
-        
+
+            
             _player.SetVelocityZero();
             _player.transform.position = _startPos;
+            
 
             if (_xInput == _player.FacingDirection && _isHanging && !_isClimbing)
             {
+                _player.transform.parent = null;
                 _isClimbing = true;
                 _player.Anim.SetBool("climbLedge",true);
             }
             else if (_yInput == -1 && _isHanging && !_isClimbing)
             {
+                _player.transform.parent = null;
                 _stateMachine.ChangeState(_player.InAirState);
             }
         }
