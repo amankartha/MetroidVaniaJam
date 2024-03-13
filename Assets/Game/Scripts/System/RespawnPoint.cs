@@ -9,7 +9,7 @@ public class RespawnPoint : MonoBehaviour
 
     public GameObject OpenEyes;
     public GameObject ClosedEyes;
-
+    public GameObject interactUI;
 
     [SerializeField] private bool isOpen;
 
@@ -32,6 +32,7 @@ public class RespawnPoint : MonoBehaviour
             isOpen = true;
             ClosedEyes.SetActive(false);
             OpenEyes.SetActive(true);
+            interactUI.SetActive(true);
         }
     }
 
