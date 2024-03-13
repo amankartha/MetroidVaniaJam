@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5685802245149517077}
   - component: {fileID: 3442929023314924551}
+  - component: {fileID: 5003679578412808888}
+  - component: {fileID: 7774800174431484684}
   m_Layer: 5
   m_Name: WareHouseRoom008
   m_TagString: Untagged
@@ -33,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -66, y: 167}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -64.52673, y: 167}
+  m_SizeDelta: {x: 102.9465, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3442929023314924551
 MonoBehaviour:
@@ -50,8 +52,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 8
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 7774800174431484684}
   savePoint: {fileID: 0}
+--- !u!222 &5003679578412808888
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56384710782504963}
+  m_CullTransparentMesh: 1
+--- !u!114 &7774800174431484684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56384710782504963}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 2138825819, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &76669021950591904
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +177,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8740489455239119529}
   - component: {fileID: 7463774421028196927}
+  - component: {fileID: 1111242234571447285}
+  - component: {fileID: 6956951054175663189}
   m_Layer: 5
   m_Name: WareHouseRoom003
   m_TagString: Untagged
@@ -160,8 +202,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -644, y: 74}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -642.85803, y: 74.28552}
+  m_SizeDelta: {x: 102.2838, y: 100.571}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7463774421028196927
 MonoBehaviour:
@@ -177,8 +219,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 3
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 6956951054175663189}
   savePoint: {fileID: 0}
+--- !u!222 &1111242234571447285
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106403674832436124}
+  m_CullTransparentMesh: 1
+--- !u!114 &6956951054175663189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106403674832436124}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -359703139, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &257533983877555550
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +269,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4875308861207918996}
   - component: {fileID: 4509239735004147004}
+  - component: {fileID: 5534415205236719570}
+  - component: {fileID: 1719733241786381354}
   m_Layer: 5
   m_Name: WareHouseRoom000
   m_TagString: Untagged
@@ -212,8 +294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -519, y: -129}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -520, y: -129}
+  m_SizeDelta: {x: 102, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4509239735004147004
 MonoBehaviour:
@@ -229,8 +311,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 0
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 1719733241786381354}
   savePoint: {fileID: 0}
+--- !u!222 &5534415205236719570
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257533983877555550}
+  m_CullTransparentMesh: 1
+--- !u!114 &1719733241786381354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257533983877555550}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -314099890, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &381876162179059010
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +889,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6818872198126154200}
   - component: {fileID: 3573570876928199432}
+  - component: {fileID: 7637370677884392978}
+  - component: {fileID: 4761797447905185710}
   m_Layer: 5
   m_Name: WareHouseRoom013
   m_TagString: Untagged
@@ -792,8 +914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 262, y: -49}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 261.67554, y: -49}
+  m_SizeDelta: {x: 100.6488, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3573570876928199432
 MonoBehaviour:
@@ -809,8 +931,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 13
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 4761797447905185710}
   savePoint: {fileID: 0}
+--- !u!222 &7637370677884392978
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732748577236879887}
+  m_CullTransparentMesh: 1
+--- !u!114 &4761797447905185710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732748577236879887}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1165763768, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &836577473252602970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1660,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7829125071806322499}
   m_HandleRect: {fileID: 1139673030544546312}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1640,58 +1800,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &1438923702179892135
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9060897135820335570}
-  - component: {fileID: 7344370133039104272}
-  m_Layer: 5
-  m_Name: WorkspaceRoom001
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &9060897135820335570
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438923702179892135}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4723817292536111712}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -166, y: -54}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7344370133039104272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438923702179892135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 533e15eb8ef848a4c81ce56623b66184, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapArea: 2
-  roomID: 0
-  discoveredImage: {fileID: 0}
-  savePoint: {fileID: 0}
 --- !u!1 &1471896742703805863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,6 +3492,81 @@ MonoBehaviour:
   mapArea: 3
   worldMapSprite: {fileID: 1727273453, guid: 8c4a598f6f82f774085148c9b5bb1ebd, type: 3}
   regionalMapSprite: {fileID: 1542441654, guid: 6647731600e32d24aa754e721f66bead, type: 3}
+--- !u!1 &2055619220815861950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2228207319329854479}
+  - component: {fileID: 9115629523339180935}
+  - component: {fileID: 5031726120058013734}
+  m_Layer: 5
+  m_Name: savepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2228207319329854479
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055619220815861950}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5080059316972988116}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -28, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9115629523339180935
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055619220815861950}
+  m_CullTransparentMesh: 1
+--- !u!114 &5031726120058013734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055619220815861950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.606787, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2183996349200065865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,6 +3914,8 @@ GameObject:
   m_Component:
   - component: {fileID: 69091033220010367}
   - component: {fileID: 2481029676940194438}
+  - component: {fileID: 5385916398933820453}
+  - component: {fileID: 9061768378839411604}
   m_Layer: 5
   m_Name: WareHouseRoom009
   m_TagString: Untagged
@@ -3754,8 +3939,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -66, y: -47}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -64.527, y: -47}
+  m_SizeDelta: {x: 102.95, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2481029676940194438
 MonoBehaviour:
@@ -3771,8 +3956,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 9
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 9061768378839411604}
   savePoint: {fileID: 0}
+--- !u!222 &5385916398933820453
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292389160934974073}
+  m_CullTransparentMesh: 1
+--- !u!114 &9061768378839411604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292389160934974073}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 911897187, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2340589262536615362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,6 +4585,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1170392750963616855}
   - component: {fileID: 4116605829650875178}
+  - component: {fileID: 3343028602067515492}
+  - component: {fileID: 4755130019869945683}
   m_Layer: 5
   m_Name: WareHouseRoom016
   m_TagString: Untagged
@@ -4402,8 +4627,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 16
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 4755130019869945683}
   savePoint: {fileID: 0}
+--- !u!222 &3343028602067515492
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108427577431942005}
+  m_CullTransparentMesh: 1
+--- !u!114 &4755130019869945683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108427577431942005}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1290560952, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3316027717238883819
 GameObject:
   m_ObjectHideFlags: 0
@@ -4947,6 +5210,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3719650864122871334}
   - component: {fileID: 7280965355315764264}
+  - component: {fileID: 3408594856552488524}
+  - component: {fileID: 3099275032849636989}
   m_Layer: 5
   m_Name: WareHouseRoom014
   m_TagString: Untagged
@@ -4970,8 +5235,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 256, y: 58}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 256, y: 59.946533}
+  m_SizeDelta: {x: 100, y: 103.8931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7280965355315764264
 MonoBehaviour:
@@ -4987,8 +5252,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 14
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 3099275032849636989}
   savePoint: {fileID: 0}
+--- !u!222 &3408594856552488524
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3481630920326982974}
+  m_CullTransparentMesh: 1
+--- !u!114 &3099275032849636989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3481630920326982974}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 86048403, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3541942665468203470
 GameObject:
   m_ObjectHideFlags: 0
@@ -5149,6 +5452,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3429355547623426565}
   - component: {fileID: 5761791596754086256}
+  - component: {fileID: 5023418302375212526}
+  - component: {fileID: 6801212653248838911}
   m_Layer: 5
   m_Name: WareHouseRoom002
   m_TagString: Untagged
@@ -5172,8 +5477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -521, y: -1}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -521, y: -0.49996948}
+  m_SizeDelta: {x: 100, y: 101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5761791596754086256
 MonoBehaviour:
@@ -5189,8 +5494,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 2
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 6801212653248838911}
   savePoint: {fileID: 0}
+--- !u!222 &5023418302375212526
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580588053164053853}
+  m_CullTransparentMesh: 1
+--- !u!114 &6801212653248838911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580588053164053853}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -354817574, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3719278832910423130
 GameObject:
   m_ObjectHideFlags: 0
@@ -6275,6 +6618,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5216160924900668715}
   - component: {fileID: 2334048870986399443}
+  - component: {fileID: 1311173789598021335}
+  - component: {fileID: 6190259493562769607}
   m_Layer: 5
   m_Name: WareHouseRoom011
   m_TagString: Untagged
@@ -6315,8 +6660,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 11
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 6190259493562769607}
   savePoint: {fileID: 0}
+--- !u!222 &1311173789598021335
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580869886995293160}
+  m_CullTransparentMesh: 1
+--- !u!114 &6190259493562769607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580869886995293160}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 567239268, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4659752372844466299
 GameObject:
   m_ObjectHideFlags: 0
@@ -6327,6 +6710,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5080059316972988116}
   - component: {fileID: 291109491715628088}
+  - component: {fileID: 7083869623718192897}
+  - component: {fileID: 4475100692923269110}
   m_Layer: 5
   m_Name: WareHouseRoom006
   m_TagString: Untagged
@@ -6345,13 +6730,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2228207319329854479}
   m_Father: {fileID: 4723817292536111712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -214, y: 56}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -212.55, y: 56}
+  m_SizeDelta: {x: 102.9, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &291109491715628088
 MonoBehaviour:
@@ -6367,8 +6753,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 6
-  discoveredImage: {fileID: 0}
-  savePoint: {fileID: 0}
+  discoveredImage: {fileID: 4475100692923269110}
+  savePoint: {fileID: 2055619220815861950}
+--- !u!222 &7083869623718192897
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659752372844466299}
+  m_CullTransparentMesh: 1
+--- !u!114 &4475100692923269110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659752372844466299}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -762955053, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4660201484845239818
 GameObject:
   m_ObjectHideFlags: 0
@@ -7126,58 +7550,6 @@ MonoBehaviour:
   targetDisplayRotation: {x: 0, y: 0, z: 0.00008726646, w: 1}
   targetMapPosition: {x: 773, y: -19}
   discriptionHolder: {fileID: 6618065636353167973}
---- !u!1 &4995086255954972541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1352792828980139744}
-  - component: {fileID: 5722623916357860502}
-  m_Layer: 5
-  m_Name: WorkspaceRoom002
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1352792828980139744
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4995086255954972541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4723817292536111712}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -351, y: 11}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5722623916357860502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4995086255954972541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 533e15eb8ef848a4c81ce56623b66184, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapArea: 2
-  roomID: 1
-  discoveredImage: {fileID: 0}
-  savePoint: {fileID: 0}
 --- !u!1 &5029578149840938644
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,6 +7709,81 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5145575884480191432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2298225648963342145}
+  - component: {fileID: 2116548949202745910}
+  - component: {fileID: 1344399243630008878}
+  m_Layer: 5
+  m_Name: savepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2298225648963342145
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145575884480191432}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6179304765155425921}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -26, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2116548949202745910
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145575884480191432}
+  m_CullTransparentMesh: 1
+--- !u!114 &1344399243630008878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145575884480191432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.606787, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8428,6 +8875,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7649824626576369845}
   - component: {fileID: 22558936321807899}
+  - component: {fileID: 8678852770943758633}
+  - component: {fileID: 5244493149605139115}
   m_Layer: 5
   m_Name: WareHouseRoom012
   m_TagString: Untagged
@@ -8451,8 +8900,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: 56}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 111.900024, y: 57}
+  m_SizeDelta: {x: 103.8, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &22558936321807899
 MonoBehaviour:
@@ -8468,8 +8917,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 12
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 5244493149605139115}
   savePoint: {fileID: 0}
+--- !u!222 &8678852770943758633
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565616670356218440}
+  m_CullTransparentMesh: 1
+--- !u!114 &5244493149605139115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565616670356218440}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 374290842, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5682243448896361349
 GameObject:
   m_ObjectHideFlags: 0
@@ -8726,6 +9213,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7211059555988130486}
   - component: {fileID: 5349880424805139761}
+  - component: {fileID: 964898102510723426}
+  - component: {fileID: 7145356061493891101}
   m_Layer: 5
   m_Name: WareHouseRoom010
   m_TagString: Untagged
@@ -8749,8 +9238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: -154}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 111.89783, y: -154}
+  m_SizeDelta: {x: 103.7955, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5349880424805139761
 MonoBehaviour:
@@ -8766,8 +9255,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 10
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 7145356061493891101}
   savePoint: {fileID: 0}
+--- !u!222 &964898102510723426
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906578641709413371}
+  m_CullTransparentMesh: 1
+--- !u!114 &7145356061493891101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906578641709413371}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -393603319, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5941463189875370993
 GameObject:
   m_ObjectHideFlags: 0
@@ -9193,6 +9720,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3541046059247570632}
   - component: {fileID: 3784743125750268085}
+  - component: {fileID: 8363988319671263178}
+  - component: {fileID: 1837614485506312881}
   m_Layer: 5
   m_Name: WareHouseRoom015
   m_TagString: Untagged
@@ -9233,8 +9762,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 15
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 1837614485506312881}
   savePoint: {fileID: 0}
+--- !u!222 &8363988319671263178
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356905083030177122}
+  m_CullTransparentMesh: 1
+--- !u!114 &1837614485506312881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356905083030177122}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1249777525, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6432275343001497485
 GameObject:
   m_ObjectHideFlags: 0
@@ -9545,6 +10112,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4736274547927089825}
   - component: {fileID: 8230725529973155231}
+  - component: {fileID: 8845655937766103412}
+  - component: {fileID: 8968821496802869003}
   m_Layer: 5
   m_Name: WareHouseRoom005
   m_TagString: Untagged
@@ -9568,8 +10137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -348, y: 56}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -345, y: 56}
+  m_SizeDelta: {x: 106, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8230725529973155231
 MonoBehaviour:
@@ -9585,8 +10154,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 5
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 8968821496802869003}
   savePoint: {fileID: 0}
+--- !u!222 &8845655937766103412
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513727639208343931}
+  m_CullTransparentMesh: 1
+--- !u!114 &8968821496802869003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513727639208343931}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 934346320, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6567223544058199092
 GameObject:
   m_ObjectHideFlags: 0
@@ -9597,6 +10204,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7102401556982812131}
   - component: {fileID: 4647575951991918483}
+  - component: {fileID: 7255455398721817156}
+  - component: {fileID: 632057584902816085}
   m_Layer: 5
   m_Name: WareHouseRoom001
   m_TagString: Untagged
@@ -9620,8 +10229,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -342, y: -52}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -344.5, y: -51}
+  m_SizeDelta: {x: 105, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4647575951991918483
 MonoBehaviour:
@@ -9637,8 +10246,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 1
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 632057584902816085}
   savePoint: {fileID: 0}
+--- !u!222 &7255455398721817156
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567223544058199092}
+  m_CullTransparentMesh: 1
+--- !u!114 &632057584902816085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6567223544058199092}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 424208211, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6599237352592616312
 GameObject:
   m_ObjectHideFlags: 0
@@ -10489,6 +11136,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3661774184817507553}
   - component: {fileID: 8166311241641792445}
+  - component: {fileID: 7057777624900496800}
+  - component: {fileID: 7908989984140826633}
   m_Layer: 5
   m_Name: WareHouseRoom004
   m_TagString: Untagged
@@ -10512,8 +11161,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -525, y: 165}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -523, y: 168.00009}
+  m_SizeDelta: {x: 104, y: 106.0002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8166311241641792445
 MonoBehaviour:
@@ -10529,8 +11178,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 4
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 7908989984140826633}
   savePoint: {fileID: 0}
+--- !u!222 &7057777624900496800
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028335582538675596}
+  m_CullTransparentMesh: 1
+--- !u!114 &7908989984140826633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028335582538675596}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1484570501, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7136765395308593516
 GameObject:
   m_ObjectHideFlags: 0
@@ -12257,58 +12944,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8638206002593145629
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1209233090447824}
-  - component: {fileID: 8882301830508489930}
-  m_Layer: 5
-  m_Name: LabRoom001
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1209233090447824
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8638206002593145629}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4723817292536111712}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -347, y: 141}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8882301830508489930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8638206002593145629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 533e15eb8ef848a4c81ce56623b66184, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapArea: 3
-  roomID: 0
-  discoveredImage: {fileID: 0}
-  savePoint: {fileID: 0}
 --- !u!1 &8703594997779459229
 GameObject:
   m_ObjectHideFlags: 0
@@ -12435,7 +13070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000091552734}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 592, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6701181044783929159
@@ -12697,6 +13332,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6179304765155425921}
   - component: {fileID: 376044710772240914}
+  - component: {fileID: 5251503781324813342}
+  - component: {fileID: 6142914066923291341}
   m_Layer: 5
   m_Name: WareHouseRoom017
   m_TagString: Untagged
@@ -12715,7 +13352,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2298225648963342145}
   m_Father: {fileID: 4723817292536111712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12737,8 +13375,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 17
-  discoveredImage: {fileID: 0}
-  savePoint: {fileID: 0}
+  discoveredImage: {fileID: 6142914066923291341}
+  savePoint: {fileID: 5145575884480191432}
+--- !u!222 &5251503781324813342
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873892018469536145}
+  m_CullTransparentMesh: 1
+--- !u!114 &6142914066923291341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873892018469536145}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1901887543, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8882470538668985539
 GameObject:
   m_ObjectHideFlags: 0
@@ -12880,9 +13556,6 @@ RectTransform:
   - {fileID: 3541046059247570632}
   - {fileID: 1170392750963616855}
   - {fileID: 6179304765155425921}
-  - {fileID: 9060897135820335570}
-  - {fileID: 1352792828980139744}
-  - {fileID: 1209233090447824}
   m_Father: {fileID: 3757292428227377286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -12905,7 +13578,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8908727849439382901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -12918,7 +13591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7ebe9b7857953dc4dad8acfd83eae874, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12940,7 +13613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
+  m_ShowMaskGraphic: 1
 --- !u!1 &8948999909181887660
 GameObject:
   m_ObjectHideFlags: 0
@@ -13389,6 +14062,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2971307220267661553}
   - component: {fileID: 1768628498946982165}
+  - component: {fileID: 5283325369789547372}
+  - component: {fileID: 5381621111228507029}
   m_Layer: 5
   m_Name: WareHouseRoom007
   m_TagString: Untagged
@@ -13412,8 +14087,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -66, y: 52}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -66, y: 53.5}
+  m_SizeDelta: {x: 100, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768628498946982165
 MonoBehaviour:
@@ -13429,8 +14104,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 7
-  discoveredImage: {fileID: 0}
+  discoveredImage: {fileID: 5381621111228507029}
   savePoint: {fileID: 0}
+--- !u!222 &5283325369789547372
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155292509508793025}
+  m_CullTransparentMesh: 1
+--- !u!114 &5381621111228507029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155292509508793025}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -898785514, guid: 375d47b58a40ad84eb269ba30fb13f79, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1001 &6229174795145627950
 PrefabInstance:
   m_ObjectHideFlags: 0
