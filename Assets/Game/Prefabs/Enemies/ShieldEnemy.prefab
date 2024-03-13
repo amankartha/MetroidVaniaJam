@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1544562883981424400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3962881069637136953}
+  m_Layer: 0
+  m_Name: PlayerCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3962881069637136953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544562883981424400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.089, y: 2.066, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6609450014662280320}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3092259950491725804
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +66,7 @@ Transform:
   - {fileID: 5090976195501468662}
   - {fileID: 1198719049562301038}
   - {fileID: 1678732896353257525}
+  - {fileID: 3962881069637136953}
   m_Father: {fileID: 5024616646368906252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6659539676569807533
@@ -177,10 +209,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityData: {fileID: 11400000, guid: 2da01a738b4d07a44b890104c348bc10, type: 2}
   <AliveGo>k__BackingField: {fileID: 3092259950491725804}
+  DamageMMF: {fileID: 0}
   WallCheck: {fileID: 1678732896353257525}
   LedgeCheck: {fileID: 1198719049562301038}
+  PlayerCheck: {fileID: 3962881069637136953}
   _idleStateData: {fileID: 11400000, guid: b92d22bf31078284dbe17a7d57c03df9, type: 2}
   _moveStateData: {fileID: 11400000, guid: 11f876fd9fbb05e4a90b8da9a80ac672, type: 2}
+  _playerDetectedData: {fileID: 11400000, guid: de67fd8b2264bff41981282d5668096e, type: 2}
 --- !u!1 &7401039150606474652
 GameObject:
   m_ObjectHideFlags: 0

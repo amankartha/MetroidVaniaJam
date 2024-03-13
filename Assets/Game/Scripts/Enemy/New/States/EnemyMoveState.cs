@@ -7,6 +7,7 @@ public class EnemyMoveState : EnemyState
     
     protected bool isDetectingWall;
     protected bool isDetectingLedge;
+    protected bool isPlayerInMinAggroRange;
 
     protected D_MoveState _stateData;
     
@@ -14,7 +15,7 @@ public class EnemyMoveState : EnemyState
     {
         _stateData = stateData;
     }
-
+    
 
     public override void Enter()
     {
@@ -23,6 +24,7 @@ public class EnemyMoveState : EnemyState
 
         isDetectingLedge = _entity.CheckLedge();
         isDetectingWall = _entity.CheckWall();
+        isPlayerInMinAggroRange = _entity.CheckPlayerInMinAggroRange();
     }
 
     public override void PhysicsUpdate()
@@ -30,6 +32,7 @@ public class EnemyMoveState : EnemyState
         base.PhysicsUpdate();
         isDetectingLedge = _entity.CheckLedge();
         isDetectingWall = _entity.CheckWall();
+        isPlayerInMinAggroRange = _entity.CheckPlayerInMinAggroRange();
     }
 }
 

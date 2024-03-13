@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldEnemyIdleState : EnemyIdleState
+public class ShieldEnemyPlayerDetectedState : EnemyPlayerDetectedState
 {
     private ShieldEnemy _enemy;
-    
-    public ShieldEnemyIdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_IdleState idleState,ShieldEnemy shieldEnemy) : base(entity, stateMachine, animBoolName, idleState)
+    public ShieldEnemyPlayerDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData,ShieldEnemy shieldEnemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         _enemy = shieldEnemy;
     }
@@ -24,14 +23,12 @@ public class ShieldEnemyIdleState : EnemyIdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (isPlayerInMinAggroRange)
+        if (!isPlayerInMaxAggroRange)
         {
-            _stateMachine.ChangeState(_enemy.PlayerDetectedState);
+            _enemy.IdleState.SetFLipAfterIdle(false);
+            _stateMachine.ChangeState(_enemy.IdleState);
         }
-        else if (isIdleTimeOver)
-        {
-            _stateMachine.ChangeState(_enemy.moveState);
-        }
+        
     }
 
     public override void PhysicsUpdate()
