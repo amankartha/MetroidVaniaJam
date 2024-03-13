@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 8
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &76669021950591904
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 3
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &257533983877555550
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 0
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &381876162179059010
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,8 +809,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 13
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &836577473252602970
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,8 +861,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 3
   roomID: -1
-  mapSprite: {fileID: 1727273453, guid: 8c4a598f6f82f774085148c9b5bb1ebd, type: 3}
-  mapSprite2: {fileID: -1465953517, guid: 8c4a598f6f82f774085148c9b5bb1ebd, type: 3}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &890577226190394605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,8 +1690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 2
   roomID: 0
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &1471896742703805863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,6 +2943,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1395837583025349116}
   - component: {fileID: 2384136250835689402}
+  - component: {fileID: 7099736310624824356}
+  - component: {fileID: 1118647119215357560}
   m_Layer: 5
   m_Name: TunnelRoom004
   m_TagString: Untagged
@@ -2966,8 +2968,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -436, y: -0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -436.75204, y: 0}
+  m_SizeDelta: {x: 119.8441, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2384136250835689402
 MonoBehaviour:
@@ -2983,8 +2985,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 4
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 1118647119215357560}
+  savePoint: {fileID: 0}
+--- !u!222 &7099736310624824356
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957874699673165292}
+  m_CullTransparentMesh: 1
+--- !u!114 &1118647119215357560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957874699673165292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -853836402, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1959218493147597745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,8 +3644,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: -1
-  mapSprite: {fileID: -1020789897, guid: 642d46df2f4bd9345bc0544bf846e209, type: 3}
-  mapSprite2: {fileID: -1209296541, guid: 642d46df2f4bd9345bc0544bf846e209, type: 3}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &2281353639939796877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,8 +3771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 9
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &2340589262536615362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,6 +4269,8 @@ GameObject:
   m_Component:
   - component: {fileID: 982236801830866122}
   - component: {fileID: 4163476102165078370}
+  - component: {fileID: 2673095722925126392}
+  - component: {fileID: 596985755514841977}
   m_Layer: 5
   m_Name: TunnelRoom006
   m_TagString: Untagged
@@ -4247,13 +4289,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4040337613429581538}
   m_Father: {fileID: 4723817292536111712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17, y: -0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 14.772217, y: 3}
+  m_SizeDelta: {x: 116.9309, y: 94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4163476102165078370
 MonoBehaviour:
@@ -4269,8 +4312,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 6
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 596985755514841977}
+  savePoint: {fileID: 5482366991601321655}
+--- !u!222 &2673095722925126392
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034066890953729793}
+  m_CullTransparentMesh: 1
+--- !u!114 &596985755514841977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034066890953729793}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 442706035, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3108427577431942005
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,8 +4402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 16
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &3316027717238883819
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,8 +4987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 14
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &3541942665468203470
 GameObject:
   m_ObjectHideFlags: 0
@@ -5108,8 +5189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 2
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &3719278832910423130
 GameObject:
   m_ObjectHideFlags: 0
@@ -5211,6 +5292,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3186056359834460869}
   - component: {fileID: 6797630356439847164}
+  - component: {fileID: 3825152411267974913}
+  - component: {fileID: 183214833522722122}
   m_Layer: 5
   m_Name: TunnelRoom005
   m_TagString: Untagged
@@ -5234,8 +5317,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -212, y: -0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -211.07, y: 0}
+  m_SizeDelta: {x: 120.13, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6797630356439847164
 MonoBehaviour:
@@ -5251,8 +5334,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 5
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 183214833522722122}
+  savePoint: {fileID: 0}
+--- !u!222 &3825152411267974913
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743328906942672642}
+  m_CullTransparentMesh: 1
+--- !u!114 &183214833522722122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743328906942672642}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -842488882, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3766301772445957633
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,6 +6091,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6854330829531230649}
   - component: {fileID: 9168721585324655967}
+  - component: {fileID: 9214090081479298701}
+  - component: {fileID: 6895105444583507475}
   m_Layer: 5
   m_Name: TunnelRoom008
   m_TagString: Untagged
@@ -5993,8 +6116,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 131, y: 190}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 132.9, y: 193.4}
+  m_SizeDelta: {x: 107.7659, y: 95.1462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9168721585324655967
 MonoBehaviour:
@@ -6010,8 +6133,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 8
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 6895105444583507475}
+  savePoint: {fileID: 0}
+--- !u!222 &9214090081479298701
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337832548897152409}
+  m_CullTransparentMesh: 1
+--- !u!114 &6895105444583507475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337832548897152409}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1224023776, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4453943570657397199
 GameObject:
   m_ObjectHideFlags: 0
@@ -6022,6 +6183,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9123467063806696088}
   - component: {fileID: 1410411730700803955}
+  - component: {fileID: 8148843669845975325}
+  - component: {fileID: 7008535231447571056}
   m_Layer: 5
   m_Name: TunnelRoom007
   m_TagString: Untagged
@@ -6045,8 +6208,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -101, y: 317}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -97.8, y: 318}
+  m_SizeDelta: {x: 126.5903, y: 170.8638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1410411730700803955
 MonoBehaviour:
@@ -6062,8 +6225,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 7
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 7008535231447571056}
+  savePoint: {fileID: 0}
+--- !u!222 &8148843669845975325
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453943570657397199}
+  m_CullTransparentMesh: 1
+--- !u!114 &7008535231447571056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453943570657397199}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -939909619, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4580869886995293160
 GameObject:
   m_ObjectHideFlags: 0
@@ -6114,8 +6315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 11
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &4659752372844466299
 GameObject:
   m_ObjectHideFlags: 0
@@ -6166,8 +6367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 6
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &4660201484845239818
 GameObject:
   m_ObjectHideFlags: 0
@@ -6975,8 +7176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 2
   roomID: 1
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &5029578149840938644
 GameObject:
   m_ObjectHideFlags: 0
@@ -6987,6 +7188,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4655409794573408898}
   - component: {fileID: 5851640242390703672}
+  - component: {fileID: 9086698688916749663}
+  - component: {fileID: 4363783456494149204}
   m_Layer: 5
   m_Name: TunnelRoom003
   m_TagString: Untagged
@@ -7010,8 +7213,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -436, y: -161}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -434.69318, y: -159.41998}
+  m_SizeDelta: {x: 115.7211, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5851640242390703672
 MonoBehaviour:
@@ -7027,8 +7230,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 3
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 4363783456494149204}
+  savePoint: {fileID: 0}
+--- !u!222 &9086698688916749663
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029578149840938644}
+  m_CullTransparentMesh: 1
+--- !u!114 &4363783456494149204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029578149840938644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1624089519, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5068064396550541829
 GameObject:
   m_ObjectHideFlags: 0
@@ -7899,6 +8140,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3074283603838142373}
   - component: {fileID: 2308835356103415837}
+  - component: {fileID: 6931709572488204166}
+  - component: {fileID: 7992721569433189650}
   m_Layer: 5
   m_Name: TunnelRoom000
   m_TagString: Untagged
@@ -7922,8 +8165,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -387, y: -339}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -385.24765, y: -339}
+  m_SizeDelta: {x: 93.7084, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2308835356103415837
 MonoBehaviour:
@@ -7939,8 +8182,121 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 0
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 7992721569433189650}
+  savePoint: {fileID: 0}
+--- !u!222 &6931709572488204166
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473370259217490680}
+  m_CullTransparentMesh: 1
+--- !u!114 &7992721569433189650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473370259217490680}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -332755290, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5482366991601321655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4040337613429581538}
+  - component: {fileID: 8885622293417455430}
+  - component: {fileID: 9081010699056429962}
+  m_Layer: 5
+  m_Name: savepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &4040337613429581538
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482366991601321655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 982236801830866122}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -30.5, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8885622293417455430
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482366991601321655}
+  m_CullTransparentMesh: 1
+--- !u!114 &9081010699056429962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482366991601321655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.606787, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5492269780529551968
 GameObject:
   m_ObjectHideFlags: 0
@@ -8112,8 +8468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 12
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &5682243448896361349
 GameObject:
   m_ObjectHideFlags: 0
@@ -8410,8 +8766,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 10
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &5941463189875370993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8877,8 +9233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 15
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &6432275343001497485
 GameObject:
   m_ObjectHideFlags: 0
@@ -9229,8 +9585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 5
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &6567223544058199092
 GameObject:
   m_ObjectHideFlags: 0
@@ -9281,8 +9637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 1
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &6599237352592616312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9588,6 +9944,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9036235883501222601}
   - component: {fileID: 1439432352458032373}
+  - component: {fileID: 8691959038689379060}
+  - component: {fileID: 803156642044394976}
   m_Layer: 5
   m_Name: TunnelRoom002
   m_TagString: Untagged
@@ -9611,8 +9969,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -197, y: -161}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -195.99, y: -159.4216}
+  m_SizeDelta: {x: 136.02, y: 137.2612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1439432352458032373
 MonoBehaviour:
@@ -9628,8 +9986,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 2
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 803156642044394976}
+  savePoint: {fileID: 0}
+--- !u!222 &8691959038689379060
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6689866492765188530}
+  m_CullTransparentMesh: 1
+--- !u!114 &803156642044394976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6689866492765188530}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1776017284, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6732581493329518950
 GameObject:
   m_ObjectHideFlags: 0
@@ -10001,6 +10397,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1716861321372361752}
   - component: {fileID: 7957063551202386215}
+  - component: {fileID: 9019282679253945903}
+  - component: {fileID: 6226336141987238075}
   m_Layer: 5
   m_Name: TunnelRoom010
   m_TagString: Untagged
@@ -10024,8 +10422,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 363, y: 317}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 362.66, y: 319.4}
+  m_SizeDelta: {x: 113.32, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7957063551202386215
 MonoBehaviour:
@@ -10041,8 +10439,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 10
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 6226336141987238075}
+  savePoint: {fileID: 0}
+--- !u!222 &9019282679253945903
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935957686701476882}
+  m_CullTransparentMesh: 1
+--- !u!114 &6226336141987238075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935957686701476882}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1427335775, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7028335582538675596
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,8 +10529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 4
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &7136765395308593516
 GameObject:
   m_ObjectHideFlags: 0
@@ -10442,6 +10878,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8042249588255206762}
   - component: {fileID: 4484449800933130276}
+  - component: {fileID: 8827103246402411294}
+  - component: {fileID: 4758375017935817112}
   m_Layer: 5
   m_Name: TunnelRoom009
   m_TagString: Untagged
@@ -10465,8 +10903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 131, y: 311}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 132.9, y: 314}
+  m_SizeDelta: {x: 107.76, y: 106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4484449800933130276
 MonoBehaviour:
@@ -10482,8 +10920,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 9
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 4758375017935817112}
+  savePoint: {fileID: 0}
+--- !u!222 &8827103246402411294
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452036039069474982}
+  m_CullTransparentMesh: 1
+--- !u!114 &4758375017935817112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452036039069474982}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -447521100, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7506482505693051902
 GameObject:
   m_ObjectHideFlags: 0
@@ -10630,8 +11106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 2
   roomID: -1
-  mapSprite: {fileID: -1555361530, guid: a21639481bcb49a458bffcb2d5ffaa28, type: 3}
-  mapSprite2: {fileID: 1031968266, guid: a21639481bcb49a458bffcb2d5ffaa28, type: 3}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &7873831142238436479
 GameObject:
   m_ObjectHideFlags: 0
@@ -11699,6 +12175,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7449630662640219039}
   - component: {fileID: 3644256934431402988}
+  - component: {fileID: 3686777172065921578}
+  - component: {fileID: 2833056900910928134}
   m_Layer: 5
   m_Name: TunnelRoom001
   m_TagString: Untagged
@@ -11722,8 +12200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -348}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -199.555, y: -345.90002}
+  m_SizeDelta: {x: 143.1572, y: 65.9796}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3644256934431402988
 MonoBehaviour:
@@ -11739,8 +12217,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 0
   roomID: 1
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 2833056900910928134}
+  savePoint: {fileID: 0}
+--- !u!222 &3686777172065921578
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8637317128935039707}
+  m_CullTransparentMesh: 1
+--- !u!114 &2833056900910928134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8637317128935039707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1233226708, guid: c56f438cc5939494eafdb51eb55fd342, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8638206002593145629
 GameObject:
   m_ObjectHideFlags: 0
@@ -11791,8 +12307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 3
   roomID: 0
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &8703594997779459229
 GameObject:
   m_ObjectHideFlags: 0
@@ -12221,8 +12737,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 17
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &8882470538668985539
 GameObject:
   m_ObjectHideFlags: 0
@@ -12402,7 +12918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7ebe9b7857953dc4dad8acfd83eae874, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8180a9841202c041b5094183f116ee7, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12577,8 +13093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: -1
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 693992071, guid: 63654d50cea3936479c32f26dfe97477, type: 3}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1 &9046227181837195051
 GameObject:
   m_ObjectHideFlags: 0
@@ -12913,8 +13429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapArea: 1
   roomID: 7
-  mapSprite: {fileID: 0}
-  mapSprite2: {fileID: 0}
+  discoveredImage: {fileID: 0}
+  savePoint: {fileID: 0}
 --- !u!1001 &6229174795145627950
 PrefabInstance:
   m_ObjectHideFlags: 0

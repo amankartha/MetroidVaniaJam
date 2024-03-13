@@ -187,6 +187,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: OnNewRoomDiscovered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerCollectable.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -215,6 +219,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 706131623}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: OnNewRoomDiscovered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
@@ -234,6 +242,10 @@ PrefabInstance:
       propertyPath: OnPotionChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdatePotionHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: OnNewRoomDiscovered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2026241041}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -259,6 +271,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 861897728}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: OnNewRoomDiscovered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -269,6 +285,10 @@ PrefabInstance:
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: PlayerHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: OnNewRoomDiscovered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateNewRoom
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -303,6 +323,10 @@ PrefabInstance:
       value: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: OnNewRoomDiscovered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Map, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerCollectable.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ItemDisplay, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -328,6 +352,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
+      propertyPath: OnNewRoomDiscovered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
@@ -2166,6 +2194,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 982236801830866122, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15.217773
+      objectReference: {fileID: 0}
+    - target: {fileID: 982236801830866122, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1004955423836065097, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2213,6 +2249,10 @@ PrefabInstance:
     - target: {fileID: 1260842842089369335, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374139877416867540, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1499959819054053738, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3072,7 +3112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8496939876091693421, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 8588642039430369268, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
       propertyPath: testCollectable
