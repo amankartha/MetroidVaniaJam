@@ -88,7 +88,16 @@ public class Map : MonoBehaviour
         {
             Debug.Log("revealed new area");
 
-            foreach (AreaMapImage areaMapImage in areaMapLeftImages.Concat(areaMapRightImages))
+            foreach (AreaMapImage areaMapImage in areaMapLeftImages)
+            {
+                if (areaMapImage.mapArea == currentRoomPin.mapArea)
+                {
+                    areaMapImage.gameObject.SetActive(true);
+                    break;
+                }
+            }
+
+            foreach (AreaMapImage areaMapImage in areaMapRightImages)
             {
                 if (areaMapImage.mapArea == currentRoomPin.mapArea)
                 {
@@ -122,6 +131,8 @@ public class Map : MonoBehaviour
         {
             regionalMapLeftImage.gameObject.SetActive(true);
             regionalMapRightImage.gameObject.SetActive(true);
+            mapOverlay.gameObject.SetActive(true);
+
             Sprite sprite;
             if (regionalMapLeftDic.TryGetValue(playerMapLocation.currentMapArea, out sprite))
             {
@@ -131,13 +142,14 @@ public class Map : MonoBehaviour
             {
                 regionalMapRightImage.sprite = sprite;
             }
-        }       
+        }
     }
 
     public void HideRegionalMap()
     {
         regionalMapLeftImage.gameObject.SetActive(false);
         regionalMapRightImage.gameObject.SetActive(false);
+        mapOverlay.gameObject.SetActive(false);
     }
 
     //event function

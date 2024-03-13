@@ -41,6 +41,7 @@ public class MapPanel : MonoBehaviour
         originalMapHolderRotation = mapHolderRect.rotation;
         originalMapHolderPosition = mapHolderRect.anchoredPosition;
         zoomText.text = "Zoom In";
+        map.HideRegionalMap();
     }
 
     private void Update()
