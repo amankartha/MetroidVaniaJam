@@ -34,7 +34,7 @@ public class GoldenContractTrigger : MonoBehaviour
             }
             seq.AppendInterval(1.8f);
             seq.AppendCallback(() => gcd.ClosePanel());
-
+            sequence.Kill();
             Destroy(this.gameObject);
         }
     }
