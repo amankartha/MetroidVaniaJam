@@ -142,6 +142,20 @@ public class Map : MonoBehaviour
             {
                 regionalMapRightImage.sprite = sprite;
             }
+
+            //toggle discovered images on regional maps
+            for (int i = 0; i < roomPins.Count; i++)
+            {
+                RoomPin currentRoomPin = roomPins[i];
+
+                if (currentRoomPin.discoveredImage != null)
+                {
+                    bool shouldEnable = currentRoomPin.mapArea == playerMapLocation.currentMapArea
+                                        && currentRoomPin.isDiscovered;
+
+                    currentRoomPin.discoveredImage.enabled = shouldEnable;
+                }
+            }
         }
     }
 
@@ -161,6 +175,7 @@ public class Map : MonoBehaviour
 
         if (roomPinDic.TryGetValue((currentMapArea, currentRoomID), out roomPin))
         {
+            roomPin.isDiscovered = true;
             if (playerMapLocation.ObtainedWorldMap.Contains(currentMapArea))
             {
                 roomPin.discoveredImage.enabled = true;

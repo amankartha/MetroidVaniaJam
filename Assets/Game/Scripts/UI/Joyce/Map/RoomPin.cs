@@ -9,6 +9,7 @@ public class RoomPin : MonoBehaviour
     public PlayerMapLocation.MapArea mapArea;
     public int roomID;
     //public Sprite mapSprite, mapSprite2;
+    public bool isDiscovered;
     public Image discoveredImage;
     public GameObject savePoint;
 }
