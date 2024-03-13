@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Map : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Map : MonoBehaviour
     Dictionary<PlayerMapLocation.MapArea, Sprite> regionalMapLeftDic = new Dictionary<PlayerMapLocation.MapArea, Sprite>();
     Dictionary<PlayerMapLocation.MapArea, Sprite> regionalMapRightDic = new Dictionary<PlayerMapLocation.MapArea, Sprite>();
 
+    List<RoomPin> holdOnToDisplayDiscovered = new List<RoomPin>();
 
     void Start()
     {
@@ -48,18 +50,18 @@ public class Map : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerRoomLocation(bool isRoomMap)
+    public void UpdatePlayerRoomLocation(bool isRegionalMap)
     {
         if (playerMapLocation == null)
         {
             playerMapLocation = GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>();
         }
         var currentMapArea = playerMapLocation.GetCurrentMapArea();
-        var currentRoomID = playerMapLocation.GetCurrentRoomID();
+        int currentRoomID = playerMapLocation.GetCurrentRoomID();
         RoomPin roomPin;
 
         //display room map location
-        if (isRoomMap)
+        if (isRegionalMap)
         {
             if (roomPinDic.TryGetValue((currentMapArea, currentRoomID), out roomPin))
             {
@@ -81,13 +83,14 @@ public class Map : MonoBehaviour
     public void RevealNewAreaOnMap()
     {
         UpdatePlayerRoomLocation(false);
+
         if (currentRoomPin != null)
         {
             Debug.Log("revealed new area");
 
             foreach (AreaMapImage areaMapImage in areaMapLeftImages)
             {
-                if(areaMapImage.mapArea == currentRoomPin.mapArea)
+                if (areaMapImage.mapArea == currentRoomPin.mapArea)
                 {
                     areaMapImage.gameObject.SetActive(true);
                     break;
@@ -103,21 +106,56 @@ public class Map : MonoBehaviour
                 }
             }
 
+            playerMapLocation.ObtainNewMap();
+
+            for (int i = holdOnToDisplayDiscovered.Count - 1; i >= 0; i--)
+            {
+                RoomPin roomPin = holdOnToDisplayDiscovered[i];
+                if (roomPin.mapArea == playerMapLocation.currentMapArea)
+                {
+                    roomPin.discoveredImage.enabled = true;
+                    if (roomPin.savePoint != null)
+                    {
+                        roomPin.savePoint.SetActive(true);
+                    }
+                    holdOnToDisplayDiscovered.RemoveAt(i);
+                }
+            }
+
         }
     }
 
     public void ShowRegionalMap()
     {
-        regionalMapLeftImage.gameObject.SetActive(true);
-        regionalMapRightImage.gameObject.SetActive(true);
-        Sprite sprite;
-        if(regionalMapLeftDic.TryGetValue(playerMapLocation.currentMapArea, out sprite))
+        if (playerMapLocation.ObtainedWorldMap.Contains(playerMapLocation.currentMapArea))
         {
-            regionalMapLeftImage.sprite = sprite;
-        }
-        if (regionalMapRightDic.TryGetValue(playerMapLocation.currentMapArea, out sprite))
-        {
-            regionalMapRightImage.sprite = sprite;
+            regionalMapLeftImage.gameObject.SetActive(true);
+            regionalMapRightImage.gameObject.SetActive(true);
+            mapOverlay.gameObject.SetActive(true);
+
+            Sprite sprite;
+            if (regionalMapLeftDic.TryGetValue(playerMapLocation.currentMapArea, out sprite))
+            {
+                regionalMapLeftImage.sprite = sprite;
+            }
+            if (regionalMapRightDic.TryGetValue(playerMapLocation.currentMapArea, out sprite))
+            {
+                regionalMapRightImage.sprite = sprite;
+            }
+
+            //toggle discovered images on regional maps
+            for (int i = 0; i < roomPins.Count; i++)
+            {
+                RoomPin currentRoomPin = roomPins[i];
+
+                if (currentRoomPin.discoveredImage != null)
+                {
+                    bool shouldEnable = currentRoomPin.mapArea == playerMapLocation.currentMapArea
+                                        && currentRoomPin.isDiscovered;
+
+                    currentRoomPin.discoveredImage.enabled = shouldEnable;
+                }
+            }
         }
     }
 
@@ -125,6 +163,31 @@ public class Map : MonoBehaviour
     {
         regionalMapLeftImage.gameObject.SetActive(false);
         regionalMapRightImage.gameObject.SetActive(false);
+        mapOverlay.gameObject.SetActive(false);
     }
 
+    //event function
+    public void UpdateNewRoom()
+    {
+        var currentMapArea = playerMapLocation.GetCurrentMapArea();
+        int currentRoomID = playerMapLocation.GetCurrentRoomID();
+        RoomPin roomPin;
+
+        if (roomPinDic.TryGetValue((currentMapArea, currentRoomID), out roomPin))
+        {
+            roomPin.isDiscovered = true;
+            if (playerMapLocation.ObtainedWorldMap.Contains(currentMapArea))
+            {
+                roomPin.discoveredImage.enabled = true;
+                if (roomPin.savePoint != null)
+                {
+                    roomPin.savePoint.SetActive(true);
+                }
+            }
+            else
+            {
+                holdOnToDisplayDiscovered.Add(roomPin);
+            }
+        }
+    }
 }

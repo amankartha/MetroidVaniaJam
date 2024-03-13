@@ -18,6 +18,7 @@ public class EnterRoomTrigger : MonoBehaviour
         if(collision.gameObject == GameManager.Instance.goMainPlayer)
         {
             playerMapLocation.UpdateCurrentLocation(mapArea, roomID);
+            GameManager.Instance.OnNewRoomDiscovered?.Invoke();
         }
     }
 }
