@@ -254,9 +254,19 @@ public class Player : MonoBehaviour
     }
     //TODO CHANGE THESE TO BOXCAST
     public bool CheckIfTouchingWall()
-    {
-        return Physics2D.Raycast(_wallCheck.position, Vector2.right * FacingDirection, _playerData.wallCheckDistance,
+    { 
+        RaycastHit2D HIT = Physics2D.Raycast(_wallCheck.position, Vector2.right * FacingDirection, _playerData.wallCheckDistance,
             _playerData.groundLayer);
+
+        if (HIT)
+        {
+            if (HIT.collider.transform.parent.TryGetComponent(out MovingPlatform MP))
+            {
+                return false;
+            }
+        }
+
+        return HIT;
     }
     public bool CheckIfTouchingLedge()
     {
@@ -366,6 +376,8 @@ public class Player : MonoBehaviour
         workspace.Set(_wallCheck.position.x + xDistance * FacingDirection, _ledgeCheck.position.y - yDistance);
         return workspace;
     }
+
+   
 
     public void SetThrowFalse()
     {
