@@ -18,6 +18,15 @@ public class Map : MonoBehaviour
     public List<AreaMapImage> areaMapLeftImages = new List<AreaMapImage>();
     public List<AreaMapImage> areaMapRightImages = new List<AreaMapImage>();
 
+    [Header("RegionalMap")]
+    [SerializeField] Image regionalMapLeftImage;
+    [SerializeField] Image regionalMapRightImage;
+    public List<Sprite> regionalMapLeftSprites = new List<Sprite>();
+    public List<Sprite> regionalMapRightSprites = new List<Sprite>();
+
+    Dictionary<PlayerMapLocation.MapArea, Sprite> regionalMapLeftDic = new Dictionary<PlayerMapLocation.MapArea, Sprite>();
+    Dictionary<PlayerMapLocation.MapArea, Sprite> regionalMapRightDic = new Dictionary<PlayerMapLocation.MapArea, Sprite>();
+
 
     void Start()
     {
@@ -28,6 +37,14 @@ public class Map : MonoBehaviour
         {
             roomPins.Add(pins[i]);
             roomPinDic[(roomPins[i].mapArea, roomPins[i].roomID)] = roomPins[i];
+        }
+
+        for(int i = 0; i < regionalMapLeftSprites.Count; i++)
+        {
+            PlayerMapLocation.MapArea mapArea = (PlayerMapLocation.MapArea)i;
+            regionalMapLeftDic.Add(mapArea, regionalMapLeftSprites[i]);
+            regionalMapRightDic.Add(mapArea, regionalMapRightSprites[i]);
+
         }
     }
 
@@ -87,6 +104,27 @@ public class Map : MonoBehaviour
             }
 
         }
+    }
+
+    public void ShowRegionalMap()
+    {
+        regionalMapLeftImage.gameObject.SetActive(true);
+        regionalMapRightImage.gameObject.SetActive(true);
+        Sprite sprite;
+        if(regionalMapLeftDic.TryGetValue(playerMapLocation.currentMapArea, out sprite))
+        {
+            regionalMapLeftImage.sprite = sprite;
+        }
+        if (regionalMapRightDic.TryGetValue(playerMapLocation.currentMapArea, out sprite))
+        {
+            regionalMapRightImage.sprite = sprite;
+        }
+    }
+
+    public void HideRegionalMap()
+    {
+        regionalMapLeftImage.gameObject.SetActive(false);
+        regionalMapRightImage.gameObject.SetActive(false);
     }
 
 }

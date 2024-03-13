@@ -23,6 +23,7 @@ public class PlayerDodgeState : PlayerAbilityState
     {
         base.Exit();
         _player.TriggerBoxCollider2D.enabled = true;
+        _player.SetVelocityZero();
     }
 
     public override void LogicUpdate()

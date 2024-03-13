@@ -16,6 +16,8 @@ public class Entity : MonoBehaviour
     public Animator Anim { get; private set; }
     [field:SerializeField]public GameObject AliveGo { get; private set; }
 
+    private EnemyHealth _enemyHealth;
+
     [SerializeField] 
     private Transform WallCheck;
 
@@ -26,6 +28,7 @@ public class Entity : MonoBehaviour
         FacingDirection = 1;
         RB = AliveGo.GetComponent<Rigidbody2D>();
         Anim = AliveGo.GetComponent<Animator>();
+        _enemyHealth = AliveGo.GetComponent<EnemyHealth>();
         _finiteStateMachine = new FiniteStateMachine();
     }
 
