@@ -42,6 +42,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
     public UnityEvent OnPlayerDeath;
     public UnityEvent OnUpdatedRespawnPoint;
     public UnityEvent OnThrowCooldownChanged;
+    public UnityEvent OnNewRoomDiscovered;
     
     #endregion
 

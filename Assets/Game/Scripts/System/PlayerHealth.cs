@@ -6,7 +6,7 @@ namespace Game.Scripts.System
     {
         public override void Damage(int value)
         {
-            base.Damage(value);
+            
             if (HealthValue <= 0)
             {
                 GameManager.Instance.OnPlayerDeath?.Invoke();

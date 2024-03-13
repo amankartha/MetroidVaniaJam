@@ -6,6 +6,7 @@ public class PlayerMapLocation : MonoBehaviour
 {
     public MapArea currentMapArea;
     public int currentRoomID;
+    public List<MapArea> ObtainedWorldMap = new List<MapArea>();
 
     public MapArea GetCurrentMapArea()
     {
@@ -21,6 +22,11 @@ public class PlayerMapLocation : MonoBehaviour
     {
         currentMapArea = area;
         currentRoomID = id;
+    }
+
+    public void ObtainNewMap()
+    {
+        ObtainedWorldMap.Add(currentMapArea);
     }
     
 

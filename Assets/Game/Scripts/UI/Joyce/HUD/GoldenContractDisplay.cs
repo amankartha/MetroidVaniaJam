@@ -31,9 +31,15 @@ public class GoldenContractDisplay : MonoBehaviour
 
     public void ClosePanel()
     {
+        int fragments = GameManager.Instance.PlayerScript.PlayerHealth.GoldenContractFragment % 3;
+
         Sequence sequence = DOTween.Sequence();
         sequence.Append(displayImage.DOFade(0f, 0.4f));
         sequence.Join(tempDisplayImage.DOFade(0f, 0.4f));
+        if (fragments == 0)
+        {
+            sequence.AppendCallback(() => tempDisplayImage.sprite = contractFragment[3]);           
+        }
         sequence.AppendCallback(() => this.gameObject.SetActive(false));
     }
 
