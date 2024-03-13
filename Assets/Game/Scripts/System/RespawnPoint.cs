@@ -23,15 +23,24 @@ public class RespawnPoint : MonoBehaviour
         GameManager.Instance.OnUpdatedRespawnPoint.RemoveListener(CloseEyes);
     }
 
+    private void Update()
+    {
+        if(isOpen && GameManager.Instance.PlayerInputHandler.InteractInput)
+        {
+            GameManager.Instance.PlayerInputHandler.UseInteractInput();
+            GameManager.Instance.OnUpdatedRespawnPoint?.Invoke();
+            GameManager.Instance.CurrentRespawnPoint = this;
+            ClosedEyes.SetActive(false);
+            OpenEyes.SetActive(true);
+            interactUI.SetActive(false);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!isOpen && col.gameObject == GameManager.Instance.goMainPlayer)
-        {
-            GameManager.Instance.OnUpdatedRespawnPoint?.Invoke();
-            GameManager.Instance.CurrentRespawnPoint = this;
-            isOpen = true;
-            ClosedEyes.SetActive(false);
-            OpenEyes.SetActive(true);
+        {           
+            isOpen = true;           
             interactUI.SetActive(true);
         }
     }
