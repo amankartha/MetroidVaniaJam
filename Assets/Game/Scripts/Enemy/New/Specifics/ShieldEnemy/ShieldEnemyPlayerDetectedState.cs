@@ -27,10 +27,10 @@ public class ShieldEnemyPlayerDetectedState : EnemyPlayerDetectedState
         {
             _stateMachine.ChangeState(_enemy.ChargeState);
         }
-        else if (!isPlayerInMaxAggroRange)
+       /* else if (!isPlayerInMaxAggroRange)
         {
             _stateMachine.ChangeState(_enemy.LookForPlayerState);
-        }
+        }*/
         
     }
 

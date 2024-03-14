@@ -63,7 +63,7 @@ public class EnemyLookForPlayerState : EnemyState
 
         if (Time.time >= lastTurnTime + stateData.timeBetweenTurns && isAllTurnsDone)
         {
-            isAllTurnsDone = true;
+            isAllTurnTimeDone = true;
         }
     }
 
