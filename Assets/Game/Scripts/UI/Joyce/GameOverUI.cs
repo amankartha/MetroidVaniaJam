@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TabletUI tabletUI;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (GameManager.Instance.PlayerInputHandler.ExitPopupInput
+            && tabletUI.canExitCanvas)
+        {
+            GameManager.Instance.PlayerInputHandler.UseExitPopupInput();
+            tabletUI.FadeOutGameOverUI();
+            gameObject.SetActive(false);
+        }
+    }
+    public void DisplayGameOverUI()
+    {
+        tabletUI.DisplayGameOverScreen();
     }
 }

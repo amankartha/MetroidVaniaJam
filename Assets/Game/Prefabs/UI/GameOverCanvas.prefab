@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2119636817607064618}
   - component: {fileID: 4394586238349027716}
   - component: {fileID: 4146171303329283170}
+  - component: {fileID: 7169562554219550112}
   m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
@@ -134,6 +135,19 @@ MonoBehaviour:
     - '[ 404 ERROR: EMPLOYEE NOT FOUND ]'
     sprites: []
   canExitCanvas: 0
+--- !u!114 &7169562554219550112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756052683720383965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1020b5d19da7b154e99704f236db9117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 5264055983498917180}
 --- !u!1 &779630071769890428
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,13 +239,14 @@ GameObject:
   - component: {fileID: 2324946333034190498}
   - component: {fileID: 7658505716921219910}
   - component: {fileID: 4750351836352004554}
+  - component: {fileID: 5264055983498917180}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8049458702659056306
 RectTransform:
   m_ObjectHideFlags: 0
@@ -273,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -302,6 +317,19 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5264055983498917180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864185799249047725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58aaef1c197a5464f9ad7388e2356dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabletUI: {fileID: 4146171303329283170}
 --- !u!1 &2166625510125231234
 GameObject:
   m_ObjectHideFlags: 0

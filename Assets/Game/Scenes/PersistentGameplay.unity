@@ -221,7 +221,7 @@ PrefabInstance:
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1997555064}
+      objectReference: {fileID: 1997555068}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPotionChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -244,7 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisplayGameOverScreen
+      value: DisplayGameOverPanel
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPotionChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -336,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TabletUI, Assembly-CSharp
+      value: GameOverCanvas, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4924214291989112040, guid: 49b0c8ff72bbba14288f60d37353dde7, type: 3}
       propertyPath: OnPotionChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -557,6 +557,10 @@ PrefabInstance:
       propertyPath: contractFragment.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: d19c7da310546ea41be3ea8f94efe7ee, type: 3}
+    - target: {fileID: 1257928471421681572, guid: bff6f8e98cf5ed9459ad5735cc299289, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1329824611001650560, guid: bff6f8e98cf5ed9459ad5735cc299289, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
@@ -2304,6 +2308,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1864185799249047725, guid: 41d8ec10f19b9f54eadd90fbdbb1ff26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514120339679066064, guid: 41d8ec10f19b9f54eadd90fbdbb1ff26, type: 3}
+      propertyPath: tabletUI
+      value: 
+      objectReference: {fileID: 1997555064}
+    - target: {fileID: 4750351836352004554, guid: 41d8ec10f19b9f54eadd90fbdbb1ff26, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4764338953904277085, guid: 41d8ec10f19b9f54eadd90fbdbb1ff26, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2384,6 +2400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4849877468698167517, guid: 41d8ec10f19b9f54eadd90fbdbb1ff26, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2403,6 +2423,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4cc5cd3ee46ccb4a91be7eb5e7e2161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1997555068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7169562554219550112, guid: 41d8ec10f19b9f54eadd90fbdbb1ff26, type: 3}
+  m_PrefabInstance: {fileID: 1997555062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1020b5d19da7b154e99704f236db9117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2026241039
@@ -3571,7 +3602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8496939876091693421, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: -0.000091552734
       objectReference: {fileID: 0}
     - target: {fileID: 8588642039430369268, guid: e422abf7fdafc75479a426128a5c5340, type: 3}
       propertyPath: testCollectable
