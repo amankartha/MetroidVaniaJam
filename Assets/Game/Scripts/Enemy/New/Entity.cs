@@ -8,6 +8,8 @@ public class Entity : MonoBehaviour
 {
     #region Variables
 
+    public EnemyCheck ENEMYCHECK;
+    
     public FiniteStateMachine _finiteStateMachine;
     
     public D_Entity EntityData;
@@ -16,6 +18,7 @@ public class Entity : MonoBehaviour
     public Rigidbody2D RB { get; private set; }
     public Animator Anim { get; private set; }
     [field:SerializeField]public GameObject AliveGo { get; private set; }
+    
     private EnemyHealth _enemyHealth;
     
 
