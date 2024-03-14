@@ -6,6 +6,7 @@ using Game.Scripts.System;
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class GameManager : MMPersistentSingleton<GameManager>
@@ -48,7 +49,8 @@ public class GameManager : MMPersistentSingleton<GameManager>
 
     #region ENEMIES
 
-    
+    public Dictionary<int,EnemyCheck> EnemyDictionary = new Dictionary<int, EnemyCheck>();
+
 
     #endregion
     
@@ -77,6 +79,22 @@ public class GameManager : MMPersistentSingleton<GameManager>
     {
         goMainPlayer.transform.position = CurrentRespawnPoint.RespawnLocation.position;
         PlayerScript.PlayerHealth.SetHealth(PlayerScript.PlayerHealth.MaxHealth);
+    }
+
+    public void RegisterEnemy(EnemyCheck enemyCheck)
+    {
+        EnemyDictionary.Add(enemyCheck.gameObject.GetInstanceID(), enemyCheck);
+    }
+
+    public void RespawnAllEnemies()
+    {
+        foreach (var enemy in EnemyDictionary)
+        {
+            if (SceneManager.GetSceneByName(enemy.Value.originalScene.name).isLoaded)
+            {
+                enemy.Value.RESPAWN();
+            }
+        }
     }
 
     #endregion

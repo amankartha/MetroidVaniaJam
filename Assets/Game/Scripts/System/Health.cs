@@ -13,10 +13,8 @@ public class Health : MonoBehaviour, IDamageable
     public int GoldenContractFragment { get; set; } = 0;
 
 
-    void Start()
+    protected virtual void Start()
     {
-        
-        
         MaxHealth = HealthValue;
         HealthPerSection = MaxHealth / HPSection;
     }

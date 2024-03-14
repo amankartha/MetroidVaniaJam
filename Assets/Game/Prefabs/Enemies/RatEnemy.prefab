@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HealthValue>k__BackingField: 3
+  _entity: {fileID: 7340530772927702723}
 --- !u!1 &6353143206381065661
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8769070138617862695}
   - component: {fileID: 7340530772927702723}
+  - component: {fileID: 3882271731490466624}
   m_Layer: 6
   m_Name: RatEnemy
   m_TagString: Untagged
@@ -272,12 +274,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ef3859b899ef4f9b3037544a970cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ENEMYCHECK: {fileID: 3882271731490466624}
   EntityData: {fileID: 11400000, guid: 246bfb83065b3ba45afe038ef1ccb300, type: 2}
   <AliveGo>k__BackingField: {fileID: 6286632690868194411}
+  DamageMMF: {fileID: 0}
   WallCheck: {fileID: 4959331815934111412}
   LedgeCheck: {fileID: 4789225558552314604}
+  PlayerCheck: {fileID: 0}
   _idleStateData: {fileID: 11400000, guid: 23cd2c4936957ba4dad1aad8043a16b8, type: 2}
   _moveStateData: {fileID: 11400000, guid: e8e50580d74dcdb4d8d68584d478fd27, type: 2}
+--- !u!114 &3882271731490466624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353143206381065661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffda84222dd34d4080b480c0e1618ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
+  AliveGO: {fileID: 6286632690868194411}
 --- !u!1 &6403369667986924152
 GameObject:
   m_ObjectHideFlags: 0
