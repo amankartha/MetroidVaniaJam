@@ -6,9 +6,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class TabletScreen
 {
-    public string name;
+    public string title;
     public bool isTextOnly;
     public string[] maninTextLines;
-    public string commandText;
     public List<Sprite> sprites;
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ef04c9d4ffecce4e81f88171110338d
+guid: 22e9a3464264e41439285abf981bd18b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: map_rooms_workspace_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1584
+        height: 2152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e90a9f83f1cdd41b3a005bf5d079f5
+      internalID: -1465163609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: map_rooms_workspace_1
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 0
+        width: 1584
+        height: 2152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 338c84d214ebbee45ba655fe1a6b3d70
+      internalID: 1566231246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +174,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      map_rooms_workspace_0: -1465163609
+      map_rooms_workspace_1: 1566231246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
