@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
     [field: SerializeField] public Briefcase BriefcaseScript { get; private set; }
     
     [SerializeField] 
-    private PlayerData _playerData;
+    public PlayerData _playerData;
 
     private Vector2 workspace;
 
