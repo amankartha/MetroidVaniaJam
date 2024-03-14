@@ -22,7 +22,7 @@ public class CharacterPanel : MonoBehaviour
     {
         if (!isMoved)
         {
-            characterHolderRect.DOAnchorPos(targeCharacterHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f)
+            characterHolderRect.DOAnchorPos(targeCharacterHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true)
                 .OnComplete(() => DeactivateDiscriptionHolder());
             isMoved = true;
         }
@@ -32,7 +32,7 @@ public class CharacterPanel : MonoBehaviour
     {
         if (isMoved)
         {
-            characterHolderRect.DOAnchorPos(originalCharacterHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+            characterHolderRect.DOAnchorPos(originalCharacterHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
             isMoved = false;
         }
     }

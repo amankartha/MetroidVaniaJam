@@ -23,22 +23,22 @@ public class ItemPanel : MonoBehaviour
     //when item tab is pressed
     public void MoveToTargetDisplayPosition()
     {
-        itemHolderRect.DOAnchorPos(targetDisplayPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-        itemHolderRect.DORotateQuaternion(targetDisplayRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f)
+        itemHolderRect.DOAnchorPos(targetDisplayPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
+        itemHolderRect.DORotateQuaternion(targetDisplayRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true)
             .OnComplete(() => ActivateDiscriptionHolder());
     }
 
     public void MoveToOriginalPosition()
     {
-        itemHolderRect.DOAnchorPos(originalPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-        itemHolderRect.DORotateQuaternion(originalRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        itemHolderRect.DOAnchorPos(originalPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
+        itemHolderRect.DORotateQuaternion(originalRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
     }
 
     //move along with map
     public void MoveToMapPosition()
     {
-        itemHolderRect.DOAnchorPos(targetMapPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-        itemHolderRect.DORotateQuaternion(originalRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f)
+        itemHolderRect.DOAnchorPos(targetMapPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
+        itemHolderRect.DORotateQuaternion(originalRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true)
             .OnComplete(() => ActivateDiscriptionHolder());
     }
 
