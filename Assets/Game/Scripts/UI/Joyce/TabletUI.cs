@@ -126,4 +126,10 @@ public class TabletUI : MonoBehaviour
         canvasGroup.DOFade(0f, 0.4f).SetUpdate(true)
             .OnComplete(() => Destroy(this.gameObject));
     }
+
+    public void DisplayGameOverScreen()
+    {
+        FadeInCanvas();
+        SetDiaplayText(tabletScreens[0]);
+    }
 }
