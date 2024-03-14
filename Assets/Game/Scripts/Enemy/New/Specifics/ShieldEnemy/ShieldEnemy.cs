@@ -14,6 +14,8 @@ public class ShieldEnemy : Entity
     public ShieldEnemyChargeState ChargeState { get; private set; }
     
     public ShieldEnemyLookForPlayerState LookForPlayerState { get; private set; }
+    
+    public ShieldEnemyStunState StunState { get; private set; }
 
     #endregion
 
@@ -24,6 +26,7 @@ public class ShieldEnemy : Entity
     [SerializeField] private D_PlayerDetected _playerDetectedData;
     [SerializeField] private D_ChargeState _chargeStateData;
     [SerializeField] private D_LookingForPlayer _lookingForPlayerData;
+    [SerializeField] private D_StunState _stunStateData;
     #endregion
 
 
@@ -39,6 +42,8 @@ public class ShieldEnemy : Entity
 
         LookForPlayerState =
             new ShieldEnemyLookForPlayerState(this, _finiteStateMachine, "lookForPlayer", _lookingForPlayerData, this);
+
+        StunState = new ShieldEnemyStunState(this, _finiteStateMachine, "stun", _stunStateData, this);
         
         _finiteStateMachine.Initialize(moveState);
     }
