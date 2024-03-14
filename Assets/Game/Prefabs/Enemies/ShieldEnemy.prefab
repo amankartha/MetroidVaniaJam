@@ -100,7 +100,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3092259950491725804}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -279,6 +279,8 @@ MonoBehaviour:
   _idleStateData: {fileID: 11400000, guid: b92d22bf31078284dbe17a7d57c03df9, type: 2}
   _moveStateData: {fileID: 11400000, guid: 11f876fd9fbb05e4a90b8da9a80ac672, type: 2}
   _playerDetectedData: {fileID: 11400000, guid: de67fd8b2264bff41981282d5668096e, type: 2}
+  _chargeStateData: {fileID: 11400000, guid: a8c279ada83bbe84b8641a94a9c9af2c, type: 2}
+  _lookingForPlayerData: {fileID: 11400000, guid: 9e5ab8e666f0f3743b38ede7c85d4e3a, type: 2}
 --- !u!114 &3983956801445210452
 MonoBehaviour:
   m_ObjectHideFlags: 0
