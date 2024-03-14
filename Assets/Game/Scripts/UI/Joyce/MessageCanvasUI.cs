@@ -17,19 +17,6 @@ public class MessageCanvasUI : MonoBehaviour
         originalAreaNameDisplayHolderPosition = areaNameDisplayHolderRect.anchoredPosition;
     }
 
-    private void Update()
-    {
-        //testing animation
-        /*if(Input.GetKeyDown(KeyCode.E))
-        {
-            ShowAreaName();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            HideAreaName();
-        }*/
-    }
-
     public void ShowAreaName()
     {
         Sequence sequence = DOTween.Sequence();
