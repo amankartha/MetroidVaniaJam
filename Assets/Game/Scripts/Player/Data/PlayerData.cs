@@ -39,6 +39,7 @@ public class PlayerData : ScriptableObject
     public float attackVelocity = 2f;
     public float attackWidth = 2f;
     public float attackHeight = 2f;
+    public float StunDamageAmount = 1f;
     public LayerMask attackLayers;
     [Header("Briefcase")] 
     public float throwCoolDown = 2f;
