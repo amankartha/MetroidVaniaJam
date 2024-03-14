@@ -25,8 +25,17 @@ public class EnemyCheck : MonoBehaviour
     {
         GameManager.Instance.RegisterEnemy(this);
         Debug.Log(originalScene.name);
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
+    private void OnSceneUnloaded(Scene current)
+    {
+        if (!originalScene.isLoaded)
+        {
+            AliveGO.SetActive(false);
+        }
+    }
+    
     public void DESPAWN()
     {
         isAlive = false;
