@@ -8,6 +8,7 @@ using DG.Tweening;
 public class TabletUI : MonoBehaviour
 {
     [SerializeField] CanvasGroup canvasGroup;
+    [SerializeField] TMP_Text titleText;
     [SerializeField] TMP_Text mainText;
     [SerializeField] TMP_Text commandText;
     [SerializeField] GameObject displayWithImage;
@@ -28,7 +29,7 @@ public class TabletUI : MonoBehaviour
         TabletScreen tabletScreen = null;
         for (int i = 0; i < tabletScreens.Count; i++)
         {
-            if (tabletScreens[i].name == name)
+            if (tabletScreens[i].title == name)
             {
                 tabletScreen = tabletScreens[i];
             }
@@ -47,7 +48,8 @@ public class TabletUI : MonoBehaviour
         if(tabletScreen != null)
         {
             SetCommandLineAlphaToZero();
-            commandText.text = tabletScreen.commandText;
+            titleText.text = tabletScreen.title;
+            //commandText.text = tabletScreen.commandText;
 
             if (tabletScreen.isTextOnly)
             {

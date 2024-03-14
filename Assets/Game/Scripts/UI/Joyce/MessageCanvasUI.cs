@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class MessageCanvasUI : MonoBehaviour
 {
     [SerializeField] RectTransform areaNameDisplayHolderRect;
+    [SerializeField] TMP_Text areaNameText;
     public Vector2 targeAreaNameDisplayHolderPosition;
     Vector2 originalAreaNameDisplayHolderPosition;
 
@@ -15,23 +17,13 @@ public class MessageCanvasUI : MonoBehaviour
         originalAreaNameDisplayHolderPosition = areaNameDisplayHolderRect.anchoredPosition;
     }
 
-    private void Update()
-    {
-        //testing animation
-        /*if(Input.GetKeyDown(KeyCode.E))
-        {
-            ShowAreaName();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            HideAreaName();
-        }*/
-    }
-
     public void ShowAreaName()
     {
+        Sequence sequence = DOTween.Sequence();
         areaNameDisplayHolderRect.gameObject.SetActive(true);
-        areaNameDisplayHolderRect.DOAnchorPos(targeAreaNameDisplayHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.1f);
+        sequence.Append(areaNameDisplayHolderRect.DOAnchorPos(targeAreaNameDisplayHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.1f));
+        sequence.AppendInterval(1.5f);
+        sequence.AppendCallback(() => HideAreaName());
     }
 
     public void HideAreaName()
@@ -43,5 +35,10 @@ public class MessageCanvasUI : MonoBehaviour
     void DeactivateAreaNameDisplayHolder()
     {
         areaNameDisplayHolderRect.gameObject.SetActive(false);
+    }
+
+    public void SetAreaNameText(string area)
+    {
+        areaNameText.text = area;
     }
 }

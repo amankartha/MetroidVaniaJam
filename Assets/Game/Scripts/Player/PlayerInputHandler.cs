@@ -31,8 +31,10 @@ public class PlayerInputHandler : MonoBehaviour
     public bool MenuTabUpInputStop { get; private set; }
     public bool MenuTabDownInput { get; private set; }
     public bool MenuTabDownInputStop { get; private set; }
-    
-    
+    public bool ExitPopupInput { get; private set; }
+    public bool ExitPopupInputStop { get; private set; }
+
+
     public bool AttackInput { get; private set; }
     public bool AttackInputStop { get; private set; }
 
@@ -49,6 +51,7 @@ public class PlayerInputHandler : MonoBehaviour
     private float _mapZoomInputStartTime;
     private float _menuTabUpInputStartTime;
     private float _menuTabDownInputStartTime;
+    private float _exitPopupInputStartTime;
 
 
     private void Update()
@@ -208,6 +211,22 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnExitPopupInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            ExitPopupInput = true;
+            ExitPopupInputStop = false;
+            _exitPopupInputStartTime = Time.time;
+        }
+
+        if (context.canceled)
+        {
+            ExitPopupInput = false;
+            ExitPopupInputStop = true;
+        }
+    }
+
     public void UseJumpInput() => JumpInput = false;
 
    public void UseDodgeInput() => DodgeInput = false;
@@ -224,6 +243,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void UseMenuTabUpInput() => MenuTabUpInput = false;
     public void UseMenuTabDownInput() => MenuTabDownInput = false;
+    public void UseExitPopupInput() => ExitPopupInput = false;
 
 
 

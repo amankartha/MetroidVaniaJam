@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ExitPopupUI",
+                    "type": "Button",
+                    "id": "f609fdbd-39d6-4ed4-a148-d16e51fc623b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -308,12 +317,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a23f6ca3-7afa-4909-a105-0b7dd201b73c",
-                    "path": "<Gamepad>/buttonWest",
+                    "id": "e097bf76-9519-4481-87ba-18d62f248e2b",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "ExitPopupUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

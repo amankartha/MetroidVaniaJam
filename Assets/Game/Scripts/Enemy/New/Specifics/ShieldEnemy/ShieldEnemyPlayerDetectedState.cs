@@ -23,11 +23,14 @@ public class ShieldEnemyPlayerDetectedState : EnemyPlayerDetectedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (!isPlayerInMaxAggroRange)
+        if (performLongRangeAction)
         {
-            _enemy.IdleState.SetFLipAfterIdle(false);
-            _stateMachine.ChangeState(_enemy.IdleState);
+            _stateMachine.ChangeState(_enemy.ChargeState);
         }
+       /* else if (!isPlayerInMaxAggroRange)
+        {
+            _stateMachine.ChangeState(_enemy.LookForPlayerState);
+        }*/
         
     }
 

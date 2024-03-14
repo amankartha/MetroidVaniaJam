@@ -16,8 +16,6 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
-        healthPerSection = GameManager.Instance.PlayerScript.PlayerHealth.HealthPerSection;
-
         for (int i = 0; i < GameManager.Instance.PlayerScript.PlayerHealth.HPSection; i++)
         {
             GameObject section = Instantiate(healthSectionPrefab, healthBarHolder.transform);
@@ -45,6 +43,7 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealthBar()
     {
+        healthPerSection = GameManager.Instance.PlayerScript.PlayerHealth.HealthPerSection;
         float remainingHealth = GameManager.Instance.PlayerScript.PlayerHealth.HealthValue;
         for (int i = 0; i < GameManager.Instance.PlayerScript.PlayerHealth.HPSection; i++)
         {
