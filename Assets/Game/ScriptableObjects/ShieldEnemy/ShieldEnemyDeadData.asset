@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852d98d2b7466784a957fcbd365899d5, type: 3}
-  m_Name: ShieldEnemyChargeData
+  m_Script: {fileID: 11500000, guid: f90b2e1cbbb80494ba021eca81a738da, type: 3}
+  m_Name: ShieldEnemyDeadData
   m_EditorClassIdentifier: 
-  ChargeSpeed: 15
-  ChargeTime: 2
-  ChargeDamage: 5
-  ChargeKnockBackAngle: {x: 5, y: 5}
-  ChargeKnockBackPower: 5
+  particles: {fileID: 0}

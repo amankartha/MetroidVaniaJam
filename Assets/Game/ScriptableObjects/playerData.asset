@@ -36,6 +36,7 @@ MonoBehaviour:
   attackVelocity: 2
   attackWidth: 5
   attackHeight: 5
+  StunDamageAmount: 1
   attackLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -48,7 +49,7 @@ MonoBehaviour:
   briefcaseReturnLayer:
     serializedVersion: 2
     m_Bits: 8
-  DamagedInvincibilityDuration: 0.5
+  DamagedInvincibilityDuration: 1.5
   PlayerBaseHealth: 100
   HealthPickupRange: 1
   HPRecoverAmountRat: 1
