@@ -7,4 +7,7 @@ public class D_ChargeState : ScriptableObject
 {
    public float ChargeSpeed = 10f;
    public float ChargeTime = 2f;
+   public int ChargeDamage = 5;
+   public Vector2 ChargeKnockBackAngle;
+   public float ChargeKnockBackPower;
 }

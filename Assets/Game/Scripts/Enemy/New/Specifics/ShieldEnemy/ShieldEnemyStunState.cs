@@ -14,11 +14,14 @@ public class ShieldEnemyStunState : EnemyStunState
     public override void Enter()
     {
         base.Enter();
+        Enemy.DisableCollider();
+        Enemy.SetVelocity(0);
     }
 
     public override void Exit()
     {
         base.Exit();
+        Enemy.EnableCollider();
     }
 
     public override void LogicUpdate()
