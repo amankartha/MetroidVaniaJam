@@ -16,6 +16,9 @@ public class BriefcaseIdleState : BriefcaseState
         base.Enter();
         _briefcase.SetVelocityZero();
         _briefcase._isBriefcaseInHand = true;
+        _briefcase.Anim.ResetTrigger("TransitionToReturnThrow");
+        _briefcase.Anim.ResetTrigger("TransitionToIdleThrow");
+        GameManager.Instance.PlayerScript.briefcaseGameObject.SetActive(true);
     }
 
     public override void Exit()

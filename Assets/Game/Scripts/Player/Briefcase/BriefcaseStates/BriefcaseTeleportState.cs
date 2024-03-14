@@ -16,6 +16,7 @@ public class BriefcaseTeleportState : BriefcaseState
         base.Enter();
       
         GameManager.Instance.PlayerScript.SetPosition(_briefcase.transform.position); 
+        GameManager.Instance.PlayerScript.PauseGravity(_playerData.teleportPauseGravityDuration);
       
     }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerDodgeState : PlayerAbilityState
 {
+
+    private bool _jumpInput;
     public PlayerDodgeState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -12,7 +14,7 @@ public class PlayerDodgeState : PlayerAbilityState
     {
         base.Enter();
         _player.InputHandler.UseDodgeInput();
-        _player.BoxCollider2D.enabled = false;
+        _player.TriggerBoxCollider2D.enabled = false;
         _player.SetVelocityX(_playerData.dodgeVelocityX * _player.FacingDirection);
         
     }
@@ -20,12 +22,18 @@ public class PlayerDodgeState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
-        _player.BoxCollider2D.enabled = true;
+        _player.TriggerBoxCollider2D.enabled = true;
+        _player.SetVelocityZero();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        _jumpInput = _player.InputHandler.JumpInput;
+        if (_jumpInput && _player.JumpState.CanJump())
+        {
+            _stateMachine.ChangeState(_player.JumpState);
+        }
     }
 
     public override void PhysicsUpdate()

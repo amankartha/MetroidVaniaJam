@@ -1,33 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDamageable
 {
    
-    public int HealthValue { get; set; } = 3;
+    [field:SerializeField]public int HealthValue { get; protected set; } = 3;
     public int MaxHealth { get; set; }
-    public int HPSection { get; set; }
+    public int HPSection { get; set; } = 5;
     public int HealthPerSection { get; set; }
     public int GoldenContractFragment { get; set; } = 0;
 
 
-    void Start()
+    protected virtual void Start()
     {
         MaxHealth = HealthValue;
         HealthPerSection = MaxHealth / HPSection;
     }
 
 
-    void Update()
+    public virtual void SetHealth(int value)
     {
-        
+        HealthValue = value;
+    }
+    
+    public virtual void Damage(int value)
+    {
+        HealthValue -= value;
     }
 
-
-    public void ModifyHealth(int value)
+    public virtual void Heal(int value)
     {
         HealthValue += value;
+    }
+
+    public virtual void ModifyMaxHealth(int value, bool healWithMaxHealthIncrease = false)
+    {
+        MaxHealth += value;
+        if (healWithMaxHealthIncrease)
+        {
+            Heal(value);
+        }
+
     }
 
     public bool CollcetGoldenContract()
@@ -47,4 +62,9 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int value)
+    {
+        Debug.Log($"{this.gameObject.name} has taken {value} damage" );
+        Damage(value);
+    }
 }

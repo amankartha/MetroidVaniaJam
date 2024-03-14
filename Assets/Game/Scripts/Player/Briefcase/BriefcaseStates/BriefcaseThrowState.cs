@@ -56,7 +56,7 @@ public class BriefcaseThrowState : BriefcaseState
     {
         if (Time.time > _startTime + _playerData.throwMaxDuration)
         {
-            _briefcase.Animator.SetTrigger("TransitionToIdleThrow");
+            _briefcase.Anim.SetTrigger("TransitionToIdleThrow");
             _briefcase.StateMachine.ChangeState(_briefcase.IdleRotateState);
         }
     }

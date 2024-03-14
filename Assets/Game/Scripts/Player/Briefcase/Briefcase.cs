@@ -11,7 +11,7 @@ public class Briefcase : MonoBehaviour
     private BoxCollider2D _boxCollider2D;
     [SerializeField] private PlayerData _playerData;
     private Sequence _throwSequence;
-    public Animator Animator { get; private set; }
+    public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
 
     public Transform _initTransform;
@@ -41,7 +41,7 @@ public class Briefcase : MonoBehaviour
     {
         _boxCollider2D = GetComponent<BoxCollider2D>();
         RB = GetComponent<Rigidbody2D>();
-        Animator = GetComponent<Animator>();
+        Anim = GetComponent<Animator>();
         
      
         _isBriefcaseInHand = true;
@@ -101,12 +101,22 @@ public class Briefcase : MonoBehaviour
 
     public void ThrowBriefcase()
     {
-       StateMachine.ChangeState(ThrowState);
+        _player.SetThrowFalse();
+        StateMachine.ChangeState(ThrowState);
     }
 
     private void ReturnHelper(Tweener tweener)
     {
         
        
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (_playerData.briefcaseReturnLayer == ( _playerData.briefcaseReturnLayer| (1 << col.gameObject.layer)))
+        {
+            Debug.Log("Briefcase hit wall, returning");
+            StateMachine.ChangeState(ReturnState);
+        }
     }
 }

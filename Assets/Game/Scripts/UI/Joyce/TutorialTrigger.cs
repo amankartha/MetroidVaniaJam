@@ -9,17 +9,16 @@ public class TutorialTrigger : MonoBehaviour
     public GameObject tabletCanvasPrefab;
     TabletUI tabletUI;
     [SerializeField] TabletScreen tabletScreen;
-    [SerializeField] Key exitCanvasKey = Key.E;
 
     bool isTriggered = false;
 
     private void Update()
     {
-        if (Keyboard.current[exitCanvasKey].wasPressedThisFrame
+        if (GameManager.Instance.PlayerInputHandler.ExitPopupInput
             && tabletUI.canExitCanvas
             && isTriggered )
         {
-            GameManager.Instance.goMainPlayer.GetComponent<PlayerInput>().ActivateInput();
+            GameManager.Instance.PlayerInputHandler.UseExitPopupInput();
             Time.timeScale = 1;
             tabletUI.FadeOutAndDestroyCanvas();
             Destroy(this.gameObject);
@@ -30,7 +29,6 @@ public class TutorialTrigger : MonoBehaviour
         if (collision.gameObject == GameManager.Instance.goMainPlayer && !isTriggered)
         {
             isTriggered = true;
-            collision.gameObject.GetComponent<PlayerInput>().DeactivateInput();
             Time.timeScale = 0;
             GameObject go = Instantiate(tabletCanvasPrefab);
             tabletUI = go.GetComponent<TabletUI>();
