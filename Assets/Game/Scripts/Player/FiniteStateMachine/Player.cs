@@ -52,6 +52,9 @@ public class Player : MonoBehaviour
     }
 
     public bool isInvincible = false;
+
+    public bool hasAbility1 = true;
+    public bool hasAbility2 = true;
     #endregion
     
     #region STATES
@@ -219,6 +222,7 @@ public class Player : MonoBehaviour
         workspace.Set(angle.x * velocity * direction,angle.y * velocity);
         RB.velocity = workspace;
         CurrentVelocity = workspace;
+        Debug.Log("AAAA");
     }
     public void SetVelocityXY(Vector2 velocity,float powerX,float PowerY)
     {
@@ -280,9 +284,18 @@ public class Player : MonoBehaviour
     }
     public bool CheckIfCanThrow()
     {
-        return _canThrow;
+        return _canThrow && hasAbility1;
     }
 
+    public void GetAbilityOne()
+    {
+        hasAbility1 = true;
+    }
+
+    public void GetAbilityTwo()
+    {
+        hasAbility2 = true;
+    }
 
     #endregion
 
