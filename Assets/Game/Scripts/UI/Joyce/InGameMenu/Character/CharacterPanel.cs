@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class CharacterPanel : MonoBehaviour
 {
@@ -13,9 +14,17 @@ public class CharacterPanel : MonoBehaviour
 
     bool isMoved = false;
 
+    public TMP_Text potionInventoryText;
+    public TMP_Text goldenContractFragText;
+
     void Start()
     {
         originalCharacterHolderPosition = characterHolderRect.anchoredPosition;
+    }
+
+    private void OnEnable()
+    {
+        UpdateInventoryText();
     }
 
     public void MoveToTargetPosition()
@@ -40,5 +49,15 @@ public class CharacterPanel : MonoBehaviour
     void DeactivateDiscriptionHolder()
     {
         discriptionHolder.SetActive(false);
+    }
+
+    void UpdateInventoryText()
+    {
+        int maxPotions = GameManager.Instance.PlayerScript.MaxPotions;
+        int currentPotions = GameManager.Instance.PlayerScript.PotionCount;
+        potionInventoryText.text = currentPotions + "/" + maxPotions;
+
+        int goldenContractFrag = GameManager.Instance.PlayerHealthScript.GoldenContractFragment;
+        goldenContractFragText.text = goldenContractFrag.ToString();
     }
 }
