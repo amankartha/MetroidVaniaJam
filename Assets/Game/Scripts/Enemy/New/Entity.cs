@@ -55,7 +55,7 @@ public class Entity : MonoBehaviour
     {
         FacingDirection = 1;
         RB = AliveGo.GetComponent<Rigidbody2D>();
-        Anim = AliveGo.GetComponent<Animator>();
+        Anim = AliveGo.GetComponentInChildren<Animator>();
         _enemyHealth = AliveGo.GetComponent<EnemyHealth>();
         _finiteStateMachine = new FiniteStateMachine();
 
