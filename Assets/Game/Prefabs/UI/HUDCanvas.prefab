@@ -476,8 +476,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab766eb1842c6c34c84cce7905dd0db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityOneFillOmage: {fileID: 2836118937418722870}
-  abilityTwoFillOmage: {fileID: 3578795118390110489}
+  abilityOneFillImage: {fileID: 2836118937418722870}
+  abilityTwoFillImage: {fileID: 3578795118390110489}
+  throwImage: {fileID: 1995580597319470584}
+  throwIcon: {fileID: 21300000, guid: 2904bef63115d034bb589cd5d6721074, type: 3}
+  teleportIcon: {fileID: 21300000, guid: 18b509f7816b3af4fa4019d250fece63, type: 3}
 --- !u!1 &1688085345964773094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,8 +1207,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.5956, y: -2.3771}
-  m_SizeDelta: {x: 104.826, y: 96.8072}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6260552807071354289
 CanvasRenderer:
