@@ -219,6 +219,7 @@ public class Player : MonoBehaviour
         workspace.Set(angle.x * velocity * direction,angle.y * velocity);
         RB.velocity = workspace;
         CurrentVelocity = workspace;
+        Debug.Log("AAAA");
     }
     public void SetVelocityXY(Vector2 velocity,float powerX,float PowerY)
     {
