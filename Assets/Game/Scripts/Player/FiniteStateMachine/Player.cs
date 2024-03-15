@@ -50,8 +50,8 @@ public class Player : MonoBehaviour
             GameManager.Instance.OnPotionChange?.Invoke(_potionCount);
         }
     }
-    
-    
+
+    public bool isInvincible = false;
     #endregion
     
     #region STATES
@@ -175,8 +175,8 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
-        
-       
+        isInvincible= DamagedState.CheckDuration();
+
     }
 
     private void FixedUpdate()

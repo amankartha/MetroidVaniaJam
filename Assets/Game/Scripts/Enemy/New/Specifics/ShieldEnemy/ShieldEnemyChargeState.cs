@@ -46,4 +46,6 @@ public class ShieldEnemyChargeState : EnemyChargeState
     {
         base.DoChecks();
     }
+    
+    
 }

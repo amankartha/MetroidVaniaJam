@@ -11,13 +11,13 @@ public class PlayerDamagedState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        _player.TriggerBoxCollider2D.enabled = false;
+       // _player.TriggerBoxCollider2D.enabled = false;
     }
 
     public override void Exit()
     {
         base.Exit();
-        _player.TriggerBoxCollider2D.enabled = true;
+       // _player.TriggerBoxCollider2D.enabled = true;
     }
 
     public override void LogicUpdate()
@@ -26,11 +26,21 @@ public class PlayerDamagedState : PlayerState
         CheckDuration();
     }
 
-    public void CheckDuration()
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
+        _stateMachine.ChangeState(_player.IdleState);
+    }
+
+    public bool CheckDuration()
     {
         if (Time.time > _startTime + _playerData.DamagedInvincibilityDuration)
         {
-            _stateMachine.ChangeState(_player.IdleState);
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 }

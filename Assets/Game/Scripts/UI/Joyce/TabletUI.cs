@@ -98,9 +98,9 @@ public class TabletUI : MonoBehaviour
             for (int i = 0; i <= line.Length; i++)
             {
                 mainTextTMP.text = previousText + line.Substring(0, i);
-                yield return new WaitForSecondsRealtime(0.03f);
+                yield return new WaitForSecondsRealtime(0.02f);
             }
-            yield return new WaitForSecondsRealtime(0.65f);
+            yield return new WaitForSecondsRealtime(0.6f);
             //gameOverText.text += "\n";
             previousText = mainTextTMP.text + "\n";
         }
@@ -129,7 +129,26 @@ public class TabletUI : MonoBehaviour
 
     public void DisplayGameOverScreen()
     {
-        FadeInCanvas();
-        SetDiaplayText(tabletScreens[0]);
+        Time.timeScale = 0;
+        SetCommandLineAlphaToZero();
+        titleText.text = "";
+        mainText.text = "";
+        canvasGroup.alpha = 0f;
+        canvasGroup.DOFade(1f, 1.2f).SetUpdate(true)
+            .OnComplete(() => StartCoroutine(TypeText(tabletScreens[0].maninTextLines, mainText)));
+    }
+
+    public void FadeOutGameOverUI()
+    {
+        canvasGroup.alpha = 1f;
+        canvasGroup.DOFade(0f, 0.4f).SetUpdate(true)
+            .OnComplete(() => ResetGameOverUI());
+    }
+
+    void ResetGameOverUI()
+    {
+        Time.timeScale = 1;
+        mainText.text = "";
+        canExitCanvas = false;
     }
 }

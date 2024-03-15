@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1952383110642417733}
   - component: {fileID: 5760460532990911258}
   - component: {fileID: 7310324548162024189}
+  - component: {fileID: 5687881604871655222}
   m_Layer: 6
   m_Name: Alive
   m_TagString: Untagged
@@ -214,7 +215,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1911087, y: 1.6881418}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -225,8 +226,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.4742813, y: 3.9576616}
   m_EdgeRadius: 0
+--- !u!114 &5687881604871655222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092259950491725804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00dbaabc547023d4ba5ae2f1979cee42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 461350568769789989}
 --- !u!1 &3139923332476218321
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +301,9 @@ MonoBehaviour:
   _chargeStateData: {fileID: 11400000, guid: a8c279ada83bbe84b8641a94a9c9af2c, type: 2}
   _lookingForPlayerData: {fileID: 11400000, guid: 9e5ab8e666f0f3743b38ede7c85d4e3a, type: 2}
   _stunStateData: {fileID: 11400000, guid: 4b49558816005f445b06c25e0a2b350b, type: 2}
+  _deadStateData: {fileID: 11400000, guid: ee2e1234ca26d4a4f9c3abb384c20d35, type: 2}
+  triggerCollider: {fileID: 7310324548162024189}
+  Collider: {fileID: 1952383110642417733}
 --- !u!114 &3983956801445210452
 MonoBehaviour:
   m_ObjectHideFlags: 0
