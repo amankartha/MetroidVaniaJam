@@ -6,7 +6,7 @@ using TMPro;
 
 public class PotionHUD : MonoBehaviour
 {
-    [SerializeField] TMP_Text potionText;
+    public TMP_Text potionText;
     [SerializeField] Image potionFillImage;
 
     void Start()
