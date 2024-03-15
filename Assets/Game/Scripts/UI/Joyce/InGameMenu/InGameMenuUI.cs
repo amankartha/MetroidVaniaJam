@@ -102,7 +102,7 @@ public class InGameMenuUI : MonoBehaviour
     public void CloseInGameMenu()
     {
         RectTransform rect = menuButtonRects[currentTabIndex];
-        rect.DOMoveX(rect.position.x + tabMoveDistance, 0.3f);
+        rect.DOMoveX(rect.position.x + tabMoveDistance, 0.3f).SetUpdate(true);
         ResetIndexes();
 
         if (!mapPanel.isFolded)
@@ -119,6 +119,7 @@ public class InGameMenuUI : MonoBehaviour
             Invoke("DeactiveMenu", 0.5f);
         }
         isMenuOpened = false;
+        Time.timeScale = 1;
     }
 
     void DeactiveMenu()
@@ -130,6 +131,7 @@ public class InGameMenuUI : MonoBehaviour
     public void OpenInGameMenu()
     {
         menuPanel.SetActive(true);
+        Time.timeScale = 0;
         canvasGroup.DOFade(1f, 0.4f).SetUpdate(true);
         OnMapButton();
         isMenuOpened = true;
@@ -193,12 +195,12 @@ public class InGameMenuUI : MonoBehaviour
     void MoveSelectedTab()
     {
         RectTransform rect = menuButtonRects[currentTabIndex];
-        rect.DOMoveX(rect.position.x - tabMoveDistance, 0.3f);
+        rect.DOMoveX(rect.position.x - tabMoveDistance, 0.3f).SetUpdate(true);
 
         if(previousTabIndex != currentTabIndex)
         {
             rect = menuButtonRects[previousTabIndex];
-            rect.DOMoveX(rect.position.x + tabMoveDistance, 0.3f);
+            rect.DOMoveX(rect.position.x + tabMoveDistance, 0.3f).SetUpdate(true);
         }
     }
 

@@ -30,6 +30,8 @@ public class Map : MonoBehaviour
 
     List<RoomPin> holdOnToDisplayDiscovered = new List<RoomPin>();
 
+    public InGameMenuUI inGameMenuUI;
+
     void Start()
     {
         playerMapLocation = GameManager.Instance.goMainPlayer.GetComponent<PlayerMapLocation>();
@@ -123,6 +125,9 @@ public class Map : MonoBehaviour
             }
 
         }
+
+        inGameMenuUI.OpenInGameMenu();
+       
     }
 
     public void ShowRegionalMap()

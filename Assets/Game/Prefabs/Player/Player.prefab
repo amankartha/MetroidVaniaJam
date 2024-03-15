@@ -7244,6 +7244,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fe84d04f-2db6-4fd3-95d3-0e16d3f09d68
     m_ActionName: Gameplay/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6911105615339098525}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnExitPopupInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f609fdbd-39d6-4ed4-a148-d16e51fc623b
+    m_ActionName: Gameplay/ExitPopupUI[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -7263,6 +7279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMapArea: 0
   currentRoomID: 0
+  ObtainedWorldMap: 
+  messageCanvasUI: {fileID: 0}
 --- !u!114 &8215260453692718312
 MonoBehaviour:
   m_ObjectHideFlags: 0

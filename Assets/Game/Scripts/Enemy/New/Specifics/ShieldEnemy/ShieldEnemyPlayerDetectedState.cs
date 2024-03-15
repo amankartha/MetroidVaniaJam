@@ -5,6 +5,9 @@ using UnityEngine;
 public class ShieldEnemyPlayerDetectedState : EnemyPlayerDetectedState
 {
     private ShieldEnemy _enemy;
+
+    protected bool isDetectingLedge;
+    
     public ShieldEnemyPlayerDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData,ShieldEnemy shieldEnemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         _enemy = shieldEnemy;
@@ -27,6 +30,11 @@ public class ShieldEnemyPlayerDetectedState : EnemyPlayerDetectedState
         {
             _stateMachine.ChangeState(_enemy.ChargeState);
         }
+        else if (!isDetectingLedge)
+        {
+            _entity.Flip();
+            _stateMachine.ChangeState(_enemy.moveState);
+        }
        /* else if (!isPlayerInMaxAggroRange)
         {
             _stateMachine.ChangeState(_enemy.LookForPlayerState);
@@ -37,5 +45,11 @@ public class ShieldEnemyPlayerDetectedState : EnemyPlayerDetectedState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isDetectingLedge = _entity.CheckLedge();
     }
 }

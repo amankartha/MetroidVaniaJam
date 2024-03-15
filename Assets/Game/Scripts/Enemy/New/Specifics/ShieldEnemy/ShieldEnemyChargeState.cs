@@ -26,13 +26,13 @@ public class ShieldEnemyChargeState : EnemyChargeState
         base.LogicUpdate();
         if (!isDetectingLedge || isDetectingWall)
         {
-            _stateMachine.ChangeState(ShieldEnemy.LookForPlayerState);
+            _stateMachine.ChangeState(ShieldEnemy.StunState);
         }
         else if (isChargeTimeOver)
         {
             if (isPlayerInMinAggroRange)
             {
-                _stateMachine.ChangeState(ShieldEnemy.PlayerDetectedState);
+                _stateMachine.ChangeState(ShieldEnemy.StunState);
             }
         }
     }
@@ -46,4 +46,6 @@ public class ShieldEnemyChargeState : EnemyChargeState
     {
         base.DoChecks();
     }
+    
+    
 }

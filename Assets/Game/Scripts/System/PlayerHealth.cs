@@ -6,16 +6,41 @@ namespace Game.Scripts.System
     {
         public override void Damage(int value)
         {
-            HealthValue -= value;
-            if (HealthValue <= 0)
+            if (!GameManager.Instance.PlayerScript.isInvincible)
             {
-                GameManager.Instance.OnPlayerDeath?.Invoke();
+                HealthValue -= value;
+                if (HealthValue <= 0)
+                {
+                    GameManager.Instance.OnPlayerDeath?.Invoke();
+                }
+                else
+                {
+                    GameManager.Instance.OnPlayerHealthChanged?.Invoke();
+                    GameManager.Instance.OnPlayerDamaged?.Invoke();
+                    GameManager.Instance.PlayerScript.StateMachine.ChangeState(GameManager.Instance.PlayerScript
+                        .DamagedState);
+                }
             }
-            else
+        }
+
+        public void DamageWithKnockBack(int value, float velocity, Vector2 angle, int direction)
+        {
+            if (!GameManager.Instance.PlayerScript.isInvincible)
             {
-                GameManager.Instance.OnPlayerHealthChanged?.Invoke();
-                GameManager.Instance.OnPlayerDamaged?.Invoke();
-                GameManager.Instance.PlayerScript.StateMachine.ChangeState(GameManager.Instance.PlayerScript.DamagedState);
+                GameManager.Instance.PlayerScript.SetVelocity(velocity,angle,direction);
+                
+                HealthValue -= value;
+                if (HealthValue <= 0)
+                {
+                    GameManager.Instance.OnPlayerDeath?.Invoke();
+                }
+                else
+                {
+                    GameManager.Instance.OnPlayerHealthChanged?.Invoke();
+                    GameManager.Instance.OnPlayerDamaged?.Invoke();
+                    GameManager.Instance.PlayerScript.StateMachine.ChangeState(GameManager.Instance.PlayerScript
+                        .DamagedState);
+                }
             }
         }
 
