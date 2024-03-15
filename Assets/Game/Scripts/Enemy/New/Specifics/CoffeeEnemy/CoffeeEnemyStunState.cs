@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoffeeEnemyIdleState : EnemyIdleState
+public class CoffeeEnemyStunState : EnemyStunState
 {
     private CoffeeEnemy _enemy;
-    public CoffeeEnemyIdleState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_IdleState idleState,CoffeeEnemy enemy) : base(entity, stateMachine, animBoolName, idleState)
+
+    public CoffeeEnemyStunState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_StunState stateData,CoffeeEnemy enemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         _enemy = enemy;
     }
@@ -24,13 +25,16 @@ public class CoffeeEnemyIdleState : EnemyIdleState
     {
         base.LogicUpdate();
 
-        if (isPlayerInMinAggroRange)
+        if (isStunTimeOver)
         {
-            _stateMachine.ChangeState(_enemy.DetectedState);
-        }
-        else if (isIdleTimeOver)
-        {
-            _stateMachine.ChangeState(_enemy.MoveState);
+            if (isPlayerInMinAgroRange)
+            {
+                _stateMachine.ChangeState(_enemy.DetectedState);
+            }
+            else
+            {
+                _stateMachine.ChangeState(_enemy.LookForPlayerState);
+            }
         }
     }
 
