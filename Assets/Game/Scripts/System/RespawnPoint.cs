@@ -30,6 +30,7 @@ public class RespawnPoint : MonoBehaviour
             GameManager.Instance.PlayerInputHandler.UseInteractInput();
             GameManager.Instance.OnUpdatedRespawnPoint?.Invoke();
             GameManager.Instance.CurrentRespawnPoint = this;
+            GameManager.Instance.RespawnAllEnemies();
             ClosedEyes.SetActive(false);
             OpenEyes.SetActive(true);
             interactUI.SetActive(false);
