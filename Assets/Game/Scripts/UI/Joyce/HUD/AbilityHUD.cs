@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class AbilityHUD : MonoBehaviour
 {
-    [SerializeField] Image abilityOneFillOmage;
-    [SerializeField] Image abilityTwoFillOmage;
+    [SerializeField] Image abilityOneFillImage;
+    [SerializeField] Image abilityTwoFillImage;
+    public Image throwImage;
+    public Sprite throwIcon, teleportIcon;
+    bool isBriefOnHand = true;
 
     public void UpdateAbilityOneCD()
     {
@@ -14,7 +17,7 @@ public class AbilityHUD : MonoBehaviour
         float throwCoolDownTimer = GameManager.Instance.PlayerScript.ThrowCooldownTimer;
         if (throwCoolDownTimer >= throwCooldown)
         {
-            abilityOneFillOmage.fillAmount = 0f;
+            abilityOneFillImage.fillAmount = 0f;
         }
         /*else if (throwCoolDownTimer <= 0)
         {
@@ -22,13 +25,22 @@ public class AbilityHUD : MonoBehaviour
         }*/
         else
         {
-            abilityOneFillOmage.fillAmount = (float)throwCoolDownTimer / throwCooldown;
+            abilityOneFillImage.fillAmount = (float)throwCoolDownTimer / throwCooldown;
         }
 
     }
 
-    public void UpdateAbilityTwoCD()
+    public void SwapThrowAbilityIcon()
     {
-        
+        if (isBriefOnHand)
+        {
+            throwImage.sprite = throwIcon;
+        }
+        else
+        {
+            throwImage.sprite = teleportIcon;
+        }
+        isBriefOnHand = !isBriefOnHand;
     }
+
 }
