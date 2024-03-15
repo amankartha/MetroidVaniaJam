@@ -23,6 +23,10 @@ public class ItemButton : MonoBehaviour
     }
     public void OnButtonHover()
     {
+        if (!discriptionImage.enabled)
+        {
+            discriptionImage.enabled = true;
+        }
         discriptionImage.sprite = collectable.sprite;
         discriptionText.text = collectable.content;
         gameObject.GetComponent<Button>().Select();
