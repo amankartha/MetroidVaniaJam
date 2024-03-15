@@ -302,6 +302,7 @@ public class Player : MonoBehaviour
     public void GetAbilityTwo()
     {
         hasAbility2 = true;
+        Physics2D.IgnoreLayerCollision(8,11,false);
     }
 
     #endregion
