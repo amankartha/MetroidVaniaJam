@@ -140,6 +140,7 @@ public class InGameMenuUI : MonoBehaviour
     public void OpenInGameMenuWithItemTab()
     {
         menuPanel.SetActive(true);
+        Time.timeScale = 0;
         canvasGroup.DOFade(1f, 0.4f).SetUpdate(true);
         currentTabIndex = 2;
         previousTabIndex = 2;
