@@ -131,13 +131,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1831298499931817367, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6353143206381065661, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
       propertyPath: m_Name
       value: RatEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 6353143206381065661, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
       propertyPath: m_LocalPosition.x
@@ -475,7 +479,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HealthValue>k__BackingField: 3
+  <MaxHealth>k__BackingField: 0
   _entity: {fileID: 0}
+  OnEnemyDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &1038007804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1214,6 +1222,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd5807f9496c9b4bb316d32dd070056, type: 3}
+--- !u!1001 &1936807572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6353143206381065661, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_Name
+      value: RatEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353143206381065661, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769070138617862695, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e0a7d22eaed0a349aecc1c8dd047d20, type: 3}
 --- !u!1 &2052600537
 GameObject:
   m_ObjectHideFlags: 0
@@ -10604,3 +10673,4 @@ SceneRoots:
   - {fileID: 593447248}
   - {fileID: 1505401766}
   - {fileID: 41503270}
+  - {fileID: 1936807572}

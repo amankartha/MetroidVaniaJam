@@ -52,6 +52,9 @@ public class Player : MonoBehaviour
     }
 
     public bool isInvincible = false;
+
+    public bool hasAbility1 = true;
+    public bool hasAbility2 = true;
     #endregion
     
     #region STATES
@@ -219,6 +222,7 @@ public class Player : MonoBehaviour
         workspace.Set(angle.x * velocity * direction,angle.y * velocity);
         RB.velocity = workspace;
         CurrentVelocity = workspace;
+        Debug.Log("AAAA");
     }
     public void SetVelocityXY(Vector2 velocity,float powerX,float PowerY)
     {
@@ -257,14 +261,21 @@ public class Player : MonoBehaviour
     { 
         RaycastHit2D HIT = Physics2D.Raycast(_wallCheck.position, Vector2.right * FacingDirection, _playerData.wallCheckDistance,
             _playerData.groundLayer);
-
-        if (HIT)
+        try
         {
-            if (HIT.collider.transform.parent.TryGetComponent(out MovingPlatform MP))
+            if (HIT)
             {
-                return false;
+                if (HIT.collider.transform.parent.TryGetComponent(out MovingPlatform MP))
+                {
+                    return false;
+                }
             }
         }
+        catch (Exception e)
+        {
+           
+        }
+       
 
         return HIT;
     }
@@ -280,9 +291,19 @@ public class Player : MonoBehaviour
     }
     public bool CheckIfCanThrow()
     {
-        return _canThrow;
+        return _canThrow && hasAbility1;
     }
 
+    public void GetAbilityOne()
+    {
+        hasAbility1 = true;
+    }
+
+    public void GetAbilityTwo()
+    {
+        hasAbility2 = true;
+        Physics2D.IgnoreLayerCollision(8,11,false);
+    }
 
     #endregion
 

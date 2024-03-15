@@ -14,16 +14,17 @@ public class AbilityHUD : MonoBehaviour
         float throwCoolDownTimer = GameManager.Instance.PlayerScript.ThrowCooldownTimer;
         if (throwCoolDownTimer >= throwCooldown)
         {
-            abilityOneFillOmage.fillAmount = 1f;
-        }
-        else if (throwCoolDownTimer <= 0)
-        {
             abilityOneFillOmage.fillAmount = 0f;
         }
+        /*else if (throwCoolDownTimer <= 0)
+        {
+            abilityOneFillOmage.fillAmount = 1f;
+        }*/
         else
         {
-            abilityOneFillOmage.fillAmount = 1 - (float)throwCoolDownTimer / throwCooldown;
+            abilityOneFillOmage.fillAmount = (float)throwCoolDownTimer / throwCooldown;
         }
+
     }
 
     public void UpdateAbilityTwoCD()
