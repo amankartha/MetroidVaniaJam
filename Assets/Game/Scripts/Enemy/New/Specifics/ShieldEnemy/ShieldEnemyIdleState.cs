@@ -24,7 +24,11 @@ public class ShieldEnemyIdleState : EnemyIdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (isIdleTimeOver)
+        if (isPlayerInMinAggroRange)
+        {
+            _stateMachine.ChangeState(_enemy.PlayerDetectedState);
+        }
+        else if (isIdleTimeOver)
         {
             _stateMachine.ChangeState(_enemy.moveState);
         }

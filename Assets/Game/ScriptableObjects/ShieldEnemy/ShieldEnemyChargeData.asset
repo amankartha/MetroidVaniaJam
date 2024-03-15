@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852d98d2b7466784a957fcbd365899d5, type: 3}
+  m_Name: ShieldEnemyChargeData
+  m_EditorClassIdentifier: 
+  ChargeSpeed: 15
+  ChargeTime: 2
+  ChargeDamage: 5
+  ChargeKnockBackAngle: {x: 5, y: 5}
+  ChargeKnockBackPower: 5

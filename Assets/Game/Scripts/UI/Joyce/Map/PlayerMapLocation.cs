@@ -6,6 +6,8 @@ public class PlayerMapLocation : MonoBehaviour
 {
     public MapArea currentMapArea;
     public int currentRoomID;
+    public List<MapArea> ObtainedWorldMap = new List<MapArea>();
+    public MessageCanvasUI messageCanvasUI;
 
     public MapArea GetCurrentMapArea()
     {
@@ -19,8 +21,18 @@ public class PlayerMapLocation : MonoBehaviour
 
     public void UpdateCurrentLocation(MapArea area, int id)
     {
+        if(area != currentMapArea)
+        {
+            messageCanvasUI.SetAreaNameText(area.ToString());
+            messageCanvasUI.ShowAreaName();
+        }
         currentMapArea = area;
         currentRoomID = id;
+    }
+
+    public void ObtainNewMap()
+    {
+        ObtainedWorldMap.Add(currentMapArea);
     }
     
 

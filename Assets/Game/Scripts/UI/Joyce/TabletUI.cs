@@ -8,6 +8,7 @@ using DG.Tweening;
 public class TabletUI : MonoBehaviour
 {
     [SerializeField] CanvasGroup canvasGroup;
+    [SerializeField] TMP_Text titleText;
     [SerializeField] TMP_Text mainText;
     [SerializeField] TMP_Text commandText;
     [SerializeField] GameObject displayWithImage;
@@ -28,7 +29,7 @@ public class TabletUI : MonoBehaviour
         TabletScreen tabletScreen = null;
         for (int i = 0; i < tabletScreens.Count; i++)
         {
-            if (tabletScreens[i].name == name)
+            if (tabletScreens[i].title == name)
             {
                 tabletScreen = tabletScreens[i];
             }
@@ -47,7 +48,8 @@ public class TabletUI : MonoBehaviour
         if(tabletScreen != null)
         {
             SetCommandLineAlphaToZero();
-            commandText.text = tabletScreen.commandText;
+            titleText.text = tabletScreen.title;
+            //commandText.text = tabletScreen.commandText;
 
             if (tabletScreen.isTextOnly)
             {
@@ -96,9 +98,9 @@ public class TabletUI : MonoBehaviour
             for (int i = 0; i <= line.Length; i++)
             {
                 mainTextTMP.text = previousText + line.Substring(0, i);
-                yield return new WaitForSecondsRealtime(0.03f);
+                yield return new WaitForSecondsRealtime(0.02f);
             }
-            yield return new WaitForSecondsRealtime(0.65f);
+            yield return new WaitForSecondsRealtime(0.6f);
             //gameOverText.text += "\n";
             previousText = mainTextTMP.text + "\n";
         }
@@ -123,5 +125,30 @@ public class TabletUI : MonoBehaviour
         canvasGroup.alpha = 1f;
         canvasGroup.DOFade(0f, 0.4f).SetUpdate(true)
             .OnComplete(() => Destroy(this.gameObject));
+    }
+
+    public void DisplayGameOverScreen()
+    {
+        Time.timeScale = 0;
+        SetCommandLineAlphaToZero();
+        titleText.text = "";
+        mainText.text = "";
+        canvasGroup.alpha = 0f;
+        canvasGroup.DOFade(1f, 1.2f).SetUpdate(true)
+            .OnComplete(() => StartCoroutine(TypeText(tabletScreens[0].maninTextLines, mainText)));
+    }
+
+    public void FadeOutGameOverUI()
+    {
+        canvasGroup.alpha = 1f;
+        canvasGroup.DOFade(0f, 0.4f).SetUpdate(true)
+            .OnComplete(() => ResetGameOverUI());
+    }
+
+    void ResetGameOverUI()
+    {
+        Time.timeScale = 1;
+        mainText.text = "";
+        canExitCanvas = false;
     }
 }

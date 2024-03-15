@@ -30,7 +30,12 @@ public class ShieldEnemyMoveState : EnemyMoveState
     {
         base.LogicUpdate();
 
-        if (isDetectingWall || !isDetectingLedge)
+        if (isPlayerInMinAggroRange)
+        {
+            _stateMachine.ChangeState(_enemy.PlayerDetectedState);
+        }
+        
+        else if (isDetectingWall || !isDetectingLedge)
         {
             _enemy.IdleState.SetFLipAfterIdle(true);
             _stateMachine.ChangeState(_enemy.IdleState);

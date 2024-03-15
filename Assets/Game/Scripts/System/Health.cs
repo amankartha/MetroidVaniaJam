@@ -7,16 +7,14 @@ public class Health : MonoBehaviour, IDamageable
 {
    
     [field:SerializeField]public int HealthValue { get; protected set; } = 3;
-    public int MaxHealth { get; set; }
+    [field:SerializeField]public int MaxHealth { get; set; }
     public int HPSection { get; set; } = 5;
     public int HealthPerSection { get; set; }
     public int GoldenContractFragment { get; set; } = 0;
 
 
-    void Start()
+    protected virtual void Start()
     {
-        
-        
         MaxHealth = HealthValue;
         HealthPerSection = MaxHealth / HPSection;
     }

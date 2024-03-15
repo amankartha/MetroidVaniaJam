@@ -14,8 +14,8 @@ public class BriefcaseTeleportState : BriefcaseState
     public override void Enter()
     {
         base.Enter();
-      
-        GameManager.Instance.PlayerScript.SetPosition(_briefcase.transform.position); 
+        GameManager.Instance.goMainPlayer.transform.parent = null;
+        GameManager.Instance.goMainPlayer.transform.position =  _briefcase.transform.position; 
         GameManager.Instance.PlayerScript.PauseGravity(_playerData.teleportPauseGravityDuration);
       
     }
@@ -23,6 +23,7 @@ public class BriefcaseTeleportState : BriefcaseState
     public override void Exit()
     {
         base.Exit();
+       
     }
 
     public override void LogicUpdate()
