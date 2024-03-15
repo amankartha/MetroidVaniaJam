@@ -52,6 +52,9 @@ public class Player : MonoBehaviour
     }
 
     public bool isInvincible = false;
+
+    public bool hasAbility1 = true;
+    public bool hasAbility2 = true;
     #endregion
     
     #region STATES
@@ -281,9 +284,18 @@ public class Player : MonoBehaviour
     }
     public bool CheckIfCanThrow()
     {
-        return _canThrow;
+        return _canThrow && hasAbility1;
     }
 
+    public void GetAbilityOne()
+    {
+        hasAbility1 = true;
+    }
+
+    public void GetAbilityTwo()
+    {
+        hasAbility2 = true;
+    }
 
     #endregion
 
