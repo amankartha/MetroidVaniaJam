@@ -261,14 +261,21 @@ public class Player : MonoBehaviour
     { 
         RaycastHit2D HIT = Physics2D.Raycast(_wallCheck.position, Vector2.right * FacingDirection, _playerData.wallCheckDistance,
             _playerData.groundLayer);
-
-        if (HIT)
+        try
         {
-            if (HIT.collider.transform.parent.TryGetComponent(out MovingPlatform MP))
+            if (HIT)
             {
-                return false;
+                if (HIT.collider.transform.parent.TryGetComponent(out MovingPlatform MP))
+                {
+                    return false;
+                }
             }
         }
+        catch (Exception e)
+        {
+           
+        }
+       
 
         return HIT;
     }

@@ -31,7 +31,7 @@ public class Entity : MonoBehaviour
 
     #region MMFSTUFF
 
-    public MMF_Player DamageMMF;
+  
     
 
     #endregion
@@ -91,7 +91,7 @@ public class Entity : MonoBehaviour
     }
     public virtual void Damaged()
     {
-        DamageMMF.PlayFeedbacks();
+       
         lastDamageTime = Time.time;
         currentStunResistance -= GameManager.Instance.PlayerScript._playerData.StunDamageAmount;
         if (currentStunResistance < 0)
@@ -124,7 +124,11 @@ public class Entity : MonoBehaviour
             return 1;
         }
     }
-    
+
+    public virtual void Respawn()
+    {
+        
+    }
     public virtual bool CheckWall()
     {
         return Physics2D.Raycast(WallCheck.position, AliveGo.transform.right, EntityData.WallCheckDistance,
