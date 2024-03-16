@@ -79,5 +79,11 @@ public class ShieldEnemy : Entity
             _chargeStateData.ChargeKnockBackAngle, FacingDirection);
        
     }
+
+    public override void Respawn()
+    {
+        base.Respawn();
+        _finiteStateMachine?.Initialize(moveState);
+    }
 }
    
