@@ -14,6 +14,8 @@ public class CoffeeEnemy : Entity
     public CoffeeEnemyLookForPlayerState LookForPlayerState { get; private set; }
     
     public CoffeeEnemyStunState StunState { get; private set; }
+    
+    public CoffeeEnemyDeadState DeadState { get; private set; }
 
     #endregion
 
@@ -24,6 +26,7 @@ public class CoffeeEnemy : Entity
     [SerializeField] private D_PlayerDetected detectedStateData;
     [SerializeField] private D_LookingForPlayer lookForPlayerData;
     [SerializeField] private D_StunState stunData;
+    [SerializeField] private D_DeadState deadData;
     #endregion
 
 
@@ -37,6 +40,8 @@ public class CoffeeEnemy : Entity
             new CoffeeEnemyLookForPlayerState(this, _finiteStateMachine, "lookForPlayer", lookForPlayerData, this);
 
         StunState = new CoffeeEnemyStunState(this, _finiteStateMachine, "stun", stunData, this);
+
+        DeadState = new CoffeeEnemyDeadState(this, _finiteStateMachine, "dead", deadData, this);
         _finiteStateMachine.Initialize(MoveState);
     }
 
@@ -79,6 +84,7 @@ public class CoffeeEnemy : Entity
     public override void Respawn()
     {
         base.Respawn();
+        _finiteStateMachine?.Initialize(MoveState);
     }
 
     public override bool CheckWall()
