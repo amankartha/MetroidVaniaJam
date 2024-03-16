@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRangedAttackState : AttackState
 {
-    protected D_RangedAttack _stateData;
+    public D_RangedAttack _stateData;
     protected GameObject projectile;
     protected Projectile ProjectileScript;
     public EnemyRangedAttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition,D_RangedAttack attack) : base(etity, stateMachine, animBoolName, attackPosition)

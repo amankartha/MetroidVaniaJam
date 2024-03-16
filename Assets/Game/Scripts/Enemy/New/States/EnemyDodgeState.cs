@@ -21,11 +21,13 @@ public class EnemyDodgeState : EnemyState
         base.Enter();
         isDodgeOver = false;
         _entity.SetVelocity(_stateData.DodgeSpeed,_stateData.DodgeAngle,-_entity.FacingDirection);
+        Physics2D.IgnoreCollision(_entity._boxCollider2D,GameManager.Instance.PlayerScript.BoxCollider2D,true);
     }
 
     public override void Exit()
     {
         base.Exit();
+        Physics2D.IgnoreCollision(_entity._boxCollider2D,GameManager.Instance.PlayerScript.BoxCollider2D,false);
     }
 
     public override void LogicUpdate()

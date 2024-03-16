@@ -28,11 +28,16 @@ public class CoffeeEnemyDetectedState : EnemyPlayerDetectedState
         {
             _stateMachine.ChangeState(_enemy.LookForPlayerState);
         }
+        else if (performCloseRangeAction && Time.time >= _enemy.DodgeState._startTime + _enemy.dodgeStateData.DodgeCooldown && (!_entity.CheckLedgeBehind() || _entity.CheckWallBehind()))
+        {
+            _enemy.DodgeState.useExtendedDodge = true;
+            _stateMachine.ChangeState(_enemy.DodgeState);
+        }
         else if (performCloseRangeAction && Time.time >= _enemy.DodgeState._startTime + _enemy.dodgeStateData.DodgeCooldown)
         {
             _stateMachine.ChangeState(_enemy.DodgeState);
         }
-        else if (performLongRangeAction && !performCloseRangeAction)
+        else if (performLongRangeAction && !performCloseRangeAction && Time.time >= _enemy.RangedAttackState._startTime + _enemy.RangedAttackState._stateData.cooldown)
         {
             _stateMachine.ChangeState(_enemy.RangedAttackState);
         }

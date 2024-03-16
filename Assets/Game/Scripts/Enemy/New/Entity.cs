@@ -19,6 +19,7 @@ public class Entity : MonoBehaviour
     public Rigidbody2D RB { get; private set; }
     public Animator Anim { get; private set; }
     [field:SerializeField]public GameObject AliveGo { get; private set; }
+    public BoxCollider2D _boxCollider2D;
     public AnimationToStateMachine atsm { get; private set; }
     private EnemyHealth _enemyHealth;
 
@@ -39,9 +40,15 @@ public class Entity : MonoBehaviour
     #region Checks
     [SerializeField] 
     private Transform WallCheck;
+    
+    [SerializeField] 
+    private Transform WallCheckBehind;
 
     [SerializeField] 
     private Transform LedgeCheck;
+    
+    [SerializeField] 
+    private Transform LedgeCheckBehind;
 
     [SerializeField] 
     private Transform PlayerCheck;
@@ -62,6 +69,7 @@ public class Entity : MonoBehaviour
         currentStunResistance = EntityData.stunResistance;
         _enemyHealth.OnEnemyDamaged.AddListener(Damaged);
         atsm = AliveGo.GetComponentInChildren<AnimationToStateMachine>();
+        _boxCollider2D = AliveGo.GetComponent<BoxCollider2D>();
 
     }
 
@@ -135,6 +143,11 @@ public class Entity : MonoBehaviour
         return Physics2D.Raycast(WallCheck.position, AliveGo.transform.right, EntityData.WallCheckDistance,
             EntityData.GroundLayer);
     }
+    public virtual bool CheckWallBehind()
+    {
+        return Physics2D.Raycast(WallCheckBehind.position, -AliveGo.transform.right, EntityData.WallCheckDistance,
+            EntityData.GroundLayer);
+    }
 
     public virtual bool CheckGround()
     {
@@ -144,6 +157,10 @@ public class Entity : MonoBehaviour
     public virtual bool CheckLedge()
     {
         return Physics2D.Raycast(LedgeCheck.position,Vector2.down,EntityData.LedgeCheckDistance,EntityData.GroundLayer);
+    }
+    public virtual bool CheckLedgeBehind()
+    {
+        return Physics2D.Raycast(LedgeCheckBehind.position,Vector2.down,EntityData.LedgeCheckDistance,EntityData.GroundLayer);
     }
 
     public virtual bool CheckPlayerInMinAggroRange()
