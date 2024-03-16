@@ -8,6 +8,9 @@ public class EnemyPlayerDetectedState : EnemyState
     protected bool isPlayerInMinAggroRange;
     protected bool isPlayerInMaxAggroRange;
 
+    protected bool isWallBehind;
+    protected bool isLedgeBehind;
+
     protected bool performLongRangeAction;
     protected bool performCloseRangeAction;
 
@@ -51,5 +54,7 @@ public class EnemyPlayerDetectedState : EnemyState
         isPlayerInMaxAggroRange = _entity.CheckPlayerInMaxAggroRange();
         performCloseRangeAction = _entity.CheckPlayerInCloseRangeAction();
         performLongRangeAction = _entity.CheckPlayerInLongRangeAction();
+        isWallBehind = _entity.CheckWallBehind();
+        isLedgeBehind = _entity.CheckLedgeBehind();
     }
 }

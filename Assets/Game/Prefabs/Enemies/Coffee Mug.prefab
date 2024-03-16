@@ -416,12 +416,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: InitialModule.startSize.minScalar
@@ -433,11 +437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

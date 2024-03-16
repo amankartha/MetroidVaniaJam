@@ -7,7 +7,6 @@ public class CoffeeEnemyDodgeState : EnemyDodgeState
    
 
     private CoffeeEnemy _enemy;
-    public bool useExtendedDodge;
     public CoffeeEnemyDodgeState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_DodgeState dodgeState,CoffeeEnemy enemy) : base(entity, stateMachine, animBoolName, dodgeState)
     {
         _enemy = enemy;
@@ -15,18 +14,9 @@ public class CoffeeEnemyDodgeState : EnemyDodgeState
 
     public override void Enter()
     {
-        if (useExtendedDodge)
-        {
-            isDodgeOver = false;
-            _enemy.Flip();
-            _entity.SetVelocity(_stateData.DodgeSpeed * 1.5f ,_stateData.DodgeAngle,-_entity.FacingDirection);
-        }
-        else
-        {
+       
             base.Enter();      
-        }
-      
-        useExtendedDodge = false;
+       
     }
 
     public override void Exit()
