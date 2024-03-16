@@ -50,6 +50,11 @@ public class InGameMenuUI : MonoBehaviour
 
     private void Update()
     {
+        if (isMenuOpened)
+        {
+            CheckTabSwitchingInput();
+        }
+
         if (GameManager.Instance.PlayerInputHandler.MapInput)
         {
             GameManager.Instance.PlayerInputHandler.UseMapInput();
@@ -63,12 +68,7 @@ public class InGameMenuUI : MonoBehaviour
                 CloseInGameMenu();
             }
         }
-
-        if (isMenuOpened)
-        {
-            CheckTabSwitchingInput();
-        }
-        
+  
     }
 
     void CheckTabSwitchingInput()
