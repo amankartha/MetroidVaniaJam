@@ -12,7 +12,6 @@ public class HealthBar : MonoBehaviour
     public GoldenContractDisplay goldenContractDisplay;
 
     List<MMProgressBar> healthSections = new List<MMProgressBar>();
-    //List<MMProgressBar> mmProgressBars = new List<MMProgressBar>();
 
     int healthPerSection;
 
@@ -51,13 +50,27 @@ public class HealthBar : MonoBehaviour
         {
             if (remainingHealth >= healthPerSection)
             {
-                healthSections[i].SetBar01(1f);
+                healthSections[i].UpdateBar01(1f);
                 remainingHealth -= healthPerSection;
             }
             else if (remainingHealth > 0)
             {
                 healthSections[i].UpdateBar01((float)remainingHealth / healthPerSection);
                 remainingHealth = 0;
+
+                /*if (remainingHealth / healthPerSection > healthSections[i].BarProgress)
+                {
+                    healthSections[i].UpdateBar01((float)remainingHealth / healthPerSection);
+                    healthSections[i].BumpColor = Color.green;
+                    healthSections[i].Bump();
+                    remainingHealth = 0;
+                }
+                else
+                {
+                    healthSections[i].UpdateBar01((float)remainingHealth / healthPerSection);
+                    remainingHealth = 0;
+                }*/
+                
             }
             else
             {
@@ -65,4 +78,5 @@ public class HealthBar : MonoBehaviour
             }
         }
     }
+
 }
