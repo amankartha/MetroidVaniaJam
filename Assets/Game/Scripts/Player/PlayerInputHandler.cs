@@ -264,7 +264,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseMenuTabDownInput() => MenuTabDownInput = false;
     public void UseExitPopupInput() => ExitPopupInput = false;
 
-
+    public void UseDrinkInput() => DrinkInput = false;
 
     private void CheckJumpInputHoldTime()
    {
