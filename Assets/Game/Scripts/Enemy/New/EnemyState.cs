@@ -6,8 +6,8 @@ public class EnemyState
 {
     protected FiniteStateMachine _stateMachine;
     protected Entity _entity;
-    
-    protected float _startTime;
+
+    public float _startTime { get; protected set; }
 
     protected string _animBoolName;
 

@@ -19,7 +19,7 @@ public class Entity : MonoBehaviour
     public Rigidbody2D RB { get; private set; }
     public Animator Anim { get; private set; }
     [field:SerializeField]public GameObject AliveGo { get; private set; }
-    
+    public AnimationToStateMachine atsm { get; private set; }
     private EnemyHealth _enemyHealth;
 
     private float currentStunResistance;
@@ -61,7 +61,8 @@ public class Entity : MonoBehaviour
 
         currentStunResistance = EntityData.stunResistance;
         _enemyHealth.OnEnemyDamaged.AddListener(Damaged);
-        
+        atsm = AliveGo.GetComponentInChildren<AnimationToStateMachine>();
+
     }
 
     public virtual void Update()
@@ -154,7 +155,14 @@ public class Entity : MonoBehaviour
     {
         return Physics2D.CircleCast(PlayerCheck.position,1f, AliveGo.transform.right,EntityData.MaxAggroDistance, EntityData.PlayerLayer);
     }
-
+    public virtual bool CheckPlayerInCloseRangeAction()
+    {
+        return Physics2D.CircleCast(PlayerCheck.position,3f, transform.right, EntityData.CloseRangeActionDistance, EntityData.PlayerLayer);
+    }
+    public virtual bool CheckPlayerInLongRangeAction()
+    {
+        return Physics2D.CircleCast(PlayerCheck.position,3f, transform.right, EntityData.LongRangeActionDistance, EntityData.PlayerLayer);
+    }
     public virtual void Flip()
     {
         FacingDirection *= -1;
@@ -165,5 +173,8 @@ public class Entity : MonoBehaviour
     {
         Gizmos.DrawLine(WallCheck.position, WallCheck.position + (Vector3)(Vector2.right * FacingDirection * EntityData.WallCheckDistance));
         Gizmos.DrawLine(LedgeCheck.position,LedgeCheck.position + (Vector3)(Vector2.down * EntityData.LedgeCheckDistance));
+        Gizmos.DrawLine(PlayerCheck.position,PlayerCheck.position + (Vector3)(Vector2.right * FacingDirection * EntityData.CloseRangeActionDistance));
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(PlayerCheck.position,PlayerCheck.position + (Vector3)(Vector2.right * FacingDirection * EntityData.LongRangeActionDistance));
     }
 }
