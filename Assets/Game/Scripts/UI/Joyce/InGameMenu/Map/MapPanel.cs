@@ -23,8 +23,6 @@ public class MapPanel : MonoBehaviour
 
     public bool isFolded = true;
 
-    [SerializeField] Sprite roomMapLeftSprite;
-    [SerializeField] Sprite roomMapRightSprite;
     [SerializeField] Sprite worldMapLeftSprite;
     [SerializeField] Sprite worldMapRightSprite;
     [SerializeField] Image mapLeftImage;

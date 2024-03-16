@@ -11,11 +11,12 @@ public class PotionHUD : MonoBehaviour
 
     void Start()
     {
-        UpdatePotionHUD(GameManager.Instance.PlayerScript.PotionCount);
+        UpdatePotionHUD();
     }
 
-    public void UpdatePotionHUD(int currentPotions)
+    public void UpdatePotionHUD()
     {
+        int currentPotions = GameManager.Instance.PlayerScript.PotionCount;
         int maxPotions = GameManager.Instance.PlayerScript.MaxPotions;
         potionText.text = currentPotions + "/" + maxPotions;
 

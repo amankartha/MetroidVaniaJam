@@ -38,7 +38,9 @@ public class PlayerInputHandler : MonoBehaviour
     public bool AttackInput { get; private set; }
     public bool AttackInputStop { get; private set; }
 
-
+    
+    public bool DrinkInput { get; private set; }
+    public bool DrinkInputStop { get; private set; }
 
 
     [SerializeField] private float _inputHoldTime = 0.2f;
@@ -52,6 +54,7 @@ public class PlayerInputHandler : MonoBehaviour
     private float _menuTabUpInputStartTime;
     private float _menuTabDownInputStartTime;
     private float _exitPopupInputStartTime;
+    private float _drinkInputStartTime;
 
 
     private void Update()
@@ -80,6 +83,22 @@ public class PlayerInputHandler : MonoBehaviour
        if (context.canceled)
        {
            JumpInputStop = true;
+       }
+   }
+
+   public void OnDrinkInput(InputAction.CallbackContext context)
+   {
+       if (context.started)
+       {
+           DrinkInput = true;
+           DodgeInputStop = false;
+           _drinkInputStartTime = Time.time;
+       }
+
+       if (context.canceled)
+       {
+           DrinkInput = false;
+           DrinkInputStop = true;
        }
    }
 
@@ -245,7 +264,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void UseMenuTabDownInput() => MenuTabDownInput = false;
     public void UseExitPopupInput() => ExitPopupInput = false;
 
-
+    public void UseDrinkInput() => DrinkInput = false;
 
     private void CheckJumpInputHoldTime()
    {
