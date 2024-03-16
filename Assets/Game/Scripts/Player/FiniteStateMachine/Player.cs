@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         set
         {
             _potionCount = math.clamp(value, 0, MaxPotions);
-            GameManager.Instance.OnPotionChange?.Invoke(_potionCount);
+            GameManager.Instance.OnPotionChange?.Invoke();
         }
     }
 
@@ -319,6 +319,7 @@ public class Player : MonoBehaviour
         {
             PlayerHealth.Heal(_playerData.HPPotionRecoverAmount);
             _potionCount--;
+            GameManager.Instance.OnPotionChange?.Invoke();
         }
     }
 
