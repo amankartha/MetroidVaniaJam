@@ -164,6 +164,7 @@ public class InGameMenuUI : MonoBehaviour
     {
         previousTabIndex = currentTabIndex;
         currentTabIndex = 1;
+        characterPanel.UpdateInventoryText();
         mapPanel.FoldMap();
         mapPanel.MoveToTargetPosition();
         itemPanel.MoveToMapPosition();
@@ -198,11 +199,12 @@ public class InGameMenuUI : MonoBehaviour
         RectTransform rect = menuButtonRects[currentTabIndex];
         rect.DOMoveX(rect.position.x - tabMoveDistance, 0.3f).SetUpdate(true);
 
-        if(previousTabIndex != currentTabIndex)
+        if (previousTabIndex != currentTabIndex)
         {
             rect = menuButtonRects[previousTabIndex];
             rect.DOMoveX(rect.position.x + tabMoveDistance, 0.3f).SetUpdate(true);
         }
+
     }
 
     void ResetIndexes()

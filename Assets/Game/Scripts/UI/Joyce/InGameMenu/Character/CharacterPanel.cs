@@ -22,10 +22,6 @@ public class CharacterPanel : MonoBehaviour
         originalCharacterHolderPosition = characterHolderRect.anchoredPosition;
     }
 
-    private void OnEnable()
-    {
-        UpdateInventoryText();
-    }
 
     public void MoveToTargetPosition()
     {
@@ -51,7 +47,7 @@ public class CharacterPanel : MonoBehaviour
         discriptionHolder.SetActive(false);
     }
 
-    void UpdateInventoryText()
+    public void UpdateInventoryText()
     {
         int maxPotions = GameManager.Instance.PlayerScript.MaxPotions;
         int currentPotions = GameManager.Instance.PlayerScript.PotionCount;
