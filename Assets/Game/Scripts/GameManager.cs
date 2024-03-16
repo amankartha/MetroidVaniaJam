@@ -78,7 +78,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
 
     public void RespawnPlayer()
     {
-        Debug.Log("AAA");
+        
         goMainPlayer.transform.position = CurrentRespawnPoint.RespawnLocation.position;
         PlayerScript.PlayerHealth.SetHealth(PlayerScript.PlayerHealth.MaxHealth);
         RespawnAllEnemies();

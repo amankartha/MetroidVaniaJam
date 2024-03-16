@@ -182,6 +182,7 @@ public class Player : MonoBehaviour
         isInvincible= DamagedState.CheckDuration();
         if (InputHandler.DrinkInput)
         {
+            InputHandler.UseDrinkInput();
             DrinkPotion();
         }
     }   
@@ -323,6 +324,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void RefillPotions()
+    {
+        PotionCount = MaxPotions;
+    }
     public void UpdateHealthBarUI()
     {
         healthBarUI.UpgradeHealth();
