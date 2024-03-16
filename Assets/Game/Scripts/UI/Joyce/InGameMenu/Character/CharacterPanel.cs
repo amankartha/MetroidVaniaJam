@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class CharacterPanel : MonoBehaviour
 {
@@ -13,16 +14,20 @@ public class CharacterPanel : MonoBehaviour
 
     bool isMoved = false;
 
+    public TMP_Text potionInventoryText;
+    public TMP_Text goldenContractFragText;
+
     void Start()
     {
         originalCharacterHolderPosition = characterHolderRect.anchoredPosition;
     }
 
+
     public void MoveToTargetPosition()
     {
         if (!isMoved)
         {
-            characterHolderRect.DOAnchorPos(targeCharacterHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f)
+            characterHolderRect.DOAnchorPos(targeCharacterHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true)
                 .OnComplete(() => DeactivateDiscriptionHolder());
             isMoved = true;
         }
@@ -32,7 +37,7 @@ public class CharacterPanel : MonoBehaviour
     {
         if (isMoved)
         {
-            characterHolderRect.DOAnchorPos(originalCharacterHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+            characterHolderRect.DOAnchorPos(originalCharacterHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
             isMoved = false;
         }
     }
@@ -40,5 +45,15 @@ public class CharacterPanel : MonoBehaviour
     void DeactivateDiscriptionHolder()
     {
         discriptionHolder.SetActive(false);
+    }
+
+    public void UpdateInventoryText()
+    {
+        int maxPotions = GameManager.Instance.PlayerScript.MaxPotions;
+        int currentPotions = GameManager.Instance.PlayerScript.PotionCount;
+        potionInventoryText.text = currentPotions + "/" + maxPotions;
+
+        int goldenContractFrag = GameManager.Instance.PlayerHealthScript.GoldenContractFragment;
+        goldenContractFragText.text = goldenContractFrag.ToString();
     }
 }

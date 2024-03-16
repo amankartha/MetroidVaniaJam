@@ -23,8 +23,6 @@ public class MapPanel : MonoBehaviour
 
     public bool isFolded = true;
 
-    [SerializeField] Sprite roomMapLeftSprite;
-    [SerializeField] Sprite roomMapRightSprite;
     [SerializeField] Sprite worldMapLeftSprite;
     [SerializeField] Sprite worldMapRightSprite;
     [SerializeField] Image mapLeftImage;
@@ -60,8 +58,8 @@ public class MapPanel : MonoBehaviour
             isFolded = false;
             UpdateMap(!isZoomedIn);
             map.UpdatePlayerRoomLocation(isZoomedIn);
-            mapRightPageRect.DORotateQuaternion(targetMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-            mapHolderRect.DORotateQuaternion(targetMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f)
+            mapRightPageRect.DORotateQuaternion(targetMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
+            mapHolderRect.DORotateQuaternion(targetMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true)
                 .OnComplete(() => ToggleIconsDisplay(true));
         }
     }
@@ -71,20 +69,20 @@ public class MapPanel : MonoBehaviour
         if (!isFolded)
         {
             isFolded = true;
-            mapRightPageRect.DORotateQuaternion(originalMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
-            mapHolderRect.DORotateQuaternion(originalMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+            mapRightPageRect.DORotateQuaternion(originalMapRightRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
+            mapHolderRect.DORotateQuaternion(originalMapHolderRotation, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
             ToggleIconsDisplay(false);
         }
     }
 
     public void MoveToTargetPosition()
     {
-        mapHolderRect.DOAnchorPos(targetMapHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        mapHolderRect.DOAnchorPos(targetMapHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
     }
 
     public void MoveToOriginalPosition()
     {
-        mapHolderRect.DOAnchorPos(originalMapHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f);
+        mapHolderRect.DOAnchorPos(originalMapHolderPosition, 0.3f).SetEase(Ease.OutQuad).SetDelay(0.2f).SetUpdate(true);
     }
 
     public void ToggleMapZoom()

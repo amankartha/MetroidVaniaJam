@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
 {
    
     [field:SerializeField]public int HealthValue { get; protected set; } = 3;
-    public int MaxHealth { get; set; }
+    [field:SerializeField]public int MaxHealth { get; set; }
     public int HPSection { get; set; } = 5;
     public int HealthPerSection { get; set; }
     public int GoldenContractFragment { get; set; } = 0;
@@ -33,6 +34,7 @@ public class Health : MonoBehaviour, IDamageable
     public virtual void Heal(int value)
     {
         HealthValue += value;
+        HealthValue = math.clamp(HealthValue, 0, MaxHealth);
     }
 
     public virtual void ModifyMaxHealth(int value, bool healWithMaxHealthIncrease = false)

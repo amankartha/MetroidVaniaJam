@@ -15,6 +15,7 @@ public class PlayerDodgeState : PlayerAbilityState
         base.Enter();
         _player.InputHandler.UseDodgeInput();
         _player.TriggerBoxCollider2D.enabled = false;
+        Physics2D.IgnoreLayerCollision(6,7,false);
         _player.SetVelocityX(_playerData.dodgeVelocityX * _player.FacingDirection);
         
     }
@@ -23,6 +24,7 @@ public class PlayerDodgeState : PlayerAbilityState
     {
         base.Exit();
         _player.TriggerBoxCollider2D.enabled = true;
+        Physics2D.IgnoreLayerCollision(6,7,true);
         _player.SetVelocityZero();
     }
 
