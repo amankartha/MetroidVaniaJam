@@ -170,6 +170,7 @@ public class Player : MonoBehaviour
         PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
 
         MaxPotions = _playerData.InitalPotionCount;
+        PotionCount = MaxPotions;
 
         #endregion
     }
@@ -179,8 +180,11 @@ public class Player : MonoBehaviour
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
         isInvincible= DamagedState.CheckDuration();
-
-    }
+        if (InputHandler.DrinkInput)
+        {
+            DrinkPotion();
+        }
+    }   
 
     private void FixedUpdate()
     {
