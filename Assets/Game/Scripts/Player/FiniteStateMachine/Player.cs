@@ -271,7 +271,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        catch (Exception e)
+        catch 
         {
            
         }
