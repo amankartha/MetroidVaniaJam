@@ -10,4 +10,34 @@ public class EliteEnemyMoveState : EnemyMoveState
     {
         _enemy = enemy;
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+        if (isDetectingWall || !isDetectingLedge)
+        {
+            _enemy.IdleState.SetFLipAfterIdle(true);
+            _stateMachine.ChangeState(_enemy.IdleState);
+        }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+    }
+
+    public override void DoChecks()
+    {
+        base.DoChecks();
+    }
 }
