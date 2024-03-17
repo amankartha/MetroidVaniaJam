@@ -6,8 +6,8 @@ public class EnemyState
 {
     protected FiniteStateMachine _stateMachine;
     protected Entity _entity;
-    
-    protected float _startTime;
+
+    public float _startTime { get; protected set; }
 
     protected string _animBoolName;
 
@@ -24,12 +24,14 @@ public class EnemyState
     {
         _startTime = Time.time;
         _entity.Anim.SetBool(_animBoolName,true);
+     
         DoChecks();
     }
 
     public virtual void Exit()
     {
         _entity.Anim.SetBool(_animBoolName,false);
+       
     }
 
     public virtual void LogicUpdate()
