@@ -196,6 +196,10 @@ public class Player : MonoBehaviour
            
         }
     }
+    private void OnParticleCollision(GameObject other)
+    {
+       PlayerHealth.TakeDamage(_playerData.CoffeeSpillDamage);
+    }
 
     #endregion
 

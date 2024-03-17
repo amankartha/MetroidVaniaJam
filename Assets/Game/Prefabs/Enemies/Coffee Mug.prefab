@@ -425,7 +425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: InitialModule.startSize.minScalar
@@ -437,7 +437,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
-      value: 5
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.15908687
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.3258147
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.5188679
       objectReference: {fileID: 0}
     - target: {fileID: 9184534179707480735, guid: 3450d746b5123534bbc6a23743672a5d, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar

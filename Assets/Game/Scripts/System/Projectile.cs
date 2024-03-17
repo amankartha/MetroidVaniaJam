@@ -40,14 +40,7 @@ public class Projectile : MonoBehaviour
         Explode();
         
     }
-
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.TryGetComponent(out IDamageable damageable))
-        {
-            damageable.TakeDamage(_damage);
-        }
-    }
+    
 
     public virtual void Explode()
     {
