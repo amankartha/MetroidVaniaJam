@@ -59,6 +59,7 @@ public class PlayerData : ScriptableObject
     public int HPRecoverAmountCoffee = 1;
     public int HPRecoverAmountPenBoss = 1;
     public int PlayerBaseHPSection = 5;
+    public int CoffeeSpillDamage = 5;
     [Header("Potion")]
     public int HPPotionRecoverAmount = 1;
     public int InitalPotionCount = 3;
