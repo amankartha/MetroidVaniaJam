@@ -19,12 +19,8 @@ public class EnemyHealth : Health
     {
         if (isShieldEnemy)
         {
-            Vector3 directionToEnemy = (this.transform.position - GameManager.Instance.tMainPlayer.position).normalized;
-            Vector3 directionOfPlayer = GameManager.Instance.tMainPlayer.forward;
-
-            float angle = Vector3.Angle(directionToEnemy, directionOfPlayer);
-
-            if (angle <= 180f / 2)
+            
+            if (GameManager.Instance.tMainPlayer.forward.x/this.transform.forward.x > 0)
             {
                 HealthValue -= value;
                 if (HealthValue <= 0)
