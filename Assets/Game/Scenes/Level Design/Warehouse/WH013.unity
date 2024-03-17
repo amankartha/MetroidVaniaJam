@@ -988,7 +988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 875858206}
   m_Layer: 0
-  m_Name: WH_Decro (1)
+  m_Name: WH_Decoration
   m_TagString: Folder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1471,6 +1471,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 896852858}
     m_Modifications:
     - target: {fileID: 550723505961155893, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 550723505961155893, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalPosition.y
       value: -11.289997
       objectReference: {fileID: 0}
@@ -1509,6 +1513,22 @@ PrefabInstance:
     - target: {fileID: 3249328344646478949, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955883968122579905, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_Size.x
+      value: 9.145813
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955883968122579905, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_Size.y
+      value: 24.348326
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955883968122579905, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_Offset.x
+      value: -2.0675964
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955883968122579905, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_Offset.y
+      value: -3.2504187
       objectReference: {fileID: 0}
     - target: {fileID: 4453155826100894642, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1588,11 +1608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8097783260018981526, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 177.481
+      value: 194.72
       objectReference: {fileID: 0}
     - target: {fileID: 8097783260018981526, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.85
+      value: 9.77
       objectReference: {fileID: 0}
     - target: {fileID: 8097783260018981526, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalPosition.z
