@@ -98,7 +98,7 @@ public class PlayerLedgeClimbState : PlayerState
 
     public override void AnimationFinishTrigger()
     {
-        base.AnimationFinishTrigger();
+        base.AnimationFinishTrigger(); 
         _player.Anim.SetBool("climbLedge",false);
     }
 }
