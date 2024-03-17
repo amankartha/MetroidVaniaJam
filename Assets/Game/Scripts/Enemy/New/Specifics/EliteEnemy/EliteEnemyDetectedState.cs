@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EliteEnemyMoveState : EnemyMoveState
+public class EliteEnemyDetectedState : EnemyPlayerDetectedState
 {
     private EliteEnemy _enemy;
 
-    public EliteEnemyMoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_MoveState stateData,EliteEnemy enemy) : base(entity, stateMachine, animBoolName, stateData)
+    public EliteEnemyDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData,EliteEnemy enemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         _enemy = enemy;
     }
@@ -24,14 +24,14 @@ public class EliteEnemyMoveState : EnemyMoveState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (isDetectingWall || !isDetectingLedge)
+
+        if (performCloseRangeAction)
         {
-            _enemy.IdleState.SetFLipAfterIdle(true);
-            _stateMachine.ChangeState(_enemy.IdleState);
+            _stateMachine.ChangeState(_enemy.MeleeAttackState);
         }
-        else if (isPlayerInMinAggroRange)
+        else if(performLongRangeAction)
         {
-            _stateMachine.ChangeState(_enemy.DetectedState);
+            _stateMachine.ChangeState(_enemy.RangedAttackState);
         }
     }
 

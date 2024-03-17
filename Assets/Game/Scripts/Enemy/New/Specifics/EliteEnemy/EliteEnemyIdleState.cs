@@ -25,7 +25,7 @@ public class EliteEnemyIdleState : EnemyIdleState
         base.LogicUpdate();
         if (isPlayerInMinAggroRange)
         {
-         //   _stateMachine.ChangeState(_enemy.DetectedState);
+            _stateMachine.ChangeState(_enemy.DetectedState);
         }
         else if (isIdleTimeOver)
         {
