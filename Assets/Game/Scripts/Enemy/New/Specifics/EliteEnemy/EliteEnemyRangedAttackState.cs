@@ -5,6 +5,8 @@ using UnityEngine;
 public class EliteEnemyRangedAttackState : EnemyRangedAttackState
 {
     private EliteEnemy _enemy;
+    public bool shouldTeleport;
+    public bool shouldGoBackToDetected;
     public EliteEnemyRangedAttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_RangedAttack attack,EliteEnemy enemy) : base(etity, stateMachine, animBoolName, attackPosition, attack)
     {
         _enemy = enemy;
@@ -13,6 +15,18 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if (isAnimationFinished)
+        {
+            if (shouldTeleport)
+            {
+                _enemy._finiteStateMachine.ChangeState(_enemy.TeleportState);
+            }
+            else if(shouldGoBackToDetected)
+            {
+                _enemy._finiteStateMachine.ChangeState(_enemy.DetectedState);
+            }
+        }
     }
 
     public override void PhysicsUpdate()
@@ -28,6 +42,8 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
     public override void Enter()
     {
         base.Enter();
+        shouldTeleport = false;
+        shouldGoBackToDetected = false; 
     }
 
     public override void Exit()

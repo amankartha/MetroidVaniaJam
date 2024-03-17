@@ -7,12 +7,12 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float _duration;
+    protected float _duration;
     public Rigidbody2D rb;
     public BoxCollider2D _boxCollider2D;
     public SpriteRenderer _spriteRenderer;
-    private int _damage;
-    private float ArcPower = 5f;
+    protected int _damage;
+    protected float ArcPower = 5f;
     public ParticleSystem PS;
     public GameObject trailRenderer;
     protected virtual void Start()

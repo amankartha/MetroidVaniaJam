@@ -11,6 +11,7 @@ public class EliteEnemy : Entity
     public EliteEnemyDetectedState DetectedState { get; private set; }
     public EliteEnemyMeleeAttackState MeleeAttackState { get; private set; }
     public EliteEnemyRangedAttackState RangedAttackState { get; private set; }
+    public EliteEnemyTeleportState TeleportState { get; private set; }
     #endregion
 
     #region Data
@@ -20,6 +21,7 @@ public class EliteEnemy : Entity
     [SerializeField] private D_PlayerDetected _detectedData;
     [SerializeField] private D_MeleeAttack _meleeAttackData;
     [SerializeField] private D_RangedAttack _rangedAttackData;
+    [SerializeField] private D_TeleportState _teleportData;
     [SerializeField] private Transform _attackTransform;
     #endregion
 
@@ -35,6 +37,7 @@ public class EliteEnemy : Entity
         MeleeAttackState = new EliteEnemyMeleeAttackState(this, _finiteStateMachine, "melee",_attackTransform ,_meleeAttackData, this);
         RangedAttackState = new EliteEnemyRangedAttackState(this, _finiteStateMachine, "ranged", _attackTransform,
             _rangedAttackData, this);
+        TeleportState = new EliteEnemyTeleportState(this, _finiteStateMachine, "teleport",_teleportData ,this);
         _finiteStateMachine.Initialize(IdleState);
     }
 
