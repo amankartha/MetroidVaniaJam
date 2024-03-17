@@ -53,7 +53,7 @@ public class EnemyPlayerDetectedState : EnemyState
         isPlayerInMinAggroRange = _entity.CheckPlayerInMinAggroRange();
         isPlayerInMaxAggroRange = _entity.CheckPlayerInMaxAggroRange();
         performCloseRangeAction = _entity.CheckPlayerInCloseRangeAction();
-        performLongRangeAction = _entity.CheckPlayerInLongRangeAction();
+        //performLongRangeAction = _entity.CheckPlayerInLongRangeAction();
         isWallBehind = _entity.CheckWallBehind();
         isLedgeBehind = _entity.CheckLedgeBehind();
     }

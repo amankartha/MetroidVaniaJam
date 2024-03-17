@@ -38,6 +38,7 @@ public class ShieldEnemy : Entity
 
     public BoxCollider2D triggerCollider;
     public BoxCollider2D Collider;
+    public ParticleSystem chargeParticles;
 
     #endregion
 

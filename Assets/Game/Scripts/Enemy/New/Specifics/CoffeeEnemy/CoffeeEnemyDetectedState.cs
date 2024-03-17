@@ -54,6 +54,7 @@ public class CoffeeEnemyDetectedState : EnemyPlayerDetectedState
     public override void DoChecks()
     {
         base.DoChecks();
+        performLongRangeAction = _entity.CheckPlayerInLongRangeAction();
     }
 
 }
