@@ -35,7 +35,8 @@ public class GivePlayerAbility : MonoBehaviour
             {
                 GameManager.Instance.PlayerScript.GetAbilityTwo();
             }
-            Destroy(this.gameObject);
+
+            this.enabled = false;
         }
     }
 }
