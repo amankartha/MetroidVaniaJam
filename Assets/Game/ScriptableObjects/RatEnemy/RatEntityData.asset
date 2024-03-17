@@ -14,6 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WallCheckDistance: 0.2
   LedgeCheckDistance: 0.4
+  GroundCheckRadius: 0.3
+  stunResistance: 1
+  stunRecoveryTime: 1
+  MinAggroDistance: 3
+  MaxAggroDistance: 4
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   GroundLayer:
     serializedVersion: 2
     m_Bits: 72
