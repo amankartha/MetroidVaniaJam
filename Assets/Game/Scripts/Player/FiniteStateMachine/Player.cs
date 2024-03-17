@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         set
         {
             _potionCount = math.clamp(value, 0, MaxPotions);
-            GameManager.Instance.OnPotionChange?.Invoke(_potionCount);
+            GameManager.Instance.OnPotionChange?.Invoke();
         }
     }
 
@@ -170,6 +170,7 @@ public class Player : MonoBehaviour
         PlayerHealth.HPSection = _playerData.PlayerBaseHPSection;
 
         MaxPotions = _playerData.InitalPotionCount;
+        PotionCount = MaxPotions;
 
         #endregion
     }
@@ -179,8 +180,12 @@ public class Player : MonoBehaviour
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
         isInvincible= DamagedState.CheckDuration();
-
-    }
+        if (InputHandler.DrinkInput)
+        {
+            InputHandler.UseDrinkInput();
+            DrinkPotion();
+        }
+    }   
 
     private void FixedUpdate()
     {
@@ -315,9 +320,14 @@ public class Player : MonoBehaviour
         {
             PlayerHealth.Heal(_playerData.HPPotionRecoverAmount);
             _potionCount--;
+            GameManager.Instance.OnPotionChange?.Invoke();
         }
     }
 
+    public void RefillPotions()
+    {
+        PotionCount = MaxPotions;
+    }
     public void UpdateHealthBarUI()
     {
         healthBarUI.UpgradeHealth();
