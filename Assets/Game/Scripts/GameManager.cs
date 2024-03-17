@@ -38,12 +38,13 @@ public class GameManager : MMPersistentSingleton<GameManager>
 
     public UnityEvent OnPlayerHealthChanged;
     public UnityEvent OnPlayerDamaged;
-    public UnityEvent<int> OnPotionChange;
+    public UnityEvent OnPotionChange;
     public UnityEvent<Collectable> OnPlayerCollectable;
     public UnityEvent OnPlayerDeath;
     public UnityEvent OnUpdatedRespawnPoint;
     public UnityEvent OnThrowCooldownChanged;
     public UnityEvent OnNewRoomDiscovered;
+    public UnityEvent OnThrowIconChange;
     
     #endregion
 
@@ -77,7 +78,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
 
     public void RespawnPlayer()
     {
-        Debug.Log("AAA");
+        
         goMainPlayer.transform.position = CurrentRespawnPoint.RespawnLocation.position;
         PlayerScript.PlayerHealth.SetHealth(PlayerScript.PlayerHealth.MaxHealth);
         RespawnAllEnemies();

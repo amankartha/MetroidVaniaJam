@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
@@ -33,6 +34,7 @@ public class Health : MonoBehaviour, IDamageable
     public virtual void Heal(int value)
     {
         HealthValue += value;
+        HealthValue = math.clamp(HealthValue, 0, MaxHealth);
     }
 
     public virtual void ModifyMaxHealth(int value, bool healWithMaxHealthIncrease = false)

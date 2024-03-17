@@ -19,12 +19,14 @@ public class BriefcaseIdleState : BriefcaseState
         _briefcase.Anim.ResetTrigger("TransitionToReturnThrow");
         _briefcase.Anim.ResetTrigger("TransitionToIdleThrow");
         GameManager.Instance.PlayerScript.briefcaseGameObject.SetActive(true);
+        GameManager.Instance.OnThrowIconChange?.Invoke();
     }
 
     public override void Exit()
     {
         base.Exit();
         _briefcase._isBriefcaseInHand = false;
+        GameManager.Instance.OnThrowIconChange?.Invoke();
     }
 
     public override void LogicUpdate()

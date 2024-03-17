@@ -19,7 +19,8 @@ public class Entity : MonoBehaviour
     public Rigidbody2D RB { get; private set; }
     public Animator Anim { get; private set; }
     [field:SerializeField]public GameObject AliveGo { get; private set; }
-    
+    public BoxCollider2D _boxCollider2D;
+    public AnimationToStateMachine atsm { get; private set; }
     private EnemyHealth _enemyHealth;
 
     private float currentStunResistance;
@@ -39,9 +40,15 @@ public class Entity : MonoBehaviour
     #region Checks
     [SerializeField] 
     private Transform WallCheck;
+    
+    [SerializeField] 
+    private Transform WallCheckBehind;
 
     [SerializeField] 
     private Transform LedgeCheck;
+    
+    [SerializeField] 
+    private Transform LedgeCheckBehind;
 
     [SerializeField] 
     private Transform PlayerCheck;
@@ -55,13 +62,15 @@ public class Entity : MonoBehaviour
     {
         FacingDirection = 1;
         RB = AliveGo.GetComponent<Rigidbody2D>();
-        Anim = AliveGo.GetComponent<Animator>();
+        Anim = AliveGo.GetComponentInChildren<Animator>();
         _enemyHealth = AliveGo.GetComponent<EnemyHealth>();
         _finiteStateMachine = new FiniteStateMachine();
 
         currentStunResistance = EntityData.stunResistance;
         _enemyHealth.OnEnemyDamaged.AddListener(Damaged);
-        
+        atsm = AliveGo.GetComponentInChildren<AnimationToStateMachine>();
+        _boxCollider2D = AliveGo.GetComponent<BoxCollider2D>();
+
     }
 
     public virtual void Update()
@@ -102,12 +111,14 @@ public class Entity : MonoBehaviour
     
     public virtual void SetVelocity(float velocity)
     {
+        
         velocityWorkspace.Set(FacingDirection * velocity,RB.velocity.y);
         RB.velocity = velocityWorkspace;
     }
 
     public virtual void SetVelocity(float velocity, Vector2 angle, int direction)
-    {
+    {   
+        
         angle.Normalize();
         velocityWorkspace.Set(angle.x*velocity*direction,angle.y*velocity);
         RB.velocity = velocityWorkspace;
@@ -131,7 +142,12 @@ public class Entity : MonoBehaviour
     }
     public virtual bool CheckWall()
     {
-        return Physics2D.Raycast(WallCheck.position, AliveGo.transform.right, EntityData.WallCheckDistance,
+        return Physics2D.CircleCast(WallCheck.position,0.5f ,AliveGo.transform.right, EntityData.WallCheckDistance,
+            EntityData.GroundLayer);
+    }
+    public virtual bool CheckWallBehind()
+    {
+        return Physics2D.CircleCast(WallCheckBehind.position, 0.5f,-AliveGo.transform.right, EntityData.WallCheckDistance,
             EntityData.GroundLayer);
     }
 
@@ -142,7 +158,11 @@ public class Entity : MonoBehaviour
 
     public virtual bool CheckLedge()
     {
-        return Physics2D.Raycast(LedgeCheck.position,Vector2.down,EntityData.LedgeCheckDistance,EntityData.GroundLayer);
+        return Physics2D.CircleCast(LedgeCheck.position,0.2f,Vector2.down,EntityData.LedgeCheckDistance,EntityData.GroundLayer);
+    }
+    public virtual bool CheckLedgeBehind()
+    {
+        return Physics2D.CircleCast(LedgeCheckBehind.position,0.2f,Vector2.down,EntityData.LedgeCheckDistance,EntityData.GroundLayer);
     }
 
     public virtual bool CheckPlayerInMinAggroRange()
@@ -154,7 +174,14 @@ public class Entity : MonoBehaviour
     {
         return Physics2D.CircleCast(PlayerCheck.position,1f, AliveGo.transform.right,EntityData.MaxAggroDistance, EntityData.PlayerLayer);
     }
-
+    public virtual bool CheckPlayerInCloseRangeAction()
+    {
+        return Physics2D.CircleCast(PlayerCheck.position,3f, transform.right, EntityData.CloseRangeActionDistance, EntityData.PlayerLayer);
+    }
+    public virtual bool CheckPlayerInLongRangeAction()
+    {
+        return Physics2D.CircleCast(PlayerCheck.position,3f, transform.right, EntityData.LongRangeActionDistance, EntityData.PlayerLayer);
+    }
     public virtual void Flip()
     {
         FacingDirection *= -1;
@@ -165,5 +192,14 @@ public class Entity : MonoBehaviour
     {
         Gizmos.DrawLine(WallCheck.position, WallCheck.position + (Vector3)(Vector2.right * FacingDirection * EntityData.WallCheckDistance));
         Gizmos.DrawLine(LedgeCheck.position,LedgeCheck.position + (Vector3)(Vector2.down * EntityData.LedgeCheckDistance));
+        Gizmos.DrawLine(PlayerCheck.position,PlayerCheck.position + (Vector3)(Vector2.right * FacingDirection * EntityData.CloseRangeActionDistance));
+        Gizmos.color = Color.yellow;
+        
+        Gizmos.DrawLine(WallCheckBehind.position, WallCheckBehind.position + (Vector3)(-Vector2.right * FacingDirection * EntityData.WallCheckDistance));
+        Gizmos.DrawLine(LedgeCheckBehind.position,LedgeCheckBehind.position + (Vector3)(Vector2.down * EntityData.LedgeCheckDistance));
+        
+    
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(PlayerCheck.position,PlayerCheck.position + (Vector3)(Vector2.right * FacingDirection * EntityData.LongRangeActionDistance));
     }
 }
