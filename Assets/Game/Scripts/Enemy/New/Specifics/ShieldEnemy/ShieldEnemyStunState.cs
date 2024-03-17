@@ -34,10 +34,6 @@ public class ShieldEnemyStunState : EnemyStunState
                 _entity.Flip();
                 _stateMachine.ChangeState(Enemy.moveState);
             }
-            else if (isPlayerInMinAgroRange)
-            {
-                _stateMachine.ChangeState(Enemy.ChargeState);
-            }
             else
             {
                 Enemy.LookForPlayerState.SetTurnImmediately(true);
