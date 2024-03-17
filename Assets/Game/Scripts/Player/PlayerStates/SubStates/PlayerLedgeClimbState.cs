@@ -67,13 +67,13 @@ public class PlayerLedgeClimbState : PlayerState
 
             if (_xInput == _player.FacingDirection && _isHanging && !_isClimbing)
             {
-                _player.transform.parent = null;
+                
                 _isClimbing = true;
                 _player.Anim.SetBool("climbLedge",true);
             }
             else if (_yInput == -1 && _isHanging && !_isClimbing)
             {
-                _player.transform.parent = null;
+                
                 _stateMachine.ChangeState(_player.InAirState);
             }
         }
@@ -98,7 +98,7 @@ public class PlayerLedgeClimbState : PlayerState
 
     public override void AnimationFinishTrigger()
     {
-        base.AnimationFinishTrigger();
+        base.AnimationFinishTrigger(); 
         _player.Anim.SetBool("climbLedge",false);
     }
 }

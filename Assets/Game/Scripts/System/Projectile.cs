@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     private int _damage;
     private float ArcPower = 5f;
     public ParticleSystem PS;
+    public GameObject trailRenderer;
     protected virtual void Start()
     {
         rb.gravityScale = 0;
@@ -45,8 +46,9 @@ public class Projectile : MonoBehaviour
     public virtual void Explode()
     {
         _spriteRenderer.enabled = false;
+        trailRenderer.SetActive(false);
         _boxCollider2D.enabled = false;
         PS.Play();
-        Destroy(this.gameObject,3f);
+        Destroy(this.gameObject,5f);
     }
 }
