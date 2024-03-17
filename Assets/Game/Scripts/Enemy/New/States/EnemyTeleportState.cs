@@ -14,7 +14,7 @@ public class EnemyTeleportState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        _entity.gameObject.transform.position = _teleportPosition;
+        _entity.AliveGo.transform.position = _teleportPosition;
     }
 
     public override void Exit()
@@ -37,9 +37,11 @@ public class EnemyTeleportState : EnemyState
         base.DoChecks();
     }
 
-    public void SetTeleportPos(Vector3 pos)
+    public virtual void SetTeleportPos(Vector3 pos)
     {
         _teleportPosition = pos;
+        Debug.Log(_teleportPosition);
+
     }
 
     public bool RecoveryTimer()

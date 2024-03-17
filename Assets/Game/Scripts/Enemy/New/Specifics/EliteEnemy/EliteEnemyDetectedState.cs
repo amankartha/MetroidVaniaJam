@@ -29,7 +29,7 @@ public class EliteEnemyDetectedState : EnemyPlayerDetectedState
         {
             _stateMachine.ChangeState(_enemy.MeleeAttackState);
         }
-        else if(performLongRangeAction)
+        else if(performLongRangeAction && !performCloseRangeAction && Time.time >= _enemy.RangedAttackState._startTime + _enemy.RangedAttackState._stateData.cooldown)
         {
             _stateMachine.ChangeState(_enemy.RangedAttackState);
         }

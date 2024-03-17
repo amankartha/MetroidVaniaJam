@@ -26,12 +26,17 @@ public class PenProjectile : Projectile
 
         if (col.gameObject.layer == 3)
         {
-            Impact(col.GetContact(0).point);
+            Impact(this.transform.position);
         }
     }
 
     public  void Impact(Vector3 pos)
     {
-        _enemy.TeleportState.SetTeleportPos(pos);
+        _enemy.TeleportState.SetTeleportPos(pos + new Vector3(0,3,0));
+        _spriteRenderer.enabled = false;
+        trailRenderer.SetActive(false);
+        _boxCollider2D.enabled = false;
+        PS.Play();
+        Destroy(this.gameObject);
     }
 }

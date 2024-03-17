@@ -292,6 +292,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2462883910427160476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6016717047853616767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311942518021212727}
+  m_Layer: 0
+  m_Name: AttackTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1311942518021212727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016717047853616767}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0065508285, y: -0, z: -0, w: 0.9999786}
+  m_LocalPosition: {x: 10.3, y: 13.7, z: -0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2462883910427160476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6582036163664419567
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +399,11 @@ MonoBehaviour:
   GroundCheck: {fileID: 6090953955598756980}
   _idleData: {fileID: 11400000, guid: 1bfd72a2a6ac39d4b9f4e3835c7c31ec, type: 2}
   _moveData: {fileID: 11400000, guid: 986982c66dcf21c409d2b22cb88f979f, type: 2}
+  _detectedData: {fileID: 11400000, guid: 7e4d16a05844c9c4391ccf22b9f011b3, type: 2}
+  _meleeAttackData: {fileID: 11400000, guid: 5f487e24c5642694ea91bfc6a78de33d, type: 2}
+  _rangedAttackData: {fileID: 11400000, guid: 290c912dff8dd2d4c9cd9802bbcff53e, type: 2}
+  _teleportData: {fileID: 11400000, guid: 24bf0d0985e6a9849ab773498204ad87, type: 2}
+  _attackTransform: {fileID: 1311942518021212727}
 --- !u!1 &7064516547557799938
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +448,7 @@ GameObject:
   - component: {fileID: 805700863998626542}
   - component: {fileID: 7809113890534125517}
   - component: {fileID: 8577871853092602213}
+  - component: {fileID: 1840977428234687505}
   m_Layer: 0
   m_Name: AliveGo
   m_TagString: Untagged
@@ -439,6 +476,7 @@ Transform:
   - {fileID: 1955727907512922154}
   - {fileID: 6090953955598756980}
   - {fileID: 6154737122462980242}
+  - {fileID: 1311942518021212727}
   m_Father: {fileID: 8284287063459678775}
   m_LocalEulerAnglesHint: {x: 0.751, y: 0, z: 0}
 --- !u!50 &5345186522754332819
@@ -456,7 +494,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 8
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 0b79c0fba0c3d10489bdc78efa04e611, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -466,7 +504,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &805700863998626542
 BoxCollider2D:
@@ -553,6 +591,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1840977428234687505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974433291602374485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf007c202374e14a96eb0e95a8ea5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8385732860463870915
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
     private EliteEnemy _enemy;
     public bool shouldTeleport;
     public bool shouldGoBackToDetected;
+    private PenProjectile _penProjectile;
     public EliteEnemyRangedAttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_RangedAttack attack,EliteEnemy enemy) : base(etity, stateMachine, animBoolName, attackPosition, attack)
     {
         _enemy = enemy;
@@ -15,7 +16,8 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        DetectedTimer();
+        
         if (isAnimationFinished)
         {
             if (shouldTeleport)
@@ -39,6 +41,15 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
         base.DoChecks();
     }
 
+    public override void TriggerAttack()
+    {
+        projectile = GameObject.Instantiate(_stateData.Projectile,attackPosition.position,attackPosition.rotation);
+        _penProjectile = projectile.GetComponent<PenProjectile>();
+        _penProjectile.SetValuesForPen(_stateData.duration,_stateData.Damage,this._enemy);
+        
+        _penProjectile.ShootProjectile(GameManager.Instance.tMainPlayer.position);
+    }
+
     public override void Enter()
     {
         base.Enter();
@@ -54,5 +65,13 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
     public override void FinishAttack()
     {
         base.FinishAttack();
+    }
+
+    public void DetectedTimer()
+    {
+        if (Time.time >= Time.time + 3f)
+        {
+            shouldGoBackToDetected = true;
+        }
     }
 }

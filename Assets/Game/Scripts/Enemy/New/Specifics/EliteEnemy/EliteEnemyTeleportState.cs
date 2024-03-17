@@ -29,6 +29,12 @@ public class EliteEnemyTeleportState : EnemyTeleportState
         }
     }
 
+    public override void SetTeleportPos(Vector3 pos)
+    {
+        base.SetTeleportPos(pos);
+        _enemy.RangedAttackState.shouldTeleport = true;
+    }
+
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
