@@ -1199,11 +1199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124602568102160906, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.19468516
+      value: 0.19468491
       objectReference: {fileID: 0}
     - target: {fileID: 1124602568102160906, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.98086584
+      value: 0.9808659
       objectReference: {fileID: 0}
     - target: {fileID: 3249328344646478949, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1229,9 +1229,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3955883968122579905, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_Size.x
+      value: 7.546692
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955883968122579905, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_Size.y
+      value: 24.26855
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955883968122579905, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_Offset.x
+      value: -7.7279663
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955883968122579905, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.368906
+      objectReference: {fileID: 0}
     - target: {fileID: 4453155826100894642, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2532775
+      value: 0.25327748
       objectReference: {fileID: 0}
     - target: {fileID: 4453155826100894642, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1273,21 +1289,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoffeeEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5923586656597108681, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7730441160548683389, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7198187
+      value: 0.7198186
       objectReference: {fileID: 0}
     - target: {fileID: 7730441160548683389, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0006619269
+      value: -0.00066192704
       objectReference: {fileID: 0}
     - target: {fileID: 7730441160548683389, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0035152084
+      value: 0.0035152081
       objectReference: {fileID: 0}
     - target: {fileID: 7730441160548683389, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.69415295
+      value: -0.6941531
       objectReference: {fileID: 0}
     - target: {fileID: 8097783260018981526, guid: 4a18ebaa9cde7c44db41edfd2a1f52e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1507,7 +1527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1932816122}
   m_Layer: 0
-  m_Name: WH_Decro (1)
+  m_Name: WH_Decoration
   m_TagString: Folder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
