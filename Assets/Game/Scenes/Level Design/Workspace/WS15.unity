@@ -1370,6 +1370,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3684223643654074493, guid: 9fd5807f9496c9b4bb316d32dd070056, type: 3}
   m_PrefabInstance: {fileID: 1536416493}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1749358266
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2178156128992987872, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Name
+      value: TutorialTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.title
+      value: Briefcase Phasing
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: d0aca8787e4b3944a83fe263da5945c1, type: 3}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.maninTextLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.maninTextLines.Array.data[0]
+      value: Casy now can pass through the gliched wall, throw briefcase and teleport
+        through.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629006237677635352, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Size.x
+      value: 2.075901
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629006237677635352, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9826126
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629006237677635352, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.106760025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629006237677635352, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.6692085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.322727
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -93.036514
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
 --- !u!1 &2038297094
 GameObject:
   m_ObjectHideFlags: 0
@@ -18926,6 +19020,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 175735254}
+  - {fileID: 1749358266}
   - {fileID: 519879427}
   - {fileID: 371633609}
   - {fileID: 920618880}
