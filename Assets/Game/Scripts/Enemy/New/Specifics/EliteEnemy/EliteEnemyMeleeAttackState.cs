@@ -14,6 +14,11 @@ public class EliteEnemyMeleeAttackState : EnemyMeleeAttackState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if (isAnimationFinished)
+        {
+            _enemy._finiteStateMachine.ChangeState(_enemy.DetectedState);
+        }
     }
 
     public override void PhysicsUpdate()
