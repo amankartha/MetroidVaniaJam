@@ -14,11 +14,13 @@ public class ShieldEnemyChargeState : EnemyChargeState
     public override void Enter()
     {
         base.Enter();
+        ShieldEnemy.chargeParticles.Play();
     }
 
     public override void Exit()
     {
         base.Exit();
+        ShieldEnemy.chargeParticles.Stop();
     }
 
     public override void LogicUpdate()

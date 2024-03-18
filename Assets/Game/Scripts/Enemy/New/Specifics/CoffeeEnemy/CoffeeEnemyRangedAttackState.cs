@@ -27,7 +27,6 @@ public class CoffeeEnemyRangedAttackState : EnemyRangedAttackState
             }
         }
     }
-
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

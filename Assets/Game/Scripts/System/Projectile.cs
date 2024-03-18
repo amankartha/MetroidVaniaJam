@@ -7,13 +7,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float _duration;
+    protected float _duration;
     public Rigidbody2D rb;
     public BoxCollider2D _boxCollider2D;
     public SpriteRenderer _spriteRenderer;
-    private int _damage;
-    private float ArcPower = 5f;
+    protected int _damage;
+    protected float ArcPower = 5f;
     public ParticleSystem PS;
+    public GameObject trailRenderer;
     protected virtual void Start()
     {
         rb.gravityScale = 0;
@@ -45,8 +46,9 @@ public class Projectile : MonoBehaviour
     public virtual void Explode()
     {
         _spriteRenderer.enabled = false;
+        trailRenderer.SetActive(false);
         _boxCollider2D.enabled = false;
         PS.Play();
-        Destroy(this.gameObject,3f);
+        Destroy(this.gameObject,5f);
     }
 }
