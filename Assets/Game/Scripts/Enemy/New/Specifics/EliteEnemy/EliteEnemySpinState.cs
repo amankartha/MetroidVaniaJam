@@ -30,6 +30,13 @@ public class EliteEnemySpinState : EnemyState
         base.LogicUpdate();
         
         _enemy.AliveGo.transform.Rotate(0,30,0);
+
+    
+        if (Vector2.Distance(GameManager.Instance.tMainPlayer.position, _enemy.AliveGo.transform.position) < _StateData.SpinRadius)
+        {
+            GameManager.Instance.PlayerHealthScript.DamageWithKnockBack(_StateData.SpinDamage,20f,new Vector2(0,1),1);
+        }
+
         if (SpinDuration())
         {
             _enemy.TeleportState.shouldRecover = true;  
