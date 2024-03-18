@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Eflatun.SceneReference;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,8 @@ public class SceneLoadTrigger : MonoBehaviour
     [SerializeField] private SceneReference[] _scenesToLoad;
     [SerializeField] private SceneReference[] _scenesToUnload;
 
-
+    [SerializeField] private MMF_Player _mmfPlayer;
+    public bool shouldFade = true;
     #region UNITYMETHODS
 
     // Start is called before the first frame update
@@ -29,6 +31,7 @@ public class SceneLoadTrigger : MonoBehaviour
     {
         if (col.gameObject == GameManager.Instance.goMainPlayer)
         {
+            if(shouldFade) _mmfPlayer.PlayFeedbacks();
             LoadScenes();
             UnloadScene();
         }

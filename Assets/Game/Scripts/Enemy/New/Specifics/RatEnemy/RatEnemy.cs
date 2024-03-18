@@ -19,7 +19,8 @@ public class RatEnemy : Entity
     [SerializeField] private D_IdleState _idleStateData;
     [SerializeField] private D_MoveState _moveStateData;
     [SerializeField] private D_StunState _stunStateData;
-
+   
+    
     #endregion
 
 
@@ -44,4 +45,6 @@ public class RatEnemy : Entity
         base.Damaged();
         _finiteStateMachine.ChangeState(StunState);
     }
+
+  
 }

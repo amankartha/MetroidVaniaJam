@@ -14,6 +14,8 @@ public class Briefcase : MonoBehaviour
     public Animator Anim { get; private set; }
     public Rigidbody2D RB { get; private set; }
 
+    public BoxCollider2D TriggerCollider;
+
     public Transform _initTransform;
     public bool _isBriefcaseInHand;
     public Vector2 CurrentVelocity { get; private set; }
@@ -116,6 +118,15 @@ public class Briefcase : MonoBehaviour
         if (_playerData.briefcaseReturnLayer == ( _playerData.briefcaseReturnLayer| (1 << col.gameObject.layer)))
         {
             Debug.Log("Briefcase hit wall, returning");
+            StateMachine.ChangeState(ReturnState);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.TryGetComponent(out IDamageable damageable))
+        {
+            damageable.TakeDamage(_playerData.attackDamage);
             StateMachine.ChangeState(ReturnState);
         }
     }

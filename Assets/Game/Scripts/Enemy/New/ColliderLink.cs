@@ -9,7 +9,7 @@ public class ColliderLink : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         
-        if (col.gameObject == GameManager.Instance.goMainPlayer)
+        if (col.gameObject == GameManager.Instance.goMainPlayer && Enemy._finiteStateMachine.CurrentState == Enemy.ChargeState)
         {
            Enemy.TransitionToStunned();
         }

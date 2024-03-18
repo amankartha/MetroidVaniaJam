@@ -196,6 +196,10 @@ public class Player : MonoBehaviour
            
         }
     }
+    private void OnParticleCollision(GameObject other)
+    {
+       PlayerHealth.TakeDamage(_playerData.CoffeeSpillDamage);
+    }
 
     #endregion
 
@@ -324,9 +328,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void RefillPotions()
+    public void RefillPotionsAndHealth()
     {
         PotionCount = MaxPotions;
+        PlayerHealth.Heal(PlayerHealth.MaxHealth);
     }
     public void UpdateHealthBarUI()
     {

@@ -25,6 +25,8 @@ public class InGameMenuUI : MonoBehaviour
     int previousTabIndex = 0;
     List<RectTransform> menuButtonRects = new List<RectTransform>();
 
+    public Map map;
+
     void Start()
     {
         /*for (int i = 0; i < menuButtons.Length; i++)
@@ -158,6 +160,10 @@ public class InGameMenuUI : MonoBehaviour
         itemPanel.MoveToOriginalPosition();
         characterPanel.MoveToOriginalPosition();
         MoveSelectedTab();
+        if (mapPanel.isZoomedIn)
+        {
+            map.ShowRegionalMap();
+        }
     }
 
     public void OnCharacterButton()
@@ -170,6 +176,7 @@ public class InGameMenuUI : MonoBehaviour
         itemPanel.MoveToMapPosition();
         characterPanel.MoveToOriginalPosition();
         MoveSelectedTab();
+        CheckMapZoom();
     }
 
     public void OnItemButton()
@@ -181,6 +188,7 @@ public class InGameMenuUI : MonoBehaviour
         itemPanel.MoveToTargetDisplayPosition();
         characterPanel.MoveToOriginalPosition();
         MoveSelectedTab();
+        CheckMapZoom();
     }
 
     public void OnOptionButton()
@@ -192,6 +200,7 @@ public class InGameMenuUI : MonoBehaviour
         itemPanel.MoveToMapPosition();
         characterPanel.MoveToTargetPosition();
         MoveSelectedTab();
+        CheckMapZoom();
     }
 
     void MoveSelectedTab()
@@ -211,6 +220,14 @@ public class InGameMenuUI : MonoBehaviour
     {
         currentTabIndex = 0;
         previousTabIndex = 0;
+    }
+
+    void CheckMapZoom()
+    {
+        if (mapPanel.isZoomedIn)
+        {
+            map.HideRegionalMap();
+        }
     }
 
 }

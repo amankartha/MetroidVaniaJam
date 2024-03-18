@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8178a324339637b419b0acc12dedd1e3, type: 3}
   m_Name: CoffeeData
   m_EditorClassIdentifier: 
-  WallCheckDistance: 0.2
-  LedgeCheckDistance: 0.4
+  WallCheckDistance: 1
+  LedgeCheckDistance: 0.7
   GroundCheckRadius: 0.3
   stunResistance: 3
   stunRecoveryTime: 2
-  MinAggroDistance: 3
-  MaxAggroDistance: 4
+  MinAggroDistance: 8
+  MaxAggroDistance: 15
+  CloseRangeActionDistance: 1
+  LongRangeActionDistance: 4
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
