@@ -455,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
       propertyPath: _scenesToLoad.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
       propertyPath: _scenesToLoad.Array.data[0].guid
@@ -463,7 +463,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
       propertyPath: _scenesToLoad.Array.data[1].guid
-      value: 816089423cd5b7f4eabecc6b4db3e693
+      value: 03ad969cc376ce14b8b6ae0be1f81c31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
+      propertyPath: _scenesToLoad.Array.data[2].guid
+      value: 3e38706ae40fada438faaa729bac0110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
+      propertyPath: _scenesToLoad.Array.data[3].guid
+      value: 54b6e8aaafb0acc41a963ea3c9ad5fee
       objectReference: {fileID: 0}
     - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
       propertyPath: _scenesToLoad.Array.data[0].asset
@@ -472,7 +480,15 @@ PrefabInstance:
     - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
       propertyPath: _scenesToLoad.Array.data[1].asset
       value: 
-      objectReference: {fileID: 102900000, guid: 816089423cd5b7f4eabecc6b4db3e693, type: 3}
+      objectReference: {fileID: 102900000, guid: 03ad969cc376ce14b8b6ae0be1f81c31, type: 3}
+    - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
+      propertyPath: _scenesToLoad.Array.data[2].asset
+      value: 
+      objectReference: {fileID: 102900000, guid: 3e38706ae40fada438faaa729bac0110, type: 3}
+    - target: {fileID: 3165821747430458964, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
+      propertyPath: _scenesToLoad.Array.data[3].asset
+      value: 
+      objectReference: {fileID: 102900000, guid: 54b6e8aaafb0acc41a963ea3c9ad5fee, type: 3}
     - target: {fileID: 7265080697701965220, guid: f5bf7537e74364549859a8933bd17c49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -97.26001
