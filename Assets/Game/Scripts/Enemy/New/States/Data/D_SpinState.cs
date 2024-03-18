@@ -7,5 +7,6 @@ using UnityEngine;
 public class D_SpinState : ScriptableObject
 {
    public float SpinDuration = 2f;
-   public float SpinDamage = 10f;
+   public int SpinDamage = 10;
+   public float SpinRadius = 2f;
 }

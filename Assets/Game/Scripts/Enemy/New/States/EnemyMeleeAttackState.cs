@@ -24,6 +24,7 @@ public class EnemyMeleeAttackState : AttackState
 
         foreach (var collider2D in detectedObjects)
         {
+            Debug.Log("HIT PLAYER");
             if (collider2D.gameObject.TryGetComponent(out IDamageable damageable))
             {
                 damageable.TakeDamage(_meleeAttackData.Damage);
