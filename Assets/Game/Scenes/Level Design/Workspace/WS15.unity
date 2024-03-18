@@ -1824,10 +1824,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -9.366119, y: 9.94249}
+  m_Offset: {x: -0.1423645, y: 3.8859138}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1838,7 +1838,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.6638794, y: 5.4702454}
+  m_Size: {x: 38.669373, y: 36.91999}
   m_EdgeRadius: 0
 --- !u!1 &1230952063
 GameObject:
@@ -1875,6 +1875,103 @@ Transform:
   - {fileID: 488534464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1275730647
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2178156128992987872, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Name
+      value: TutorialTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.title
+      value: Glitch-Out
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: d0aca8787e4b3944a83fe263da5945c1, type: 3}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.maninTextLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.maninTextLines.Array.data[0]
+      value: You acquired Glitch-Out Ability
+      objectReference: {fileID: 0}
+    - target: {fileID: 5653183930696537394, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: tabletScreen.maninTextLines.Array.data[1]
+      value: Now, the briefcase can be thrown past the walls with glitching effects.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629006237677635352, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Size.x
+      value: 9.8377
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629006237677635352, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Size.y
+      value: 9.016363
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629006237677635352, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Offset.x
+      value: 2.5790367
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629006237677635352, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_Offset.y
+      value: 4.0081816
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -131.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -37.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773791801383047281, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 588e5fe0d209fc642bc7a1840ded39f5, type: 3}
 --- !u!4 &1347908631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3684223643654074493, guid: 9fd5807f9496c9b4bb316d32dd070056, type: 3}
@@ -17314,3 +17411,4 @@ SceneRoots:
   - {fileID: 371633609}
   - {fileID: 920618880}
   - {fileID: 1230952064}
+  - {fileID: 1275730647}
