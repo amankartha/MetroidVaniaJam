@@ -119,4 +119,13 @@ public class Briefcase : MonoBehaviour
             StateMachine.ChangeState(ReturnState);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.TryGetComponent(out IDamageable damageable))
+        {
+            damageable.TakeDamage(_playerData.attackDamage);
+            StateMachine.ChangeState(ReturnState);
+        }
+    }
 }
