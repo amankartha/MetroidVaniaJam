@@ -1520,8 +1520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a164cac24bd006d458f57cb722bbbbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GiveAbilityOne: 1
-  GiveAbilityTwo: 0
+  GiveAbilityOne: 0
+  GiveAbilityTwo: 1
+  GiveAbilityThree: 0
 --- !u!61 &1664845821
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9066,7 +9067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 119438781181088450, guid: 04cbc7f9500940f4c86448027f690e7c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1792420168723701720, guid: 04cbc7f9500940f4c86448027f690e7c, type: 3}
       propertyPath: m_IsActive
