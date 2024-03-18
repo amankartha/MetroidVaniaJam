@@ -160,6 +160,14 @@ public class Map : MonoBehaviour
 
                     currentRoomPin.discoveredImage.enabled = shouldEnable;
                 }
+
+                if (currentRoomPin.savePoint != null)
+                {
+                    bool shouldEnable = currentRoomPin.mapArea == playerMapLocation.currentMapArea
+                                        && currentRoomPin.isDiscovered;
+
+                    currentRoomPin.savePoint.SetActive(shouldEnable);
+                }
             }
         }
     }
