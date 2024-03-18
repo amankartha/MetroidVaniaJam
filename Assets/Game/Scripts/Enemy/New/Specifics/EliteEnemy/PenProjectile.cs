@@ -32,7 +32,7 @@ public class PenProjectile : Projectile
 
     public  void Impact(Vector3 pos)
     {
-        _enemy.TeleportState.SetTeleportPos(pos + new Vector3(0,1,0));
+        _enemy.TeleportState.SetTeleportPos(pos + new Vector3(0,0.1f,0));
         _spriteRenderer.enabled = false;
         trailRenderer.SetActive(false);
         _boxCollider2D.enabled = false;
