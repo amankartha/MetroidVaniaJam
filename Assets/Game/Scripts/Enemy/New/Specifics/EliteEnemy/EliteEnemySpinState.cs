@@ -30,6 +30,7 @@ public class EliteEnemySpinState : EnemyState
         base.LogicUpdate();
         
         _enemy.AliveGo.transform.Rotate(0,30,0);
+
         if (SpinDuration())
         {
             _enemy.TeleportState.shouldRecover = true;  
