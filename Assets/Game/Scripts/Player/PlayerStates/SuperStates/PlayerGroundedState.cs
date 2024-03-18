@@ -42,7 +42,7 @@ public class PlayerGroundedState : PlayerState
        {
            _stateMachine.ChangeState(_player.JumpState);
        }
-       else if (_attackInput)
+       else if (_attackInput && _player.briefcaseGameObject.activeSelf)
        {
            _stateMachine.ChangeState(_player.AttackState);
        }

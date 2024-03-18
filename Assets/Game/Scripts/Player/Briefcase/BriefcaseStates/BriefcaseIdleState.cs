@@ -19,7 +19,11 @@ public class BriefcaseIdleState : BriefcaseState
         _briefcase.Anim.ResetTrigger("TransitionToReturnThrow");
         _briefcase.Anim.ResetTrigger("TransitionToIdleThrow");
         _briefcase.TriggerCollider.enabled = false;
-        GameManager.Instance.PlayerScript.briefcaseGameObject.SetActive(true);
+        if (GameManager.Instance.PlayerScript.hasAbility1)
+        {
+            GameManager.Instance.PlayerScript.briefcaseGameObject.SetActive(true);
+        }
+
         GameManager.Instance.OnThrowIconChange?.Invoke();
     }
 
