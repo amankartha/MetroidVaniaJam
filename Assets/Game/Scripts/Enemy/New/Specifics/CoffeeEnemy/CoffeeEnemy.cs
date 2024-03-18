@@ -16,6 +16,8 @@ public class CoffeeEnemy : Entity
     public CoffeeEnemyStunState StunState { get; private set; }
     
     public CoffeeEnemyDeadState DeadState { get; private set; }
+    public CoffeeEnemyDodgeState DodgeState { get; private set; }
+    public CoffeeEnemyRangedAttackState RangedAttackState { get; private set; }
 
     #endregion
 
@@ -27,8 +29,16 @@ public class CoffeeEnemy : Entity
     [SerializeField] private D_LookingForPlayer lookForPlayerData;
     [SerializeField] private D_StunState stunData;
     [SerializeField] private D_DeadState deadData;
+    [SerializeField] private D_RangedAttack rangedAttackData;
+    [field:SerializeField] public D_DodgeState dodgeStateData { get; private set; }
+    
     #endregion
 
+    #region Transforms
+
+    [SerializeField] private Transform RangedAttackTransform;
+
+    #endregion
 
     public override void Start()
     {
@@ -42,6 +52,9 @@ public class CoffeeEnemy : Entity
         StunState = new CoffeeEnemyStunState(this, _finiteStateMachine, "stun", stunData, this);
 
         DeadState = new CoffeeEnemyDeadState(this, _finiteStateMachine, "dead", deadData, this);
+        DodgeState = new CoffeeEnemyDodgeState(this, _finiteStateMachine, "dodge", dodgeStateData, this);
+        RangedAttackState =
+            new CoffeeEnemyRangedAttackState(this, _finiteStateMachine, "rangedAttack",RangedAttackTransform, rangedAttackData, this);
         _finiteStateMachine.Initialize(MoveState);
     }
 
@@ -64,6 +77,7 @@ public class CoffeeEnemy : Entity
     {
         base.Damaged();
         _finiteStateMachine.ChangeState(StunState);
+        
     }
 
     public override void SetVelocity(float velocity)

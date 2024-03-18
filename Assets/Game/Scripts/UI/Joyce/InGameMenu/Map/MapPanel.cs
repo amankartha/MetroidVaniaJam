@@ -29,7 +29,7 @@ public class MapPanel : MonoBehaviour
     [SerializeField] Image mapRightImage;
     [SerializeField] GameObject playerMapIcon;
 
-    bool isZoomedIn;
+    public bool isZoomedIn;
 
     [SerializeField] Map map;
 
