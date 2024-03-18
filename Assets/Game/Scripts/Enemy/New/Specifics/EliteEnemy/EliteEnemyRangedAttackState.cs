@@ -70,7 +70,7 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
 
     public void DetectedTimer()
     {
-        if (Time.time >= Time.time + 3f)
+        if (Time.time >= _startTime + 3f)
         {
             shouldGoBackToDetected = true;
         }

@@ -44,7 +44,7 @@ public class EliteEnemy : Entity
             _rangedAttackData, this);
         TeleportState = new EliteEnemyTeleportState(this, _finiteStateMachine, "teleport",_teleportData ,this);
         SpinState = new EliteEnemySpinState(this, _finiteStateMachine, "spin", _spinData, this);
-        RecoveryState = new EliteEnemyRecoveryState(this, _finiteStateMachine, "recovery", _recoveryStateData, this);
+        RecoveryState = new EliteEnemyRecoveryState(this, _finiteStateMachine, "stun", _recoveryStateData, this);
         
         
         _finiteStateMachine.Initialize(IdleState);

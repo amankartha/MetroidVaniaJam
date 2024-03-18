@@ -21,7 +21,7 @@ public class PenProjectile : Projectile
     {
         if (col.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            damageable.TakeDamage(_damage);
+            if(col.gameObject == GameManager.Instance.goMainPlayer) damageable.TakeDamage(_damage);
         }
 
         if (col.gameObject.layer == 3)

@@ -6,6 +6,7 @@ public class EliteEnemySpinState : EnemyState
 {
     private EliteEnemy _enemy;
     private D_SpinState _StateData;
+    private Quaternion initalRot;
     public EliteEnemySpinState(Entity entity, FiniteStateMachine stateMachine, string animBoolName,D_SpinState spinState,EliteEnemy enemy) : base(entity, stateMachine, animBoolName)
     {
         _enemy = enemy;
@@ -15,12 +16,13 @@ public class EliteEnemySpinState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        initalRot = _enemy.AliveGo.transform.rotation;
     }
 
     public override void Exit()
     {
         base.Exit();
-        _enemy.AliveGo.transform.rotation = Quaternion.Euler(0,0,0);
+        _enemy.AliveGo.transform.rotation = initalRot;
     }
 
     public override void LogicUpdate()
