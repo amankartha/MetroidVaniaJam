@@ -81,6 +81,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
         
         goMainPlayer.transform.position = CurrentRespawnPoint.RespawnLocation.position;
         PlayerScript.RefillPotionsAndHealth();
+        PlayerScript.SetVelocityZero();
         RespawnAllEnemies();
     }
 
