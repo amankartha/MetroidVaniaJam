@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
 
     public bool hasAbility1 = true;
     public bool hasAbility2 = true;
+    public bool hasAbility3 = false;
     #endregion
     
     #region STATES
@@ -306,11 +307,16 @@ public class Player : MonoBehaviour
     public void GetAbilityOne()
     {
         hasAbility1 = true;
+        briefcaseGameObject.SetActive(true);
     }
 
     public void GetAbilityTwo()
     {
         hasAbility2 = true;
+    }
+    public void GetAbilityThree()
+    {
+        hasAbility3 = true;
         Physics2D.IgnoreLayerCollision(8,11,false);
     }
 

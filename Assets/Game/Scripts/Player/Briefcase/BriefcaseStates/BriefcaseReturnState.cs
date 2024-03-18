@@ -26,7 +26,7 @@ public class BriefcaseReturnState : BriefcaseState
     {
         base.LogicUpdate();
         CheckDistance();
-        if (GameManager.Instance.PlayerScript.InputHandler.ThrowInput)
+        if (GameManager.Instance.PlayerScript.InputHandler.ThrowInput && GameManager.Instance.PlayerScript.hasAbility2)
         {
             _stateMachine.ChangeState(_briefcase.TeleportState);
         }
