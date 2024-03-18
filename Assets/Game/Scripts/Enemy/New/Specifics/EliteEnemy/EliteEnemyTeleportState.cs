@@ -25,7 +25,7 @@ public class EliteEnemyTeleportState : EnemyTeleportState
         base.LogicUpdate();
         if (RecoveryTimer())
         {
-           // _enemy._finiteStateMachine.ChangeState();
+           _enemy._finiteStateMachine.ChangeState(_enemy.SpinState);
         }
     }
 

@@ -12,6 +12,8 @@ public class EliteEnemy : Entity
     public EliteEnemyMeleeAttackState MeleeAttackState { get; private set; }
     public EliteEnemyRangedAttackState RangedAttackState { get; private set; }
     public EliteEnemyTeleportState TeleportState { get; private set; }
+    
+    public EliteEnemySpinState SpinState { get; private set; }
     #endregion
 
     #region Data
