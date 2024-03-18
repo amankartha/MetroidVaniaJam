@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
     {
         if (col.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            damageable.TakeDamage(_damage);
+            if(col.gameObject == GameManager.Instance.goMainPlayer) damageable.TakeDamage(_damage);
         }
         Explode();
         

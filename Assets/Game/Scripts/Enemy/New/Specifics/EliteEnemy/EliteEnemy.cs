@@ -12,6 +12,9 @@ public class EliteEnemy : Entity
     public EliteEnemyMeleeAttackState MeleeAttackState { get; private set; }
     public EliteEnemyRangedAttackState RangedAttackState { get; private set; }
     public EliteEnemyTeleportState TeleportState { get; private set; }
+    
+    public EliteEnemySpinState SpinState { get; private set; }
+    public EliteEnemyRecoveryState RecoveryState { get; private set; }
     #endregion
 
     #region Data
@@ -22,7 +25,9 @@ public class EliteEnemy : Entity
     [SerializeField] private D_MeleeAttack _meleeAttackData;
     [SerializeField] private D_RangedAttack _rangedAttackData;
     [SerializeField] private D_TeleportState _teleportData;
+    [SerializeField] private D_SpinState _spinData;
     [SerializeField] private Transform _attackTransform;
+    [SerializeField] private D_RecoveryState _recoveryStateData;
     #endregion
 
     #region UNITYCALLBACKS
@@ -38,6 +43,10 @@ public class EliteEnemy : Entity
         RangedAttackState = new EliteEnemyRangedAttackState(this, _finiteStateMachine, "ranged", _attackTransform,
             _rangedAttackData, this);
         TeleportState = new EliteEnemyTeleportState(this, _finiteStateMachine, "teleport",_teleportData ,this);
+        SpinState = new EliteEnemySpinState(this, _finiteStateMachine, "spin", _spinData, this);
+        RecoveryState = new EliteEnemyRecoveryState(this, _finiteStateMachine, "stun", _recoveryStateData, this);
+        
+        
         _finiteStateMachine.Initialize(IdleState);
     }
 

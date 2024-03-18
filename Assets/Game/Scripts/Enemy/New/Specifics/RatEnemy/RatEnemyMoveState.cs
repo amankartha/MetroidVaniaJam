@@ -25,6 +25,7 @@ public class RatEnemyMoveState : EnemyMoveState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        Debug.Log($"{isDetectingWall} , {!isDetectingLedge}");
         if (isDetectingWall || !isDetectingLedge)
         {
             _enemy.IdleState.SetFLipAfterIdle(true);

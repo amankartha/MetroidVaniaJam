@@ -158,7 +158,7 @@ public class Entity : MonoBehaviour
 
     public virtual bool CheckLedge()
     {
-        return Physics2D.CircleCast(LedgeCheck.position,0.2f,Vector2.down,EntityData.LedgeCheckDistance,EntityData.GroundLayer);
+        return Physics2D.CircleCast(LedgeCheck.position,0.05f,Vector2.down,EntityData.LedgeCheckDistance,EntityData.GroundLayer);
     }
     public virtual bool CheckLedgeBehind()
     {
