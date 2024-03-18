@@ -102,11 +102,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8607458014208305444}
-  - component: {fileID: 7960269513060838264}
   - component: {fileID: 5170767414425370312}
   - component: {fileID: 6731212339348050323}
   - component: {fileID: 2646019605426375855}
   - component: {fileID: 1831298499931817367}
+  - component: {fileID: 651848091460174532}
+  - component: {fileID: 3856831741968764414}
   m_Layer: 6
   m_Name: AliveGO
   m_TagString: Untagged
@@ -136,33 +137,6 @@ Transform:
   - {fileID: 3631607994960458600}
   m_Father: {fileID: 8769070138617862695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &7960269513060838264
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286632690868194411}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 0b79c0fba0c3d10489bdc78efa04e611, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &5170767414425370312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -311,6 +285,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isShieldEnemy: 0
+--- !u!50 &651848091460174532
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286632690868194411}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 0b79c0fba0c3d10489bdc78efa04e611, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &3856831741968764414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286632690868194411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd213bc7a9fa66d4fa2bec406d2b3234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6353143206381065661
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +384,9 @@ MonoBehaviour:
   _idleStateData: {fileID: 11400000, guid: 23cd2c4936957ba4dad1aad8043a16b8, type: 2}
   _moveStateData: {fileID: 11400000, guid: e8e50580d74dcdb4d8d68584d478fd27, type: 2}
   _stunStateData: {fileID: 11400000, guid: b9cc777819fa6ce4d8b03da0a72f6d48, type: 2}
+  damageOnhit: 5
+  knockBackPower: 10
+  angle: {x: 0, y: 1}
 --- !u!114 &3882271731490466624
 MonoBehaviour:
   m_ObjectHideFlags: 0
