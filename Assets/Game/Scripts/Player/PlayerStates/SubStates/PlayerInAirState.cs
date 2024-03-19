@@ -56,7 +56,7 @@ public class PlayerInAirState : PlayerState
         {
             _stateMachine.ChangeState(_player.LandState);
         }
-         else if (_attackInput)
+         else if (_attackInput && _player.briefcaseGameObject.activeSelf)
          {
              _stateMachine.ChangeState(_player.AttackState);
          }

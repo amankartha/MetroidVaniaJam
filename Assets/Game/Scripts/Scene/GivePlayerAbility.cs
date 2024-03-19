@@ -10,6 +10,7 @@ public class GivePlayerAbility : MonoBehaviour
 
     public bool GiveAbilityOne = false;
     public bool GiveAbilityTwo = false;
+    public bool GiveAbilityThree = false;
     
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,11 @@ public class GivePlayerAbility : MonoBehaviour
             if (GiveAbilityTwo)
             {
                 GameManager.Instance.PlayerScript.GetAbilityTwo();
+            }
+
+            if (GiveAbilityThree)
+            {
+                GameManager.Instance.PlayerScript.GetAbilityThree();
             }
 
             this.enabled = false;

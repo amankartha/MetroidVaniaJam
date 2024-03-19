@@ -43,6 +43,7 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
 
     public override void TriggerAttack()
     {
+        _enemy.TeleportState.startPos = _enemy.AliveGo.transform.position;
         projectile = GameObject.Instantiate(_stateData.Projectile,attackPosition.position,attackPosition.rotation);
         _penProjectile = projectile.GetComponent<PenProjectile>();
         _penProjectile.SetValuesForPen(_stateData.duration,_stateData.Damage,this._enemy);
@@ -69,7 +70,7 @@ public class EliteEnemyRangedAttackState : EnemyRangedAttackState
 
     public void DetectedTimer()
     {
-        if (Time.time >= Time.time + 3f)
+        if (Time.time >= _startTime + 3f)
         {
             shouldGoBackToDetected = true;
         }
