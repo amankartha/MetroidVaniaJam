@@ -14,14 +14,23 @@ public class TutorialTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.PlayerInputHandler.ExitPopupInput
-            && tabletUI.canExitCanvas
-            && isTriggered )
+        try
         {
-            GameManager.Instance.PlayerInputHandler.UseExitPopupInput();
-            Time.timeScale = 1;
-            tabletUI.FadeOutAndDestroyCanvas();
-            Destroy(this.gameObject);
+
+
+            if (GameManager.Instance.PlayerInputHandler.ExitPopupInput
+                && tabletUI.canExitCanvas
+                && isTriggered)
+            {
+                GameManager.Instance.PlayerInputHandler.UseExitPopupInput();
+                Time.timeScale = 1;
+                tabletUI.FadeOutAndDestroyCanvas();
+                Destroy(this.gameObject);
+            }
+        }
+        catch
+        {
+            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
