@@ -64,7 +64,7 @@ public class MainMenuUI : MonoBehaviour
     {
         HideMenu();
         _loadingBarGO.SetActive(true);
-        
+        Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(_persistentGameplayScene.BuildIndex);
         SceneManager.LoadSceneAsync(_levelScene.BuildIndex,LoadSceneMode.Additive);
 
