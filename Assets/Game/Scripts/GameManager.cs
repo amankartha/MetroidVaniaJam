@@ -60,6 +60,7 @@ public class GameManager : MMPersistentSingleton<GameManager>
     void Start()
     {
         OnPlayerDeath.AddListener(RespawnPlayer);
+        SceneManager.sceneLoaded += OnMainMenuLoad;
     }
     
     void Update()
@@ -69,11 +70,12 @@ public class GameManager : MMPersistentSingleton<GameManager>
 
     private void OnDestroy()
     {
+        SceneManager.sceneLoaded -= OnMainMenuLoad;
         OnPlayerDeath.RemoveListener(RespawnPlayer);
     }
 
     #endregion
-
+    
     #region Methods
 
     public void RespawnPlayer()
@@ -100,6 +102,15 @@ public class GameManager : MMPersistentSingleton<GameManager>
             }
         }
     }
+
+    public void OnMainMenuLoad(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    
 
     #endregion
 }
