@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerDamagedState : PlayerState
 {
+    private int _aerialXInput;
     public PlayerDamagedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -24,6 +25,9 @@ public class PlayerDamagedState : PlayerState
     {
         base.LogicUpdate();
         CheckDuration();
+        _aerialXInput = _player.InputHandler.NormInputX;
+        _player.CheckIfShouldFlip(_aerialXInput);
+        _player.SetVelocityX(_playerData.aerialVelocity * _aerialXInput);
     }
 
     public override void AnimationFinishTrigger()

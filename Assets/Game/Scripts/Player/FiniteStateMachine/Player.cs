@@ -270,7 +270,7 @@ public class Player : MonoBehaviour
     public bool CheckIfTouchingWall()
     { 
         RaycastHit2D HIT = Physics2D.Raycast(_wallCheck.position, Vector2.right * FacingDirection, _playerData.wallCheckDistance,
-            _playerData.groundLayer);
+            _playerData.ledgeLayer);
         try
         {
             if (HIT)
@@ -292,12 +292,12 @@ public class Player : MonoBehaviour
     public bool CheckIfTouchingLedge()
     {
         return Physics2D.Raycast(_ledgeCheck.position, Vector2.right * FacingDirection, _playerData.wallCheckDistance,
-            _playerData.groundLayer);
+            _playerData.ledgeLayer);
     }
     public bool CheckIfTouchingWallBack()
     {
         return Physics2D.Raycast(_wallCheck.position, Vector2.right * -FacingDirection, _playerData.wallCheckDistance,
-            _playerData.groundLayer);
+            _playerData.ledgeLayer);
     }
     public bool CheckIfCanThrow()
     {
