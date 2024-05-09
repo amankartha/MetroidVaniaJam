@@ -142,7 +142,7 @@ public class Entity : MonoBehaviour
     }
     public virtual bool CheckWall()
     {
-        return Physics2D.CircleCast(WallCheck.position,0.2f ,AliveGo.transform.right, EntityData.WallCheckDistance,
+        return Physics2D.CircleCast(WallCheck.position,0.1f ,AliveGo.transform.right, EntityData.WallCheckDistance,
             EntityData.GroundLayer);
     }
     public virtual bool CheckWallBehind()
