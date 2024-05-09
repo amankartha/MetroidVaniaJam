@@ -25,16 +25,7 @@ public class RespawnPoint : MonoBehaviour
 
     private void Update()
     {
-        if(isOpen && GameManager.Instance.PlayerInputHandler.InteractInput)
-        {
-            GameManager.Instance.PlayerInputHandler.UseInteractInput();
-            GameManager.Instance.OnUpdatedRespawnPoint?.Invoke();
-            GameManager.Instance.CurrentRespawnPoint = this;
-            GameManager.Instance.RespawnAllEnemies();
-            ClosedEyes.SetActive(false);
-            OpenEyes.SetActive(true);
-            interactUI.SetActive(false);
-        }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -43,6 +34,23 @@ public class RespawnPoint : MonoBehaviour
         {           
             isOpen = true;           
             interactUI.SetActive(true);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (isOpen && other.gameObject == GameManager.Instance.goMainPlayer)
+        {
+            if(GameManager.Instance.PlayerInputHandler.InteractInput)
+            {
+                GameManager.Instance.PlayerInputHandler.UseInteractInput();
+                GameManager.Instance.OnUpdatedRespawnPoint?.Invoke();
+                GameManager.Instance.CurrentRespawnPoint = this;
+                GameManager.Instance.RespawnAllEnemies();
+                ClosedEyes.SetActive(false);
+                OpenEyes.SetActive(true);
+                interactUI.SetActive(false);
+            }
         }
     }
 

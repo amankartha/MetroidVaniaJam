@@ -553,6 +553,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 8607458014208305444}
     m_Modifications:
     - target: {fileID: 3179272449653578202, guid: a6ef1e62e16117c4780180ab3349c81b, type: 3}
+      propertyPath: InitializationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179272449653578202, guid: a6ef1e62e16117c4780180ab3349c81b, type: 3}
+      propertyPath: StopFeedbacksOnDisable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179272449653578202, guid: a6ef1e62e16117c4780180ab3349c81b, type: 3}
       propertyPath: managedReferences[3309061951265439746].BoundSpriteRenderer
       value: 
       objectReference: {fileID: 2646019605426375855}
